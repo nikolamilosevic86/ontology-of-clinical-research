@@ -1,0 +1,1232 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY research "http://rctbank.ucsf.edu/OCRe/research#" >
+    <!ENTITY study_design "http://rctbank.ucsf.edu/OCRe/study_design#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://rctbank.ucsf.edu/OCRe/study_design#"
+     xml:base="http://rctbank.ucsf.edu/OCRe/study_design"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_design="http://rctbank.ucsf.edu/OCRe/study_design#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:research="http://rctbank.ucsf.edu/OCRe/research#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ontology of study design descriptors and categorization of study types in terms of their design descriptors.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#has_study_characteristic -->
+
+    <owl:ObjectProperty rdf:about="&research;has_study_characteristic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Allocation_concealment_type -->
+
+    <owl:Class rdf:about="&research;Allocation_concealment_type">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <owl:disjointWith rdf:resource="&research;Allocation_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Allocation_type -->
+
+    <owl:Class rdf:about="&research;Allocation_type">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <owl:disjointWith rdf:resource="&research;Randomization_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Analysis_of_cost_flag -->
+
+    <owl:Class rdf:about="&research;Analysis_of_cost_flag">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Assignment_characteristics -->
+
+    <owl:Class rdf:about="&research;Assignment_characteristics">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <owl:disjointWith rdf:resource="&research;Control_group_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Blinding_type -->
+
+    <owl:Class rdf:about="&research;Blinding_type">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Block_allocation -->
+
+    <owl:Class rdf:about="&research;Block_allocation">
+        <rdfs:subClassOf rdf:resource="&research;Randomization_method"/>
+        <owl:disjointWith rdf:resource="&research;Minimization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Case -->
+
+    <owl:Class rdf:about="&research;Case">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_and_control_in_same_person -->
+
+    <owl:Class rdf:about="&research;Case_and_control_in_same_person">
+        <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+        <owl:disjointWith rdf:resource="&research;Case_and_control_not_in_same_person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_and_control_not_in_same_person -->
+
+    <owl:Class rdf:about="&research;Case_and_control_not_in_same_person">
+        <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_control_study -->
+
+    <owl:Class rdf:about="&research;Case_control_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;External_control_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_case_status"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_crossover_study -->
+
+    <owl:Class rdf:about="&research;Case_crossover_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Case_and_control_in_same_person"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_case_status"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Cohort_study -->
+
+    <owl:Class rdf:about="&research;Cohort_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Outcome_measured_after_measurement_of_predictors"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_group_cardinality -->
+
+    <owl:Class rdf:about="&research;Control_group_cardinality">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_group_characteristics -->
+
+    <owl:Class rdf:about="&research;Control_group_characteristics">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_group_locality -->
+
+    <owl:Class rdf:about="&research;Control_group_locality">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_group_type -->
+
+    <owl:Class rdf:about="&research;Control_group_type">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Cost-effectiveness_study -->
+
+    <owl:Class rdf:about="&research;Cost-effectiveness_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Cross-sectional_study -->
+
+    <owl:Class rdf:about="&research;Cross-sectional_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Outcome_measured_at_the_same_time_as_predictors"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Crossover_study -->
+
+    <owl:Class rdf:about="&research;Crossover_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Treatment_and_control_periods_not_repeated"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Decision_analysis_study -->
+
+    <owl:Class rdf:about="&research;Decision_analysis_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;No_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Decision_strategy -->
+
+    <owl:Class rdf:about="&research;Decision_strategy">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Deterministic_allocation -->
+
+    <owl:Class rdf:about="&research;Deterministic_allocation">
+        <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Ecologic_study -->
+
+    <owl:Class rdf:about="&research;Ecologic_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Population_as_unit_of_analysis"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#External_control_group -->
+
+    <owl:Class rdf:about="&research;External_control_group">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_locality"/>
+        <owl:disjointWith rdf:resource="&research;Within_subject_control_locality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Field_study -->
+
+    <owl:Class rdf:about="&research;Field_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Observed_in_the_field"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Focus_group_study -->
+
+    <owl:Class rdf:about="&research;Focus_group_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;subject_asssessed_in_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Has_control_group -->
+
+    <owl:Class rdf:about="&research;Has_control_group">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_cardinality"/>
+        <owl:disjointWith rdf:resource="&research;No_control_group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Human_subject -->
+
+    <owl:Class rdf:about="&research;Human_subject">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Include_analysis_of_cost -->
+
+    <owl:Class rdf:about="&research;Include_analysis_of_cost">
+        <rdfs:subClassOf rdf:resource="&research;Analysis_of_cost_flag"/>
+        <owl:disjointWith rdf:resource="&research;No_analysis_of_cost"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Individual_qualitative_study -->
+
+    <owl:Class rdf:about="&research;Individual_qualitative_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;subject_assessed_individually"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Instrument_development_study -->
+
+    <owl:Class rdf:about="&research;Instrument_development_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Measurement_instrument"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Intervention_cardinality -->
+
+    <owl:Class rdf:about="&research;Intervention_cardinality">
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Interventional_study -->
+
+    <owl:Class rdf:about="&research;Interventional_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Quantitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Investigator_assigns_intervention"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Investigator_assignment_role -->
+
+    <owl:Class rdf:about="&research;Investigator_assignment_role">
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Investigator_assigns_intervention -->
+
+    <owl:Class rdf:about="&research;Investigator_assigns_intervention">
+        <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
+        <owl:disjointWith rdf:resource="&research;Investigator_assigns_no_intervention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Investigator_assigns_no_intervention -->
+
+    <owl:Class rdf:about="&research;Investigator_assigns_no_intervention">
+        <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Investigator_blinding -->
+
+    <owl:Class rdf:about="&research;Investigator_blinding">
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Location_of_observation -->
+
+    <owl:Class rdf:about="&research;Location_of_observation">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Main_control_group_defined_by_case_status -->
+
+    <owl:Class rdf:about="&research;Main_control_group_defined_by_case_status">
+        <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+        <owl:disjointWith rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Main_control_group_defined_by_exposure_status -->
+
+    <owl:Class rdf:about="&research;Main_control_group_defined_by_exposure_status">
+        <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Main_control_group_definition -->
+
+    <owl:Class rdf:about="&research;Main_control_group_definition">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Matched_cohort -->
+
+    <owl:Class rdf:about="&research;Matched_cohort">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Measurement_instrument -->
+
+    <owl:Class rdf:about="&research;Measurement_instrument">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Meta-analysis_study -->
+
+    <owl:Class rdf:about="&research;Meta-analysis_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Minimization -->
+
+    <owl:Class rdf:about="&research;Minimization">
+        <rdfs:subClassOf rdf:resource="&research;Randomization_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Mode_of_inquiry -->
+
+    <owl:Class rdf:about="&research;Mode_of_inquiry">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Multiple_human_unit_assignment -->
+
+    <owl:Class rdf:about="&research;Multiple_human_unit_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
+        <owl:disjointWith rdf:resource="&research;Single_human_unit_assignment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Multiple_intervention -->
+
+    <owl:Class rdf:about="&research;Multiple_intervention">
+        <rdfs:subClassOf rdf:resource="&research;Intervention_cardinality"/>
+        <owl:disjointWith rdf:resource="&research;Single_intervention"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Multiple_intervention_timing -->
+
+    <owl:Class rdf:about="&research;Multiple_intervention_timing">
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#N-of-1_study -->
+
+    <owl:Class rdf:about="&research;N-of-1_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Treatment_and_control_periods_repeated"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Nested_case-control -->
+
+    <owl:Class rdf:about="&research;Nested_case-control">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#No_analysis_of_cost -->
+
+    <owl:Class rdf:about="&research;No_analysis_of_cost">
+        <rdfs:subClassOf rdf:resource="&research;Analysis_of_cost_flag"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#No_control_group -->
+
+    <owl:Class rdf:about="&research;No_control_group">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_cardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Non-controlled_interventional_study -->
+
+    <owl:Class rdf:about="&research;Non-controlled_interventional_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;No_control_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Non-individual_human_study -->
+
+    <owl:Class rdf:about="&research;Non-individual_human_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&research;Cost-effectiveness_study"/>
+                            <rdf:Description rdf:about="&research;Decision_analysis_study"/>
+                            <rdf:Description rdf:about="&research;Ecologic_study"/>
+                            <rdf:Description rdf:about="&research;Instrument_development_study"/>
+                            <rdf:Description rdf:about="&research;Meta-analysis_study"/>
+                            <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                            <rdf:Description rdf:about="&research;Policy_analysis_study"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Not_observed_in_the_field -->
+
+    <owl:Class rdf:about="&research;Not_observed_in_the_field">
+        <rdfs:subClassOf rdf:resource="&research;Location_of_observation"/>
+        <owl:disjointWith rdf:resource="&research;Observed_in_the_field"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Observational_analytic_study -->
+
+    <owl:Class rdf:about="&research;Observational_analytic_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Observational_descriptive_study -->
+
+    <owl:Class rdf:about="&research;Observational_descriptive_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Observational_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;No_control_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Observational_study -->
+
+    <owl:Class rdf:about="&research;Observational_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Quantitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Investigator_assigns_no_intervention"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Observed_in_the_field -->
+
+    <owl:Class rdf:about="&research;Observed_in_the_field">
+        <rdfs:subClassOf rdf:resource="&research;Location_of_observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_measured_after_measurement_of_predictors -->
+
+    <owl:Class rdf:about="&research;Outcome_measured_after_measurement_of_predictors">
+        <rdfs:subClassOf rdf:resource="&research;Timing_of_outcome_measurement"/>
+        <owl:disjointWith rdf:resource="&research;Outcome_measured_at_the_same_time_as_predictors"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_measured_at_the_same_time_as_predictors -->
+
+    <owl:Class rdf:about="&research;Outcome_measured_at_the_same_time_as_predictors">
+        <rdfs:subClassOf rdf:resource="&research;Timing_of_outcome_measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcomes_assessor_blinding -->
+
+    <owl:Class rdf:about="&research;Outcomes_assessor_blinding">
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Parallel_group_study -->
+
+    <owl:Class rdf:about="&research;Parallel_group_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;External_control_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Policy -->
+
+    <owl:Class rdf:about="&research;Policy">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Policy_analysis_study -->
+
+    <owl:Class rdf:about="&research;Policy_analysis_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Policy"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Population_as_unit_of_analysis -->
+
+    <owl:Class rdf:about="&research;Population_as_unit_of_analysis">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Qualitative_human_study -->
+
+    <owl:Class rdf:about="&research;Qualitative_human_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Qualitative_inquiry_mode"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Qualitative_inquiry_mode -->
+
+    <owl:Class rdf:about="&research;Qualitative_inquiry_mode">
+        <rdfs:subClassOf rdf:resource="&research;Mode_of_inquiry"/>
+        <owl:disjointWith rdf:resource="&research;Quantitative_inquiry_mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Quantitative_human_study -->
+
+    <owl:Class rdf:about="&research;Quantitative_human_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Quantitative_inquiry_mode"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Quantitative_inquiry_mode -->
+
+    <owl:Class rdf:about="&research;Quantitative_inquiry_mode">
+        <rdfs:subClassOf rdf:resource="&research;Mode_of_inquiry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomization_method -->
+
+    <owl:Class rdf:about="&research;Randomization_method">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomized_allocation -->
+
+    <owl:Class rdf:about="&research;Randomized_allocation">
+        <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomized_clinical_trial -->
+
+    <owl:Class rdf:about="&research;Randomized_clinical_trial">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Repeat_of_treatment_and_control_periods -->
+
+    <owl:Class rdf:about="&research;Repeat_of_treatment_and_control_periods">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Restricted_randomization -->
+
+    <owl:Class rdf:about="&research;Restricted_randomization">
+        <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
+        <owl:disjointWith rdf:resource="&research;Simple_randomization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Sequential_assignment -->
+
+    <owl:Class rdf:about="&research;Sequential_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Multiple_intervention_timing"/>
+        <owl:disjointWith rdf:resource="&research;Simultaneous_assignment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Simple_randomization -->
+
+    <owl:Class rdf:about="&research;Simple_randomization">
+        <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Simultaneous_assignment -->
+
+    <owl:Class rdf:about="&research;Simultaneous_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Multiple_intervention_timing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Single_human_unit_assignment -->
+
+    <owl:Class rdf:about="&research;Single_human_unit_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Single_intervention -->
+
+    <owl:Class rdf:about="&research;Single_intervention">
+        <rdfs:subClassOf rdf:resource="&research;Intervention_cardinality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Statistician_blinding -->
+
+    <owl:Class rdf:about="&research;Statistician_blinding">
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Stratification -->
+
+    <owl:Class rdf:about="&research;Stratification">
+        <rdfs:subClassOf rdf:resource="&research;Restricted_randomization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Studies_as_unit_of_analysis -->
+
+    <owl:Class rdf:about="&research;Studies_as_unit_of_analysis">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Study -->
+
+    <owl:Class rdf:about="&research;Study"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_design_characteristic -->
+
+    <owl:Class rdf:about="&research;Study_design_characteristic">
+        <rdfs:subClassOf rdf:resource="&study_design;Study_design_term"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_time_dimension -->
+
+    <owl:Class rdf:about="&research;Study_time_dimension">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Subject_assessed_individually_flag -->
+
+    <owl:Class rdf:about="&research;Subject_assessed_individually_flag">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Subject_blinding -->
+
+    <owl:Class rdf:about="&research;Subject_blinding">
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Timing_of_outcome_measurement -->
+
+    <owl:Class rdf:about="&research;Timing_of_outcome_measurement">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Treatment_and_control_periods_not_repeated -->
+
+    <owl:Class rdf:about="&research;Treatment_and_control_periods_not_repeated">
+        <rdfs:subClassOf rdf:resource="&research;Repeat_of_treatment_and_control_periods"/>
+        <owl:disjointWith rdf:resource="&research;Treatment_and_control_periods_repeated"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Treatment_and_control_periods_repeated -->
+
+    <owl:Class rdf:about="&research;Treatment_and_control_periods_repeated">
+        <rdfs:subClassOf rdf:resource="&research;Repeat_of_treatment_and_control_periods"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Unit_of_analysis -->
+
+    <owl:Class rdf:about="&research;Unit_of_analysis">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Unit_of_assignment -->
+
+    <owl:Class rdf:about="&research;Unit_of_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Within_subject_control_locality -->
+
+    <owl:Class rdf:about="&research;Within_subject_control_locality">
+        <rdfs:subClassOf rdf:resource="&research;Control_group_locality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#prospective -->
+
+    <owl:Class rdf:about="&research;prospective">
+        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
+        <owl:disjointWith rdf:resource="&research;retrospective"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#retrospective -->
+
+    <owl:Class rdf:about="&research;retrospective">
+        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#subject_assessed_individually -->
+
+    <owl:Class rdf:about="&research;subject_assessed_individually">
+        <rdfs:subClassOf rdf:resource="&research;Subject_assessed_individually_flag"/>
+        <owl:disjointWith rdf:resource="&research;subject_asssessed_in_group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/research#subject_asssessed_in_group -->
+
+    <owl:Class rdf:about="&research;subject_asssessed_in_group">
+        <rdfs:subClassOf rdf:resource="&research;Subject_assessed_individually_flag"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_design#Study_design_term -->
+
+    <owl:Class rdf:about="&study_design;Study_design_term"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Control_group_cardinality"/>
+            <rdf:Description rdf:about="&research;Control_group_locality"/>
+            <rdf:Description rdf:about="&research;Control_group_type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Decision_strategy"/>
+            <rdf:Description rdf:about="&research;Human_subject"/>
+            <rdf:Description rdf:about="&research;Measurement_instrument"/>
+            <rdf:Description rdf:about="&research;Policy"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
+            <rdf:Description rdf:about="&research;Location_of_observation"/>
+            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
+            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
+            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Investigator_blinding"/>
+            <rdf:Description rdf:about="&research;Outcomes_assessor_blinding"/>
+            <rdf:Description rdf:about="&research;Subject_blinding"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
+            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
+            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+

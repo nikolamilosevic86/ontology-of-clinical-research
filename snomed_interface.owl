@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:snomed_interface="http://rctbank.ucsf.edu/OCRe/snomed_interface#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:clinical="http://rctbank.ucsf.edu/OCRe/clinical#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://rctbank.ucsf.edu/OCRe/snomed_interface.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical.owl"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A terminology interface module that specifies those SNOMEC CT terms used in annotating specific studies</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#Standard_term"/>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#procedure">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#acute_myocardial_infarctiion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#myocardial_infarction"/>
+    </rdfs:subClassOf>
+    <clinical:has_code>
+      <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#acute_myocardial_infarction_code">
+        <rdf:type>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#acute_myocardial_infarctiion"/>
+          </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+        </rdf:type>
+        <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Acute myocardia infarction</clinical:preferred_name>
+        <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >57054005</clinical:termcode>
+      </rdf:Description>
+    </clinical:has_code>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#death">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#beta-Blocking_agent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Angiotensin_II_receptor_antagonist">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#laboratory_procedure">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#procedure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#thrombolytic_therapy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#therapeutic_procedure"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#event">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#diabetes_mellitus">
+    <clinical:has_code>
+      <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#diabetes_mellitus_code">
+        <rdf:type>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+            <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#diabetes_mellitus"/>
+          </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+        </rdf:type>
+      </rdf:Description>
+    </clinical:has_code>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#diagnostic_procedure">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#procedure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#therapeutic_procedure">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#procedure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#pharmaceutical_biologic_product"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#Standard_term"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#qualifier_value">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#Terminology_code"/>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#unit">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#qualifier_value"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#stroke">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#creatinine_measurement_serum">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#laboratory_procedure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#pharmaceutical_biologic_product">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Angiotensin-converting_enzyme_inhibitor_agent">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#myocardial_infarction">
+    <clinical:has_code>
+      <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#myocardial_infarction_code">
+        <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >myocardial infarction</clinical:preferred_name>
+        <rdf:type>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#myocardial_infarction"/>
+            <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+          </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+        </rdf:type>
+        <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >22298006</clinical:termcode>
+      </rdf:Description>
+    </clinical:has_code>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#disease"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#disease">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMED_CT_term"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Calcium_channel_blocker">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#percutaneous_coronary_intervention">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#therapeutic_procedure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SNOMEDCT</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#terminology_system_name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#Terminology_code"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Diuretic">
+    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#hypotensive_agent"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#preferred_name"/>
+  <owl:DatatypeProperty rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#termcode"/>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#event_code">
+    <rdf:type>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#event"/>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >272379006</clinical:termcode>
+    <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >event</clinical:preferred_name>
+  </rdf:Description>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#stroke_code">
+        <rdf:type>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#stroke"/>
+            <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+          </owl:Restriction>
+        </rdf:type>
+        <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+        <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >stroke</clinical:preferred_name>
+        <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >230690007</clinical:termcode>
+      </rdf:Description>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#percutaneous_coronary_procedure_code">
+    <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Percutaneous coronary procedure</clinical:preferred_name>
+    <rdf:type>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#percutaneous_coronary_intervention"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >415070008</clinical:termcode>
+  </rdf:Description>
+  <owl:AnnotationProperty rdf:about="http://rctbank.ucsf.edu/OCRe/clinical#has_code"/>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#death_code">
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >419620001</clinical:termcode>
+    <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >death</clinical:preferred_name>
+    <rdf:type>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#death"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#thrombolytic_therapy_code">
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >426347000</clinical:termcode>
+    <clinical:preferred_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Thrombolytic therapy</clinical:preferred_name>
+    <rdf:type>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#thrombolytic_therapy"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#creatinine_measurement_serum_code">
+    <rdf:type>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#creatinine_measurement_serum"/>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >113075003</clinical:termcode>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#laboratory_procedure_code">
+    <clinical:termcode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >108252007</clinical:termcode>
+    <rdf:type>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://rctbank.ucsf.edu/OCRe/clinical#is_code_for"/>
+        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#laboratory_procedure"/>
+      </owl:Restriction>
+    </rdf:type>
+    <rdf:type rdf:resource="http://rctbank.ucsf.edu/OCRe/snomed_interface#SNOMEDCT_code"/>
+  </rdf:Description>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Angiotensin-converting_enzyme_inhibitor_agent"/>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Angiotensin_II_receptor_antagonist"/>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Calcium_channel_blocker"/>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#Diuretic"/>
+      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/snomed_interface#beta-Blocking_agent"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 533)  http://protege.stanford.edu -->

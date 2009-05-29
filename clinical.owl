@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY clinical "http://rctbank.ucsf.edu/OCRe/clinical#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://rctbank.ucsf.edu/OCRe/clinical.owl#"
+     xml:base="http://rctbank.ucsf.edu/OCRe/clinical.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:clinical="http://rctbank.ucsf.edu/OCRe/clinical#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Shared terms and definitions held in common between multiple clinical research domains and clinical information systems. Contains a basic model of clinical situations and measurements which can be extended to build models of research data sets or to include specific diseases, diagnoses and interventions.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&clinical;source"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/NET/muo/muo#derivesFrom -->
+
+    <owl:ObjectProperty rdf:about="&muo;derivesFrom">
+        <rdfs:subPropertyOf rdf:resource="&clinical;unit_of_measure_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/muo/muo#measuredIn -->
+
+    <owl:ObjectProperty rdf:about="&muo;measuredIn">
+        <rdfs:subPropertyOf rdf:resource="&clinical;unit_of_measure_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/muo/muo#measuresQuality -->
+
+    <owl:ObjectProperty rdf:about="&muo;measuresQuality">
+        <rdfs:subPropertyOf rdf:resource="&clinical;unit_of_measure_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/muo/muo#modifierPrefix -->
+
+    <owl:ObjectProperty rdf:about="&muo;modifierPrefix">
+        <rdfs:subPropertyOf rdf:resource="&clinical;unit_of_measure_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.oclc.org/NET/muo/muo#qualityValue -->
+
+    <owl:ObjectProperty rdf:about="&muo;qualityValue">
+        <rdfs:subPropertyOf rdf:resource="&clinical;unit_of_measure_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_anchor_time -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_anchor_time"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_discount_rate -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_discount_rate"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_duration -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_duration"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_finding -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_finding">
+        <rdfs:label rdf:datatype="&xsd;string">has_finding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_part -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_part">
+        <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
+        <owl:inverseOf rdf:resource="&clinical;part_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_semantic_constraint -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_semantic_constraint">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >has_semantic_constraint links a syntactic informational entity (e.g., eligibility criteria) to a class expression that describes the things that satisfy the meaning of the syntactic entity.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_start_time -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_start_time">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&clinical;Time_point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_stop_time -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_stop_time">
+        <rdfs:range rdf:resource="&clinical;Time_point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_subject -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_subject">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The identified clinical situation has the identified clinical subject as its sole or primary subject.</rdfs:comment>
+        <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
+        <rdfs:range rdf:resource="&clinical;Subject"/>
+        <owl:inverseOf rdf:resource="&clinical;subject_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_unit -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_unit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_value -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_value">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The clinical assessment has a recorded outcome with the specified clinical assessment value.</rdfs:comment>
+        <rdfs:range rdf:resource="&clinical;Assessment_value"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#is_code_for -->
+
+    <owl:ObjectProperty rdf:about="&clinical;is_code_for">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#part_of -->
+
+    <owl:ObjectProperty rdf:about="&clinical;part_of">
+        <rdfs:label rdf:datatype="&xsd;string">part_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#subject_of -->
+
+    <owl:ObjectProperty rdf:about="&clinical;subject_of">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The identified clinical subject is the sole or primary subject of the identified clinical situation.</rdfs:comment>
+        <rdfs:range rdf:resource="&clinical;Clinical_event"/>
+        <rdfs:domain rdf:resource="&clinical;Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#unit_of_measure_property -->
+
+    <owl:ObjectProperty rdf:about="&clinical;unit_of_measure_property"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#uses_agent -->
+
+    <owl:ObjectProperty rdf:about="&clinical;uses_agent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#contact_detail -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;contact_detail"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#email_address -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;email_address">
+        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_base_year -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;has_base_year"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_name -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;has_name"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#phone_number -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;phone_number">
+        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#postal_address -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;postal_address">
+        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#preferred_name -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;preferred_name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">preferred_name</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#realvalue -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;realvalue"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#termcode -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;termcode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">termcode</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#terminology_property -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;terminology_property">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >terminology property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#terminology_system_name -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;terminology_system_name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >terminology system name</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#terminology_system_version -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;terminology_system_version">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >terminology system version</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#time -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;time">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#AdverseEvent -->
+
+    <owl:Class rdf:about="&clinical;AdverseEvent">
+        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Assessment_value -->
+
+    <owl:Class rdf:about="&clinical;Assessment_value">
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A possible recorded outcome of a clinical assessment. In a more specialised clinical domain this would include specific biochemical metrics or disease classifications, for example.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#BiologicMaterial -->
+
+    <owl:Class rdf:about="&clinical;BiologicMaterial">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >BiologicMaterial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Product"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A material or collection of materials produced by a biologic process.
+
+For example, a biopsy or tissue specimen would be considered a biologic material. (from BRIDG 1.1.1)</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A substance made from living organisms or things they produce.
+
+For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood component or derivative, allergenic product, or analogous product. (BRIDG 2.0)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Clinical_event -->
+
+    <owl:Class rdf:about="&clinical;Clinical_event">
+        <rdfs:subClassOf rdf:resource="&clinical;Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_subject"/>
+                <owl:allValuesFrom rdf:resource="&clinical;Subject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A recorded or inferred clinical event (for example assessment, intervention or onset of symptoms) involving a patient or volunteer subject and an attending or recording clinician. (An occurrent)&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Clinician -->
+
+    <owl:Class rdf:about="&clinical;Clinician">
+        <rdfs:subClassOf rdf:resource="&clinical;HealthCareProvider"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A clinically trained and registered medical practitioner involved in the assessment or administration of treatment to a patient or healthy volunteer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Contact_information -->
+
+    <owl:Class rdf:about="&clinical;Contact_information">
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Criterion -->
+
+    <owl:Class rdf:about="&clinical;Criterion">
+        <rdfs:label rdf:datatype="&xsd;string">Criterion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Expression"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Criterion is a placeholder class that represent a Boolean expression (e.g., an eligibility criterion)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Data_value -->
+
+    <owl:Class rdf:about="&clinical;Data_value">
+        <rdfs:subClassOf rdf:resource="&clinical;Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Diagnosis -->
+
+    <owl:Class rdf:about="&clinical;Diagnosis">
+        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A clinical assessment which determines the nature of a disease or injury.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Duration -->
+
+    <owl:Class rdf:about="&clinical;Duration">
+        <rdfs:subClassOf rdf:resource="&clinical;Physical_quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Entity -->
+
+    <owl:Class rdf:about="&clinical;Entity">
+        <rdfs:label rdf:datatype="&xsd;string">Entity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A physical thing, group of physical things, an organization or information content that can exist in multiple forms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Event -->
+
+    <owl:Class rdf:about="&clinical;Event">
+        <rdfs:label rdf:datatype="&xsd;string">Event</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An occurence that happens at a specific time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Expression -->
+
+    <owl:Class rdf:about="&clinical;Expression">
+        <rdfs:subClassOf rdf:resource="&clinical;Information_entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Expression is an information entity that represent a data value or an entity that can be evaluated to yield a data value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#HealthCareProvider -->
+
+    <owl:Class rdf:about="&clinical;HealthCareProvider">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >HealthCareProvider</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#HealthCareSite -->
+
+    <owl:Class rdf:about="&clinical;HealthCareSite">
+        <rdfs:label rdf:datatype="&xsd;string">HealthCareSite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Information_entity -->
+
+    <owl:Class rdf:about="&clinical;Information_entity">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Information entity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Material -->
+
+    <owl:Class rdf:about="&clinical;Material">
+        <rdfs:label rdf:datatype="&xsd;string">Material</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Physical_entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class that defines a manufactured or biologic object or substance (from BRIDG 1.1.1)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Observation -->
+
+    <owl:Class rdf:about="&clinical;Observation">
+        <rdfs:subClassOf rdf:resource="&clinical;Clinical_event"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A clinical situation in which a measurement or qualitative clinical assessment is made.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Observation_satisfying_criterion -->
+
+    <owl:Class rdf:about="&clinical;Observation_satisfying_criterion">
+        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A clinical assessment whose recorded results fall within a specified range.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Organization -->
+
+    <owl:Class rdf:about="&clinical;Organization">
+        <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. (from BRIDG 1.1.1)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#PerformedProcedure -->
+
+    <owl:Class rdf:about="&clinical;PerformedProcedure">
+        <rdfs:subClassOf rdf:resource="&clinical;Treatment"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An Activity whose immediate and primary intention is the alteration of the physical condition of the subject.
+
+For example, procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure) conservative procedures such as reduction of a luxated join, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu, radiation therapy, etc.</rdfs:comment>
+        <clinical:source rdf:datatype="&xsd;string">BRIDG 1.1.1</clinical:source>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#PerformedSubstanceAdministration -->
+
+    <owl:Class rdf:about="&clinical;PerformedSubstanceAdministration">
+        <rdfs:subClassOf rdf:resource="&clinical;Treatment"/>
+        <clinical:source rdf:datatype="&xsd;string">BRIDG 1.1.1</clinical:source>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The completed action of applying, dispensing or otherwise giving medications or other substances to subjects.
+
+ For example, a study subject who receives methotrexate as part of chemotherapy.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Person -->
+
+    <owl:Class rdf:about="&clinical;Person">
+        <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Physical_entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A human being</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Pharmacological_treatment -->
+
+    <owl:Class rdf:about="&clinical;Pharmacological_treatment">
+        <rdfs:subClassOf rdf:resource="&clinical;PerformedSubstanceAdministration"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A treatment event involving the administration of a pharmacological substance.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Physical_entity -->
+
+    <owl:Class rdf:about="&clinical;Physical_entity">
+        <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;An identifiable physical entity involved in a clinical activity. Examples could include a person, animal or biological sample. (An object)&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Physical_quantity -->
+
+    <owl:Class rdf:about="&clinical;Physical_quantity">
+        <rdfs:subClassOf rdf:resource="&clinical;Quantity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_unit"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Unit_of_measure_entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A quantity counted or measured in some unit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Product -->
+
+    <owl:Class rdf:about="&clinical;Product">
+        <rdfs:subClassOf rdf:resource="&clinical;Material"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A thing produced by or resulting from a process</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Quantity -->
+
+    <owl:Class rdf:about="&clinical;Quantity">
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Real -->
+
+    <owl:Class rdf:about="&clinical;Real">
+        <rdfs:subClassOf rdf:resource="&clinical;Quantity"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A real number</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Relative_time_point -->
+
+    <owl:Class rdf:about="&clinical;Relative_time_point">
+        <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_duration"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Role -->
+
+    <owl:Class rdf:about="&clinical;Role">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;(A realizable entity)&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Sample -->
+
+    <owl:Class rdf:about="&clinical;Sample">
+        <rdfs:subClassOf rdf:resource="&clinical;Role"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A biological sample of tissue, blood or bodily fluid collected from a study subject or patient as part of a clinical procedure.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Standard_term -->
+
+    <owl:Class rdf:about="&clinical;Standard_term">
+        <rdfs:label rdf:datatype="&xsd;string">Standard term</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Subject -->
+
+    <owl:Class rdf:about="&clinical;Subject">
+        <rdfs:subClassOf rdf:resource="&clinical;Role"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A patient or healthy volunteer who is the subject of a clinical procedure or assessment.&quot;^^string</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >OCRe subject can only be human</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Surgical_treatment -->
+
+    <owl:Class rdf:about="&clinical;Surgical_treatment">
+        <rdfs:subClassOf rdf:resource="&clinical;PerformedProcedure"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A treatment event invoving a surgical procedure of any kind.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Terminology_code -->
+
+    <owl:Class rdf:about="&clinical;Terminology_code">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Terminology_code</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;Terminology code of a concept represented in some ontology.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Time_interval -->
+
+    <owl:Class rdf:about="&clinical;Time_interval">
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Time_point -->
+
+    <owl:Class rdf:about="&clinical;Time_point">
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Treatment -->
+
+    <owl:Class rdf:about="&clinical;Treatment">
+        <rdfs:subClassOf rdf:resource="&clinical;Clinical_event"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >&quot;A clinical siutation in which a medical or surgical intervention is carried out on the subject.&quot;^^string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Unit_of_measure_entity -->
+
+    <owl:Class rdf:about="&clinical;Unit_of_measure_entity">
+        <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Variable -->
+
+    <owl:Class rdf:about="&clinical;Variable">
+        <rdfs:subClassOf rdf:resource="&clinical;Expression"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A variable is an informational entity that has an associated expression.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+
