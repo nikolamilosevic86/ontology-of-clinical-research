@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY statistics "http://rctbank.ucsf.edu/OCRe/statistics.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://rctbank.ucsf.edu/OCRe/statistics.owl#"
+     xml:base="http://rctbank.ucsf.edu/OCRe/statistics.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:statistics="http://rctbank.ucsf.edu/OCRe/statistics.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_dependent_variable_distribution -->
+
+    <owl:ObjectProperty rdf:about="#has_dependent_variable_distribution">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_dependent_variable_type -->
+
+    <owl:ObjectProperty rdf:about="#has_dependent_variable_type">
+        <rdfs:range rdf:resource="#Variable_type"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_independent_variable_distribution -->
+
+    <owl:ObjectProperty rdf:about="#has_independent_variable_distribution">
+        <rdfs:range rdf:resource="#Distribution"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_independent_variable_type -->
+
+    <owl:ObjectProperty rdf:about="#has_independent_variable_type">
+        <rdfs:range rdf:resource="#Variable_type"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_number_of_dependent_variables -->
+
+    <owl:ObjectProperty rdf:about="#has_number_of_dependent_variables">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#multivariate"/>
+                    <rdf:Description rdf:about="#univariate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_number_of_independent_variables -->
+
+    <owl:ObjectProperty rdf:about="#has_number_of_independent_variables">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#multivariate"/>
+                    <rdf:Description rdf:about="#univariate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_possible_method -->
+
+    <owl:ObjectProperty rdf:about="#has_possible_method">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#statistics_property -->
+
+    <owl:ObjectProperty rdf:about="#statistics_property"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_dependent_variable_cardinality -->
+
+    <owl:DatatypeProperty rdf:about="#has_dependent_variable_cardinality">
+        <rdfs:subPropertyOf rdf:resource="#statistics_data_property"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#has_independent_variable_cardinality -->
+
+    <owl:DatatypeProperty rdf:about="#has_independent_variable_cardinality">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_data_property"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#statistics_data_property -->
+
+    <owl:DatatypeProperty rdf:about="#statistics_data_property"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Actuarial_model -->
+
+    <owl:Class rdf:about="#Actuarial_model">
+        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Analysis_of_covariance -->
+
+    <owl:Class rdf:about="#Analysis_of_covariance">
+        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Analysis_of_variance -->
+
+    <owl:Class rdf:about="#Analysis_of_variance">
+        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Binomial_distribution -->
+
+    <owl:Class rdf:about="#Binomial_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Categorical_method -->
+
+    <owl:Class rdf:about="#Categorical_method">
+        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Categorical_variable_type -->
+
+    <owl:Class rdf:about="#Categorical_variable_type">
+        <rdfs:subClassOf rdf:resource="#Variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Central_tendency -->
+
+    <owl:Class rdf:about="#Central_tendency">
+        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Chi-Squared -->
+
+    <owl:Class rdf:about="#Chi-Squared">
+        <rdfs:subClassOf rdf:resource="#Categorical_method"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Nominal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&owl;DataRange"/>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
+                                <owl:onDataRange rdf:resource="&xsd;integer"/>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Nominal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_cardinality"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&owl;DataRange"/>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
+                                <owl:onDataRange rdf:resource="&xsd;integer"/>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Chi_distribution -->
+
+    <owl:Class rdf:about="#Chi_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Composite_variable_type -->
+
+    <owl:Class rdf:about="#Composite_variable_type">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <dc:description
+            >A variable has composite variable type if it is defined (in an expression or as an aggregate) using two or more other quantities</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Continuous -->
+
+    <owl:Class rdf:about="#Continuous">
+        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Continuous_uniform_distribution -->
+
+    <owl:Class rdf:about="#Continuous_uniform_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Cox_regression -->
+
+    <owl:Class rdf:about="#Cox_regression">
+        <rdfs:subClassOf rdf:resource="#Actuarial_model"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_number_of_independent_variables"/>
+                <owl:someValuesFrom rdf:resource="#multivariate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_dichotomous -->
+
+    <owl:Class rdf:about="#DepVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_dichotomous_indVar_dichotomous -->
+
+    <owl:Class rdf:about="#DepVar_dichotomous_indVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_dichotomous"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_possible_method"/>
+                <owl:someValuesFrom rdf:resource="#Z-test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_possible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_dichotomous_indVar_nominal_cardinalityGT2 -->
+
+    <owl:Class rdf:about="#DepVar_dichotomous_indVar_nominal_cardinalityGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_dichotomous"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Nominal_cardinalityGT2"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_dichotomous_indVar_ordinal_cardGT2 -->
+
+    <owl:Class rdf:about="#DepVar_dichotomous_indVar_ordinal_cardGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_dichotomous"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal_cardinalityGT2"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_dichotomous_indVar_quantitative -->
+
+    <owl:Class rdf:about="#DepVar_dichotomous_indVar_quantitative">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_dichotomous"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_distribution"/>
+                        <owl:someValuesFrom rdf:resource="#Normal_distribution"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Interval"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_possible_method"/>
+                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_nominal_cardinalityGT2 -->
+
+    <owl:Class rdf:about="#DepVar_nominal_cardinalityGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Nominal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
+                        <owl:someValuesFrom>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&owl;DataRange"/>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
+                                <owl:onDataRange rdf:resource="&xsd;integer"/>
+                            </rdf:Description>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_ordinal_cardGT2 -->
+
+    <owl:Class rdf:about="#DepVar_ordinal_cardGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
+                                <owl:someValuesFrom>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&owl;DataRange"/>
+                                        <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
+                                        <owl:onDataRange rdf:resource="&xsd;integer"/>
+                                    </rdf:Description>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_quantitative -->
+
+    <owl:Class rdf:about="#DepVar_quantitative">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#DepVar_survival_data -->
+
+    <owl:Class rdf:about="#DepVar_survival_data">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Survival_incomplete"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Dichotomous -->
+
+    <owl:Class rdf:about="#Dichotomous">
+        <rdfs:subClassOf rdf:resource="#Nominal"/>
+        <rdfs:subClassOf rdf:resource="#Ordinal"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Can dichotomous always be rephrased as true or false?</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Difference -->
+
+    <owl:Class rdf:about="#Difference">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Discrete -->
+
+    <owl:Class rdf:about="#Discrete">
+        <rdfs:label rdf:datatype="&xsd;string">Count/Discrete</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Interval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Discrete_uniform_distribution -->
+
+    <owl:Class rdf:about="#Discrete_uniform_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Disperion -->
+
+    <owl:Class rdf:about="#Disperion">
+        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Distribution -->
+
+    <owl:Class rdf:about="#Distribution">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <owl:disjointWith rdf:resource="#Number_of_variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Distributional_metric -->
+
+    <owl:Class rdf:about="#Distributional_metric">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A way to summarize one aspect of a distribution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Exponential -->
+
+    <owl:Class rdf:about="#Exponential">
+        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Exponential_distribution -->
+
+    <owl:Class rdf:about="#Exponential_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Gamma_distribution -->
+
+    <owl:Class rdf:about="#Gamma_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#General_linear_model -->
+
+    <owl:Class rdf:about="#General_linear_model">
+        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Interquartile_range -->
+
+    <owl:Class rdf:about="#Interquartile_range">
+        <rdfs:subClassOf rdf:resource="#Disperion"/>
+        <owl:disjointWith rdf:resource="#Range"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Interval -->
+
+    <owl:Class rdf:about="#Interval">
+        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Lambda -->
+
+    <owl:Class rdf:about="#Lambda">
+        <rdfs:subClassOf rdf:resource="#Exponential"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Linear_regression -->
+
+    <owl:Class rdf:about="#Linear_regression">
+        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Log-normal_distribution -->
+
+    <owl:Class rdf:about="#Log-normal_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Log_rank_test -->
+
+    <owl:Class rdf:about="#Log_rank_test">
+        <rdfs:subClassOf rdf:resource="#Actuarial_model"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_number_of_independent_variables"/>
+                <owl:someValuesFrom rdf:resource="#univariate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Logistic_regression -->
+
+    <owl:Class rdf:about="#Logistic_regression">
+        <rdfs:subClassOf rdf:resource="#Non_parametric_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Mean -->
+
+    <owl:Class rdf:about="#Mean">
+        <rdfs:subClassOf rdf:resource="#Central_tendency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Median -->
+
+    <owl:Class rdf:about="#Median">
+        <rdfs:subClassOf rdf:resource="#Central_tendency"/>
+        <owl:disjointWith rdf:resource="#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Mixed_linear_model -->
+
+    <owl:Class rdf:about="#Mixed_linear_model">
+        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Mode -->
+
+    <owl:Class rdf:about="#Mode">
+        <rdfs:subClassOf rdf:resource="#Central_tendency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Nominal -->
+
+    <owl:Class rdf:about="#Nominal">
+        <rdfs:subClassOf rdf:resource="#Categorical_variable_type"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A type of categorical data in which objects fall into unordered categories.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Nominal_cardinalityGT2 -->
+
+    <owl:Class rdf:about="#Nominal_cardinalityGT2">
+        <rdfs:subClassOf rdf:resource="#Nominal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Non-linear_model -->
+
+    <owl:Class rdf:about="#Non-linear_model">
+        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Non_parametric_method -->
+
+    <owl:Class rdf:about="#Non_parametric_method">
+        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Normal_distribution -->
+
+    <owl:Class rdf:about="#Normal_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Number_of_variables -->
+
+    <owl:Class rdf:about="#Number_of_variables">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Ordinal -->
+
+    <owl:Class rdf:about="#Ordinal">
+        <rdfs:subClassOf rdf:resource="#Categorical_variable_type"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A type of categorical data in which objects can be arrayed in a meaningful rank order.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Ordinal_cardinalityGT2 -->
+
+    <owl:Class rdf:about="#Ordinal_cardinalityGT2">
+        <rdfs:subClassOf rdf:resource="#Ordinal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Poisson_distribution -->
+
+    <owl:Class rdf:about="#Poisson_distribution">
+        <rdfs:subClassOf rdf:resource="#Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Proportion -->
+
+    <owl:Class rdf:about="#Proportion">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Range from 0 to 1.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Ranges from 0 to 1. One way to summarize  count data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Quantitative_variable_type -->
+
+    <owl:Class rdf:about="#Quantitative_variable_type">
+        <rdfs:subClassOf rdf:resource="#Variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Range -->
+
+    <owl:Class rdf:about="#Range">
+        <rdfs:subClassOf rdf:resource="#Disperion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Rate -->
+
+    <owl:Class rdf:about="#Rate">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A rate is a quantity per unit of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Ratio -->
+
+    <owl:Class rdf:about="#Ratio">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A ratio has a quantitative numerator and a quantitative denominator</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Spearmans_rank_correlation_coefficient -->
+
+    <owl:Class rdf:about="#Spearmans_rank_correlation_coefficient">
+        <rdfs:subClassOf rdf:resource="#Non_parametric_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Statistical_analysis -->
+
+    <owl:Class rdf:about="#Statistical_analysis">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <dc:description
+            >A statistical analysis consists</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Statistical_concept -->
+
+    <owl:Class rdf:about="#Statistical_concept"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Statistical_method -->
+
+    <owl:Class rdf:about="#Statistical_method">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Sum -->
+
+    <owl:Class rdf:about="#Sum">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Survival_incomplete -->
+
+    <owl:Class rdf:about="#Survival_incomplete">
+        <rdfs:subClassOf rdf:resource="#Continuous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Time_to_event -->
+
+    <owl:Class rdf:about="#Time_to_event">
+        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Variable_type -->
+
+    <owl:Class rdf:about="#Variable_type">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Descriptor for the type of data a variable holds.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Variance -->
+
+    <owl:Class rdf:about="#Variance">
+        <rdfs:subClassOf rdf:resource="#Disperion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Z-test -->
+
+    <owl:Class rdf:about="#Z-test">
+        <rdfs:subClassOf rdf:resource="#Categorical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#multivariate -->
+
+    <owl:Class rdf:about="#multivariate">
+        <rdfs:subClassOf rdf:resource="#Number_of_variables"/>
+        <owl:disjointWith rdf:resource="#univariate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#univariate -->
+
+    <owl:Class rdf:about="#univariate">
+        <rdfs:subClassOf rdf:resource="#Number_of_variables"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Central_tendency"/>
+            <rdf:Description rdf:about="#Disperion"/>
+            <rdf:Description rdf:about="#Exponential"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Analysis_of_covariance"/>
+            <rdf:Description rdf:about="#Analysis_of_variance"/>
+            <rdf:Description rdf:about="#Mixed_linear_model"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Binomial_distribution"/>
+            <rdf:Description rdf:about="#Normal_distribution"/>
+            <rdf:Description rdf:about="#Poisson_distribution"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Actuarial_model"/>
+            <rdf:Description rdf:about="#Categorical_method"/>
+            <rdf:Description rdf:about="#General_linear_model"/>
+            <rdf:Description rdf:about="#Non-linear_model"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+
