@@ -10,6 +10,7 @@
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY clinical "http://rctbank.ucsf.edu/OCRe/clinical#" >
+    <!ENTITY clinical2 "http://rctbank.ucsf.edu/OCRe/clinical.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
@@ -20,15 +21,16 @@
      xml:base="http://rctbank.ucsf.edu/OCRe/clinical.owl"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:clinical2="http://rctbank.ucsf.edu/OCRe/clinical.owl#"
      xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:clinical="http://rctbank.ucsf.edu/OCRe/clinical#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
             >Shared terms and definitions held in common between multiple clinical research domains and clinical information systems. Contains a basic model of clinical situations and measurements which can be extended to build models of research data sets or to include specific diseases, diagnoses and interventions.</rdfs:comment>
@@ -264,7 +266,9 @@
 
     <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_name -->
 
-    <owl:DatatypeProperty rdf:about="&clinical;has_name"/>
+    <owl:DatatypeProperty rdf:about="&clinical;has_name">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -351,6 +355,24 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical.owl#has_first_name -->
+
+    <owl:DatatypeProperty rdf:about="#has_first_name">
+        <rdfs:subPropertyOf rdf:resource="&clinical;has_name"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical.owl#has_last_name -->
+
+    <owl:DatatypeProperty rdf:about="#has_last_name">
+        <rdfs:subPropertyOf rdf:resource="&clinical;has_name"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -761,13 +783,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
