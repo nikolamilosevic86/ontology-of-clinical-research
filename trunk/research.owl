@@ -31,8 +31,8 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:study_protocol="&ontologies;study_protocol#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:clinical="&ontologies;clinical#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:statistics="&ontologies;statistics.owl#"
      xmlns:research="&ontologies;research#"
      xmlns:ontologies="http://rctbank.ucsf.edu/OCRe/"
@@ -1183,12 +1183,6 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_annotation"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_description"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
@@ -1197,6 +1191,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_assessment_method_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research#Performance_characteristics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_annotation"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -1960,16 +1960,10 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_analysis -->
+    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_analysis_specification -->
 
-    <owl:Class rdf:about="&ontologies;research#Outcome_analysis">
+    <owl:Class rdf:about="&ontologies;research#Outcome_analysis_specification">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_study_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_variable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#outcome_property"/>
@@ -1978,14 +1972,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+                <owl:onProperty rdf:resource="&ontologies;research#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
+                <owl:onProperty rdf:resource="&ontologies;research#has_study_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_variable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -2011,14 +2011,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_assessment_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research#Assessment_method"/>
+                <owl:onProperty rdf:resource="&ontologies;research#has_phenomenon"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
+                <owl:onProperty rdf:resource="&ontologies;research#has_assessment_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research#Assessment_method"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -2571,6 +2571,12 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_outcome_phenomenon"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_phenomenon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_outcome_characteristic"/>
                 <owl:onClass rdf:resource="&ontologies;research#Blinding_type"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
@@ -2578,20 +2584,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_subject_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_variable"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_outcome_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_phenomenon"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_assessment_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_subject_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_variable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -2996,12 +2996,11 @@
      -->
 
     <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologies;research#inter-rater_variability"/>
-            <rdf:Description rdf:about="&ontologies;research#reliability"/>
-            <rdf:Description rdf:about="&ontologies;research#reproducibility"/>
-        </owl:members>
+        <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_assessment_time"/>
+        <owl:propertyChain rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;research#is_derived_from"/>
+            <rdf:Description rdf:about="&ontologies;research#has_assessment_time"/>
+        </owl:propertyChain>
     </rdf:Description>
     <rdf:Description>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_outcome_phenomenon"/>
@@ -3011,11 +3010,12 @@
         </owl:propertyChain>
     </rdf:Description>
     <rdf:Description>
-        <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_assessment_time"/>
-        <owl:propertyChain rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologies;research#is_derived_from"/>
-            <rdf:Description rdf:about="&ontologies;research#has_assessment_time"/>
-        </owl:propertyChain>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;research#inter-rater_variability"/>
+            <rdf:Description rdf:about="&ontologies;research#reliability"/>
+            <rdf:Description rdf:about="&ontologies;research#reproducibility"/>
+        </owl:members>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>

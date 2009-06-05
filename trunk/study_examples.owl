@@ -23,8 +23,10 @@
     <!ENTITY study_protocol2 "http://rctbank.ucsf.edu/OCRe/study_protocol#" >
     <!ENTITY study_examples3 "http://rctbank.ucsf.edu/OCRe/study_examples#6" >
     <!ENTITY snomed_interface "http://rctbank.ucsf.edu/OCRe/snomed_interface#" >
+    <!ENTITY study_examples4 "http://rctbank.ucsf.edu/OCRe/study_examples.owl#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+    <!ENTITY snomed_interface2 "http://rctbank.ucsf.edu/OCRe/snomed_interface.owl#" >
     <!ENTITY study_examples2 "http://rctbank.ucsf.edu/OCRe/study_examples.owl#451" >
     <!ENTITY study_protocol "http://rctbank.ucsf.edu/OCRe/ontologies/study_protocol#" >
 ]>
@@ -42,14 +44,16 @@
      xmlns:study_examples="http://rctbank.ucsf.edu/OCRe/study_examples#"
      xmlns:study_design="http://rctbank.ucsf.edu/OCRe/study_design#"
      xmlns:snomed_interface="http://rctbank.ucsf.edu/OCRe/snomed_interface#"
+     xmlns:snomed_interface2="http://rctbank.ucsf.edu/OCRe/snomed_interface.owl#"
      xmlns:clinical="http://rctbank.ucsf.edu/OCRe/clinical#"
      xmlns:research="http://rctbank.ucsf.edu/OCRe/research#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:study_examples3="&study_examples;6"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:study_examples2="http://rctbank.ucsf.edu/OCRe/study_examples.owl#451"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:study_examples2="&study_examples4;451"
      xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:study_examples4="http://rctbank.ucsf.edu/OCRe/study_examples.owl#"
      xmlns:clinical2="http://rctbank.ucsf.edu/OCRe/clinical.owl#"
      xmlns:study_protocol="&ontologies;study_protocol#"
      xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
@@ -923,9 +927,9 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/snomed_interface#thrombolytic_therapy_code -->
+    <!-- http://rctbank.ucsf.edu/OCRe/snomed_interface.owl#heparin_product_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;thrombolytic_therapy_code"/>
+    <rdf:Description rdf:about="&snomed_interface2;heparin_product_code"/>
     
 
 
@@ -1000,7 +1004,7 @@
         <rdfs:comment rdf:datatype="&xsd;string"
             >Study outcome consisting of the proportion of subjects that have incident of death, stroke, or recurrent MI.</rdfs:comment>
         <research:is_derived_from rdf:resource="&study_examples;Composite_stroke_MI_death_outcome"/>
-        <research:has_study_outcome_variable rdf:resource="&study_examples;ProportionIncidentOfStrokeDeathMI"/>
+        <research:has_study_outcome_variable rdf:resource="#IncidenceOfStrokeDeathMI"/>
     </research:Study_outcome>
     
 
@@ -1342,6 +1346,12 @@
     <research:Outcome_analysis_specification rdf:about="&study_examples;StrokeDeathMIStudyOutcomeAnalysis">
         <rdf:type>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -1400,12 +1410,6 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
@@ -1505,8 +1509,8 @@
             >Thrombolytic Therapy versus Primary Percutaneous Intervention</research:scientific_title>
         <research:has_health_condition_studied rdf:resource="&snomed_interface;acute_myocardial_infarction_code"/>
         <research:has_experimental_intervention rdf:resource="&snomed_interface;percutaneous_coronary_procedure_code"/>
-        <research:has_control_intervention rdf:resource="&snomed_interface;thrombolytic_therapy_code"/>
-        <research:has_primary_outcome rdf:resource="&study_examples;Composite_stroke_MI_death_outcome"/>
+        <research:has_control_intervention rdf:resource="&snomed_interface2;heparin_product_code"/>
+        <research:has_primary_outcome rdf:resource="&study_examples;Composite_MI_stroke_death_study_outcome"/>
         <research:has_eligibility_criterion rdf:resource="&study_examples;CreatinineLessThanOrEqual1.5mgPerdL"/>
         <study_protocol:is_divided_into rdf:resource="&study_examples;PCIArm"/>
         <research:has_eligibility_criterion rdf:resource="&study_examples;PresenceOfAcuteMI"/>
@@ -1521,8 +1525,13 @@
     <research:Study rdf:about="&study_examples;Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention">
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;clinical"/>
+                <owl:onProperty rdf:resource="&research;target_subject"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1534,19 +1543,7 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&research;prospective"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1558,23 +1555,29 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;target_subject"/>
-                <owl:allValuesFrom>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
-                    </owl:Restriction>
-                </owl:allValuesFrom>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;clinical"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
-        <research2:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17
-</research2:date_of_last_enrollment>
+        <research2:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17</research2:date_of_last_enrollment>
         <research:public_title rdf:datatype="&xsd;string"
             >Thrombolytic Therapy vs Primary Percutaneous Coronary Intervention for Myocardial Infarction in Patients Presenting to Hospitals Without On-site Cardiac Surgery</research:public_title>
         <research:NCT_number rdf:datatype="&xsd;string">some_NCT_number</research:NCT_number>
@@ -1637,6 +1640,19 @@
     <research:Randomised_population rdf:about="#451_randomized">
         <research:completed rdf:datatype="&xsd;integer">451</research:completed>
     </research:Randomised_population>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_examples.owl#IncidenceOfStrokeDeathMI -->
+
+    <clinical:Variable rdf:about="#IncidenceOfStrokeDeathMI">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Proportion"/>
+            </owl:Restriction>
+        </rdf:type>
+    </clinical:Variable>
 </rdf:RDF>
 
 
