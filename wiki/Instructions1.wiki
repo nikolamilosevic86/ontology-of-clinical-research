@@ -1,0 +1,33 @@
+#summary Instructions on adding domain, range and annotations to OCRe
+#labels Phase-Implementation
+
+= Introduction =
+
+Developers making changes to the ontology should use a change-tracking service to monitor changes to the OCRe Google code repository. 
+Samson uses http://www.followthatpage.com/ to monitor http://code.google.com/p/ontology-of-clinical-research/source/browse/#svn/trunk
+
+He gets email notifications when the source repository web page changes.
+
+Classes, properties, and class/property restrictions will be edited consistently in Protege 4.
+Protege 3.4 and Protege 4 files are not comparable as text files, thus we won't be able to reconcile conflicting versions of the ontology files if they are created by different tools.
+
+Right now Protege 3.4 can't load the OCRe "research" module. Not sure why.
+
+Protege 4 allows a Refactor option for extracting a subset of an ontology.
+
+Samson is exploring the use of a tool that creates XMI (UML) files from OWL files. This tool is independent of Protege.
+
+Action item: agree on how much detail we want/need to put into the specifications.
+
+There are different ways to specify cardinality (e.g., making a property functional or asserting that it has maximum cardinality of 1). The OWL2UML converter may be sensitive to which we use. We need to find out.
+
+The minimum annotation should include a textual definition of the class/property/individual. So far we've been placing such definitions in the "comment" annotation.  Alan Rector recommends that we use the <a href="http://code.google.com/p/co-ode-owl-plugins/wiki/AnnotationTemplate">Annotation Template plugin</a> to make entry of annotations easier.
+
+The Annotation Template has Label, Comment, Date and Creator: all fields should be completed when adding an annotation.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
