@@ -3,8 +3,8 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
@@ -58,8 +58,8 @@
      xmlns:study_protocol="&ontologies;study_protocol#"
      xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:statistics="http://rctbank.ucsf.edu/OCRe/statistics.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:ontologies="http://rctbank.ucsf.edu/OCRe/ontologies/">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -460,13 +460,17 @@
 
     <!-- http://rctbank.ucsf.edu/OCRe/research#public_title -->
 
-    <owl:DatatypeProperty rdf:about="&research;public_title"/>
+    <owl:DatatypeProperty rdf:about="&research;public_title">
+        <rdfs:domain rdf:resource="&study_protocol2;StudyProtocol"/>
+    </owl:DatatypeProperty>
     
 
 
     <!-- http://rctbank.ucsf.edu/OCRe/research#scientific_title -->
 
-    <owl:DatatypeProperty rdf:about="&research;scientific_title"/>
+    <owl:DatatypeProperty rdf:about="&research;scientific_title">
+        <rdfs:domain rdf:resource="&study_protocol2;StudyProtocol"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -1346,12 +1350,6 @@
     <research:Outcome_analysis_specification rdf:about="&study_examples;StrokeDeathMIStudyOutcomeAnalysis">
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -1410,6 +1408,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
@@ -1525,25 +1529,8 @@
     <research:Study rdf:about="&study_examples;Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention">
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;target_subject"/>
-                <owl:allValuesFrom>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
-                    </owl:Restriction>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;prospective"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1555,7 +1542,13 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed"/>
+                <owl:someValuesFrom rdf:resource="&research;prospective"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;clinical"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1567,19 +1560,28 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;clinical"/>
+                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;target_subject"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
         <research2:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17</research2:date_of_last_enrollment>
-        <research:public_title rdf:datatype="&xsd;string"
-            >Thrombolytic Therapy vs Primary Percutaneous Coronary Intervention for Myocardial Infarction in Patients Presenting to Hospitals Without On-site Cardiac Surgery</research:public_title>
         <research:NCT_number rdf:datatype="&xsd;string">some_NCT_number</research:NCT_number>
         <research:has_study_characteristic rdf:resource="&research;Completed_code"/>
         <research:has_study_characteristic rdf:resource="&research;Completed_recruiting_code"/>
