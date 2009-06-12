@@ -12,6 +12,7 @@
     <!ENTITY clinical "http://rctbank.ucsf.edu/OCRe/clinical#" >
     <!ENTITY clinical2 "http://rctbank.ucsf.edu/OCRe/clinical.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY statistics "http://rctbank.ucsf.edu/OCRe/statistics.owl#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
 ]>
@@ -21,15 +22,16 @@
      xml:base="http://rctbank.ucsf.edu/OCRe/clinical.owl"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:clinical2="http://rctbank.ucsf.edu/OCRe/clinical.owl#"
      xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:clinical="http://rctbank.ucsf.edu/OCRe/clinical#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:statistics="http://rctbank.ucsf.edu/OCRe/statistics.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -46,6 +48,8 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="&clinical;source"/>
     
 
@@ -103,19 +107,21 @@
 
     <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_anchor_time -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_anchor_time"/>
-    
-
-
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_discount_rate -->
-
-    <owl:ObjectProperty rdf:about="&clinical;has_discount_rate"/>
+    <owl:ObjectProperty rdf:about="&clinical;has_anchor_time">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Relative_time_point"/>
+        <rdfs:range rdf:resource="&clinical;Time_point"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_duration -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_duration"/>
+    <owl:ObjectProperty rdf:about="&clinical;has_duration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&clinical;Duration"/>
+        <rdfs:domain rdf:resource="&clinical;Time_interval"/>
+    </owl:ObjectProperty>
     
 
 
@@ -149,6 +155,7 @@
 
     <owl:ObjectProperty rdf:about="&clinical;has_start_time">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Time_interval"/>
         <rdfs:range rdf:resource="&clinical;Time_point"/>
     </owl:ObjectProperty>
     
@@ -157,6 +164,8 @@
     <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_stop_time -->
 
     <owl:ObjectProperty rdf:about="&clinical;has_stop_time">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Time_interval"/>
         <rdfs:range rdf:resource="&clinical;Time_point"/>
     </owl:ObjectProperty>
     
@@ -179,6 +188,8 @@
 
     <owl:ObjectProperty rdf:about="&clinical;has_unit">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Physical_quantity"/>
+        <rdfs:range rdf:resource="&clinical;Unit_of_measure"/>
     </owl:ObjectProperty>
     
 
@@ -197,6 +208,7 @@
 
     <owl:ObjectProperty rdf:about="&clinical;is_code_for">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
     </owl:ObjectProperty>
     
 
@@ -499,8 +511,8 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
 
     <owl:Class rdf:about="&clinical;Entity">
         <rdfs:label rdf:datatype="&xsd;string">Entity</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A physical thing, group of physical things, an organization or information content that can exist in multiple forms.</rdfs:comment>
+        <statistics:definition
+            >A physical thing, group of physical things, an organization or information content that can exist in multiple forms.</statistics:definition>
     </owl:Class>
     
 
@@ -549,8 +561,10 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     <owl:Class rdf:about="&clinical;Information_entity">
         <rdfs:label rdf:datatype="&xsd;string"
             >Information entity</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
+        <statistics:curator>Samson Tu</statistics:curator>
+        <statistics:definition
+            >Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</statistics:definition>
     </owl:Class>
     
 
@@ -660,7 +674,7 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;has_unit"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Unit_of_measure_entity"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Unit_of_measure"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -702,14 +716,14 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
+                <owl:onProperty rdf:resource="&clinical;has_duration"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_duration"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
+                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -815,9 +829,9 @@ For example, procedures may involve the disruption of some body surface (e.g. an
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Unit_of_measure_entity -->
+    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Unit_of_measure -->
 
-    <owl:Class rdf:about="&clinical;Unit_of_measure_entity">
+    <owl:Class rdf:about="&clinical;Unit_of_measure">
         <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
     </owl:Class>
     
