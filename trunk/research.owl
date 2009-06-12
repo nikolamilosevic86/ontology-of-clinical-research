@@ -2,19 +2,19 @@
 
 
 <!DOCTYPE rdf:RDF [
-    <!ENTITY ontologies "http://rctbank.ucsf.edu/OCRe/" >
+    <!ENTITY ontologies "http://purl.org/net/OCRe/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
+    <!ENTITY research "http://purl.org/net/OCRe/research#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY clinical "http://rctbank.ucsf.edu/OCRe/clinical#" >
-    <!ENTITY research "http://rctbank.ucsf.edu/OCRe/research#" >
-    <!ENTITY research2 "http://rctbank.ucsf.edu/OCRe/research.owl#" >
+    <!ENTITY research2 "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY statistics "http://rctbank.ucsf.edu/OCRe/statistics.owl#" >
-    <!ENTITY study_protocol "http://rctbank.ucsf.edu/OCRe/study_protocol#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
 ]>
@@ -31,11 +31,11 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:study_protocol="&ontologies;study_protocol#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:clinical="&ontologies;clinical#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:clinical="&ontologies;clinical#"
      xmlns:statistics="&ontologies;statistics.owl#"
      xmlns:research="&ontologies;research#"
-     xmlns:ontologies="http://rctbank.ucsf.edu/OCRe/"
+     xmlns:ontologies="http://purl.org/net/OCRe/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -57,6 +57,7 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;clinical#has_code"/>
+    <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
     
 
 
@@ -71,19 +72,19 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#is_code_for -->
+    <!-- http://purl.org/net/OCRe/clinical#is_code_for -->
 
     <owl:ObjectProperty rdf:about="&ontologies;clinical#is_code_for"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#subject_of -->
+    <!-- http://purl.org/net/OCRe/clinical#subject_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;clinical#subject_of"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#administrative_object_property -->
+    <!-- http://purl.org/net/OCRe/research#administrative_object_property -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#administrative_object_property">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -92,7 +93,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#age_restriction -->
+    <!-- http://purl.org/net/OCRe/research#age_restriction -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#age_restriction">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_property"/>
@@ -100,7 +101,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#assigned_to -->
+    <!-- http://purl.org/net/OCRe/research#assigned_to -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#assigned_to">
         <rdfs:domain rdf:resource="&ontologies;research#Assignment"/>
@@ -108,7 +109,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#collected_from -->
+    <!-- http://purl.org/net/OCRe/research#collected_from -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#collected_from">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
@@ -118,11 +119,11 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#collects -->
+    <!-- http://purl.org/net/OCRe/research#collects -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#collects">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The event involves the collection of a tissue sample.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The event involves the collection of a tissue sample.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;clinical#Sample"/>
         <rdfs:domain rdf:resource="&ontologies;research#Sample_collection"/>
         <owl:inverseOf rdf:resource="&ontologies;research#collected_from"/>
@@ -130,7 +131,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#contact_for_public_queries -->
+    <!-- http://purl.org/net/OCRe/research#contact_for_public_queries -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#contact_for_public_queries">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -142,11 +143,11 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#executes -->
+    <!-- http://purl.org/net/OCRe/research#executes -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#executes">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A StudySite executes some StudyProtocol (from BRIDG 1.1.1)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A StudySite executes some StudyProtocol (from BRIDG 1.1.1)</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#StudySite"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
         <rdfs:range rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
@@ -154,17 +155,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#function_as -->
+    <!-- http://purl.org/net/OCRe/research#function_as -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#function_as">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A healthcare organization functions as a study site (from BRIDG 1).1.1</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A healthcare organization functions as a study site (from BRIDG 1).1.1</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#funded_by -->
+    <!-- http://purl.org/net/OCRe/research#funded_by -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#funded_by">
         <rdfs:label rdf:datatype="&xsd;string">funder</rdfs:label>
@@ -174,7 +175,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#gender_restriction -->
+    <!-- http://purl.org/net/OCRe/research#gender_restriction -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#gender_restriction">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_property"/>
@@ -182,7 +183,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_adverse_event -->
+    <!-- http://purl.org/net/OCRe/research#has_adverse_event -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_adverse_event">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_outcome"/>
@@ -190,7 +191,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_analysis_characteristics -->
+    <!-- http://purl.org/net/OCRe/research#has_analysis_characteristics -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_analysis_characteristics">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -198,24 +199,24 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_analysis_method -->
+    <!-- http://purl.org/net/OCRe/research#has_analysis_method -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_analysis_method">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An outcome is_analyzied_using some statistical method</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An outcome is_analyzied_using some statistical method</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;research#is_used_to_analyze"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_annotation -->
+    <!-- http://purl.org/net/OCRe/research#has_annotation -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_annotation"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_assessment_method -->
+    <!-- http://purl.org/net/OCRe/research#has_assessment_method -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_assessment_method">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -223,7 +224,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_assessment_method_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#has_assessment_method_characteristic -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_assessment_method_characteristic">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -231,27 +232,27 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_assessment_time -->
+    <!-- http://purl.org/net/OCRe/research#has_assessment_time -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_assessment_time">
-        <rdfs:comment
-            >ocre:is_derived_from o ocre:has_assessment_time</rdfs:comment>
+        <statistics:definition
+            >ocre:is_derived_from o ocre:has_assessment_time</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_baseline_characterisitc -->
+    <!-- http://purl.org/net/OCRe/research#has_baseline_characterisitc -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_baseline_characterisitc">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Baseline characteristics of a StudyProtocol. The range of the property is expected to be Outcome.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Baseline characteristics of a StudyProtocol. The range of the property is expected to be Outcome.</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_biospecimen_collected -->
+    <!-- http://purl.org/net/OCRe/research#has_biospecimen_collected -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_biospecimen_collected">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -259,7 +260,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_control_intervention -->
+    <!-- http://purl.org/net/OCRe/research#has_control_intervention -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_control_intervention">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_study_intervention_or_exposure"/>
@@ -267,7 +268,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_eligibility_criterion -->
+    <!-- http://purl.org/net/OCRe/research#has_eligibility_criterion -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_eligibility_criterion">
         <owl:inverseOf rdf:resource="&ontologies;research#is_eligibility_criterion_of"/>
@@ -277,7 +278,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_event -->
+    <!-- http://purl.org/net/OCRe/research#has_event -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_event">
         <owl:inverseOf rdf:resource="&ontologies;research#is_event_of"/>
@@ -285,7 +286,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_experimental_intervention -->
+    <!-- http://purl.org/net/OCRe/research#has_experimental_intervention -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_experimental_intervention">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_study_intervention_or_exposure"/>
@@ -293,17 +294,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_group -->
+    <!-- http://purl.org/net/OCRe/research#has_group -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_group">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A statistical analysis is performed on the outcome variables of designated groups of subjects</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A statistical analysis is performed on the outcome variables of designated groups of subjects</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_health_condition_studied -->
+    <!-- http://purl.org/net/OCRe/research#has_health_condition_studied -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_health_condition_studied">
         <rdfs:range rdf:resource="&ontologies;clinical#Terminology_code"/>
@@ -313,18 +314,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_members -->
+    <!-- http://purl.org/net/OCRe/research#has_members -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_members">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The population is composed of the indicated study subjects.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The population is composed of the indicated study subjects.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;clinical#Subject"/>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_outcome -->
+    <!-- http://purl.org/net/OCRe/research#has_outcome -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_outcome">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -332,7 +333,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_outcome_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#has_outcome_characteristic -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_outcome_characteristic">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -340,17 +341,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_outcome_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research#has_outcome_phenomenon -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_outcome_phenomenon">
-        <rdfs:comment
-            >ocre:is_derived_from o ocre:has_outcome_phenomenon</rdfs:comment>
+        <statistics:definition
+            >ocre:is_derived_from o ocre:has_outcome_phenomenon</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_outcome_variable_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#has_outcome_variable_characteristic -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_outcome_variable_characteristic">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -358,7 +359,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_outcome_variable_expression -->
+    <!-- http://purl.org/net/OCRe/research#has_outcome_variable_expression -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_outcome_variable_expression">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -366,17 +367,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research#has_phenomenon -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_phenomenon">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The phenomenon associated with an outcome may be a clinical phenotype some other phenomenon of interest</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The phenomenon associated with an outcome may be a clinical phenotype some other phenomenon of interest</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_population -->
+    <!-- http://purl.org/net/OCRe/research#has_population -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_population">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -384,7 +385,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_primary_outcome -->
+    <!-- http://purl.org/net/OCRe/research#has_primary_outcome -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_primary_outcome">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_outcome"/>
@@ -393,7 +394,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_secondary_outcome -->
+    <!-- http://purl.org/net/OCRe/research#has_secondary_outcome -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_secondary_outcome">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#has_outcome"/>
@@ -401,7 +402,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_statistical_analysis -->
+    <!-- http://purl.org/net/OCRe/research#has_statistical_analysis -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_statistical_analysis">
         <owl:inverseOf rdf:resource="&ontologies;research#is_statistical_analysis_of"/>
@@ -411,7 +412,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_study_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#has_study_characteristic -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_study_characteristic">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -419,7 +420,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_study_intervention_or_exposure -->
+    <!-- http://purl.org/net/OCRe/research#has_study_intervention_or_exposure -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_study_intervention_or_exposure">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -427,7 +428,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_study_outcome_variable -->
+    <!-- http://purl.org/net/OCRe/research#has_study_outcome_variable -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_study_outcome_variable">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -435,7 +436,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_study_protocol -->
+    <!-- http://purl.org/net/OCRe/research#has_study_protocol -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_study_protocol">
         <rdfs:domain rdf:resource="&ontologies;research#Study"/>
@@ -445,7 +446,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_subject_outcome_variable -->
+    <!-- http://purl.org/net/OCRe/research#has_subject_outcome_variable -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#has_subject_outcome_variable">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -453,30 +454,30 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#immediately_precedes -->
+    <!-- http://purl.org/net/OCRe/research#immediately_precedes -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#immediately_precedes">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The first event is the last event occuring immediately before the second event in time.</rdfs:comment>
-        <rdfs:domain rdf:resource="&ontologies;research#Research_event"/>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The first event is the last event occuring immediately before the second event in time.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;research#Research_event"/>
+        <rdfs:domain rdf:resource="&ontologies;research#Research_event"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#precedes"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#includes_situation -->
+    <!-- http://purl.org/net/OCRe/research#includes_situation -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#includes_situation">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A single research event (a clinical situation itself) has multiple clinical situations as part of its definition.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A single research event (a clinical situation itself) has multiple clinical situations as part of its definition.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;clinical#Clinical_event"/>
         <rdfs:domain rdf:resource="&ontologies;research#Clinical_research_event"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_adverse_event_of -->
+    <!-- http://purl.org/net/OCRe/research#is_adverse_event_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_adverse_event_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#is_outcome_of"/>
@@ -484,7 +485,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_contact_for_publice_queries_of -->
+    <!-- http://purl.org/net/OCRe/research#is_contact_for_publice_queries_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_contact_for_publice_queries_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
@@ -493,7 +494,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_control_intervention_of -->
+    <!-- http://purl.org/net/OCRe/research#is_control_intervention_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_control_intervention_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_control_intervention"/>
@@ -502,7 +503,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_derived_from -->
+    <!-- http://purl.org/net/OCRe/research#is_derived_from -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_derived_from">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -510,7 +511,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_eligibility_criterion_of -->
+    <!-- http://purl.org/net/OCRe/research#is_eligibility_criterion_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_eligibility_criterion_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_property"/>
@@ -518,13 +519,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_event_of -->
+    <!-- http://purl.org/net/OCRe/research#is_event_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_event_of"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_executed_at -->
+    <!-- http://purl.org/net/OCRe/research#is_executed_at -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_executed_at">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
@@ -532,7 +533,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_experimental_intervention_of -->
+    <!-- http://purl.org/net/OCRe/research#is_experimental_intervention_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_experimental_intervention_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_experimental_intervention"/>
@@ -541,7 +542,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_funder_of -->
+    <!-- http://purl.org/net/OCRe/research#is_funder_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_funder_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
@@ -550,13 +551,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_operationalized_by -->
+    <!-- http://purl.org/net/OCRe/research#is_operationalized_by -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_operationalized_by"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_outcome_of -->
+    <!-- http://purl.org/net/OCRe/research#is_outcome_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_outcome_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_object_property"/>
@@ -564,18 +565,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_played_by -->
+    <!-- http://purl.org/net/OCRe/research#is_played_by -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_played_by">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A Role is played by some Organization or Entity</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A Role is played by some Organization or Entity</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
         <owl:inverseOf rdf:resource="&ontologies;research#plays"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_primary_outcome_of -->
+    <!-- http://purl.org/net/OCRe/research#is_primary_outcome_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_primary_outcome_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_primary_outcome"/>
@@ -584,7 +585,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_primary_sponsor_of -->
+    <!-- http://purl.org/net/OCRe/research#is_primary_sponsor_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_primary_sponsor_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
@@ -593,7 +594,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_principal_investigator_of -->
+    <!-- http://purl.org/net/OCRe/research#is_principal_investigator_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_principal_investigator_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
@@ -602,18 +603,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_represented_by -->
+    <!-- http://purl.org/net/OCRe/research#is_represented_by -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_represented_by">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A study site is represented by some healthcare organization (from BRIDG 1.1.1)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A study site is represented by some healthcare organization (from BRIDG 1.1.1)</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
         <owl:inverseOf rdf:resource="&ontologies;research#function_as"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_secondary_outcome_of -->
+    <!-- http://purl.org/net/OCRe/research#is_secondary_outcome_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_secondary_outcome_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_secondary_outcome"/>
@@ -622,7 +623,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_statistical_analysis_of -->
+    <!-- http://purl.org/net/OCRe/research#is_statistical_analysis_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_statistical_analysis_of">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -630,7 +631,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_studied_in_trial -->
+    <!-- http://purl.org/net/OCRe/research#is_studied_in_trial -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_studied_in_trial">
         <owl:inverseOf rdf:resource="&ontologies;research#has_health_condition_studied"/>
@@ -639,7 +640,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_study_characteristic_of -->
+    <!-- http://purl.org/net/OCRe/research#is_study_characteristic_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_study_characteristic_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_study_characteristic"/>
@@ -648,7 +649,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_study_intervention_of -->
+    <!-- http://purl.org/net/OCRe/research#is_study_intervention_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_study_intervention_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_study_intervention_or_exposure"/>
@@ -657,7 +658,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_study_outcome_variable_of -->
+    <!-- http://purl.org/net/OCRe/research#is_study_outcome_variable_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_study_outcome_variable_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_study_outcome_variable"/>
@@ -666,7 +667,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_subject_outcome_variable_of -->
+    <!-- http://purl.org/net/OCRe/research#is_subject_outcome_variable_of -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_subject_outcome_variable_of">
         <owl:inverseOf rdf:resource="&ontologies;research#has_subject_outcome_variable"/>
@@ -675,7 +676,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#is_used_to_analyze -->
+    <!-- http://purl.org/net/OCRe/research#is_used_to_analyze -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#is_used_to_analyze">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -683,27 +684,27 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#operationalize -->
+    <!-- http://purl.org/net/OCRe/research#operationalize -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#operationalize">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A performed activity operationalize a planned activity</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A performed activity operationalize a planned activity</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;research#is_operationalized_by"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#outcome_property -->
+    <!-- http://purl.org/net/OCRe/research#outcome_property -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#outcome_property"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#plays -->
+    <!-- http://purl.org/net/OCRe/research#plays -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#plays">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An organization or entity plays some role</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An organization or entity plays some role</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_object_property"/>
         <rdfs:domain>
@@ -718,7 +719,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#preceded_by_in_plan -->
+    <!-- http://purl.org/net/OCRe/research#preceded_by_in_plan -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#preceded_by_in_plan">
         <rdfs:subPropertyOf rdf:resource="&ontologies;study_protocol#planned_study_property"/>
@@ -726,18 +727,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#precedes -->
+    <!-- http://purl.org/net/OCRe/research#precedes -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#precedes">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The first event occurs before the second event in time.</rdfs:comment>
-        <rdfs:range rdf:resource="&ontologies;research#Research_event"/>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The first event occurs before the second event in time.</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Research_event"/>
+        <rdfs:range rdf:resource="&ontologies;research#Research_event"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#primary_sponsor -->
+    <!-- http://purl.org/net/OCRe/research#primary_sponsor -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#primary_sponsor">
         <rdfs:label rdf:datatype="&xsd;string">primary_sponsor</rdfs:label>
@@ -746,7 +747,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#principal_investigator -->
+    <!-- http://purl.org/net/OCRe/research#principal_investigator -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#principal_investigator">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -758,7 +759,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#procedes_in_plan -->
+    <!-- http://purl.org/net/OCRe/research#procedes_in_plan -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#procedes_in_plan">
         <owl:inverseOf rdf:resource="&ontologies;research#preceded_by_in_plan"/>
@@ -767,7 +768,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_design_object_property -->
+    <!-- http://purl.org/net/OCRe/research#study_design_object_property -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#study_design_object_property">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -776,43 +777,43 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_event -->
+    <!-- http://purl.org/net/OCRe/research#study_event -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#study_event">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The study has the identified events.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The study has the identified events.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;research#Clinical_research_event"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_population -->
+    <!-- http://purl.org/net/OCRe/research#study_population -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#study_population">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The study has the identified populations.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The study has the identified populations.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;research#Population"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_population_property -->
+    <!-- http://purl.org/net/OCRe/research#study_population_property -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#study_population_property"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_subject -->
+    <!-- http://purl.org/net/OCRe/research#study_subject -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#study_subject">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The study has the identified subjects.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The study has the identified subjects.</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;clinical#Subject"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#target_subject -->
+    <!-- http://purl.org/net/OCRe/research#target_subject -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#target_subject">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_property"/>
@@ -820,7 +821,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#trial_outcome_measure -->
+    <!-- http://purl.org/net/OCRe/research#trial_outcome_measure -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research#trial_outcome_measure">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#outcome_property"/>
@@ -828,7 +829,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_divided_into -->
+    <!-- http://purl.org/net/OCRe/study_protocol#is_divided_into -->
 
     <owl:ObjectProperty rdf:about="&ontologies;study_protocol#is_divided_into">
         <rdfs:range rdf:resource="&ontologies;study_protocol#PlannedArm"/>
@@ -837,7 +838,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property -->
+    <!-- http://purl.org/net/OCRe/study_protocol#planned_study_property -->
 
     <owl:ObjectProperty rdf:about="&ontologies;study_protocol#planned_study_property"/>
     
@@ -854,7 +855,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#has_name -->
+    <!-- http://purl.org/net/OCRe/clinical#has_name -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;clinical#has_name">
         <rdfs:domain rdf:resource="&ontologies;clinical#Person"/>
@@ -862,7 +863,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#time -->
+    <!-- http://purl.org/net/OCRe/clinical#time -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;clinical#time">
         <rdfs:domain rdf:resource="&ontologies;research#Management_event"/>
@@ -870,7 +871,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#NCT_number -->
+    <!-- http://purl.org/net/OCRe/research#NCT_number -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#NCT_number">
         <rdfs:domain rdf:resource="&ontologies;research#Study"/>
@@ -880,28 +881,28 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#administrative_data_property -->
+    <!-- http://purl.org/net/OCRe/research#administrative_data_property -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#administrative_data_property"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#completed -->
+    <!-- http://purl.org/net/OCRe/research#completed -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#completed">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who successfully completed the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who successfully completed the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_number"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#considered -->
+    <!-- http://purl.org/net/OCRe/research#considered -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#considered">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who started the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who started the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_number"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -909,7 +910,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#date_of_first_enrollment -->
+    <!-- http://purl.org/net/OCRe/research#date_of_first_enrollment -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#date_of_first_enrollment">
         <rdfs:domain rdf:resource="&ontologies;research#Study"/>
@@ -919,23 +920,23 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#has_description -->
+    <!-- http://purl.org/net/OCRe/research#has_description -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#has_description">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Textual description</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Textual description</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_data_property"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#lost -->
+    <!-- http://purl.org/net/OCRe/research#lost -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#lost">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who failed to completed the process, procedure or assessment specified for whatever reason. N(considered) = N(completed) + N(lost)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who failed to completed the process, procedure or assessment specified for whatever reason. N(considered) = N(completed) + N(lost)</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_number"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -943,12 +944,12 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#lost-died -->
+    <!-- http://purl.org/net/OCRe/research#lost-died -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#lost-died">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who failed to complete the process, procedure or assessment specified because the subject died during the events.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who failed to complete the process, procedure or assessment specified because the subject died during the events.</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#lost"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -956,12 +957,12 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#lost-refused -->
+    <!-- http://purl.org/net/OCRe/research#lost-refused -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#lost-refused">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who failed to complete the process, procedure or assessment specified because the subject chose not to complete.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who failed to complete the process, procedure or assessment specified because the subject chose not to complete.</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#lost"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -969,12 +970,12 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#lost-rejected -->
+    <!-- http://purl.org/net/OCRe/research#lost-rejected -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#lost-rejected">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of individuals who failed to complete the process, procedure or assessment specified because the clinician chose not to complete.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of individuals who failed to complete the process, procedure or assessment specified because the clinician chose not to complete.</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#lost"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -982,7 +983,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#planned_sample_size -->
+    <!-- http://purl.org/net/OCRe/research#planned_sample_size -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#planned_sample_size">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_data_property"/>
@@ -991,7 +992,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#public_title -->
+    <!-- http://purl.org/net/OCRe/research#public_title -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#public_title">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_data_property"/>
@@ -1000,7 +1001,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#scientific_title -->
+    <!-- http://purl.org/net/OCRe/research#scientific_title -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#scientific_title">
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#administrative_data_property"/>
@@ -1009,44 +1010,44 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_design_data_property -->
+    <!-- http://purl.org/net/OCRe/research#study_design_data_property -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#study_design_data_property"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_hypothesis -->
+    <!-- http://purl.org/net/OCRe/research#study_hypothesis -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#study_hypothesis">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The hypothesis of a study pertains the result of primary outcome (also used to calculate sample size)</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The hypothesis of a study pertains the result of primary outcome (also used to calculate sample size)</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_data_property"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_objective -->
+    <!-- http://purl.org/net/OCRe/research#study_objective -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#study_objective">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An  encompassing statement of what the investigator&#39;s objectives are. The main objective o a study may be  to compare drug A and B, and other objectives may be to evaluate the compliance to treatment and the side effects.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An  encompassing statement of what the investigator&#39;s objectives are. The main objective o a study may be  to compare drug A and B, and other objectives may be to evaluate the compliance to treatment and the side effects.</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_design_data_property"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#study_population_number -->
+    <!-- http://purl.org/net/OCRe/research#study_population_number -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#study_population_number"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#target -->
+    <!-- http://purl.org/net/OCRe/research#target -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;research#target">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The number of subjects expected to be included in the given population, either for statistical power calculations or based on demographic prediction.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The number of subjects expected to be included in the given population, either for statistical power calculations or based on demographic prediction.</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research#Population"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research#study_population_number"/>
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -1054,7 +1055,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research.owl#date_of_last_enrollment -->
+    <!-- http://purl.org/net/OCRe/research.owl#date_of_last_enrollment -->
 
     <owl:DatatypeProperty rdf:about="#date_of_last_enrollment">
         <rdfs:domain rdf:resource="&ontologies;research#Study"/>
@@ -1075,49 +1076,49 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Clinical_event -->
+    <!-- http://purl.org/net/OCRe/clinical#Clinical_event -->
 
     <owl:Class rdf:about="&ontologies;clinical#Clinical_event"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Contact_information -->
+    <!-- http://purl.org/net/OCRe/clinical#Contact_information -->
 
     <owl:Class rdf:about="&ontologies;clinical#Contact_information"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Data_value -->
+    <!-- http://purl.org/net/OCRe/clinical#Data_value -->
 
     <owl:Class rdf:about="&ontologies;clinical#Data_value"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Entity -->
+    <!-- http://purl.org/net/OCRe/clinical#Entity -->
 
     <owl:Class rdf:about="&ontologies;clinical#Entity"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Event -->
+    <!-- http://purl.org/net/OCRe/clinical#Event -->
 
     <owl:Class rdf:about="&ontologies;clinical#Event"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Expression -->
+    <!-- http://purl.org/net/OCRe/clinical#Expression -->
 
     <owl:Class rdf:about="&ontologies;clinical#Expression"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#HealthCareProvider -->
+    <!-- http://purl.org/net/OCRe/clinical#HealthCareProvider -->
 
     <owl:Class rdf:about="&ontologies;clinical#HealthCareProvider"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#HealthCareSite -->
+    <!-- http://purl.org/net/OCRe/clinical#HealthCareSite -->
 
     <owl:Class rdf:about="&ontologies;clinical#HealthCareSite">
         <rdfs:subClassOf>
@@ -1130,7 +1131,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Information_entity -->
+    <!-- http://purl.org/net/OCRe/clinical#Information_entity -->
 
     <owl:Class rdf:about="&ontologies;clinical#Information_entity">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
@@ -1138,49 +1139,49 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Organization -->
+    <!-- http://purl.org/net/OCRe/clinical#Organization -->
 
     <owl:Class rdf:about="&ontologies;clinical#Organization"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Person -->
+    <!-- http://purl.org/net/OCRe/clinical#Person -->
 
     <owl:Class rdf:about="&ontologies;clinical#Person"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Pharmacological_treatment -->
+    <!-- http://purl.org/net/OCRe/clinical#Pharmacological_treatment -->
 
     <owl:Class rdf:about="&ontologies;clinical#Pharmacological_treatment"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Relative_time_point -->
+    <!-- http://purl.org/net/OCRe/clinical#Relative_time_point -->
 
     <owl:Class rdf:about="&ontologies;clinical#Relative_time_point"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Role -->
+    <!-- http://purl.org/net/OCRe/clinical#Role -->
 
     <owl:Class rdf:about="&ontologies;clinical#Role"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Sample -->
+    <!-- http://purl.org/net/OCRe/clinical#Sample -->
 
     <owl:Class rdf:about="&ontologies;clinical#Sample"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Standard_term -->
+    <!-- http://purl.org/net/OCRe/clinical#Standard_term -->
 
     <owl:Class rdf:about="&ontologies;clinical#Standard_term"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Subject -->
+    <!-- http://purl.org/net/OCRe/clinical#Subject -->
 
     <owl:Class rdf:about="&ontologies;clinical#Subject">
         <rdfs:subClassOf>
@@ -1193,25 +1194,25 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Surgical_treatment -->
+    <!-- http://purl.org/net/OCRe/clinical#Surgical_treatment -->
 
     <owl:Class rdf:about="&ontologies;clinical#Surgical_treatment"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Terminology_code -->
+    <!-- http://purl.org/net/OCRe/clinical#Terminology_code -->
 
     <owl:Class rdf:about="&ontologies;clinical#Terminology_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/clinical#Treatment -->
+    <!-- http://purl.org/net/OCRe/clinical#Treatment -->
 
     <owl:Class rdf:about="&ontologies;clinical#Treatment"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Active_not_recruiting -->
+    <!-- http://purl.org/net/OCRe/research#Active_not_recruiting -->
 
     <owl:Class rdf:about="&ontologies;research#Active_not_recruiting">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -1226,7 +1227,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Assessment_method -->
+    <!-- http://purl.org/net/OCRe/research#Assessment_method -->
 
     <owl:Class rdf:about="&ontologies;research#Assessment_method">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
@@ -1238,33 +1239,33 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_annotation"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_description"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Method for assessing an outcome such as questionnaire or laboratory test.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_annotation"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Method for assessing an outcome such as questionnaire or laboratory test.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Assignment -->
+    <!-- http://purl.org/net/OCRe/research#Assignment -->
 
     <owl:Class rdf:about="&ontologies;research#Assignment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;A research event in which a choice of course of action (study intervention, control intervention, no intervention, particular screening regime) is chosen for a single study subject.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;A research event in which a choice of course of action (study intervention, control intervention, no intervention, particular screening regime) is chosen for a single study subject.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Audit -->
+    <!-- http://purl.org/net/OCRe/research#Audit -->
 
     <owl:Class rdf:about="&ontologies;research#Audit">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -1272,7 +1273,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Basic_science -->
+    <!-- http://purl.org/net/OCRe/research#Basic_science -->
 
     <owl:Class rdf:about="&ontologies;research#Basic_science">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -1285,7 +1286,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_control_study -->
+    <!-- http://purl.org/net/OCRe/research#Case_control_study -->
 
     <owl:Class rdf:about="&ontologies;research#Case_control_study">
         <owl:disjointWith rdf:resource="&ontologies;research#Cohort_study"/>
@@ -1293,7 +1294,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Case_series_study -->
+    <!-- http://purl.org/net/OCRe/research#Case_series_study -->
 
     <owl:Class rdf:about="&ontologies;research#Case_series_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-controlled_interventional_study"/>
@@ -1301,18 +1302,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Clinical_research_event -->
+    <!-- http://purl.org/net/OCRe/research#Clinical_research_event -->
 
     <owl:Class rdf:about="&ontologies;research#Clinical_research_event">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Clinical_event"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;A  event in the execution of a clinical research study involving a single study subject.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;A  event in the execution of a clinical research study involving a single study subject.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Close_to_follow_up -->
+    <!-- http://purl.org/net/OCRe/research#Close_to_follow_up -->
 
     <owl:Class rdf:about="&ontologies;research#Close_to_follow_up">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Closure_event"/>
@@ -1320,7 +1321,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Close_to_recruitment -->
+    <!-- http://purl.org/net/OCRe/research#Close_to_recruitment -->
 
     <owl:Class rdf:about="&ontologies;research#Close_to_recruitment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Closure_event"/>
@@ -1328,23 +1329,23 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Closure_event -->
+    <!-- http://purl.org/net/OCRe/research#Closure_event -->
 
     <owl:Class rdf:about="&ontologies;research#Closure_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Management_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;An event in the final administrative stages and analysis of a clinical study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;An event in the final administrative stages and analysis of a clinical study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Cohort_study -->
+    <!-- http://purl.org/net/OCRe/research#Cohort_study -->
 
     <owl:Class rdf:about="&ontologies;research#Cohort_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Completed -->
+    <!-- http://purl.org/net/OCRe/research#Completed -->
 
     <owl:Class rdf:about="&ontologies;research#Completed">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_status"/>
@@ -1357,7 +1358,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Completed_recruiting -->
+    <!-- http://purl.org/net/OCRe/research#Completed_recruiting -->
 
     <owl:Class rdf:about="&ontologies;research#Completed_recruiting">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -1372,17 +1373,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_event -->
+    <!-- http://purl.org/net/OCRe/research#Control_event -->
 
     <owl:Class rdf:about="&ontologies;research#Control_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An event in a controlled study which can only happen to a member of the control population.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An event in a controlled study which can only happen to a member of the control population.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Control_population -->
+    <!-- http://purl.org/net/OCRe/research#Control_population -->
 
     <owl:Class rdf:about="&ontologies;research#Control_population">
         <owl:equivalentClass>
@@ -1409,19 +1410,19 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The population of subjects who are in the control arm of a controlled study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The population of subjects who are in the control arm of a controlled study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Cost-effectiveness_study -->
+    <!-- http://purl.org/net/OCRe/research#Cost-effectiveness_study -->
 
     <owl:Class rdf:about="&ontologies;research#Cost-effectiveness_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Crossover_study -->
+    <!-- http://purl.org/net/OCRe/research#Crossover_study -->
 
     <owl:Class rdf:about="&ontologies;research#Crossover_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Interventional_study"/>
@@ -1429,17 +1430,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Death -->
+    <!-- http://purl.org/net/OCRe/research#Death -->
 
     <owl:Class rdf:about="&ontologies;research#Death">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;An event in which the death of a subject, as assessed by a clinician, is recorded.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;An event in which the death of a subject, as assessed by a clinician, is recorded.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Deaths -->
+    <!-- http://purl.org/net/OCRe/research#Deaths -->
 
     <owl:Class rdf:about="&ontologies;research#Deaths">
         <owl:equivalentClass>
@@ -1458,19 +1459,19 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The population of subjects who die during a study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The population of subjects who die during a study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Decision_analysis_study -->
+    <!-- http://purl.org/net/OCRe/research#Decision_analysis_study -->
 
     <owl:Class rdf:about="&ontologies;research#Decision_analysis_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Diagnostic -->
+    <!-- http://purl.org/net/OCRe/research#Diagnostic -->
 
     <owl:Class rdf:about="&ontologies;research#Diagnostic">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -1482,7 +1483,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Diagnostic_test -->
+    <!-- http://purl.org/net/OCRe/research#Diagnostic_test -->
 
     <owl:Class rdf:about="&ontologies;research#Diagnostic_test">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Intervention_or_exposure"/>
@@ -1490,7 +1491,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Diagnostic_test_characteristics -->
+    <!-- http://purl.org/net/OCRe/research#Diagnostic_test_characteristics -->
 
     <owl:Class rdf:about="&ontologies;research#Diagnostic_test_characteristics">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Performance_characteristics"/>
@@ -1498,7 +1499,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Ecologic_study -->
+    <!-- http://purl.org/net/OCRe/research#Ecologic_study -->
 
     <owl:Class rdf:about="&ontologies;research#Ecologic_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-individual_human_study"/>
@@ -1506,17 +1507,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Eligibility_assessment -->
+    <!-- http://purl.org/net/OCRe/research#Eligibility_assessment -->
 
     <owl:Class rdf:about="&ontologies;research#Eligibility_assessment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_assessment"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An assessment event used to assess the eligibility of a subject for a clinical study. May include multiple individual clinical assessments.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An assessment event used to assess the eligibility of a subject for a clinical study. May include multiple individual clinical assessments.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Eligible_population -->
+    <!-- http://purl.org/net/OCRe/research#Eligible_population -->
 
     <owl:Class rdf:about="&ontologies;research#Eligible_population">
         <owl:equivalentClass>
@@ -1535,13 +1536,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The group of screened participants that satisfied all eligibility criteria for the trial.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The group of screened participants that satisfied all eligibility criteria for the trial.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Enrolled_population -->
+    <!-- http://purl.org/net/OCRe/research#Enrolled_population -->
 
     <owl:Class rdf:about="&ontologies;research#Enrolled_population">
         <owl:equivalentClass>
@@ -1569,13 +1570,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The group of eligible participants that agreed to participate in the trial.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The group of eligible participants that agreed to participate in the trial.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Enrolling -->
+    <!-- http://purl.org/net/OCRe/research#Enrolling -->
 
     <owl:Class rdf:about="&ontologies;research#Enrolling">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_status"/>
@@ -1586,7 +1587,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Enrolling_by_invitation -->
+    <!-- http://purl.org/net/OCRe/research#Enrolling_by_invitation -->
 
     <owl:Class rdf:about="&ontologies;research#Enrolling_by_invitation">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -1599,17 +1600,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Enrollment -->
+    <!-- http://purl.org/net/OCRe/research#Enrollment -->
 
     <owl:Class rdf:about="&ontologies;research#Enrollment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The formal registration of a subject in a research study, representing the point at which their formal inclusion for ethical and statistical purposes is considered. This may precede or accompany the assessment of eligibility for inclusion.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The formal registration of a subject in a research study, representing the point at which their formal inclusion for ethical and statistical purposes is considered. This may precede or accompany the assessment of eligibility for inclusion.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Ethical_approval -->
+    <!-- http://purl.org/net/OCRe/research#Ethical_approval -->
 
     <owl:Class rdf:about="&ontologies;research#Ethical_approval">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -1617,7 +1618,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Ethnographic_study -->
+    <!-- http://purl.org/net/OCRe/research#Ethnographic_study -->
 
     <owl:Class rdf:about="&ontologies;research#Ethnographic_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Field_study"/>
@@ -1625,7 +1626,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Evaluation_science_concept -->
+    <!-- http://purl.org/net/OCRe/research#Evaluation_science_concept -->
 
     <owl:Class rdf:about="&ontologies;research#Evaluation_science_concept">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
@@ -1633,17 +1634,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Execution_event -->
+    <!-- http://purl.org/net/OCRe/research#Execution_event -->
 
     <owl:Class rdf:about="&ontologies;research#Execution_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Management_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An administrative event in the running of a clinical study.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An administrative event in the running of a clinical study.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Experimental_PlannedArm -->
+    <!-- http://purl.org/net/OCRe/research#Experimental_PlannedArm -->
 
     <owl:Class rdf:about="&ontologies;research#Experimental_PlannedArm">
         <rdfs:subClassOf rdf:resource="&ontologies;study_protocol#PlannedArm"/>
@@ -1651,17 +1652,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Experimental_event -->
+    <!-- http://purl.org/net/OCRe/research#Experimental_event -->
 
     <owl:Class rdf:about="&ontologies;research#Experimental_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An event in a controlled or multi-armed study which can only happen to a member of a study (i.e. non-control) population.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An event in a controlled or multi-armed study which can only happen to a member of a study (i.e. non-control) population.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Experimental_population -->
+    <!-- http://purl.org/net/OCRe/research#Experimental_population -->
 
     <owl:Class rdf:about="&ontologies;research#Experimental_population">
         <owl:equivalentClass>
@@ -1688,13 +1689,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The population of subjects who are in a research arm of a controlled or other multi-armed trial.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The population of subjects who are in a research arm of a controlled or other multi-armed trial.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Field_study -->
+    <!-- http://purl.org/net/OCRe/research#Field_study -->
 
     <owl:Class rdf:about="&ontologies;research#Field_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Qualitative_human_study"/>
@@ -1702,7 +1703,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Final_data_analysis -->
+    <!-- http://purl.org/net/OCRe/research#Final_data_analysis -->
 
     <owl:Class rdf:about="&ontologies;research#Final_data_analysis">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Closure_event"/>
@@ -1710,7 +1711,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Final_event -->
+    <!-- http://purl.org/net/OCRe/research#Final_event -->
 
     <owl:Class rdf:about="&ontologies;research#Final_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
@@ -1720,13 +1721,13 @@
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An event which identifies the final participation of a subject in a clinical study.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An event which identifies the final participation of a subject in a clinical study.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Follow-up -->
+    <!-- http://purl.org/net/OCRe/research#Follow-up -->
 
     <owl:Class rdf:about="&ontologies;research#Follow-up">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_status"/>
@@ -1736,17 +1737,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Follow-up_assessment -->
+    <!-- http://purl.org/net/OCRe/research#Follow-up_assessment -->
 
     <owl:Class rdf:about="&ontologies;research#Follow-up_assessment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_assessment"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An assessment event following a main phase of research to determine the long term changes in the condition of the subject. May include multiple individual clinical assessments.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An assessment event following a main phase of research to determine the long term changes in the condition of the subject. May include multiple individual clinical assessments.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Funding_approval -->
+    <!-- http://purl.org/net/OCRe/research#Funding_approval -->
 
     <owl:Class rdf:about="&ontologies;research#Funding_approval">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -1754,7 +1755,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Genomic_datatype -->
+    <!-- http://purl.org/net/OCRe/research#Genomic_datatype -->
 
     <owl:Class rdf:about="&ontologies;research#Genomic_datatype">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Data_value"/>
@@ -1762,7 +1763,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Health_service_research -->
+    <!-- http://purl.org/net/OCRe/research#Health_service_research -->
 
     <owl:Class rdf:about="&ontologies;research#Health_service_research">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -1773,7 +1774,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Hold -->
+    <!-- http://purl.org/net/OCRe/research#Hold -->
 
     <owl:Class rdf:about="&ontologies;research#Hold">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_status"/>
@@ -1782,7 +1783,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Imaging_datatype -->
+    <!-- http://purl.org/net/OCRe/research#Imaging_datatype -->
 
     <owl:Class rdf:about="&ontologies;research#Imaging_datatype">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Data_value"/>
@@ -1790,7 +1791,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#In_lab_protocol_analysis -->
+    <!-- http://purl.org/net/OCRe/research#In_lab_protocol_analysis -->
 
     <owl:Class rdf:about="&ontologies;research#In_lab_protocol_analysis">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Individual_qualitative_study"/>
@@ -1799,33 +1800,33 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Individual_qualitative_study -->
+    <!-- http://purl.org/net/OCRe/research#Individual_qualitative_study -->
 
     <owl:Class rdf:about="&ontologies;research#Individual_qualitative_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Initial_event -->
+    <!-- http://purl.org/net/OCRe/research#Initial_event -->
 
     <owl:Class rdf:about="&ontologies;research#Initial_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An event which identifies the first participation of a subject in a study.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An event which identifies the first participation of a subject in a study.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Initiation_event -->
+    <!-- http://purl.org/net/OCRe/research#Initiation_event -->
 
     <owl:Class rdf:about="&ontologies;research#Initiation_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Management_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An administrative event in the planning, approval or start up of a clinical study.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An administrative event in the planning, approval or start up of a clinical study.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Instrument_development_study -->
+    <!-- http://purl.org/net/OCRe/research#Instrument_development_study -->
 
     <owl:Class rdf:about="&ontologies;research#Instrument_development_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-individual_human_study"/>
@@ -1833,7 +1834,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Intervention -->
+    <!-- http://purl.org/net/OCRe/research#Intervention -->
 
     <owl:Class rdf:about="&ontologies;research#Intervention">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
@@ -1843,13 +1844,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Treatment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The administration of a treatment for clinical purposes - a surgical, pharmacological or other intervention.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The administration of a treatment for clinical purposes - a surgical, pharmacological or other intervention.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Intervention_cohort_study -->
+    <!-- http://purl.org/net/OCRe/research#Intervention_cohort_study -->
 
     <owl:Class rdf:about="&ontologies;research#Intervention_cohort_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-controlled_interventional_study"/>
@@ -1857,7 +1858,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Intervention_or_exposure -->
+    <!-- http://purl.org/net/OCRe/research#Intervention_or_exposure -->
 
     <owl:Class rdf:about="&ontologies;research#Intervention_or_exposure">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
@@ -1865,7 +1866,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Interventional_case_report_study -->
+    <!-- http://purl.org/net/OCRe/research#Interventional_case_report_study -->
 
     <owl:Class rdf:about="&ontologies;research#Interventional_case_report_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-controlled_interventional_study"/>
@@ -1873,7 +1874,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Interventional_study -->
+    <!-- http://purl.org/net/OCRe/research#Interventional_study -->
 
     <owl:Class rdf:about="&ontologies;research#Interventional_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Quantitative_human_study"/>
@@ -1881,37 +1882,37 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Investigator -->
+    <!-- http://purl.org/net/OCRe/research#Investigator -->
 
     <owl:Class rdf:about="&ontologies;research#Investigator">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#is_represented_by"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#is_represented_by"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Management_event -->
+    <!-- http://purl.org/net/OCRe/research#Management_event -->
 
     <owl:Class rdf:about="&ontologies;research#Management_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;An event in the design, approval, or administration of a clinical research study which affects the study as a whole.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;An event in the design, approval, or administration of a clinical research study which affects the study as a whole.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Medication -->
+    <!-- http://purl.org/net/OCRe/research#Medication -->
 
     <owl:Class rdf:about="&ontologies;research#Medication">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Intervention"/>
@@ -1921,13 +1922,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Pharmacological_treatment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The administration pharmacological, biological or chemical substances as a therapuetic agents.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The administration pharmacological, biological or chemical substances as a therapuetic agents.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Meta-analysis_study -->
+    <!-- http://purl.org/net/OCRe/research#Meta-analysis_study -->
 
     <owl:Class rdf:about="&ontologies;research#Meta-analysis_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-individual_human_study"/>
@@ -1935,7 +1936,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#N-of-1_study -->
+    <!-- http://purl.org/net/OCRe/research#N-of-1_study -->
 
     <owl:Class rdf:about="&ontologies;research#N-of-1_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Interventional_study"/>
@@ -1943,13 +1944,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Non-controlled_interventional_study -->
+    <!-- http://purl.org/net/OCRe/research#Non-controlled_interventional_study -->
 
     <owl:Class rdf:about="&ontologies;research#Non-controlled_interventional_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Non-individual_human_study -->
+    <!-- http://purl.org/net/OCRe/research#Non-individual_human_study -->
 
     <owl:Class rdf:about="&ontologies;research#Non-individual_human_study">
         <owl:equivalentClass>
@@ -1973,7 +1974,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Not_yet_recruiting -->
+    <!-- http://purl.org/net/OCRe/research#Not_yet_recruiting -->
 
     <owl:Class rdf:about="&ontologies;research#Not_yet_recruiting">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -1985,7 +1986,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#One-on-one_interview -->
+    <!-- http://purl.org/net/OCRe/research#One-on-one_interview -->
 
     <owl:Class rdf:about="&ontologies;research#One-on-one_interview">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Individual_qualitative_study"/>
@@ -1993,32 +1994,20 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome -->
+    <!-- http://purl.org/net/OCRe/research#Outcome -->
 
     <owl:Class rdf:about="&ontologies;research#Outcome">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Information, event, object or state of being produced that are being measured for a tudy.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Information, event, object or state of being produced that are being measured for a tudy.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_analysis_specification -->
+    <!-- http://purl.org/net/OCRe/research#Outcome_analysis_specification -->
 
     <owl:Class rdf:about="&ontologies;research#Outcome_analysis_specification">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#outcome_property"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_study_outcome_variable"/>
@@ -2027,28 +2016,40 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_assessment_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >The specification of how an outcome of the study will be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#outcome_property"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The specification of how an outcome of the study will be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_entity -->
+    <!-- http://purl.org/net/OCRe/research#Outcome_entity -->
 
     <owl:Class rdf:about="&ontologies;research#Outcome_entity">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A navigational class that group terms related to Outcome together.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A navigational class that group terms related to Outcome together.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research#Outcome_phenomenon -->
 
     <owl:Class rdf:about="&ontologies;research#Outcome_phenomenon">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
@@ -2064,15 +2065,15 @@
                 <owl:someValuesFrom rdf:resource="&ontologies;research#Assessment_method"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Need further examination: e.g., MI hospitalization cost</rdfs:comment>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Outcome phenomenon is an phenomenon (e.g., clinical phenotype like stroke) that is assessed using some method</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Need further examination: e.g., MI hospitalization cost</statistics:definition>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Outcome phenomenon is an phenomenon (e.g., clinical phenotype like stroke) that is assessed using some method</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Outcome_variable -->
+    <!-- http://purl.org/net/OCRe/research#Outcome_variable -->
 
     <owl:Class rdf:about="&ontologies;research#Outcome_variable">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome_entity"/>
@@ -2082,13 +2083,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A variable whose values are the quantitative or enmerable data that describe an outcome.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A variable whose values are the quantitative or enmerable data that describe an outcome.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Parallel_group_study -->
+    <!-- http://purl.org/net/OCRe/research#Parallel_group_study -->
 
     <owl:Class rdf:about="&ontologies;research#Parallel_group_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Interventional_study"/>
@@ -2096,7 +2097,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Participant_observation_study -->
+    <!-- http://purl.org/net/OCRe/research#Participant_observation_study -->
 
     <owl:Class rdf:about="&ontologies;research#Participant_observation_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Field_study"/>
@@ -2104,7 +2105,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Peer_review -->
+    <!-- http://purl.org/net/OCRe/research#Peer_review -->
 
     <owl:Class rdf:about="&ontologies;research#Peer_review">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2112,7 +2113,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Performance_characteristics -->
+    <!-- http://purl.org/net/OCRe/research#Performance_characteristics -->
 
     <owl:Class rdf:about="&ontologies;research#Performance_characteristics">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Evaluation_science_concept"/>
@@ -2120,7 +2121,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_I -->
+    <!-- http://purl.org/net/OCRe/research#Phase_I -->
 
     <owl:Class rdf:about="&ontologies;research#Phase_I">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_phase"/>
@@ -2131,7 +2132,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_II -->
+    <!-- http://purl.org/net/OCRe/research#Phase_II -->
 
     <owl:Class rdf:about="&ontologies;research#Phase_II">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_phase"/>
@@ -2141,7 +2142,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_III -->
+    <!-- http://purl.org/net/OCRe/research#Phase_III -->
 
     <owl:Class rdf:about="&ontologies;research#Phase_III">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_phase"/>
@@ -2150,7 +2151,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_IV -->
+    <!-- http://purl.org/net/OCRe/research#Phase_IV -->
 
     <owl:Class rdf:about="&ontologies;research#Phase_IV">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_phase"/>
@@ -2158,7 +2159,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Pilot_data_analysis -->
+    <!-- http://purl.org/net/OCRe/research#Pilot_data_analysis -->
 
     <owl:Class rdf:about="&ontologies;research#Pilot_data_analysis">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -2166,7 +2167,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Planning -->
+    <!-- http://purl.org/net/OCRe/research#Planning -->
 
     <owl:Class rdf:about="&ontologies;research#Planning">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_status"/>
@@ -2174,7 +2175,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Policy_analysis_study -->
+    <!-- http://purl.org/net/OCRe/research#Policy_analysis_study -->
 
     <owl:Class rdf:about="&ontologies;research#Policy_analysis_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-individual_human_study"/>
@@ -2182,18 +2183,18 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Population -->
+    <!-- http://purl.org/net/OCRe/research#Population -->
 
     <owl:Class rdf:about="&ontologies;research#Population">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;A set of individuals who are subjects of a defined set of events to form a population or sub-population of a study.&quot;^^string</rdfs:comment>
+        <statistics:definition
+            >&quot;A set of individuals who are subjects of a defined set of events to form a population or sub-population of a study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Prevention -->
+    <!-- http://purl.org/net/OCRe/research#Prevention -->
 
     <owl:Class rdf:about="&ontologies;research#Prevention">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -2203,7 +2204,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Proposal_preparation -->
+    <!-- http://purl.org/net/OCRe/research#Proposal_preparation -->
 
     <owl:Class rdf:about="&ontologies;research#Proposal_preparation">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2211,7 +2212,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Protocol_amendment -->
+    <!-- http://purl.org/net/OCRe/research#Protocol_amendment -->
 
     <owl:Class rdf:about="&ontologies;research#Protocol_amendment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -2219,7 +2220,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Protocol_preparation -->
+    <!-- http://purl.org/net/OCRe/research#Protocol_preparation -->
 
     <owl:Class rdf:about="&ontologies;research#Protocol_preparation">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2227,13 +2228,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Qualitative_human_study -->
+    <!-- http://purl.org/net/OCRe/research#Qualitative_human_study -->
 
     <owl:Class rdf:about="&ontologies;research#Qualitative_human_study"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Quantitative_human_study -->
+    <!-- http://purl.org/net/OCRe/research#Quantitative_human_study -->
 
     <owl:Class rdf:about="&ontologies;research#Quantitative_human_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study"/>
@@ -2241,7 +2242,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomisation -->
+    <!-- http://purl.org/net/OCRe/research#Randomisation -->
 
     <owl:Class rdf:about="&ontologies;research#Randomisation">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Assignment"/>
@@ -2251,13 +2252,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;research#Intervention"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An assignment of a subject to a course of action on the basis of a study-wide random allocation algorithm.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An assignment of a subject to a course of action on the basis of a study-wide random allocation algorithm.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomised_population -->
+    <!-- http://purl.org/net/OCRe/research#Randomised_population -->
 
     <owl:Class rdf:about="&ontologies;research#Randomised_population">
         <owl:equivalentClass>
@@ -2276,19 +2277,19 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The population of subjects who are randomised into the arms of a multi-armed trial.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The population of subjects who are randomised into the arms of a multi-armed trial.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomized_allocation -->
+    <!-- http://purl.org/net/OCRe/research#Randomized_allocation -->
 
     <owl:Class rdf:about="&ontologies;research#Randomized_allocation"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Recruiting -->
+    <!-- http://purl.org/net/OCRe/research#Recruiting -->
 
     <owl:Class rdf:about="&ontologies;research#Recruiting">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -2299,7 +2300,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Recruitment_start -->
+    <!-- http://purl.org/net/OCRe/research#Recruitment_start -->
 
     <owl:Class rdf:about="&ontologies;research#Recruitment_start">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -2307,7 +2308,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Recruitment_status -->
+    <!-- http://purl.org/net/OCRe/research#Recruitment_status -->
 
     <owl:Class rdf:about="&ontologies;research#Recruitment_status">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -2317,7 +2318,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Registry -->
+    <!-- http://purl.org/net/OCRe/research#Registry -->
 
     <owl:Class rdf:about="&ontologies;research#Registry">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_kind"/>
@@ -2326,47 +2327,47 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Research_assessment -->
+    <!-- http://purl.org/net/OCRe/research#Research_assessment -->
 
     <owl:Class rdf:about="&ontologies;research#Research_assessment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A clinical assessment carried out as a defined study event.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A clinical assessment carried out as a defined study event.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Research_concept -->
+    <!-- http://purl.org/net/OCRe/research#Research_concept -->
 
     <owl:Class rdf:about="&ontologies;research#Research_concept">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;A concept used in the planning or description of a clinical research study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;A concept used in the planning or description of a clinical research study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Research_event -->
+    <!-- http://purl.org/net/OCRe/research#Research_event -->
 
     <owl:Class rdf:about="&ontologies;research#Research_event">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Event"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;An occurence in the planning, administration or execution of a clinical research study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;An occurence in the planning, administration or execution of a clinical research study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Run_in -->
+    <!-- http://purl.org/net/OCRe/research#Run_in -->
 
     <owl:Class rdf:about="&ontologies;research#Run_in">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A trial stage in which an intervention (or lack of intervention) is used to remove confounding effects from previous interventions or behaviours and normalise otherwise distinct populations.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A trial stage in which an intervention (or lack of intervention) is used to remove confounding effects from previous interventions or behaviours and normalise otherwise distinct populations.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Safety_report -->
+    <!-- http://purl.org/net/OCRe/research#Safety_report -->
 
     <owl:Class rdf:about="&ontologies;research#Safety_report">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -2374,27 +2375,27 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Sample_collection -->
+    <!-- http://purl.org/net/OCRe/research#Sample_collection -->
 
     <owl:Class rdf:about="&ontologies;research#Sample_collection">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An event during which a physical sample of blood, bodily fluid, or tissue is collected.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An event during which a physical sample of blood, bodily fluid, or tissue is collected.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Scheduling_event -->
+    <!-- http://purl.org/net/OCRe/research#Scheduling_event -->
 
     <owl:Class rdf:about="&ontologies;research#Scheduling_event">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Clinical_research_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;An event which plays a significant role in the overall workflow of a subject through a trial. The classification of scheduling events is in parallel to their classification as assessments or interventions.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;An event which plays a significant role in the overall workflow of a subject through a trial. The classification of scheduling events is in parallel to their classification as assessments or interventions.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Screened_population -->
+    <!-- http://purl.org/net/OCRe/research#Screened_population -->
 
     <owl:Class rdf:about="&ontologies;research#Screened_population">
         <owl:equivalentClass>
@@ -2413,13 +2414,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The group of identified participants that underwent eligibility evaluation.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The group of identified participants that underwent eligibility evaluation.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Sensitivity -->
+    <!-- http://purl.org/net/OCRe/research#Sensitivity -->
 
     <owl:Class rdf:about="&ontologies;research#Sensitivity">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Diagnostic_test_characteristics"/>
@@ -2427,7 +2428,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Single_group_study -->
+    <!-- http://purl.org/net/OCRe/research#Single_group_study -->
 
     <owl:Class rdf:about="&ontologies;research#Single_group_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-controlled_interventional_study"/>
@@ -2435,7 +2436,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Site_addition -->
+    <!-- http://purl.org/net/OCRe/research#Site_addition -->
 
     <owl:Class rdf:about="&ontologies;research#Site_addition">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Execution_event"/>
@@ -2443,7 +2444,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Software_field_testing -->
+    <!-- http://purl.org/net/OCRe/research#Software_field_testing -->
 
     <owl:Class rdf:about="&ontologies;research#Software_field_testing">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Field_study"/>
@@ -2451,7 +2452,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Specificity -->
+    <!-- http://purl.org/net/OCRe/research#Specificity -->
 
     <owl:Class rdf:about="&ontologies;research#Specificity">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Diagnostic_test_characteristics"/>
@@ -2459,7 +2460,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Sponsorship -->
+    <!-- http://purl.org/net/OCRe/research#Sponsorship -->
 
     <owl:Class rdf:about="&ontologies;research#Sponsorship">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2467,21 +2468,27 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study -->
+    <!-- http://purl.org/net/OCRe/research#Study -->
 
     <owl:Class rdf:about="&ontologies;research#Study">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#StudySite -->
+    <!-- http://purl.org/net/OCRe/research#StudySite -->
 
     <owl:Class rdf:about="&ontologies;research#StudySite">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#is_represented_by"/>
@@ -2495,30 +2502,24 @@
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A health care site in which study activities are conducted.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A health care site in which study activities are conducted.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#Study_characteristic -->
 
     <owl:Class rdf:about="&ontologies;research#Study_characteristic">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
         <rdfs:subClassOf rdf:resource="&ontologies;research#Research_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A meta-level characterization of a study</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A meta-level characterization of a study</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_characteristic_code -->
+    <!-- http://purl.org/net/OCRe/research#Study_characteristic_code -->
 
     <owl:Class rdf:about="&ontologies;research#Study_characteristic_code">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Terminology_code"/>
@@ -2526,7 +2527,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_design_characteristic -->
+    <!-- http://purl.org/net/OCRe/research#Study_design_characteristic -->
 
     <owl:Class rdf:about="&ontologies;research#Study_design_characteristic">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_characteristic"/>
@@ -2534,7 +2535,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_kind -->
+    <!-- http://purl.org/net/OCRe/research#Study_kind -->
 
     <owl:Class rdf:about="&ontologies;research#Study_kind">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_characteristic"/>
@@ -2542,7 +2543,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_outcome -->
+    <!-- http://purl.org/net/OCRe/research#Study_outcome -->
 
     <owl:Class rdf:about="&ontologies;research#Study_outcome">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome"/>
@@ -2552,13 +2553,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;research#Outcome"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A study outcome measures outcome aggregated over all subjects (e.g., count of subject outcome of specific kind, average of subject outcome), and may aggregated over other study outcome measures (e.g., proportional hazard model, really any multivariable analysis). An outcome is analyzed using some statistical method. A study outcome may be annotated with a standard term.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A study outcome measures outcome aggregated over all subjects (e.g., count of subject outcome of specific kind, average of subject outcome), and may aggregated over other study outcome measures (e.g., proportional hazard model, really any multivariable analysis). An outcome is analyzed using some statistical method. A study outcome may be annotated with a standard term.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_phase -->
+    <!-- http://purl.org/net/OCRe/research#Study_phase -->
 
     <owl:Class rdf:about="&ontologies;research#Study_phase">
         <owl:equivalentClass>
@@ -2576,7 +2577,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_purpose -->
+    <!-- http://purl.org/net/OCRe/research#Study_purpose -->
 
     <owl:Class rdf:about="&ontologies;research#Study_purpose">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_characteristic"/>
@@ -2584,7 +2585,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Study_status -->
+    <!-- http://purl.org/net/OCRe/research#Study_status -->
 
     <owl:Class rdf:about="&ontologies;research#Study_status">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_characteristic"/>
@@ -2592,7 +2593,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Subject_outcome -->
+    <!-- http://purl.org/net/OCRe/research#Subject_outcome -->
 
     <owl:Class rdf:about="&ontologies;research#Subject_outcome">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Outcome"/>
@@ -2604,37 +2605,37 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research#has_outcome_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_phenomenon"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research#has_subject_outcome_variable"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_variable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research#has_outcome_phenomenon"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research#Outcome_phenomenon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition rdf:datatype="&xsd;string"
             >A subject outcome is an informational entity with the following properties:
 1. outcome characteristics: blinding type
 2. assessment phenomena: A description of the phenomenon (e.g., clinical phenotype such as high blood pressure) being assessed, and the method of assessment. An outcome may involve the assessment of multiple phenomena (e.g., stroke, death, and MI)
 3. assessment times
-4. subject_outcome_variable: the definition of a outcome for a particular  subject, e.g, presence of &quot;first event of either death, stroke, MI within 6 months after index MI&quot;). In the current version, for the example protocol, the subject_outcome_measure is modeled as an ERGOQuery. Wecan annotate the ERGOQuery with noun phrases.</rdfs:comment>
+4. subject_outcome_variable: the definition of a outcome for a particular  subject, e.g, presence of &quot;first event of either death, stroke, MI within 6 months after index MI&quot;). In the current version, for the example protocol, the subject_outcome_measure is modeled as an ERGOQuery. Wecan annotate the ERGOQuery with noun phrases.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Successful_eligibility_assessment -->
+    <!-- http://purl.org/net/OCRe/research#Successful_eligibility_assessment -->
 
     <owl:Class rdf:about="&ontologies;research#Successful_eligibility_assessment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Eligibility_assessment"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >An eligibility assessment event in which all of the criteria are succesfully met.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >An eligibility assessment event in which all of the criteria are succesfully met.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Supportive_care -->
+    <!-- http://purl.org/net/OCRe/research#Supportive_care -->
 
     <owl:Class rdf:about="&ontologies;research#Supportive_care">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -2643,7 +2644,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Surgery -->
+    <!-- http://purl.org/net/OCRe/research#Surgery -->
 
     <owl:Class rdf:about="&ontologies;research#Surgery">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Intervention"/>
@@ -2653,13 +2654,13 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Surgical_treatment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A physical intervention with an intended therapeutic outcome.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A physical intervention with an intended therapeutic outcome.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Survivors -->
+    <!-- http://purl.org/net/OCRe/research#Survivors -->
 
     <owl:Class rdf:about="&ontologies;research#Survivors">
         <owl:equivalentClass>
@@ -2690,13 +2691,13 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >&quot;The population of subjects who are followed to the end of a study and who have not died during the study.&quot;^^string</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >&quot;The population of subjects who are followed to the end of a study and who have not died during the study.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Suspend -->
+    <!-- http://purl.org/net/OCRe/research#Suspend -->
 
     <owl:Class rdf:about="&ontologies;research#Suspend">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Closure_event"/>
@@ -2704,7 +2705,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Suspended -->
+    <!-- http://purl.org/net/OCRe/research#Suspended -->
 
     <owl:Class rdf:about="&ontologies;research#Suspended">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -2714,7 +2715,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Terminated -->
+    <!-- http://purl.org/net/OCRe/research#Terminated -->
 
     <owl:Class rdf:about="&ontologies;research#Terminated">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -2723,7 +2724,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Textual_datatype -->
+    <!-- http://purl.org/net/OCRe/research#Textual_datatype -->
 
     <owl:Class rdf:about="&ontologies;research#Textual_datatype">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Data_value"/>
@@ -2731,7 +2732,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Time_series_study -->
+    <!-- http://purl.org/net/OCRe/research#Time_series_study -->
 
     <owl:Class rdf:about="&ontologies;research#Time_series_study">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Non-controlled_interventional_study"/>
@@ -2739,7 +2740,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Treatment -->
+    <!-- http://purl.org/net/OCRe/research#Treatment -->
 
     <owl:Class rdf:about="&ontologies;research#Treatment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Study_purpose"/>
@@ -2747,7 +2748,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Trial_master_file_preparation -->
+    <!-- http://purl.org/net/OCRe/research#Trial_master_file_preparation -->
 
     <owl:Class rdf:about="&ontologies;research#Trial_master_file_preparation">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2755,7 +2756,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Unique_trial_number_assignment -->
+    <!-- http://purl.org/net/OCRe/research#Unique_trial_number_assignment -->
 
     <owl:Class rdf:about="&ontologies;research#Unique_trial_number_assignment">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Initiation_event"/>
@@ -2763,17 +2764,17 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Wash_out -->
+    <!-- http://purl.org/net/OCRe/research#Wash_out -->
 
     <owl:Class rdf:about="&ontologies;research#Wash_out">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Scheduling_event"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A trial stage in which an intervention (or lack of intervention) is used following an intervention to remove confounding effects and normalise otherwise distinct populations.</rdfs:comment>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A trial stage in which an intervention (or lack of intervention) is used following an intervention to remove confounding effects and normalise otherwise distinct populations.</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Withdrawn -->
+    <!-- http://purl.org/net/OCRe/research#Withdrawn -->
 
     <owl:Class rdf:about="&ontologies;research#Withdrawn">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Recruitment_status"/>
@@ -2781,7 +2782,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#clinical -->
+    <!-- http://purl.org/net/OCRe/research#clinical -->
 
     <owl:Class rdf:about="&ontologies;research#clinical">
         <rdfs:label rdf:datatype="&xsd;string">Clinical</rdfs:label>
@@ -2790,7 +2791,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#inter-rater_variability -->
+    <!-- http://purl.org/net/OCRe/research#inter-rater_variability -->
 
     <owl:Class rdf:about="&ontologies;research#inter-rater_variability">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Performance_characteristics"/>
@@ -2798,13 +2799,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#prospective -->
+    <!-- http://purl.org/net/OCRe/research#prospective -->
 
     <owl:Class rdf:about="&ontologies;research#prospective"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#reliability -->
+    <!-- http://purl.org/net/OCRe/research#reliability -->
 
     <owl:Class rdf:about="&ontologies;research#reliability">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Performance_characteristics"/>
@@ -2812,7 +2813,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#reproducibility -->
+    <!-- http://purl.org/net/OCRe/research#reproducibility -->
 
     <owl:Class rdf:about="&ontologies;research#reproducibility">
         <rdfs:subClassOf rdf:resource="&ontologies;research#Performance_characteristics"/>
@@ -2820,25 +2821,25 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Statistical_analysis -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_analysis -->
 
     <owl:Class rdf:about="&ontologies;statistics.owl#Statistical_analysis"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Statistical_method -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_method -->
 
     <owl:Class rdf:about="&ontologies;statistics.owl#Statistical_method"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArm -->
+    <!-- http://purl.org/net/OCRe/study_protocol#PlannedArm -->
 
     <owl:Class rdf:about="&ontologies;study_protocol#PlannedArm"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity -->
+    <!-- http://purl.org/net/OCRe/study_protocol#Planning_entity -->
 
     <owl:Class rdf:about="&ontologies;study_protocol#Planning_entity">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
@@ -2847,7 +2848,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#StudyProtocol -->
+    <!-- http://purl.org/net/OCRe/study_protocol#StudyProtocol -->
 
     <owl:Class rdf:about="&ontologies;study_protocol#StudyProtocol">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
@@ -2873,7 +2874,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Completed_code -->
+    <!-- http://purl.org/net/OCRe/research#Completed_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Completed_code">
         <rdf:type>
@@ -2886,7 +2887,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Completed_recruiting_code -->
+    <!-- http://purl.org/net/OCRe/research#Completed_recruiting_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Completed_recruiting_code">
         <rdf:type>
@@ -2901,25 +2902,25 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Interventional_study_code -->
+    <!-- http://purl.org/net/OCRe/research#Interventional_study_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Interventional_study_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Open_blinding_code -->
+    <!-- http://purl.org/net/OCRe/research#Open_blinding_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Open_blinding_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_III_code -->
+    <!-- http://purl.org/net/OCRe/research#Phase_III_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Phase_III_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_II_code -->
+    <!-- http://purl.org/net/OCRe/research#Phase_II_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Phase_II_code">
         <rdfs:label rdf:datatype="&xsd;string">Phase_II_code</rdfs:label>
@@ -2927,19 +2928,19 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_IV_code -->
+    <!-- http://purl.org/net/OCRe/research#Phase_IV_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Phase_IV_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Phase_I_code -->
+    <!-- http://purl.org/net/OCRe/research#Phase_I_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Phase_I_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Prospective_code -->
+    <!-- http://purl.org/net/OCRe/research#Prospective_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Prospective_code">
         <rdf:type>
@@ -2952,7 +2953,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Randomized_allocation_code -->
+    <!-- http://purl.org/net/OCRe/research#Randomized_allocation_code -->
 
     <rdf:Description rdf:about="&ontologies;research#Randomized_allocation_code">
         <rdf:type>
@@ -2972,13 +2973,13 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#Treatment_code -->
+    <!-- http://purl.org/net/OCRe/research#Treatment_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#Treatment_code"/>
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#clinical_trial_code -->
+    <!-- http://purl.org/net/OCRe/research#clinical_trial_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#clinical_trial_code">
         <rdfs:label rdf:datatype="&xsd;string"
@@ -2987,7 +2988,7 @@
     
 
 
-    <!-- http://rctbank.ucsf.edu/OCRe/research#registry_code -->
+    <!-- http://purl.org/net/OCRe/research#registry_code -->
 
     <research:Study_characteristic_code rdf:about="&ontologies;research#registry_code">
         <rdfs:label rdf:datatype="&xsd;string">registry_code</rdfs:label>
@@ -3006,20 +3007,20 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologies;research#inter-rater_variability"/>
-            <rdf:Description rdf:about="&ontologies;research#reliability"/>
-            <rdf:Description rdf:about="&ontologies;research#reproducibility"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&ontologies;research#Cost-effectiveness_study"/>
             <rdf:Description rdf:about="&ontologies;research#Decision_analysis_study"/>
             <rdf:Description rdf:about="&ontologies;research#Ecologic_study"/>
             <rdf:Description rdf:about="&ontologies;research#Instrument_development_study"/>
             <rdf:Description rdf:about="&ontologies;research#Meta-analysis_study"/>
             <rdf:Description rdf:about="&ontologies;research#Policy_analysis_study"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;research#inter-rater_variability"/>
+            <rdf:Description rdf:about="&ontologies;research#reliability"/>
+            <rdf:Description rdf:about="&ontologies;research#reproducibility"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
