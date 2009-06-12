@@ -1,346 +1,527 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-    xmlns:owl2="http://www.w3.org/2006/12/owl2#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns="http://rctbank.ucsf.edu/OCRe/study_protocol.owl#"
-    xmlns:study_protocol="http://rctbank.ucsf.edu/OCRe/study_protocol#"
-  xml:base="http://rctbank.ucsf.edu/OCRe/study_protocol.owl">
-  <owl:Ontology rdf:about="">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Concept imported from BRIDG that related to the planned activities and schedules of a study protocol.</rdfs:comment>
-  </owl:Ontology>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySegmentStudyCellRule">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Specifies how a StudyCell is related to one of the PlannedStudySegments instances it contains.
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY study_protocol "http://rctbank.ucsf.edu/OCRe/study_protocol#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://rctbank.ucsf.edu/OCRe/study_protocol.owl#"
+     xml:base="http://rctbank.ucsf.edu/OCRe/study_protocol.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="http://rctbank.ucsf.edu/OCRe/study_protocol#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Concept imported from BRIDG that related to the planned activities and schedules of a study protocol.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#associate_from -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;associate_from">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#associated_to -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;associated_to">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#coded_description -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;coded_description">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#comprised_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;comprised_of">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#contains_the_activities_for -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;contains_the_activities_for">
+        <owl:inverseOf rdf:resource="&study_protocol;is_described_by"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#has_SoA -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;has_SoA">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#has_planned_study -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;has_planned_study">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#identifies_the_time_slot_for -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;identifies_the_time_slot_for">
+        <owl:inverseOf rdf:resource="&study_protocol;is_planned_within"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_component_of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <owl:inverseOf rdf:resource="&study_protocol;is_composed_of"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_composed_of">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_described_by -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_described_by">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_divided_into -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_divided_into">
+        <owl:inverseOf rdf:resource="&study_protocol;is_division_of"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_division_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_division_of">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_study_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_planned_study_of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_within -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_planned_within">
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;planned_study_property"/>
+    
+
+
+    <!-- http://www.w3.org/2006/12/owl2#members -->
+
+    <owl:ObjectProperty rdf:about="&owl2;members"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#BRIDG_term -->
+
+    <owl:Class rdf:about="&study_protocol;BRIDG_term"/>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedActivity">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_planned_within"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivityStudySegmentRule -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedActivityStudySegmentRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedAdministrativeActivity -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedAdministrativeActivity">
+        <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArm -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedArm">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudyCell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_described_by"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedArmSoA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArmSoA -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedArmSoA">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf rdf:resource="&study_protocol;ScheduleOfActivities"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;contains_the_activities_for"/>
+                <owl:onClass rdf:resource="&study_protocol;PlannedArm"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedSoACell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedEpoch -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedEpoch">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudyCell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A subject passes through a series of states called Epochs in the course of their participation in a study.  Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+
+For example, a trial designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedEpochRule -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedEpochRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedObservation -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedObservation">
+        <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedProcedure -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedProcedure">
+        <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSoACell -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedSoACell">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;identifies_the_time_slot_for"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudyCell -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedStudyCell">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudySegmentStudyCellRule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A study cell is associated with a particular arm and epoch.  It describes that portion of a particular arm (a planned path through the study) which describes, for a particular epoch (study state), what activities the subject will be involved in.  The design of a study can be visualized as a cell in a matrix whose columns are epochs and whose rows are arms; each cell of such a matrix is a study cell. A study cell contains one or more StudySegment instances, which serve to describe a part of a particular arm during a particular epoch.
+
+For example, in a crossover trial with two treatment epochs and three arms, there are six &quot;treatment&quot; study cells, one for each of the 2 treatment epochs in each of the 3 arms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySegment -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedStudySegment">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >States that subjects pass through in the course of a study.  They involve some planned intervention (possibly &quot;no treatment&quot;) and an instance of a PlannedStudySegment serves all or part of the purpose of a PlannedEpoch.  PlannedStudySegments are sub-states of epochs in the sense that PlannedStudySegments never cross epoch boundaries; when a subject transitions from one epoch to another they must also transition from one StudySegment to another. 
+ 
+For example, the purpose of a treatment epoch might be accomplished by means of a single StudySegment (e.g., one which involves administering drug daily for 6 weeks) or by a complex pattern of StudySegments (e.g., a subject is to pass through StudySegment A, which involves daily self-administration of drug X, then StudySegment B, which involves a single infusion of Drug Y, then StudySegment C, a 3-week &quot;rest&quot; period; the ABC sequence is repeated until disease progression or Serious Adverse Event (SAE) X occurs.  If X occurs, B is dropped and AC is repeated until disease progression).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySegmentStudyCellRule -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedStudySegmentStudyCellRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;associate_from"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specifies how a StudyCell is related to one of the PlannedStudySegments instances it contains.
 
 For example, if the plan for the Surgery Arm/Treatment Epoch study cell is that subjects should go through the three StudySegments, Pre-Op, Surgery, and Post-Op in that order, then that sequence is defined using StudySegment Study Cell Relationship instances.
 
-For example, A StudyCell "Arm A/Treatment Epoch" may have StudySegments "A1", "A2", etc..  The sequence in which the different StudySegments will occur in StudyCell "Arm A/Treatment Epoch" will be defined by the semantics of the StudySegmentStudyCellRule class.
+For example, A StudyCell &quot;Arm A/Treatment Epoch&quot; may have StudySegments &quot;A1&quot;, &quot;A2&quot;, etc..  The sequence in which the different StudySegments will occur in StudyCell &quot;Arm A/Treatment Epoch&quot; will be defined by the semantics of the StudySegmentStudyCellRule class.
 
-For example, go from surgery StudySegment to post-op StudySegment in StudyCell "Surgery Arm/Treatment Epoch".</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship"/>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#associate_from"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArm">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudyCell"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_described_by"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArmSoA"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#BRIDG_term"/>
-    </rdfs:subClassOf>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Planning entity is a placeholder class that has, as subclasses, all imported BRIDG concepts needed to specify the epochs, arms, activities, and the sequening relationships among them.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedAdministrativeActivity">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedEpochRule">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubstanceAdministration">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudyCell">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySegmentStudyCellRule"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A study cell is associated with a particular arm and epoch.  It describes that portion of a particular arm (a planned path through the study) which describes, for a particular epoch (study state), what activities the subject will be involved in.  The design of a study can be visualized as a cell in a matrix whose columns are epochs and whose rows are arms; each cell of such a matrix is a study cell. A study cell contains one or more StudySegment instances, which serve to describe a part of a particular arm during a particular epoch.
+For example, go from surgery StudySegment to post-op StudySegment in StudyCell &quot;Surgery Arm/Treatment Epoch&quot;.</rdfs:comment>
+    </owl:Class>
+    
 
-For example, in a crossover trial with two treatment epochs and three arms, there are six "treatment" study cells, one for each of the 2 treatment epochs in each of the 3 arms.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivityStudySegmentRule">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#ScheduleOfActivities">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySegment">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >States that subjects pass through in the course of a study.  They involve some planned intervention (possibly "no treatment") and an instance of a PlannedStudySegment serves all or part of the purpose of a PlannedEpoch.  PlannedStudySegments are sub-states of epochs in the sense that PlannedStudySegments never cross epoch boundaries; when a subject transitions from one epoch to another they must also transition from one StudySegment to another. 
- 
-For example, the purpose of a treatment epoch might be accomplished by means of a single StudySegment (e.g., one which involves administering drug daily for 6 weeks) or by a complex pattern of StudySegments (e.g., a subject is to pass through StudySegment A, which involves daily self-administration of drug X, then StudySegment B, which involves a single infusion of Drug Y, then StudySegment C, a 3-week "rest" period; the ABC sequence is repeated until disease progression or Serious Adverse Event (SAE) X occurs.  If X occurs, B is dropped and AC is repeated until disease progression).</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedEpoch">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudyCell"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A subject passes through a series of states called Epochs in the course of their participation in a study.  Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject's movement from one Epoch to another.
 
-For example, a trial designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects' eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubjectStudyEncounterRule">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_within"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of"/>
-        </owl:onProperty>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#StudyProtocol">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Study Protocol</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#BRIDG_term"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySoA">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#ScheduleOfActivities"/>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubjectStudyEncounter">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSoACell"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedObservation">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedProcedure">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedActivity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSoACell">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#identifies_the_time_slot_for"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArmSoA">
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#ScheduleOfActivities"/>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onClass rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedArm"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#contains_the_activities_for"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSoACell"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_divided_into">
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_division_of"/>
-    </owl:inverseOf>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-    </rdfs:subPropertyOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#has_SoA">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#associated_to">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#coded_description">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#associate_from">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#identifies_the_time_slot_for">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_within"/>
-    </owl:inverseOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_described_by">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_within">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_division_of">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#comprised_of">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.w3.org/2006/12/owl2#members"/>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#contains_the_activities_for">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-    <owl:inverseOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#is_described_by"/>
-  </owl:ObjectProperty>
-  <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_component_of">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#is_composed_of"/>
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#is_planned_study_of">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:about="http://rctbank.ucsf.edu/OCRe/study_protocol#has_planned_study">
-    <rdfs:subPropertyOf rdf:resource="http://rctbank.ucsf.edu/OCRe/study_protocol#planned_study_property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </owl:AllDisjointClasses>
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedStudySoA -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedStudySoA">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf rdf:resource="&study_protocol;ScheduleOfActivities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubjectStudyEncounter -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedSubjectStudyEncounter">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedSoACell"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubjectStudyEncounterRule -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedSubjectStudyEncounterRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#PlannedSubstanceAdministration -->
+
+    <owl:Class rdf:about="&study_protocol;PlannedSubstanceAdministration">
+        <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#Planning_entity -->
+
+    <owl:Class rdf:about="&study_protocol;Planning_entity">
+        <rdfs:subClassOf rdf:resource="&study_protocol;BRIDG_term"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Planning entity is a placeholder class that has, as subclasses, all imported BRIDG concepts needed to specify the epochs, arms, activities, and the sequening relationships among them.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#ScheduleOfActivities -->
+
+    <owl:Class rdf:about="&study_protocol;ScheduleOfActivities">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#StudyProtocol -->
+
+    <owl:Class rdf:about="&study_protocol;StudyProtocol">
+        <rdfs:label rdf:datatype="&xsd;string">Study Protocol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&study_protocol;BRIDG_term"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rctbank.ucsf.edu/OCRe/study_protocol#StudyRelationship -->
+
+    <owl:Class rdf:about="&study_protocol;StudyRelationship">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:resource="&rdf;nil"/>
+    </rdf:Description>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.4, Build 533)  http://protege.stanford.edu -->
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+

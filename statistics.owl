@@ -34,6 +34,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="#definition"/>
+    <owl:AnnotationProperty rdf:about="#curator"/>
     
 
 
@@ -257,6 +259,12 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
             </owl:Restriction>
@@ -280,12 +288,6 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -374,13 +376,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_possible_method"/>
-                <owl:someValuesFrom rdf:resource="#Z-test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_possible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Z-test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -603,9 +605,11 @@
     <!-- http://rctbank.ucsf.edu/OCRe/statistics.owl#Distributional_metric -->
 
     <owl:Class rdf:about="#Distributional_metric">
+        <rdfs:label
+            >Distribution metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >A way to summarize one aspect of a distribution.</rdfs:comment>
+        <definition
+            >A way to summarize one aspect of a distribution.</definition>
     </owl:Class>
     
 
@@ -961,6 +965,15 @@
     
 
 
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <curator></curator>
+        <definition></definition>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -980,17 +993,17 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Analysis_of_covariance"/>
-            <rdf:Description rdf:about="#Analysis_of_variance"/>
-            <rdf:Description rdf:about="#Mixed_linear_model"/>
+            <rdf:Description rdf:about="#Binomial_distribution"/>
+            <rdf:Description rdf:about="#Normal_distribution"/>
+            <rdf:Description rdf:about="#Poisson_distribution"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Binomial_distribution"/>
-            <rdf:Description rdf:about="#Normal_distribution"/>
-            <rdf:Description rdf:about="#Poisson_distribution"/>
+            <rdf:Description rdf:about="#Analysis_of_covariance"/>
+            <rdf:Description rdf:about="#Analysis_of_variance"/>
+            <rdf:Description rdf:about="#Mixed_linear_model"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
