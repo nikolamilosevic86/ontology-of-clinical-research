@@ -3,31 +3,31 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
-    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY research "http://purl.org/net/OCRe/research#" >
+    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY ontologies "http://purl.org/net/OCRe/ontologies/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
     <!ENTITY research2 "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY clinical2 "http://purl.org/net/OCRe/clinical.owl#" >
-    <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY study_examples "http://purl.org/net/OCRe/study_examples#" >
-    <!ENTITY time "http://purl.oclc.org/NET/muo/ucum/unit/time/" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY study_protocol2 "http://purl.org/net/OCRe/study_protocol#" >
     <!ENTITY study_examples3 "http://purl.org/net/OCRe/study_examples#6" >
     <!ENTITY snomed_interface "http://purl.org/net/OCRe/snomed_interface#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY study_examples4 "http://purl.org/net/OCRe/study_examples.owl#" >
-    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
-    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+    <!ENTITY time "http://purl.oclc.org/NET/muo/ucum/unit/time/" >
     <!ENTITY snomed_interface2 "http://purl.org/net/OCRe/snomed_interface.owl#" >
     <!ENTITY study_examples2 "http://purl.org/net/OCRe/study_examples.owl#451" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
     <!ENTITY study_protocol "http://purl.org/net/OCRe/ontologies/study_protocol#" >
 ]>
 
@@ -68,6 +68,18 @@
         <owl:imports rdf:resource="http://purl.org/net/OCRe/research.owl"/>
         <owl:imports rdf:resource="http://purl.org/net/OCRe/snomed_interface.owl"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     
 
 
@@ -773,121 +785,124 @@
 
     <!-- http://purl.oclc.org/NET/muo/ucum/unit/time/month -->
 
-    <rdf:Description rdf:about="&time;month"/>
+    <owl:Thing rdf:about="&time;month"/>
     
 
 
     <!-- http://purl.oclc.org/NET/muo/ucum/unit/time/week -->
 
-    <rdf:Description rdf:about="&time;week"/>
+    <owl:Thing rdf:about="&time;week"/>
     
 
 
     <!-- http://purl.org/net/OCRe/clinical#mgPerDL -->
 
-    <muo:ComplexDerivedUnit rdf:about="&clinical;mgPerDL"/>
+    <owl:Thing rdf:about="&clinical;mgPerDL">
+        <rdf:type rdf:resource="&muo;ComplexDerivedUnit"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Completed_code -->
 
-    <rdf:Description rdf:about="&research;Completed_code"/>
+    <owl:Thing rdf:about="&research;Completed_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Completed_recruiting_code -->
 
-    <rdf:Description rdf:about="&research;Completed_recruiting_code"/>
+    <owl:Thing rdf:about="&research;Completed_recruiting_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Interventional_study_code -->
 
-    <rdf:Description rdf:about="&research;Interventional_study_code"/>
+    <owl:Thing rdf:about="&research;Interventional_study_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Open_blinding_code -->
 
-    <rdf:Description rdf:about="&research;Open_blinding_code"/>
+    <owl:Thing rdf:about="&research;Open_blinding_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Prospective_code -->
 
-    <rdf:Description rdf:about="&research;Prospective_code"/>
+    <owl:Thing rdf:about="&research;Prospective_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Randomized_allocation_code -->
 
-    <rdf:Description rdf:about="&research;Randomized_allocation_code"/>
+    <owl:Thing rdf:about="&research;Randomized_allocation_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#Treatment_code -->
 
-    <rdf:Description rdf:about="&research;Treatment_code"/>
+    <owl:Thing rdf:about="&research;Treatment_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research#clinical_trial_code -->
 
-    <rdf:Description rdf:about="&research;clinical_trial_code"/>
+    <owl:Thing rdf:about="&research;clinical_trial_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#acute_myocardial_infarction_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;acute_myocardial_infarction_code"/>
+    <owl:Thing rdf:about="&snomed_interface;acute_myocardial_infarction_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#death_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;death_code"/>
+    <owl:Thing rdf:about="&snomed_interface;death_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#diabetes_mellitus_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;diabetes_mellitus_code"/>
+    <owl:Thing rdf:about="&snomed_interface;diabetes_mellitus_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#percutaneous_coronary_procedure_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;percutaneous_coronary_procedure_code"/>
+    <owl:Thing rdf:about="&snomed_interface;percutaneous_coronary_procedure_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#stroke_code -->
 
-    <rdf:Description rdf:about="&snomed_interface;stroke_code"/>
+    <owl:Thing rdf:about="&snomed_interface;stroke_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/snomed_interface.owl#heparin_product_code -->
+    <!-- http://purl.org/net/OCRe/snomed_interface.owl#heparin_therapy_code -->
 
-    <rdf:Description rdf:about="&snomed_interface2;heparin_product_code"/>
+    <owl:Thing rdf:about="&snomed_interface2;heparin_therapy_code"/>
     
 
 
     <!-- http://purl.org/net/OCRe/study_design#Investigator_not_blinded -->
 
-    <rdf:Description rdf:about="&study_design;Investigator_not_blinded"/>
+    <owl:Thing rdf:about="&study_design;Investigator_not_blinded"/>
     
 
 
     <!-- http://purl.org/net/OCRe/study_design#Subject_not_blinded -->
 
-    <rdf:Description rdf:about="&study_design;Subject_not_blinded"/>
+    <owl:Thing rdf:about="&study_design;Subject_not_blinded"/>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#6_months -->
 
     <clinical:Duration rdf:about="&study_examples;6_months">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <clinical:realvalue rdf:datatype="&xsd;integer">6</clinical:realvalue>
         <clinical:has_unit rdf:resource="&time;month"/>
     </clinical:Duration>
@@ -896,62 +911,69 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#6_months_after_discharge -->
 
-    <clinical:Relative_time_point rdf:about="&study_examples;6_months_after_discharge">
+    <owl:Thing rdf:about="&study_examples;6_months_after_discharge">
+        <rdf:type rdf:resource="&clinical;Relative_time_point"/>
         <clinical:has_anchor_time rdf:resource="&study_examples;discharge_time"/>
-    </clinical:Relative_time_point>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#6_weeks -->
 
-    <clinical:Duration rdf:about="&study_examples;6_weeks">
+    <owl:Thing rdf:about="&study_examples;6_weeks">
+        <rdf:type rdf:resource="&clinical;Duration"/>
         <clinical:realvalue rdf:datatype="&xsd;integer">6</clinical:realvalue>
         <clinical:has_unit rdf:resource="&time;week"/>
-    </clinical:Duration>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#6_weeks_after_discharge -->
 
-    <clinical:Relative_time_point rdf:about="&study_examples;6_weeks_after_discharge">
+    <owl:Thing rdf:about="&study_examples;6_weeks_after_discharge">
+        <rdf:type rdf:resource="&clinical;Relative_time_point"/>
         <clinical:has_anchor_time rdf:resource="&study_examples;discharge_time"/>
-    </clinical:Relative_time_point>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#AversanoThomas -->
 
-    <clinical:Person rdf:about="&study_examples;AversanoThomas">
+    <owl:Thing rdf:about="&study_examples;AversanoThomas">
+        <rdf:type rdf:resource="&clinical;Person"/>
         <clinical2:has_last_name rdf:datatype="&xsd;string">Aversano</clinical2:has_last_name>
         <clinical2:has_first_name rdf:datatype="&xsd;string">Thomas</clinical2:has_first_name>
-    </clinical:Person>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#AversanoThomas_MD -->
 
-    <research:Investigator rdf:about="&study_examples;AversanoThomas_MD">
+    <owl:Thing rdf:about="&study_examples;AversanoThomas_MD">
+        <rdf:type rdf:resource="&research;Investigator"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >A clinician role played by Thomas Aversano</statistics:definition>
         <clinical:is_played_by rdf:resource="&study_examples;AversanoThomas"/>
-    </research:Investigator>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#Composite_MI_stroke_death_study_outcome -->
 
-    <research:Study_outcome rdf:about="&study_examples;Composite_MI_stroke_death_study_outcome">
+    <owl:Thing rdf:about="&study_examples;Composite_MI_stroke_death_study_outcome">
+        <rdf:type rdf:resource="&research;Study_outcome"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >Study outcome consisting of the proportion of subjects that have incident of death, stroke, or recurrent MI.</statistics:definition>
         <research:is_derived_from rdf:resource="&study_examples;Composite_stroke_MI_death_outcome"/>
         <research:has_study_outcome_variable rdf:resource="#IncidenceOfStrokeDeathMI"/>
-    </research:Study_outcome>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#Composite_stroke_MI_death_outcome -->
 
     <research:Subject_outcome rdf:about="&study_examples;Composite_stroke_MI_death_outcome">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >Outcome measure for the Trombolytic therapy versus percutaneous intervention trial: The first occurrences of stroke, MI, or death within 6 months of the index MI.</statistics:definition>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
@@ -968,6 +990,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#CreatinineLessThanOrEqual1.5mgPerdL -->
 
     <clinical:Criterion rdf:about="&study_examples;CreatinineLessThanOrEqual1.5mgPerdL">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;has_semantic_constraint"/>
@@ -993,9 +1016,13 @@
                                                 <owl:onProperty rdf:resource="&clinical;realvalue"/>
                                                 <owl:someValuesFrom>
                                                     <rdf:Description>
-                                                        <rdf:type rdf:resource="&owl;DataRange"/>
-                                                        <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
-                                                        <owl:onDataRange rdf:resource="&xsd;float"/>
+                                                        <rdf:type rdf:resource="&rdfs;Datatype"/>
+                                                        <owl:onDatatype rdf:resource="&xsd;float"/>
+                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                            <rdf:Description>
+                                                                <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
+                                                            </rdf:Description>
+                                                        </owl:withRestrictions>
                                                     </rdf:Description>
                                                 </owl:someValuesFrom>
                                             </owl:Restriction>
@@ -1017,15 +1044,17 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#DiabetesBaselineCharacteristic -->
 
-    <research:Subject_outcome rdf:about="&study_examples;DiabetesBaselineCharacteristic">
+    <owl:Thing rdf:about="&study_examples;DiabetesBaselineCharacteristic">
+        <rdf:type rdf:resource="&research;Subject_outcome"/>
         <research:has_outcome_phenomenon rdf:resource="&study_examples;diabetes_phenotype"/>
-    </research:Subject_outcome>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#FirstIncidentOfStrokeDeathMI -->
 
     <clinical:Variable rdf:about="&study_examples;FirstIncidentOfStrokeDeathMI">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
@@ -1044,15 +1073,17 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#Haford2002JoHumanHypertension6-8.569-575StudyProtocol -->
 
-    <study_protocol2:StudyProtocol rdf:about="&study_examples;Haford2002JoHumanHypertension6-8.569-575StudyProtocol">
+    <owl:Thing rdf:about="&study_examples;Haford2002JoHumanHypertension6-8.569-575StudyProtocol">
+        <rdf:type rdf:resource="&study_protocol2;StudyProtocol"/>
         <research:has_baseline_characterisitc rdf:resource="&study_examples;DiabetesBaselineCharacteristic"/>
-    </study_protocol2:StudyProtocol>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#Haford2002JofHumanHypertension6-8.569-575 -->
 
     <research:Study rdf:about="&study_examples;Haford2002JofHumanHypertension6-8.569-575">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_population"/>
@@ -1091,52 +1122,62 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#MI_phenomenon -->
 
-    <research:Outcome_phenomenon rdf:about="&study_examples;MI_phenomenon">
+    <owl:Thing rdf:about="&study_examples;MI_phenomenon">
+        <rdf:type rdf:resource="&research;Outcome_phenomenon"/>
         <research:has_phenomenon rdf:resource="&snomed_interface;acute_myocardial_infarction_code"/>
-    </research:Outcome_phenomenon>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#NCT00784524 -->
 
-    <research:Study rdf:about="&study_examples;NCT00784524">
+    <owl:Thing rdf:about="&study_examples;NCT00784524">
+        <rdf:type rdf:resource="&research;Study"/>
         <research:has_study_protocol rdf:resource="&study_examples;NCT00784524Protocol"/>
         <research:has_primary_outcome rdf:resource="&study_examples;PercentPartialResponse"/>
         <research:has_primary_outcome rdf:resource="&study_examples;subjectResponse"/>
-    </research:Study>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#NCT00784524Protocol -->
 
-    <study_protocol2:StudyProtocol rdf:about="&study_examples;NCT00784524Protocol"/>
+    <study_protocol2:StudyProtocol rdf:about="&study_examples;NCT00784524Protocol">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </study_protocol2:StudyProtocol>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#OneDotFiveMgPerdL -->
 
-    <clinical:Physical_quantity rdf:about="&study_examples;OneDotFiveMgPerdL">
+    <owl:Thing rdf:about="&study_examples;OneDotFiveMgPerdL">
+        <rdf:type rdf:resource="&clinical;Physical_quantity"/>
         <rdfs:label rdf:datatype="&xsd;string">1.5 mg/dL</rdfs:label>
         <clinical:realvalue rdf:datatype="&xsd;float">1.5</clinical:realvalue>
-    </clinical:Physical_quantity>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PCIArm -->
 
-    <study_protocol2:PlannedArm rdf:about="&study_examples;PCIArm"/>
+    <owl:Thing rdf:about="&study_examples;PCIArm">
+        <rdf:type rdf:resource="&study_protocol2;PlannedArm"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PercentPartialResponse -->
 
-    <research:Study_outcome rdf:about="&study_examples;PercentPartialResponse"/>
+    <owl:Thing rdf:about="&study_examples;PercentPartialResponse">
+        <rdf:type rdf:resource="&research;Study_outcome"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlaceboArm -->
 
     <study_protocol2:PlannedArm rdf:about="&study_examples;PlaceboArm">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <study_protocol:is_described_by rdf:resource="&study_examples;TGN1412PlannedArmSoA"/>
     </study_protocol2:PlannedArm>
     
@@ -1144,33 +1185,41 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedDeterminationOfAnti-TGN1412Antibody -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedDeterminationOfAnti-TGN1412Antibody"/>
+    <owl:Thing rdf:about="&study_examples;PlannedDeterminationOfAnti-TGN1412Antibody">
+        <rdf:type rdf:resource="&study_protocol2;PlannedActivity"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedFlowCytometry -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedFlowCytometry"/>
+    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedFlowCytometry">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </study_protocol2:PlannedActivity>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedHematology -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedHematology"/>
+    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedHematology">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </study_protocol2:PlannedActivity>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedPhysicalExamination -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedPhysicalExamination">
+    <owl:Thing rdf:about="&study_examples;PlannedPhysicalExamination">
+        <rdf:type rdf:resource="&study_protocol2;PlannedActivity"/>
         <study_protocol:is_component_of rdf:resource="&study_examples;TGN1412Protocol"/>
-    </study_protocol2:PlannedActivity>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACell1stScreenin -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACell1stScreenin">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedPhysicalExamination"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACell2ndScreening"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedVitalSign"/>
@@ -1181,6 +1230,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACell2ndScreening -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACell2ndScreening">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedDeterminationOfAnti-TGN1412Antibody"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedFlowCytometry"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACellDay-1"/>
@@ -1191,6 +1241,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellDay-1 -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellDay-1">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedHematology"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACellWk1Day1Predose"/>
     </study_protocol2:PlannedSoACell>
@@ -1199,15 +1250,17 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellDay1-8-10AM -->
 
-    <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellDay1-8-10AM">
+    <owl:Thing rdf:about="&study_examples;PlannedSoACellDay1-8-10AM">
+        <rdf:type rdf:resource="&study_protocol2;PlannedSoACell"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedStudyDrugAdministration"/>
-    </study_protocol2:PlannedSoACell>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellWk1Day1-0.5hPostDose -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellWk1Day1-0.5hPostDose">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACellWk1Day1-1hPostDose"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedVitalSign"/>
     </study_protocol2:PlannedSoACell>
@@ -1217,6 +1270,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellWk1Day1-1hPostDose -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellWk1Day1-1hPostDose">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACellWk1Day1-2hPostDose"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedVitalSign"/>
     </study_protocol2:PlannedSoACell>
@@ -1225,15 +1279,17 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellWk1Day1-2hPostDose -->
 
-    <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellWk1Day1-2hPostDose">
+    <owl:Thing rdf:about="&study_examples;PlannedSoACellWk1Day1-2hPostDose">
+        <rdf:type rdf:resource="&study_protocol2;PlannedSoACell"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedVitalSign"/>
-    </study_protocol2:PlannedSoACell>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedSoACellWk1Day1Predose -->
 
     <study_protocol2:PlannedSoACell rdf:about="&study_examples;PlannedSoACellWk1Day1Predose">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:procedes_in_plan rdf:resource="&study_examples;PlannedSoACellDay1-8-10AM"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedVitalSign"/>
     </study_protocol2:PlannedSoACell>
@@ -1242,52 +1298,86 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedStudyDrugAdministration -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedStudyDrugAdministration"/>
+    <owl:Thing rdf:about="&study_examples;PlannedStudyDrugAdministration">
+        <rdf:type rdf:resource="&study_protocol2;PlannedActivity"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PlannedVitalSign -->
 
-    <study_protocol2:PlannedActivity rdf:about="&study_examples;PlannedVitalSign"/>
+    <owl:Thing rdf:about="&study_examples;PlannedVitalSign">
+        <rdf:type rdf:resource="&study_protocol2;PlannedActivity"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#PresenceOfAcuteMI -->
 
-    <clinical:Criterion rdf:about="&study_examples;PresenceOfAcuteMI"/>
+    <owl:Thing rdf:about="&study_examples;PresenceOfAcuteMI">
+        <rdf:type rdf:resource="&clinical;Criterion"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#ProportionIncidentOfStrokeDeathMI -->
 
-    <clinical:Variable rdf:about="&study_examples;ProportionIncidentOfStrokeDeathMI">
+    <owl:Thing rdf:about="&study_examples;ProportionIncidentOfStrokeDeathMI">
+        <rdf:type rdf:resource="&clinical;Variable"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&statistics;Proportion"/>
             </owl:Restriction>
         </rdf:type>
-    </clinical:Variable>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#Some_contact_for_public_inquiries -->
 
-    <clinical:Contact_information rdf:about="&study_examples;Some_contact_for_public_inquiries">
+    <owl:Thing rdf:about="&study_examples;Some_contact_for_public_inquiries">
+        <rdf:type rdf:resource="&clinical;Contact_information"/>
         <clinical:phone_number rdf:datatype="&xsd;string">408-248-2558</clinical:phone_number>
         <clinical:postal_address rdf:datatype="&xsd;string">Some address</clinical:postal_address>
         <clinical:email_address rdf:datatype="&xsd;string">Some@Email.org</clinical:email_address>
-    </clinical:Contact_information>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#StrokeDeathMIStudyOutcomeAnalysis -->
 
     <research:Outcome_analysis_specification rdf:about="&study_examples;StrokeDeathMIStudyOutcomeAnalysis">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
+                <owl:onProperty rdf:resource="&research;has_group"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&research;Population"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&research;has_members"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&research;Randomisation"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&research;assigned_to"/>
+                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1323,33 +1413,8 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_group"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&research;Population"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&research;has_members"/>
-                                <owl:allValuesFrom>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="&research;Randomisation"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="&research;assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
@@ -1360,23 +1425,26 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412 -->
 
-    <clinical:Terminology_code rdf:about="&study_examples;TGN1412">
+    <owl:Thing rdf:about="&study_examples;TGN1412">
+        <rdf:type rdf:resource="&clinical;Terminology_code"/>
         <clinical:preferred_name rdf:datatype="&xsd;string">TGN11412</clinical:preferred_name>
-    </clinical:Terminology_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412Arm -->
 
-    <study_protocol2:PlannedArm rdf:about="&study_examples;TGN1412Arm">
+    <owl:Thing rdf:about="&study_examples;TGN1412Arm">
+        <rdf:type rdf:resource="&study_protocol2;PlannedArm"/>
         <study_protocol:is_described_by rdf:resource="&study_examples;TGN1412PlannedArmSoA"/>
-    </study_protocol2:PlannedArm>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412PlannedArmSoA -->
 
     <study_protocol2:PlannedArmSoA rdf:about="&study_examples;TGN1412PlannedArmSoA">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <clinical:has_part rdf:resource="&study_examples;PlannedSoACellDay-1"/>
         <clinical:has_part rdf:resource="&study_examples;PlannedSoACellDay1-8-10AM"/>
         <clinical:has_part rdf:resource="&study_examples;PlannedSoACellWk1Day1-0.5hPostDose"/>
@@ -1389,7 +1457,8 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412Protocol -->
 
-    <study_protocol2:StudyProtocol rdf:about="&study_examples;TGN1412Protocol">
+    <owl:Thing rdf:about="&study_examples;TGN1412Protocol">
+        <rdf:type rdf:resource="&study_protocol2;StudyProtocol"/>
         <study_protocol:is_divided_into rdf:resource="&study_examples;PlaceboArm"/>
         <study_protocol:is_composed_of rdf:resource="&study_examples;PlannedDeterminationOfAnti-TGN1412Antibody"/>
         <study_protocol:is_composed_of rdf:resource="&study_examples;PlannedFlowCytometry"/>
@@ -1399,27 +1468,31 @@
         <study_protocol:is_composed_of rdf:resource="&study_examples;PlannedVitalSign"/>
         <study_protocol:is_divided_into rdf:resource="&study_examples;TGN1412Arm"/>
         <study_protocol:is_described_by rdf:resource="&study_examples;TGN1412SoA"/>
-    </study_protocol2:StudyProtocol>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412ScreeningSoACell -->
 
-    <study_protocol2:PlannedSoACell rdf:about="&study_examples;TGN1412ScreeningSoACell">
+    <owl:Thing rdf:about="&study_examples;TGN1412ScreeningSoACell">
+        <rdf:type rdf:resource="&study_protocol2;PlannedSoACell"/>
         <study_protocol:identifies_the_time_slot_for rdf:resource="&study_examples;PlannedPhysicalExamination"/>
-    </study_protocol2:PlannedSoACell>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412SoA -->
 
-    <study_protocol2:PlannedArmSoA rdf:about="&study_examples;TGN1412SoA"/>
+    <owl:Thing rdf:about="&study_examples;TGN1412SoA">
+        <rdf:type rdf:resource="&study_protocol2;PlannedArmSoA"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#TGN1412Trial -->
 
     <research:Study rdf:about="&study_examples;TGN1412Trial">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
@@ -1433,36 +1506,46 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#ThrombolyticTherapyArm -->
 
-    <study_protocol2:PlannedArm rdf:about="&study_examples;ThrombolyticTherapyArm"/>
+    <owl:Thing rdf:about="&study_examples;ThrombolyticTherapyArm">
+        <rdf:type rdf:resource="&study_protocol2;PlannedArm"/>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#ThrombolyticTherapyVersusPCIStudyProtocol -->
 
-    <study_protocol2:StudyProtocol rdf:about="&study_examples;ThrombolyticTherapyVersusPCIStudyProtocol">
+    <owl:Thing rdf:about="&study_examples;ThrombolyticTherapyVersusPCIStudyProtocol">
+        <rdf:type rdf:resource="&study_protocol2;StudyProtocol"/>
         <research:planned_sample_size rdf:datatype="&xsd;positiveInteger">400</research:planned_sample_size>
         <statistics:definition rdf:datatype="&xsd;string"
             >The study protocol of the Thrombolytic Therapy versus PCI trial</statistics:definition>
-        <research:public_title rdf:datatype="&xsd;string"
-            >Thrombolytic Therapy versus Primary Percutaneous Intervention</research:public_title>
         <research:scientific_title rdf:datatype="&xsd;string"
             >Thrombolytic Therapy versus Primary Percutaneous Intervention</research:scientific_title>
+        <research:public_title rdf:datatype="&xsd;string"
+            >Thrombolytic Therapy versus Primary Percutaneous Intervention</research:public_title>
         <research:has_health_condition_studied rdf:resource="&snomed_interface;acute_myocardial_infarction_code"/>
         <research:has_experimental_intervention rdf:resource="&snomed_interface;percutaneous_coronary_procedure_code"/>
-        <research:has_control_intervention rdf:resource="&snomed_interface2;heparin_product_code"/>
+        <research:has_control_intervention rdf:resource="&snomed_interface2;heparin_therapy_code"/>
         <research:has_primary_outcome rdf:resource="&study_examples;Composite_MI_stroke_death_study_outcome"/>
         <research:has_eligibility_criterion rdf:resource="&study_examples;CreatinineLessThanOrEqual1.5mgPerdL"/>
         <study_protocol:is_divided_into rdf:resource="&study_examples;PCIArm"/>
         <research:has_eligibility_criterion rdf:resource="&study_examples;PresenceOfAcuteMI"/>
         <research:has_statistical_analysis rdf:resource="&study_examples;StrokeDeathMIStudyOutcomeAnalysis"/>
         <study_protocol:is_divided_into rdf:resource="&study_examples;ThrombolyticTherapyArm"/>
-    </study_protocol2:StudyProtocol>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention -->
 
-    <research:Study rdf:about="&study_examples;Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention">
+    <owl:Thing rdf:about="&study_examples;Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention">
+        <rdf:type rdf:resource="&research;Study"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;prospective"/>
+            </owl:Restriction>
+        </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
@@ -1477,20 +1560,13 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;clinical"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;prospective"/>
+                <owl:onProperty rdf:resource="&research;target_subject"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1502,18 +1578,19 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
+                <owl:someValuesFrom rdf:resource="&research;clinical"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;target_subject"/>
-                <owl:allValuesFrom>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
-                    </owl:Restriction>
-                </owl:allValuesFrom>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
@@ -1533,13 +1610,14 @@
         <research:contact_for_public_queries rdf:resource="&study_examples;Some_contact_for_public_inquiries"/>
         <research:has_study_protocol rdf:resource="&study_examples;ThrombolyticTherapyVersusPCIStudyProtocol"/>
         <research:study_population rdf:resource="#451_randomized"/>
-    </research:Study>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#death_phenomenon -->
 
     <research:Outcome_phenomenon rdf:about="&study_examples;death_phenomenon">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:has_phenomenon rdf:resource="&snomed_interface;death_code"/>
     </research:Outcome_phenomenon>
     
@@ -1548,6 +1626,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#diabetes_phenotype -->
 
     <research:Outcome_phenomenon rdf:about="&study_examples;diabetes_phenotype">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:has_phenomenon rdf:resource="&snomed_interface;diabetes_mellitus_code"/>
     </research:Outcome_phenomenon>
     
@@ -1555,13 +1634,16 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#discharge_time -->
 
-    <clinical:Time_point rdf:about="&study_examples;discharge_time"/>
+    <clinical:Time_point rdf:about="&study_examples;discharge_time">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </clinical:Time_point>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples#stroke_phenomenon -->
 
     <research:Outcome_phenomenon rdf:about="&study_examples;stroke_phenomenon">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:has_phenomenon rdf:resource="&snomed_interface;stroke_code"/>
     </research:Outcome_phenomenon>
     
@@ -1569,13 +1651,16 @@
 
     <!-- http://purl.org/net/OCRe/study_examples#subjectResponse -->
 
-    <research:Subject_outcome rdf:about="&study_examples;subjectResponse"/>
+    <research:Subject_outcome rdf:about="&study_examples;subjectResponse">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </research:Subject_outcome>
     
 
 
     <!-- http://purl.org/net/OCRe/study_examples.owl#451_randomized -->
 
     <research:Randomised_population rdf:about="#451_randomized">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <research:completed rdf:datatype="&xsd;integer">451</research:completed>
     </research:Randomised_population>
     
@@ -1584,6 +1669,7 @@
     <!-- http://purl.org/net/OCRe/study_examples.owl#IncidenceOfStrokeDeathMI -->
 
     <clinical:Variable rdf:about="#IncidenceOfStrokeDeathMI">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
@@ -1595,5 +1681,5 @@
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
 

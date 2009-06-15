@@ -7,14 +7,15 @@
     <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY snomed_interface "http://purl.org/net/OCRe/snomed_interface#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY snomed_interface2 "http://purl.org/net/OCRe/snomed_interface.owl#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
-    <!ENTITY snomed_interface2 "http://purl.org/net/OCRe/snomed_interface.owl#" >
 ]>
 
 
@@ -28,10 +29,11 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:snomed_interface="http://purl.org/net/OCRe/snomed_interface#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:snomed_interface2="http://purl.org/net/OCRe/snomed_interface.owl#"
-     xmlns:clinical="http://purl.org/net/OCRe/clinical#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:clinical="http://purl.org/net/OCRe/clinical#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -49,7 +51,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="&clinical;has_code"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     
 
 
@@ -331,6 +335,17 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/snomed_interface.owl#heparin_therapy -->
+
+    <owl:Class rdf:about="#heparin_therapy">
+        <rdfs:subClassOf rdf:resource="&snomed_interface;therapeutic_procedure"/>
+        <statistics:definition
+            >Therapeutic treatment with heparin</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -345,6 +360,7 @@
     <!-- http://purl.org/net/OCRe/snomed_interface#acute_myocardial_infarction_code -->
 
     <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;acute_myocardial_infarction_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -360,7 +376,8 @@
 
     <!-- http://purl.org/net/OCRe/snomed_interface#creatinine_measurement_serum_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;creatinine_measurement_serum_code">
+    <owl:Thing rdf:about="&snomed_interface;creatinine_measurement_serum_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -368,13 +385,14 @@
             </owl:Restriction>
         </rdf:type>
         <clinical:termcode rdf:datatype="&xsd;string">113075003</clinical:termcode>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#death_code -->
 
     <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;death_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -390,6 +408,7 @@
     <!-- http://purl.org/net/OCRe/snomed_interface#diabetes_mellitus_code -->
 
     <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;diabetes_mellitus_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -402,7 +421,8 @@
 
     <!-- http://purl.org/net/OCRe/snomed_interface#event_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;event_code">
+    <owl:Thing rdf:about="&snomed_interface;event_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -411,13 +431,14 @@
         </rdf:type>
         <clinical:termcode rdf:datatype="&xsd;string">272379006</clinical:termcode>
         <clinical:preferred_name rdf:datatype="&xsd;string">event</clinical:preferred_name>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#laboratory_procedure_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;laboratory_procedure_code">
+    <owl:Thing rdf:about="&snomed_interface;laboratory_procedure_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -425,13 +446,14 @@
             </owl:Restriction>
         </rdf:type>
         <clinical:termcode rdf:datatype="&xsd;string">108252007</clinical:termcode>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#myocardial_infarction_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;myocardial_infarction_code">
+    <owl:Thing rdf:about="&snomed_interface;myocardial_infarction_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -441,13 +463,14 @@
         <clinical:termcode rdf:datatype="&xsd;string">22298006</clinical:termcode>
         <clinical:preferred_name rdf:datatype="&xsd;string"
             >myocardial infarction</clinical:preferred_name>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#percutaneous_coronary_procedure_code -->
 
     <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;percutaneous_coronary_procedure_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -463,7 +486,8 @@
 
     <!-- http://purl.org/net/OCRe/snomed_interface#stroke_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;stroke_code">
+    <owl:Thing rdf:about="&snomed_interface;stroke_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -472,13 +496,14 @@
         </rdf:type>
         <clinical:termcode rdf:datatype="&xsd;string">230690007</clinical:termcode>
         <clinical:preferred_name rdf:datatype="&xsd;string">stroke</clinical:preferred_name>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/snomed_interface#thrombolytic_therapy_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="&snomed_interface;thrombolytic_therapy_code">
+    <owl:Thing rdf:about="&snomed_interface;thrombolytic_therapy_code">
+        <rdf:type rdf:resource="&snomed_interface;SNOMEDCT_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;is_code_for"/>
@@ -488,16 +513,22 @@
         <clinical:termcode rdf:datatype="&xsd;string">426347000</clinical:termcode>
         <clinical:preferred_name rdf:datatype="&xsd;string"
             >Thrombolytic therapy</clinical:preferred_name>
-    </snomed_interface:SNOMEDCT_code>
+    </owl:Thing>
     
 
 
-    <!-- http://purl.org/net/OCRe/snomed_interface.owl#heparin_product_code -->
+    <!-- http://purl.org/net/OCRe/snomed_interface.owl#heparin_therapy_code -->
 
-    <snomed_interface:SNOMEDCT_code rdf:about="#heparin_product_code">
-        <clinical:termcode rdf:datatype="&xsd;string">84812008</clinical:termcode>
-        <clinical:preferred_name rdf:datatype="&xsd;string"
-            >heparin (product)</clinical:preferred_name>
+    <snomed_interface:SNOMEDCT_code rdf:about="#heparin_therapy_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;is_code_for"/>
+                <owl:someValuesFrom rdf:resource="#heparin_therapy"/>
+            </owl:Restriction>
+        </rdf:type>
+        <clinical:termcode rdf:datatype="&xsd;string">103746007</clinical:termcode>
+        <clinical:preferred_name rdf:datatype="&xsd;string">Heparin therapy</clinical:preferred_name>
     </snomed_interface:SNOMEDCT_code>
     
 
@@ -511,6 +542,12 @@
      -->
 
     <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&snomed_interface;stroke_code"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&snomed_interface;Angiotensin-converting_enzyme_inhibitor_agent"/>
@@ -520,15 +557,9 @@
             <rdf:Description rdf:about="&snomed_interface;beta-Blocking_agent"/>
         </owl:members>
     </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="&snomed_interface;stroke_code"/>
-        </owl:distinctMembers>
-    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
 
