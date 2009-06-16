@@ -1,4 +1,4 @@
-; Thu Jun 11 19:01:54 PDT 2009
+; Mon Jun 15 11:12:10 PDT 2009
 ; 
 ;+ (version "3.4")
 ;+ (build "Build 533")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[OCRe-Start-Here_ProjectKB_Class55]
-		[OCRe-Start-Here_ProjectKB_Class56]
-		[OCRe-Start-Here_ProjectKB_Class57]
-		[OCRe-Start-Here_ProjectKB_Class58]
-		[OCRe-Start-Here_ProjectKB_Class59]))
+		[OCRe-Start-Here_ProjectKB_Class10117]
+		[OCRe-Start-Here_ProjectKB_Class10118]
+		[OCRe-Start-Here_ProjectKB_Class10119]
+		[OCRe-Start-Here_ProjectKB_Class10120]
+		[OCRe-Start-Here_ProjectKB_Class10121]))
 
 ([CLSES_TAB] of  Widget
 
@@ -163,6 +163,7 @@
 	(display_multi_parent_class_icon FALSE)
 	(is_readonly FALSE)
 	(tabbed_instance_form_layout TRUE)
+	(undo_enabled TRUE)
 	(update_modification_slots FALSE))
 
 ([Instance_581] of  Widget
@@ -745,7 +746,11 @@
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
 
 ([KB_325529_Class0] of  Map
-)
+
+	(entries
+		[OCRe-Start-Here_ProjectKB_Class10122]
+		[OCRe-Start-Here_ProjectKB_Class10123]
+		[OCRe-Start-Here_ProjectKB_Class10124]))
 
 ([KB_325529_Class4] of  String
 
@@ -763,6 +768,9 @@
 	(name "http://protege.stanford.edu/plugins/owl/protege#ExternalResource")
 	(property_list [XY_Instance_890])
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
+
+([KB_481345_Class0] of  Map
+)
 
 ([KB_632156_Instance_0] of  String
 
@@ -5323,9 +5331,6 @@
 ([KB_941921_Instance_7] of  Property_List
 )
 
-([OCRe-Start-Here_ProjectKB_Class0] of  Map
-)
-
 ([OCRe-Start-Here_ProjectKB_Class1] of  Widget
 
 	(is_hidden TRUE)
@@ -5334,6 +5339,57 @@
 
 ([OCRe-Start-Here_ProjectKB_Class10] of  Property_List
 )
+
+([OCRe-Start-Here_ProjectKB_Class10055] of  String
+
+	(name "KnowledgeTreeTab.TOP_LEVEL_INSTANCE")
+	(string_value "http://purl.org/net/OCRe/study_examples#Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention"))
+
+([OCRe-Start-Here_ProjectKB_Class10117] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([OCRe-Start-Here_ProjectKB_Class10118] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([OCRe-Start-Here_ProjectKB_Class10119] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([OCRe-Start-Here_ProjectKB_Class10120] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([OCRe-Start-Here_ProjectKB_Class10121] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([OCRe-Start-Here_ProjectKB_Class10122] of  Map_Entry
+
+	(key "suppress_instance_counting")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([OCRe-Start-Here_ProjectKB_Class10123] of  Map_Entry
+
+	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([OCRe-Start-Here_ProjectKB_Class10124] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([OCRe-Start-Here_ProjectKB_Class11] of  Widget
 
@@ -5421,7 +5477,7 @@
 
 ([OCRe-Start-Here_ProjectKB_Class29] of  Widget
 
-	(is_hidden TRUE)
+	(is_hidden FALSE)
 	(property_list [OCRe-Start-Here_ProjectKB_Class30])
 	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.KnowledgeTreeTab"))
 
@@ -5432,7 +5488,8 @@
 	(widget_class_name "dfki.protege.ontoviz_tab.OntovizTab"))
 
 ([OCRe-Start-Here_ProjectKB_Class30] of  Property_List
-)
+
+	(properties [OCRe-Start-Here_ProjectKB_Class10055]))
 
 ([OCRe-Start-Here_ProjectKB_Class31] of  Widget
 
@@ -5551,31 +5608,6 @@
 ([OCRe-Start-Here_ProjectKB_Class54] of  Property_List
 )
 
-([OCRe-Start-Here_ProjectKB_Class55] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([OCRe-Start-Here_ProjectKB_Class56] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([OCRe-Start-Here_ProjectKB_Class57] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([OCRe-Start-Here_ProjectKB_Class58] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([OCRe-Start-Here_ProjectKB_Class59] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
 ([OCRe-Start-Here_ProjectKB_Class6] of  Property_List
 )
 
@@ -5621,8 +5653,8 @@
 		[STANDARD_CLASS_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[KB_691299_Instance_398]
-		[KB_313796_Instance_852]
 		[KB_938545_Instance_329]
+		[KB_313796_Instance_852]
 		[KB_713803_Instance_303]
 		[KB_764103_Instance_545]
 		[KB_303942_Instance_68]
@@ -5638,8 +5670,8 @@
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[KB_713803_Instance_648]
 		[KB_938545_Instance_661]
-		[KB_713803_Instance_780]
 		[Instance_443]
+		[KB_713803_Instance_780]
 		[KB_938545_Instance_166])
 	(default_cls_metaclass "http://www.w3.org/2002/07/owl#Class")
 	(default_facet_metaclass ":STANDARD-FACET")
@@ -5655,17 +5687,17 @@
 		":FACET"
 		"http://www.w3.org/2001/XMLSchema#nonPositiveInteger"
 		"http://www.w3.org/2002/07/owl#AllValuesFromRestriction"
-		"http://www.w3.org/2000/01/rdf-schema#range"
 		"http://www.w3.org/2000/01/rdf-schema#Container"
+		"http://www.w3.org/2000/01/rdf-schema#range"
 		":SLOT"
-		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"
 		"http://www.w3.org/2002/07/owl#DatatypeProperty"
+		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"
 		":CREATION-TIMESTAMP"
-		"http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
-		":VALUES"
-		"http://www.w3.org/2002/07/owl#AllDifferent"
-		"http://www.w3.org/2002/07/owl#FunctionalProperty"
 		"http://www.w3.org/2003/11/swrl#body"
+		"http://www.w3.org/2002/07/owl#FunctionalProperty"
+		"http://www.w3.org/2002/07/owl#AllDifferent"
+		":VALUES"
+		"http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
 		"http://www.w3.org/2002/07/owl#MaxCardinalityRestriction"
 		"http://www.w3.org/2001/XMLSchema#gYearMonth"
 		"http://www.w3.org/2002/07/owl#SymmetricProperty"
@@ -5693,15 +5725,15 @@
 		"http://protege.stanford.edu/plugins/owl/protege#DIRECTED-BINARY-RELATION"
 		"http://www.w3.org/2000/01/rdf-schema#Datatype"
 		"http://protege.stanford.edu/plugins/owl/protege#PAL-DESCRIPTION"
-		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"
 		":META-CLASS"
+		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"
 		":PAL-DESCRIPTION"
-		"http://www.w3.org/2001/XMLSchema#duration"
 		":SLOT-DEFAULTS"
+		"http://www.w3.org/2001/XMLSchema#duration"
 		":DIRECT-DOMAIN"
 		"http://www.w3.org/2002/07/owl#AnonymousClass"
-		"http://www.w3.org/2003/11/swrl#AtomList"
 		"http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"
+		"http://www.w3.org/2003/11/swrl#AtomList"
 		"http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"
 		"http://www.w3.org/2002/07/owl#SomeValuesFromRestriction"
 		"http://www.w3.org/2001/XMLSchema#normalizedString"
@@ -5709,25 +5741,25 @@
 		"http://www.w3.org/2003/11/swrl#Atom"
 		"http://www.w3.org/2002/07/owl#sameAs"
 		"http://www.w3.org/2001/XMLSchema#negativeInteger"
-		":ASSOCIATED-FACET"
 		"http://www.w3.org/2002/07/owl#ObjectProperty"
-		":MINIMUM-CARDINALITY"
+		":ASSOCIATED-FACET"
 		":OWL-ANONYMOUS-ROOT"
+		":MINIMUM-CARDINALITY"
 		"http://www.w3.org/2001/XMLSchema#IDREF"
 		":INSTANCE-ANNOTATION"
-		"http://www.w3.org/2002/07/owl#cardinality"
 		"http://www.w3.org/2003/11/swrl#argument2"
-		"http://www.w3.org/1999/02/22-rdf-syntax-ns#subject"
+		"http://www.w3.org/2002/07/owl#cardinality"
 		":SLOT-VALUES"
+		"http://www.w3.org/1999/02/22-rdf-syntax-ns#subject"
 		":STANDARD-FACET"
 		"http://www.w3.org/2002/07/owl#onProperty"
 		"http://www.w3.org/2002/07/owl#complementOf"
 		"http://www.w3.org/2003/11/swrl#SameIndividualAtom"
 		"http://www.w3.org/2000/01/rdf-schema#subPropertyOf"
 		"http://www.w3.org/2001/XMLSchema#ENTITY"
-		"http://www.w3.org/2002/07/owl#distinctMembers"
-		"http://www.w3.org/2003/11/swrl#Builtin"
 		"http://www.w3.org/2003/11/swrl#DataRangeAtom"
+		"http://www.w3.org/2003/11/swrl#Builtin"
+		"http://www.w3.org/2002/07/owl#distinctMembers"
 		"http://www.w3.org/2003/11/swrl#builtin"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#first"
@@ -5849,18 +5881,45 @@
 		[Instance_2534]
 		[Instance_86]
 		[Instance_2600]
-		[FORMS_TAB]
 		[Instance_3234]
+		[KB_865583_Instance_8]
+		[OCRe-Start-Here_ProjectKB_Class43]
+		[OCRe-Start-Here_ProjectKB_Class13]
 		[Instance_43]
 		[CLSES_TAB]
+		[OCRe-Start-Here_ProjectKB_Class41]
 		[KB_865583_Instance_6]
+		[OCRe-Start-Here_ProjectKB_Class17]
+		[FORMS_TAB]
 		[INSTANCES_TAB]
+		[OCRe-Start-Here_ProjectKB_Class31]
+		[OCRe-Start-Here_ProjectKB_Class39]
+		[OCRe-Start-Here_ProjectKB_Class35]
 		[Instance_45]
+		[OCRe-Start-Here_ProjectKB_Class29]
+		[OCRe-Start-Here_ProjectKB_Class7]
+		[OCRe-Start-Here_ProjectKB_Class3]
 		[KB_865583_Instance_12]
-		[KB_865583_Instance_8]
+		[OCRe-Start-Here_ProjectKB_Class53]
+		[OCRe-Start-Here_ProjectKB_Class27]
+		[OCRe-Start-Here_ProjectKB_Class23]
+		[OCRe-Start-Here_ProjectKB_Class25]
+		[OCRe-Start-Here_ProjectKB_Class5]
 		[KB_865583_Instance_4]
 		[SLOTS_TAB]
-		[KB_865583_Instance_10]))
+		[OCRe-Start-Here_ProjectKB_Class9]
+		[KB_865583_Instance_10]
+		[OCRe-Start-Here_ProjectKB_Class1]
+		[OCRe-Start-Here_ProjectKB_Class49]
+		[OCRe-Start-Here_ProjectKB_Class21]
+		[OCRe-Start-Here_ProjectKB_Class19]
+		[OCRe-Start-Here_ProjectKB_Class33]
+		[OCRe-Start-Here_ProjectKB_Class47]
+		[OCRe-Start-Here_ProjectKB_Class15]
+		[OCRe-Start-Here_ProjectKB_Class37]
+		[OCRe-Start-Here_ProjectKB_Class45]
+		[OCRe-Start-Here_ProjectKB_Class51]
+		[OCRe-Start-Here_ProjectKB_Class11]))
 
 ([SLOTS_TAB] of  Widget
 
@@ -6268,19 +6327,6 @@
 
 	(name "vertical_stretcher")
 	(string_value "http://www.w3.org/2002/07/owl#imports"))
-
-([XY_Instance_217] of  Widget
-
-	(height 0)
-	(is_hidden FALSE)
-	(name ":OWL-ONTOLOGY-PREFIXES")
-	(property_list [XY_Instance_218])
-	(width 0)
-	(x 0)
-	(y 0))
-
-([XY_Instance_218] of  Property_List
-)
 
 ([XY_Instance_235] of  Widget
 
