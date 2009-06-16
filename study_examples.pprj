@@ -1,4 +1,4 @@
-; Thu Jun 11 18:39:33 PDT 2009
+; Mon Jun 15 14:08:43 PDT 2009
 ; 
 ;+ (version "3.4")
 ;+ (build "Build 533")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[study_examples_ProjectKB_Class55]
-		[study_examples_ProjectKB_Class56]
-		[study_examples_ProjectKB_Class57]
-		[study_examples_ProjectKB_Class58]
-		[study_examples_ProjectKB_Class59]))
+		[study_examples_ProjectKB_Class289]
+		[study_examples_ProjectKB_Class290]
+		[study_examples_ProjectKB_Class291]
+		[study_examples_ProjectKB_Class292]
+		[study_examples_ProjectKB_Class293]))
 
 ([CLSES_TAB] of  Widget
 
@@ -163,6 +163,7 @@
 	(display_multi_parent_class_icon FALSE)
 	(is_readonly FALSE)
 	(tabbed_instance_form_layout TRUE)
+	(undo_enabled TRUE)
 	(update_modification_slots FALSE))
 
 ([Instance_581] of  Widget
@@ -745,7 +746,11 @@
 	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
 
 ([KB_325529_Class0] of  Map
-)
+
+	(entries
+		[study_examples_ProjectKB_Class294]
+		[study_examples_ProjectKB_Class295]
+		[study_examples_ProjectKB_Class296]))
 
 ([KB_325529_Class4] of  String
 
@@ -5357,6 +5362,7 @@
 		[KB_303942_Instance_68]
 		[Instance_1005]
 		[KB_465546_Instance_567]
+		[study_examples_ProjectKB_Class177]
 		[Instance_581]
 		[KB_691299_Instance_537]
 		[KB_713803_Instance_390]
@@ -5397,6 +5403,7 @@
 		"http://www.w3.org/2003/11/swrl#body"
 		"http://www.w3.org/2002/07/owl#MaxCardinalityRestriction"
 		"http://www.w3.org/2001/XMLSchema#gYearMonth"
+		"http://protege.stanford.edu/plugins/owl/protege#ExternalResource"
 		"http://www.w3.org/2002/07/owl#SymmetricProperty"
 		"http://www.w3.org/2000/01/rdf-schema#domain"
 		"http://www.w3.org/2001/XMLSchema#double"
@@ -5578,18 +5585,45 @@
 		[Instance_2534]
 		[Instance_86]
 		[Instance_2600]
-		[FORMS_TAB]
 		[Instance_3234]
+		[KB_865583_Instance_8]
+		[study_examples_ProjectKB_Class43]
+		[study_examples_ProjectKB_Class13]
 		[Instance_43]
 		[CLSES_TAB]
+		[study_examples_ProjectKB_Class41]
 		[KB_865583_Instance_6]
+		[study_examples_ProjectKB_Class17]
+		[FORMS_TAB]
 		[INSTANCES_TAB]
+		[study_examples_ProjectKB_Class31]
+		[study_examples_ProjectKB_Class39]
+		[study_examples_ProjectKB_Class35]
 		[Instance_45]
+		[study_examples_ProjectKB_Class29]
+		[study_examples_ProjectKB_Class7]
+		[study_examples_ProjectKB_Class3]
 		[KB_865583_Instance_12]
-		[KB_865583_Instance_8]
+		[study_examples_ProjectKB_Class53]
+		[study_examples_ProjectKB_Class27]
+		[study_examples_ProjectKB_Class23]
+		[study_examples_ProjectKB_Class25]
+		[study_examples_ProjectKB_Class5]
 		[KB_865583_Instance_4]
 		[SLOTS_TAB]
-		[KB_865583_Instance_10]))
+		[study_examples_ProjectKB_Class9]
+		[KB_865583_Instance_10]
+		[study_examples_ProjectKB_Class1]
+		[study_examples_ProjectKB_Class49]
+		[study_examples_ProjectKB_Class21]
+		[study_examples_ProjectKB_Class19]
+		[study_examples_ProjectKB_Class33]
+		[study_examples_ProjectKB_Class47]
+		[study_examples_ProjectKB_Class15]
+		[study_examples_ProjectKB_Class37]
+		[study_examples_ProjectKB_Class45]
+		[study_examples_ProjectKB_Class51]
+		[study_examples_ProjectKB_Class11]))
 
 ([SLOTS_TAB] of  Widget
 
@@ -5649,6 +5683,11 @@
 	(property_list [study_examples_ProjectKB_Class12])
 	(widget_class_name "edu.stanford.smi.RemoteKBTab.WordNetTab"))
 
+([study_examples_ProjectKB_Class115] of  String
+
+	(name "KnowledgeTreeTab.TOP_LEVEL_INSTANCE")
+	(string_value "http://purl.org/net/OCRe/study_examples#Thrombolytic_Therapy_versus_Primary_Percutaneous_Intervention"))
+
 ([study_examples_ProjectKB_Class12] of  Property_List
 )
 
@@ -5676,8 +5715,86 @@
 	(property_list [study_examples_ProjectKB_Class18])
 	(widget_class_name "edu.stanford.smi.protegex.fctab.FacetConstraintsTab"))
 
+([study_examples_ProjectKB_Class177] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://purl.org/net/OCRe/research.owl#Investigator")
+	(property_list [study_examples_ProjectKB_Class180])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.OWLFormWidget"))
+
 ([study_examples_ProjectKB_Class18] of  Property_List
 )
+
+([study_examples_ProjectKB_Class180] of  Property_List
+
+	(properties
+		[study_examples_ProjectKB_Class181]
+		[study_examples_ProjectKB_Class184]
+		[study_examples_ProjectKB_Class187]
+		[study_examples_ProjectKB_Class190]
+		[study_examples_ProjectKB_Class192]
+		[study_examples_ProjectKB_Class194]
+		[study_examples_ProjectKB_Class196]
+		[study_examples_ProjectKB_Class198]
+		[study_examples_ProjectKB_Class200]
+		[study_examples_ProjectKB_Class202]))
+
+([study_examples_ProjectKB_Class181] of  Widget
+
+	(height 0)
+	(is_hidden FALSE)
+	(label "Name")
+	(name ":NAME")
+	(property_list [study_examples_ProjectKB_Class182])
+	(width 0)
+	(x 0)
+	(y 0))
+
+([study_examples_ProjectKB_Class182] of  Property_List
+
+	(properties [study_examples_ProjectKB_Class183]))
+
+([study_examples_ProjectKB_Class183] of  Boolean
+
+	(boolean_value TRUE)
+	(name "DisabledByUser"))
+
+([study_examples_ProjectKB_Class184] of  Property_List
+
+	(name "layout properties")
+	(properties
+		[study_examples_ProjectKB_Class185]
+		[study_examples_ProjectKB_Class186]))
+
+([study_examples_ProjectKB_Class185] of  String
+
+	(name "horizontal_stretcher")
+	(string_value "<<all>>"))
+
+([study_examples_ProjectKB_Class186] of  String
+
+	(name "vertical_stretcher")
+	(string_value "<<none>>"))
+
+([study_examples_ProjectKB_Class187] of  Widget
+
+	(height 180)
+	(is_hidden FALSE)
+	(name "http://protege.stanford.edu/plugins/owl/protege#inferredType")
+	(property_list [study_examples_ProjectKB_Class188])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.HeaderWidget")
+	(width 550)
+	(x 0)
+	(y 0))
+
+([study_examples_ProjectKB_Class188] of  Property_List
+
+	(properties [study_examples_ProjectKB_Class189]))
+
+([study_examples_ProjectKB_Class189] of  Boolean
+
+	(boolean_value FALSE)
+	(name "DisabledByUser"))
 
 ([study_examples_ProjectKB_Class19] of  Widget
 
@@ -5685,10 +5802,82 @@
 	(property_list [study_examples_ProjectKB_Class20])
 	(widget_class_name "edu.stanford.smi.protegex.changes.changesKBViewTab.ChangesKBViewTab"))
 
+([study_examples_ProjectKB_Class190] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2002/07/owl#versionInfo")
+	(property_list [study_examples_ProjectKB_Class191]))
+
+([study_examples_ProjectKB_Class191] of  Property_List
+)
+
+([study_examples_ProjectKB_Class192] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#isDefinedBy")
+	(property_list [study_examples_ProjectKB_Class193]))
+
+([study_examples_ProjectKB_Class193] of  Property_List
+)
+
+([study_examples_ProjectKB_Class194] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#comment")
+	(property_list [study_examples_ProjectKB_Class195]))
+
+([study_examples_ProjectKB_Class195] of  Property_List
+)
+
+([study_examples_ProjectKB_Class196] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#seeAlso")
+	(property_list [study_examples_ProjectKB_Class197]))
+
+([study_examples_ProjectKB_Class197] of  Property_List
+)
+
+([study_examples_ProjectKB_Class198] of  Widget
+
+	(is_hidden FALSE)
+	(name "http://www.w3.org/2000/01/rdf-schema#label")
+	(property_list [study_examples_ProjectKB_Class199]))
+
+([study_examples_ProjectKB_Class199] of  Property_List
+)
+
 ([study_examples_ProjectKB_Class2] of  Property_List
 )
 
 ([study_examples_ProjectKB_Class20] of  Property_List
+)
+
+([study_examples_ProjectKB_Class200] of  Widget
+
+	(height 0)
+	(is_hidden FALSE)
+	(name "http://purl.org/net/OCRe/research.owl#is_represented_by")
+	(property_list [study_examples_ProjectKB_Class201])
+	(width 0)
+	(x 0)
+	(y 0))
+
+([study_examples_ProjectKB_Class201] of  Property_List
+)
+
+([study_examples_ProjectKB_Class202] of  Widget
+
+	(height 120)
+	(is_hidden FALSE)
+	(name "http://purl.org/net/OCRe/research.owl#is_played_by")
+	(property_list [study_examples_ProjectKB_Class203])
+	(widget_class_name "edu.stanford.smi.protegex.owl.ui.widget.MultiResourceWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([study_examples_ProjectKB_Class203] of  Property_List
 )
 
 ([study_examples_ProjectKB_Class21] of  Widget
@@ -5727,11 +5916,57 @@
 ([study_examples_ProjectKB_Class28] of  Property_List
 )
 
+([study_examples_ProjectKB_Class289] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
 ([study_examples_ProjectKB_Class29] of  Widget
 
-	(is_hidden TRUE)
+	(is_hidden FALSE)
 	(property_list [study_examples_ProjectKB_Class30])
 	(widget_class_name "edu.stanford.smi.protege.widget.instance_tree.KnowledgeTreeTab"))
+
+([study_examples_ProjectKB_Class290] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([study_examples_ProjectKB_Class291] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([study_examples_ProjectKB_Class292] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([study_examples_ProjectKB_Class293] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([study_examples_ProjectKB_Class294] of  Map_Entry
+
+	(key "suppress_instance_counting")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([study_examples_ProjectKB_Class295] of  Map_Entry
+
+	(key "change_tracking_active")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
+
+([study_examples_ProjectKB_Class296] of  Map_Entry
+
+	(key "add_name_on_instance_form")
+	(key_class "java.lang.String")
+	(value "false")
+	(value_class "java.lang.String"))
 
 ([study_examples_ProjectKB_Class3] of  Widget
 
@@ -5740,7 +5975,8 @@
 	(widget_class_name "dfki.protege.ontoviz_tab.OntovizTab"))
 
 ([study_examples_ProjectKB_Class30] of  Property_List
-)
+
+	(properties [study_examples_ProjectKB_Class115]))
 
 ([study_examples_ProjectKB_Class31] of  Widget
 
@@ -5858,31 +6094,6 @@
 
 ([study_examples_ProjectKB_Class54] of  Property_List
 )
-
-([study_examples_ProjectKB_Class55] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([study_examples_ProjectKB_Class56] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([study_examples_ProjectKB_Class57] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([study_examples_ProjectKB_Class58] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([study_examples_ProjectKB_Class59] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
 
 ([study_examples_ProjectKB_Class6] of  Property_List
 )
@@ -7516,6 +7727,7 @@
 	(properties
 		[XY_Instance_893]
 		[XY_Instance_897]
+		[XY_Instance_900]
 		[XY_Instance_906]
 		[XY_Instance_910]
 		[XY_Instance_912]

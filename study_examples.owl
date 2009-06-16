@@ -8,13 +8,12 @@
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
-    <!ENTITY research "http://purl.org/net/OCRe/research#" >
+    <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY ontologies "http://purl.org/net/OCRe/ontologies/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
-    <!ENTITY research2 "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY clinical2 "http://purl.org/net/OCRe/clinical.owl#" >
     <!ENTITY study_examples "http://purl.org/net/OCRe/study_examples#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
@@ -35,7 +34,7 @@
 <rdf:RDF xmlns="http://purl.org/net/OCRe/study_examples.owl#"
      xml:base="http://purl.org/net/OCRe/study_examples.owl"
      xmlns:study_protocol2="http://purl.org/net/OCRe/study_protocol#"
-     xmlns:research2="http://purl.org/net/OCRe/research.owl#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
      xmlns:time="http://purl.oclc.org/NET/muo/ucum/unit/time/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
@@ -46,7 +45,6 @@
      xmlns:snomed_interface="http://purl.org/net/OCRe/snomed_interface#"
      xmlns:snomed_interface2="http://purl.org/net/OCRe/snomed_interface.owl#"
      xmlns:clinical="http://purl.org/net/OCRe/clinical#"
-     xmlns:research="http://purl.org/net/OCRe/research#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:study_examples3="&study_examples;6"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
@@ -178,165 +176,177 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research#assigned_to -->
+    <!-- http://purl.org/net/OCRe/research.owl#assigned_to -->
 
     <owl:ObjectProperty rdf:about="&research;assigned_to"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#contact_for_public_queries -->
+    <!-- http://purl.org/net/OCRe/research.owl#contact_for_public_queries -->
 
     <owl:ObjectProperty rdf:about="&research;contact_for_public_queries"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_analysis_method -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_analysis_method -->
 
     <owl:ObjectProperty rdf:about="&research;has_analysis_method"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_assessment_time -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_assessment_time -->
 
     <owl:ObjectProperty rdf:about="&research;has_assessment_time"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_baseline_characterisitc -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_baseline_characterisitc -->
 
     <owl:ObjectProperty rdf:about="&research;has_baseline_characterisitc"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_control_intervention -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_control_intervention -->
 
     <owl:ObjectProperty rdf:about="&research;has_control_intervention"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_eligibility_criterion -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_eligibility_criterion -->
 
     <owl:ObjectProperty rdf:about="&research;has_eligibility_criterion"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_experimental_intervention -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_experimental_intervention -->
 
     <owl:ObjectProperty rdf:about="&research;has_experimental_intervention"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_group -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_group -->
 
     <owl:ObjectProperty rdf:about="&research;has_group"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_health_condition_studied -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_health_condition_studied -->
 
     <owl:ObjectProperty rdf:about="&research;has_health_condition_studied"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_members -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_members -->
 
     <owl:ObjectProperty rdf:about="&research;has_members"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_outcome_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_outcome_phenomenon -->
 
     <owl:ObjectProperty rdf:about="&research;has_outcome_phenomenon"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_outcome_variable_characteristic -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_outcome_variable_characteristic -->
 
     <owl:ObjectProperty rdf:about="&research;has_outcome_variable_characteristic"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_phenomenon -->
 
     <owl:ObjectProperty rdf:about="&research;has_phenomenon"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_population -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_population -->
 
     <owl:ObjectProperty rdf:about="&research;has_population"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_primary_outcome -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_primary_outcome -->
 
     <owl:ObjectProperty rdf:about="&research;has_primary_outcome"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_statistical_analysis -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_statistical_analysis -->
 
     <owl:ObjectProperty rdf:about="&research;has_statistical_analysis"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_study_characteristic -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_study_characteristic -->
 
     <owl:ObjectProperty rdf:about="&research;has_study_characteristic"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_study_outcome_variable -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_study_outcome_variable -->
 
     <owl:ObjectProperty rdf:about="&research;has_study_outcome_variable"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_study_protocol -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_study_protocol -->
 
     <owl:ObjectProperty rdf:about="&research;has_study_protocol"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#has_subject_outcome_variable -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_subject_outcome_variable -->
 
     <owl:ObjectProperty rdf:about="&research;has_subject_outcome_variable"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#is_derived_from -->
+    <!-- http://purl.org/net/OCRe/research.owl#is_derived_from -->
 
     <owl:ObjectProperty rdf:about="&research;is_derived_from"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#is_eligibility_criterion_of -->
+    <!-- http://purl.org/net/OCRe/research.owl#is_eligibility_criterion_of -->
 
     <owl:ObjectProperty rdf:about="&research;is_eligibility_criterion_of"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#principal_investigator -->
+    <!-- http://purl.org/net/OCRe/research.owl#principal_investigator -->
 
     <owl:ObjectProperty rdf:about="&research;principal_investigator"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#procedes_in_plan -->
+    <!-- http://purl.org/net/OCRe/research.owl#procedes_in_plan -->
 
     <owl:ObjectProperty rdf:about="&research;procedes_in_plan"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#study_population -->
+    <!-- http://purl.org/net/OCRe/research.owl#study_population -->
 
     <owl:ObjectProperty rdf:about="&research;study_population"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#target_subject -->
+    <!-- http://purl.org/net/OCRe/research.owl#target_subject -->
 
     <owl:ObjectProperty rdf:about="&research;target_subject"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#onDatatype -->
+
+    <owl:ObjectProperty rdf:about="&owl;onDatatype"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#withRestrictions -->
+
+    <owl:ObjectProperty rdf:about="&owl;withRestrictions"/>
     
 
 
@@ -393,37 +403,37 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research#NCT_number -->
+    <!-- http://purl.org/net/OCRe/research.owl#NCT_number -->
 
     <owl:DatatypeProperty rdf:about="&research;NCT_number"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#completed -->
+    <!-- http://purl.org/net/OCRe/research.owl#completed -->
 
     <owl:DatatypeProperty rdf:about="&research;completed"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#date_of_first_enrollment -->
+    <!-- http://purl.org/net/OCRe/research.owl#date_of_first_enrollment -->
 
     <owl:DatatypeProperty rdf:about="&research;date_of_first_enrollment"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#planned_sample_size -->
+    <!-- http://purl.org/net/OCRe/research.owl#planned_sample_size -->
 
     <owl:DatatypeProperty rdf:about="&research;planned_sample_size"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#public_title -->
+    <!-- http://purl.org/net/OCRe/research.owl#public_title -->
 
     <owl:DatatypeProperty rdf:about="&research;public_title"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#scientific_title -->
+    <!-- http://purl.org/net/OCRe/research.owl#scientific_title -->
 
     <owl:DatatypeProperty rdf:about="&research;scientific_title"/>
     
@@ -431,7 +441,13 @@
 
     <!-- http://purl.org/net/OCRe/research.owl#date_of_last_enrollment -->
 
-    <owl:DatatypeProperty rdf:about="&research2;date_of_last_enrollment"/>
+    <owl:DatatypeProperty rdf:about="&research;date_of_last_enrollment"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#maxInclusive -->
+
+    <owl:DatatypeProperty rdf:about="&xsd;maxInclusive"/>
     
 
 
@@ -552,7 +568,10 @@
 
     <!-- http://purl.org/net/OCRe/clinical#Unit_of_measure -->
 
-    <owl:Class rdf:about="&clinical;Unit_of_measure"/>
+    <owl:Class rdf:about="&clinical;Unit_of_measure">
+        <statistics:definition
+            >Measurement units are standards for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property. Under our ontological approach, units are abstract spaces used as a reference metrics for quality spaces, such as physical qualia, and they are counted by some number. For instance, weight-units define some quality spaces for the weight-quality where specific weights of objects, like devices or persons, are located by means of comparisons with the proper weight-value of the selected weight-unit.</statistics:definition>
+    </owl:Class>
     
 
 
@@ -580,103 +599,103 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Completed -->
+    <!-- http://purl.org/net/OCRe/research.owl#Completed -->
 
     <owl:Class rdf:about="&research;Completed"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Completed_recruiting -->
+    <!-- http://purl.org/net/OCRe/research.owl#Completed_recruiting -->
 
     <owl:Class rdf:about="&research;Completed_recruiting"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Diagnostic_test -->
+    <!-- http://purl.org/net/OCRe/research.owl#Diagnostic_test -->
 
     <owl:Class rdf:about="&research;Diagnostic_test"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Intervention_or_exposure -->
+    <!-- http://purl.org/net/OCRe/research.owl#Intervention_or_exposure -->
 
     <owl:Class rdf:about="&research;Intervention_or_exposure"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Interventional_study -->
+    <!-- http://purl.org/net/OCRe/research.owl#Interventional_study -->
 
     <owl:Class rdf:about="&research;Interventional_study"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Investigator -->
+    <!-- http://purl.org/net/OCRe/research.owl#Investigator -->
 
     <owl:Class rdf:about="&research;Investigator"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Outcome_analysis_specification -->
+    <!-- http://purl.org/net/OCRe/research.owl#Outcome_analysis_specification -->
 
     <owl:Class rdf:about="&research;Outcome_analysis_specification"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Outcome_phenomenon -->
+    <!-- http://purl.org/net/OCRe/research.owl#Outcome_phenomenon -->
 
     <owl:Class rdf:about="&research;Outcome_phenomenon"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Population -->
+    <!-- http://purl.org/net/OCRe/research.owl#Population -->
 
     <owl:Class rdf:about="&research;Population"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Randomisation -->
+    <!-- http://purl.org/net/OCRe/research.owl#Randomisation -->
 
     <owl:Class rdf:about="&research;Randomisation"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Randomised_population -->
+    <!-- http://purl.org/net/OCRe/research.owl#Randomised_population -->
 
     <owl:Class rdf:about="&research;Randomised_population"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Randomized_allocation -->
+    <!-- http://purl.org/net/OCRe/research.owl#Randomized_allocation -->
 
     <owl:Class rdf:about="&research;Randomized_allocation"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Study -->
+    <!-- http://purl.org/net/OCRe/research.owl#Study -->
 
     <owl:Class rdf:about="&research;Study"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Study_outcome -->
+    <!-- http://purl.org/net/OCRe/research.owl#Study_outcome -->
 
     <owl:Class rdf:about="&research;Study_outcome"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Subject_outcome -->
+    <!-- http://purl.org/net/OCRe/research.owl#Subject_outcome -->
 
     <owl:Class rdf:about="&research;Subject_outcome"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#clinical -->
+    <!-- http://purl.org/net/OCRe/research.owl#clinical -->
 
     <owl:Class rdf:about="&research;clinical"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#prospective -->
+    <!-- http://purl.org/net/OCRe/research.owl#prospective -->
 
     <owl:Class rdf:about="&research;prospective"/>
     
@@ -772,6 +791,12 @@
     
 
 
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -803,49 +828,49 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Completed_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Completed_code -->
 
     <owl:Thing rdf:about="&research;Completed_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Completed_recruiting_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Completed_recruiting_code -->
 
     <owl:Thing rdf:about="&research;Completed_recruiting_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Interventional_study_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Interventional_study_code -->
 
     <owl:Thing rdf:about="&research;Interventional_study_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Open_blinding_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Open_blinding_code -->
 
     <owl:Thing rdf:about="&research;Open_blinding_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Prospective_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Prospective_code -->
 
     <owl:Thing rdf:about="&research;Prospective_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Randomized_allocation_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Randomized_allocation_code -->
 
     <owl:Thing rdf:about="&research;Randomized_allocation_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#Treatment_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#Treatment_code -->
 
     <owl:Thing rdf:about="&research;Treatment_code"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research#clinical_trial_code -->
+    <!-- http://purl.org/net/OCRe/research.owl#clinical_trial_code -->
 
     <owl:Thing rdf:about="&research;clinical_trial_code"/>
     
@@ -1014,17 +1039,7 @@
                                             </owl:Restriction>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="&clinical;realvalue"/>
-                                                <owl:someValuesFrom>
-                                                    <rdf:Description>
-                                                        <rdf:type rdf:resource="&rdfs;Datatype"/>
-                                                        <owl:onDatatype rdf:resource="&xsd;float"/>
-                                                        <owl:withRestrictions rdf:parseType="Collection">
-                                                            <rdf:Description>
-                                                                <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
-                                                            </rdf:Description>
-                                                        </owl:withRestrictions>
-                                                    </rdf:Description>
-                                                </owl:someValuesFrom>
+                                                <owl:someValuesFrom rdf:resource="#genid18"/>
                                             </owl:Restriction>
                                         </owl:intersectionOf>
                                     </owl:Class>
@@ -1367,7 +1382,7 @@
                                                     <rdf:Description rdf:about="&research;Randomisation"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="&research;assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
+                                                        <owl:hasValue rdf:resource="&study_examples;ThrombolyticTherapyArm"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -1378,6 +1393,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1398,7 +1419,7 @@
                                                     <rdf:Description rdf:about="&research;Randomisation"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="&research;assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&study_examples;ThrombolyticTherapyArm"/>
+                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -1409,12 +1430,6 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
@@ -1549,13 +1564,13 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
+                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed"/>
+                <owl:someValuesFrom rdf:resource="&research;clinical"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1572,29 +1587,29 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Treatment"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;clinical"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
+                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
-        <research2:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17</research2:date_of_last_enrollment>
+        <research:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17</research:date_of_last_enrollment>
         <research:NCT_number rdf:datatype="&xsd;string">some_NCT_number</research:NCT_number>
         <research:has_study_characteristic rdf:resource="&research;Completed_code"/>
         <research:has_study_characteristic rdf:resource="&research;Completed_recruiting_code"/>
@@ -1677,9 +1692,37 @@
             </owl:Restriction>
         </rdf:type>
     </clinical:Variable>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid18 -->
+
+    <rdf:Description>
+        <owl:onDatatype rdf:resource="&xsd;float"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid19 -->
+
+    <rdf:Description>
+        <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid20 -->
+
+    <rdf:Description/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#float -->
+
+    <rdf:Description rdf:about="&xsd;float"/>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
 
