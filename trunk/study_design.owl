@@ -9,7 +9,9 @@
     <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
     <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY study_design2 "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
 ]>
 
 
@@ -17,6 +19,8 @@
      xml:base="http://purl.org/net/OCRe/study_design.owl"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:study_design="http://purl.org/net/OCRe/study_design#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:study_design2="http://purl.org/net/OCRe/study_design.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
      xmlns:research="http://purl.org/net/OCRe/research.owl#"
@@ -38,6 +42,8 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     
 
@@ -293,32 +299,15 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Decision_analysis_study -->
-
-    <owl:Class rdf:about="&research;Decision_analysis_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;No_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Decision_strategy -->
 
     <owl:Class rdf:about="&research;Decision_strategy">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An option in the decision-making process.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: Ask Ida to review this definition</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -341,6 +330,9 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >Epidemiological study in which the unit of observation is a population or community. [Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -407,6 +399,9 @@
 
     <owl:Class rdf:about="&research;Human_subject">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:definition
+            >An individual about whom an investigator conducting research obtains data through intervention or interaction with individual or identifiable private information. [45 CFR &#167;46.102(f)]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -452,6 +447,8 @@
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <study_protocol:develop_comment
+            >Simona: This category is not in the most recent study design categorizer</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -560,20 +557,8 @@
 
     <owl:Class rdf:about="&research;Measurement_instrument">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Meta-analysis_study -->
-
-    <owl:Class rdf:about="&research;Meta-analysis_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <study_protocol:develop_comment
+            >Simona: this should be removed if not referenced</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -820,20 +805,9 @@
 
     <owl:Class rdf:about="&research;Policy">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Policy_analysis_study -->
-
-    <owl:Class rdf:about="&research;Policy_analysis_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Policy"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A deliberate plan of action to guide decisions and achieve rational outcome(s). [Wikipedia]</statistics:definition>
     </owl:Class>
     
 
@@ -842,6 +816,10 @@
 
     <owl:Class rdf:about="&research;Population_as_unit_of_analysis">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:definition
+            >The group of people being studied, usually by taking samples from that population. Populations may
+be defined by any characteristics e.g. geography, age group, certain diseases. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1023,6 +1001,9 @@
 
     <owl:Class rdf:about="&research;Studies_as_unit_of_analysis">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A study is a detailed investigation and analysis of a subject or situation.</statistics:definition>
     </owl:Class>
     
 
@@ -1154,6 +1135,203 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-benefit_analysis -->
+
+    <owl:Class rdf:about="#Cost-benefit_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: changed old Decision_analysis_study to current name. 
+Ask Ida to review this definition</study_protocol:develop_comment>
+        <statistics:definition
+            >An economic analysis that converts effects into the same monetary terms as costs and compares them. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-effectiveness_analysis -->
+
+    <owl:Class rdf:about="#Cost-effectiveness_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >An economic analysis that views effects in terms of overall health specific to the problem, and describes the costs for some additional health gain (e.g. cost per additional stroke prevented). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <study_protocol:develop_comment
+            >Ask Ida to review this definition</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-utility_analysis -->
+
+    <owl:Class rdf:about="#Cost-utility_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An economic analysis that expresses effects as overall health improvement and describes how much it costs for some additional utility gain (e.g. cost per additional quality-adjusted life-year). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: I found this in the Glossary</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Decision_analysis -->
+
+    <owl:Class rdf:about="#Decision_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;No_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: changed old Decision_analysis_study to current name. 
+Ask Ida to review this definition</study_protocol:develop_comment>
+        <statistics:definition
+            >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Meta-analysis -->
+
+    <owl:Class rdf:about="#Meta-analysis">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <study_protocol:develop_comment
+            >Simona: I suggest to remove this class and have systematic review instead</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Model_organism -->
+
+    <owl:Class rdf:about="#Model_organism">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A species that has been widely studied, usually because it is easy to maintain and breed in a laboratory setting and has particular experimental advantages. We can distinguish three major types of model organism: genetic, experimental and genomic. [http://genome.wellcome.ac.uk/doc_WTD020803.html]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Model_organism_study -->
+
+    <owl:Class rdf:about="#Model_organism_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="#Model_organism"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >A study that uses or collects measurements or assessments about a model organism.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Policy_analysis -->
+
+    <owl:Class rdf:about="#Policy_analysis">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Policy"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <study_protocol:develop_comment
+            >Simona: changed old Policy_analysis_study to current name</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Policy analysis can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Systematic_review -->
+
+    <owl:Class rdf:about="#Systematic_review">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1165,9 +1343,27 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
+            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
+            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&research;Control_group_cardinality"/>
             <rdf:Description rdf:about="&research;Control_group_locality"/>
             <rdf:Description rdf:about="&research;Control_group_type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
+            <rdf:Description rdf:about="&research;Location_of_observation"/>
+            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
+            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
+            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1187,27 +1383,9 @@
             <rdf:Description rdf:about="&research;Policy"/>
         </owl:members>
     </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
-            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
-            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
-            <rdf:Description rdf:about="&research;Location_of_observation"/>
-            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
-            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
-            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
 
