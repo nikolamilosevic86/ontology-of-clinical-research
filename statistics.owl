@@ -3,12 +3,17 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
 ]>
 
 
@@ -16,12 +21,20 @@
      xml:base="http://purl.org/net/OCRe/statistics.owl"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#">
-    <owl:Ontology rdf:about=""/>
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ontology of objects and relationships in statistics that are useful for describing statistical analysis used in human studies. It is part of the Ontology for Clinical Research (OCRe).</rdfs:comment>
+    </owl:Ontology>
     
 
 
@@ -33,9 +46,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="#synonym"/>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     <owl:AnnotationProperty rdf:about="#definition"/>
-    <owl:AnnotationProperty rdf:about="#curator"/>
     
 
 
@@ -53,6 +66,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable_distribution -->
 
     <owl:ObjectProperty rdf:about="#has_dependent_variable_distribution">
+        <definition
+            >The probability distribution of the dependent variable in a plan for statistical analysis</definition>
+        <rdfs:range rdf:resource="#Probability_Distribution"/>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -61,8 +78,18 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable_type -->
 
     <owl:ObjectProperty rdf:about="#has_dependent_variable_type">
-        <rdfs:range rdf:resource="#Variable_type"/>
+        <definition
+            >The data type of dependent variable in a plan for a statistical analysis</definition>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Composite_variable_type"/>
+                    <rdf:Description rdf:about="#Simple_variable_type"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -70,7 +97,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable_distribution -->
 
     <owl:ObjectProperty rdf:about="#has_independent_variable_distribution">
-        <rdfs:range rdf:resource="#Distribution"/>
+        <definition
+            >The probability distribution of an independent variable in a plan for statistical analysis</definition>
+        <rdfs:range rdf:resource="#Probability_Distribution"/>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -79,15 +109,54 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable_type -->
 
     <owl:ObjectProperty rdf:about="#has_independent_variable_type">
-        <rdfs:range rdf:resource="#Variable_type"/>
+        <definition
+            >The data type of independent variable in a plan for a statistical analysis</definition>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Composite_variable_type"/>
+                    <rdf:Description rdf:about="#Simple_variable_type"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_permissible_method -->
+
+    <owl:ObjectProperty rdf:about="#has_permissible_method">
+        <definition
+            >A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
+        <rdfs:range rdf:resource="#Statistical_method"/>
+        <owl:inverseOf rdf:resource="#is_permissible_method_of"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_number_of_dependent_variables -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#is_permissible_method_of -->
 
-    <owl:ObjectProperty rdf:about="#has_number_of_dependent_variables">
+    <owl:ObjectProperty rdf:about="#is_permissible_method_of">
+        <definition
+            >A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
+        <rdfs:range rdf:resource="#Statistical_analysis_type"/>
+        <rdfs:domain rdf:resource="#Statistical_method"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#is_univariate_or_multivariate -->
+
+    <owl:ObjectProperty rdf:about="#is_univariate_or_multivariate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <definition
+            >Whether the independent variables in a plan for statistical analysis is univariate or multivariate</definition>
+        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
         <rdfs:range>
             <owl:Class>
@@ -97,72 +166,18 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_number_of_independent_variables -->
-
-    <owl:ObjectProperty rdf:about="#has_number_of_independent_variables">
-        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#multivariate"/>
-                    <rdf:Description rdf:about="#univariate"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_possible_method -->
-
-    <owl:ObjectProperty rdf:about="#has_possible_method">
-        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#statistics_property -->
 
-    <owl:ObjectProperty rdf:about="#statistics_property"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable_cardinality -->
-
-    <owl:DatatypeProperty rdf:about="#has_dependent_variable_cardinality">
-        <rdfs:subPropertyOf rdf:resource="#statistics_data_property"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable_cardinality -->
-
-    <owl:DatatypeProperty rdf:about="#has_independent_variable_cardinality">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:subPropertyOf rdf:resource="#statistics_data_property"/>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#statistics_data_property -->
-
-    <owl:DatatypeProperty rdf:about="#statistics_data_property"/>
+    <owl:ObjectProperty rdf:about="#statistics_property">
+        <definition
+            >A property of a statistical concept</definition>
+        <rdfs:domain rdf:resource="#Statistical_concept"/>
+        <rdfs:range rdf:resource="#Statistical_concept"/>
+    </owl:ObjectProperty>
     
 
 
@@ -177,9 +192,401 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Actuarial_model -->
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_dichotomous -->
 
-    <owl:Class rdf:about="#Actuarial_model">
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_nominal_cardinalityGT2"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is polychotomous and independent variable is dichotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_nominalGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_nominal_cardinalityGT2"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is polychotomous and independent variable is polychotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_ordinal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_nominal_cardinalityGT2"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Spearmans_rank_correlation_coefficient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is polychotomous and independent variable is ordinal</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_quantitative">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_nominal_cardinalityGT2"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Spearmans_rank_correlation_coefficient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is polychotomous and independent variable is quantitative</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_ordinal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_ordinal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is ordinal and independent variable is dichotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_nominalGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_ordinal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_ordinal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Kruskal_Wallis_method"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is ordinal and independent variable is polychotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_ordinal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_ordinal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_ordinal"/>
+        <definition
+            >A univariate analysis where the dependent variable is ordinal and independent variable is ordinal</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_quantitative">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_ordinal"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_ordinal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Spearmans_rank_correlation_coefficient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is ordinal and independent variable is quantitative</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_quantitative"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_quantitative"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Students_t_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is quantitative and independent variable is dichotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_nominalGT2">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_quantitative"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_quantitative"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Analysis_of_variance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is quantitative and independent variable is polychotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_ordinal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_quantitative"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_quantitative"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Spearmans_rank_correlation_coefficient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is quantitative and independent variable is ordinal</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_quantitative">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_quantitative"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_quantitative"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Linear_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is quantitative and independent variable is quantitative</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_dichotomous">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_survival_data"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_survival_data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Log_rank_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is survival and independent variable is dichotomous</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_ordinal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DepVar_survival_data"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DepVar_survival_data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Cox_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is survival and independent variable is ordinal</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Actuarial_method -->
+
+    <owl:Class rdf:about="#Actuarial_method">
+        <rdfs:label
+            >Actuarial method</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_method"/>
     </owl:Class>
     
@@ -188,7 +595,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Analysis_of_covariance -->
 
     <owl:Class rdf:about="#Analysis_of_covariance">
-        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -196,7 +603,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Analysis_of_variance -->
 
     <owl:Class rdf:about="#Analysis_of_variance">
-        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -204,7 +611,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Binomial_distribution -->
 
     <owl:Class rdf:about="#Binomial_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
@@ -217,18 +624,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Categorical_variable_type -->
-
-    <owl:Class rdf:about="#Categorical_variable_type">
-        <rdfs:subClassOf rdf:resource="#Variable_type"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/statistics.owl#Central_tendency -->
 
     <owl:Class rdf:about="#Central_tendency">
         <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+        <definition
+            >A metric measuring the &quot;middle&quot; or &quot;expected&quot; value of a distribution or of a random variable</definition>
     </owl:Class>
     
 
@@ -238,56 +639,16 @@
     <owl:Class rdf:about="#Chi-Squared">
         <rdfs:subClassOf rdf:resource="#Categorical_method"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Nominal"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
-                        <owl:someValuesFrom>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="&owl;DataRange"/>
-                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
-                                <owl:onDataRange rdf:resource="&xsd;integer"/>
-                            </rdf:Description>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Nominal"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_cardinality"/>
-                        <owl:someValuesFrom>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="&owl;DataRange"/>
-                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
-                                <owl:onDataRange rdf:resource="&xsd;integer"/>
-                            </rdf:Description>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -296,7 +657,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Chi_distribution -->
 
     <owl:Class rdf:about="#Chi_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
@@ -304,9 +665,11 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Composite_variable_type -->
 
     <owl:Class rdf:about="#Composite_variable_type">
-        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <dc:description
-            >A variable has composite variable type if it is defined (in an expression or as an aggregate) using two or more other quantities</dc:description>
+        <rdfs:label
+            >Composite variable  type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <definition
+            >Variable whose values are defined in terms of two or more other variables or their transformations</definition>
     </owl:Class>
     
 
@@ -315,6 +678,9 @@
 
     <owl:Class rdf:about="#Continuous">
         <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+        <owl:disjointWith rdf:resource="#Integer_valued"/>
+        <definition
+            >A measurement not restricted to particular values except in so far as this is constrained by the accurancy of the measuring instrument...For such a variable equal sized differences on different parts of the scale are equivalent. (The Cambridge Dictionary of Statistics, 3rd edition)</definition>
     </owl:Class>
     
 
@@ -322,7 +688,18 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Continuous_uniform_distribution -->
 
     <owl:Class rdf:about="#Continuous_uniform_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Count -->
+
+    <owl:Class rdf:about="#Count">
+        <rdfs:label>Count/Discrete</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Integer_valued"/>
+        <definition
+            >Variable having only 0 or positive integer values, for example, number of births, number of pregnancies, number of teeth extracted, etc. (Cambridge Dictionary of Statistics 3nd ed.) AKA Discrete</definition>
     </owl:Class>
     
 
@@ -330,10 +707,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Cox_regression -->
 
     <owl:Class rdf:about="#Cox_regression">
-        <rdfs:subClassOf rdf:resource="#Actuarial_model"/>
+        <rdfs:subClassOf rdf:resource="#Actuarial_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_number_of_independent_variables"/>
+                <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
                 <owl:someValuesFrom rdf:resource="#multivariate"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -347,7 +724,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
                         <owl:someValuesFrom rdf:resource="#Dichotomous"/>
@@ -355,6 +732,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <definition
+            >A univariate analysis where the dependent variable is dichotomous</definition>
     </owl:Class>
     
 
@@ -375,34 +754,56 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_possible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Z-test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_possible_method"/>
-                <owl:someValuesFrom rdf:resource="#Z-test"/>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is dichotomous and independent variable is dichotomous</definition>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#DepVar_dichotomous_indVar_nominal_cardinalityGT2 -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#DepVar_dichotomous_indVar_nominalGT2 -->
 
-    <owl:Class rdf:about="#DepVar_dichotomous_indVar_nominal_cardinalityGT2">
+    <owl:Class rdf:about="#DepVar_dichotomous_indVar_nominalGT2">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Nominal_cardinalityGT2"/>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is dichotomous and independent variable polychotomous</definition>
     </owl:Class>
     
 
@@ -416,11 +817,19 @@
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal_cardinalityGT2"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is dichotomous and independent variable is ordinal with cardinality greater than 2</definition>
     </owl:Class>
     
 
@@ -438,17 +847,25 @@
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Interval"/>
+                        <owl:someValuesFrom rdf:resource="#Integer_valued"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_possible_method"/>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
                 <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <definition
+            >A univariate analysis where the dependent variable is dichotomous and independent variable is quantitative</definition>
     </owl:Class>
     
 
@@ -459,56 +876,36 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Nominal"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
-                        <owl:someValuesFrom>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="&owl;DataRange"/>
-                                <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
-                                <owl:onDataRange rdf:resource="&xsd;integer"/>
-                            </rdf:Description>
-                        </owl:someValuesFrom>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <definition
+            >A univariate analysis where the dependent variable is polychotomous nominal</definition>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#DepVar_ordinal_cardGT2 -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#DepVar_ordinal -->
 
-    <owl:Class rdf:about="#DepVar_ordinal_cardGT2">
+    <owl:Class rdf:about="#DepVar_ordinal">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Statistical_analysis"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                                <owl:someValuesFrom rdf:resource="#Ordinal"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_dependent_variable_cardinality"/>
-                                <owl:someValuesFrom>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="&owl;DataRange"/>
-                                        <xsd:minExclusive rdf:datatype="&xsd;integer">2</xsd:minExclusive>
-                                        <owl:onDataRange rdf:resource="&xsd;integer"/>
-                                    </rdf:Description>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <definition
+            >A univariate analysis where the dependent variable is ordinal</definition>
     </owl:Class>
     
 
@@ -519,7 +916,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
                         <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
@@ -527,6 +924,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <definition
+            >A univariate analysis wehre the dependent variable is quantitative</definition>
     </owl:Class>
     
 
@@ -537,14 +936,150 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Statistical_analysis"/>
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Survival_incomplete"/>
+                        <owl:someValuesFrom rdf:resource="#Time_to_event"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <definition
+            >A univariate analysis wehre the dependent variable is survival data</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dep_var_dichotomous_multivariate_indVar -->
+
+    <owl:Class rdf:about="#Dep_var_dichotomous_multivariate_indVar">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A plan for multi-variate analysis with some non-ordinal independent variable and dichotomous dependent variable</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dep_var_nominal_cardinalityGT2_multivariate_indVar -->
+
+    <owl:Class rdf:about="#Dep_var_nominal_cardinalityGT2_multivariate_indVar">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Multivariate_non-ordinal_indVar_analysis"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Polychotomous_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A plan for multi-variate analysis with norminal dependent variable and nominal independent variable</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dep_var_ordinal_multivariate_indVar -->
+
+    <owl:Class rdf:about="#Dep_var_ordinal_multivariate_indVar">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Multivariate_non-ordinal_indVar_analysis"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Polychotomous_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A plan for multi-variate analysis with ordinal dependent variable and multivariate independent variable</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dep_var_quantitative_multivariate_indVar -->
+
+    <owl:Class rdf:about="#Dep_var_quantitative_multivariate_indVar">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Multivariate_non-ordinal_indVar_analysis"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Generalized_linear_model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A plan for multi-variate analysis with quantitative dependent variable and nominal independent variable</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dep_var_survival_data_multivariate_indVar -->
+
+    <owl:Class rdf:about="#Dep_var_survival_data_multivariate_indVar">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Time_to_event"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Multivariate_non-ordinal_indVar_analysis"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <definition
+            >A plan for multi-variate analysis with survival-data dependent variable  and multivariate variable</definition>
     </owl:Class>
     
 
@@ -553,9 +1088,9 @@
 
     <owl:Class rdf:about="#Dichotomous">
         <rdfs:subClassOf rdf:resource="#Nominal"/>
-        <rdfs:subClassOf rdf:resource="#Ordinal"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >Can dichotomous always be rephrased as true or false?</statistics:definition>
+        <owl:disjointWith rdf:resource="#Polychotomous"/>
+        <definition
+            >Measurements whose values are in one of two possible states, these often being labeled 0 and 1 (adapted from Cambridge Dictionary of Statistics 3nd ed.)</definition>
     </owl:Class>
     
 
@@ -564,15 +1099,8 @@
 
     <owl:Class rdf:about="#Difference">
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Discrete -->
-
-    <owl:Class rdf:about="#Discrete">
-        <rdfs:label rdf:datatype="&xsd;string">Count/Discrete</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Interval"/>
+        <definition
+            >Variables derived from taking the difference of two other variables. For example, the first difference of a time series {yt} is defined as Dyt = yt - yt-1</definition>
     </owl:Class>
     
 
@@ -580,24 +1108,29 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Discrete_uniform_distribution -->
 
     <owl:Class rdf:about="#Discrete_uniform_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Disperion -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Discriminant_accuracy_metric -->
 
-    <owl:Class rdf:about="#Disperion">
-        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Distribution -->
-
-    <owl:Class rdf:about="#Distribution">
+    <owl:Class rdf:about="#Discriminant_accuracy_metric">
+        <rdfs:label
+            >Discriminant analysis metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <owl:disjointWith rdf:resource="#Number_of_variables"/>
+        <definition
+            >An index of performance of a discrimiant test with binary outcome</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Dispersion -->
+
+    <owl:Class rdf:about="#Dispersion">
+        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+        <definition
+            >A metric measuring the variability of a distribution or of a random variable</definition>
     </owl:Class>
     
 
@@ -605,19 +1138,19 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Distributional_metric -->
 
     <owl:Class rdf:about="#Distributional_metric">
-        <rdfs:label
-            >Distribution metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <synonym
+            >Descriptive statistics</synonym>
         <definition
-            >A way to summarize one aspect of a distribution.</definition>
+            >A numeric characteristic of a distribution or a random variable</definition>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Exponential -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Exact_test -->
 
-    <owl:Class rdf:about="#Exponential">
-        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+    <owl:Class rdf:about="#Exact_test">
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
     </owl:Class>
     
 
@@ -625,7 +1158,31 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Exponential_distribution -->
 
     <owl:Class rdf:about="#Exponential_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
+        <rdfs:comment
+            >A class of probability distribution with probability density function (pdf) of f(x;lambda) = 1 - exp(-lambda*x) for x &gt;-0 ; 0 otherwise</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Exponential_distribution_metric -->
+
+    <owl:Class rdf:about="#Exponential_distribution_metric">
+        <rdfs:subClassOf rdf:resource="#Distributional_metric"/>
+        <definition
+            >A distribution metric of the exponential distribution</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#F_measure -->
+
+    <owl:Class rdf:about="#F_measure">
+        <rdfs:label>F measure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
+        <synonym>F1 score</synonym>
+        <definition
+            >A measure of a test&#39;s accuracy defined as the harmonic mean of sensitivity and specificity F= 2*(specificity * sensitivity)/(specificity + sensitivity)</definition>
     </owl:Class>
     
 
@@ -633,15 +1190,54 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Gamma_distribution -->
 
     <owl:Class rdf:about="#Gamma_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#General_linear_model -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#General_estimating_equation -->
 
-    <owl:Class rdf:about="#General_linear_model">
+    <owl:Class rdf:about="#General_estimating_equation">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Generalized_linear_model -->
+
+    <owl:Class rdf:about="#Generalized_linear_model">
         <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#IndVar_nominal -->
+
+    <owl:Class rdf:about="#IndVar_nominal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Univariate_analysis"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom rdf:resource="#Nominal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <definition
+            >A univariate analysis wehre the independent variable is nominal</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Integer_valued -->
+
+    <owl:Class rdf:about="#Integer_valued">
+        <rdfs:label>Integer-valued</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+        <definition
+            >Variable whose values can be positive or negative integers or zero</definition>
     </owl:Class>
     
 
@@ -649,16 +1245,16 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Interquartile_range -->
 
     <owl:Class rdf:about="#Interquartile_range">
-        <rdfs:subClassOf rdf:resource="#Disperion"/>
+        <rdfs:subClassOf rdf:resource="#Dispersion"/>
         <owl:disjointWith rdf:resource="#Range"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Interval -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Kruskal_Wallis_method -->
 
-    <owl:Class rdf:about="#Interval">
-        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+    <owl:Class rdf:about="#Kruskal_Wallis_method">
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
     </owl:Class>
     
 
@@ -666,7 +1262,17 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Lambda -->
 
     <owl:Class rdf:about="#Lambda">
-        <rdfs:subClassOf rdf:resource="#Exponential"/>
+        <rdfs:subClassOf rdf:resource="#Exponential_distribution_metric"/>
+        <rdfs:comment
+            >The lambda co-efficient of an exponential distribution</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Linear_mixed_effect_model -->
+
+    <owl:Class rdf:about="#Linear_mixed_effect_model">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -674,7 +1280,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Linear_regression -->
 
     <owl:Class rdf:about="#Linear_regression">
-        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -682,7 +1288,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Log-normal_distribution -->
 
     <owl:Class rdf:about="#Log-normal_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
@@ -690,10 +1296,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Log_rank_test -->
 
     <owl:Class rdf:about="#Log_rank_test">
-        <rdfs:subClassOf rdf:resource="#Actuarial_model"/>
+        <rdfs:subClassOf rdf:resource="#Actuarial_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_number_of_independent_variables"/>
+                <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
                 <owl:someValuesFrom rdf:resource="#univariate"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -704,7 +1310,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Logistic_regression -->
 
     <owl:Class rdf:about="#Logistic_regression">
-        <rdfs:subClassOf rdf:resource="#Non_parametric_method"/>
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -729,7 +1335,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Mixed_linear_model -->
 
     <owl:Class rdf:about="#Mixed_linear_model">
-        <rdfs:subClassOf rdf:resource="#General_linear_model"/>
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -742,20 +1348,48 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Nominal -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Multivariate_non-ordinal_indVar_analysis -->
 
-    <owl:Class rdf:about="#Nominal">
-        <rdfs:subClassOf rdf:resource="#Categorical_variable_type"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A type of categorical data in which objects fall into unordered categories.</statistics:definition>
+    <owl:Class rdf:about="#Multivariate_non-ordinal_indVar_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis_type"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="#Ordinal"/>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
+                        <owl:someValuesFrom rdf:resource="#multivariate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <definition
+            >A plan for statistical analysis where there are more than one independent variable some of which are not of the ordinal scalle</definition>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Nominal_cardinalityGT2 -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Nominal -->
 
-    <owl:Class rdf:about="#Nominal_cardinalityGT2">
-        <rdfs:subClassOf rdf:resource="#Nominal"/>
+    <owl:Class rdf:about="#Nominal">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Dichotomous"/>
+                    <rdf:Description rdf:about="#Polychotomous"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+        <definition
+            >Variables whose values are one or more labels for predefined categories that enumerate possble states of some characteristic (e.g., blood types A, B, AB, or O). AKA &quot;categorical data&quot;</definition>
     </owl:Class>
     
 
@@ -768,10 +1402,10 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Non_parametric_method -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Non_linear_mixed_effect_model -->
 
-    <owl:Class rdf:about="#Non_parametric_method">
-        <rdfs:subClassOf rdf:resource="#Statistical_method"/>
+    <owl:Class rdf:about="#Non_linear_mixed_effect_model">
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
     </owl:Class>
     
 
@@ -779,15 +1413,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Normal_distribution -->
 
     <owl:Class rdf:about="#Normal_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Number_of_variables -->
-
-    <owl:Class rdf:about="#Number_of_variables">
-        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
     </owl:Class>
     
 
@@ -795,17 +1421,9 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Ordinal -->
 
     <owl:Class rdf:about="#Ordinal">
-        <rdfs:subClassOf rdf:resource="#Categorical_variable_type"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A type of categorical data in which objects can be arrayed in a meaningful rank order.</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Ordinal_cardinalityGT2 -->
-
-    <owl:Class rdf:about="#Ordinal_cardinalityGT2">
-        <rdfs:subClassOf rdf:resource="#Ordinal"/>
+        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+        <definition
+            >A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
     </owl:Class>
     
 
@@ -813,7 +1431,46 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Poisson_distribution -->
 
     <owl:Class rdf:about="#Poisson_distribution">
-        <rdfs:subClassOf rdf:resource="#Distribution"/>
+        <rdfs:subClassOf rdf:resource="#Probability_Distribution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Poisson_regression -->
+
+    <owl:Class rdf:about="#Poisson_regression">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Polychotomous -->
+
+    <owl:Class rdf:about="#Polychotomous">
+        <rdfs:subClassOf rdf:resource="#Nominal"/>
+        <definition
+            >Categorical variables with more than two categories</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Polychotomous_regression -->
+
+    <owl:Class rdf:about="#Polychotomous_regression">
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Probability_Distribution -->
+
+    <owl:Class rdf:about="#Probability_Distribution">
+        <rdfs:label
+            >Probability distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <owl:disjointWith rdf:resource="#Variable_number"/>
+        <definition
+            >For a discrete random variable, a mathematical formula that gives the probability of each value of the variable. For a continuous random variable, a curve described by a mathematical formula which specifies, by way of areas under the curve, the probability that the variable falls within a particular interval. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
     </owl:Class>
     
 
@@ -822,10 +1479,18 @@
 
     <owl:Class rdf:about="#Proportion">
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >Range from 0 to 1.</statistics:definition>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >Ranges from 0 to 1. One way to summarize  count data.</statistics:definition>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Ranges from 0 to 1. One way to summarize  count data.</rdfs:comment>
+        <definition
+            >A measure of the frequency of some phenomenon of interest within an average population</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Quantile_regression -->
+
+    <owl:Class rdf:about="#Quantile_regression">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -833,7 +1498,19 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Quantitative_variable_type -->
 
     <owl:Class rdf:about="#Quantitative_variable_type">
-        <rdfs:subClassOf rdf:resource="#Variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+        <definition
+            >Variables where &quot;equal-sized differences on different parts of the scale are equivalent&quot; (Cambridge Dictionary of Statistics 3nd ed.)</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#ROC_curve -->
+
+    <owl:Class rdf:about="#ROC_curve">
+        <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
+        <definition
+            >A plot of the sensitivity of a discriminant test against one minus its specificity</definition>
     </owl:Class>
     
 
@@ -841,7 +1518,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Range -->
 
     <owl:Class rdf:about="#Range">
-        <rdfs:subClassOf rdf:resource="#Disperion"/>
+        <rdfs:subClassOf rdf:resource="#Dispersion"/>
     </owl:Class>
     
 
@@ -850,8 +1527,12 @@
 
     <owl:Class rdf:about="#Rate">
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A rate is a quantity per unit of time.</statistics:definition>
+        <study_protocol:develop_comment
+            >(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</study_protocol:develop_comment>
+        <definition
+            >A rate is a quantity per unit of time.</definition>
+        <study_protocol:develop_comment
+            >The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our definition of proportion.</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -860,8 +1541,41 @@
 
     <owl:Class rdf:about="#Ratio">
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A ratio has a quantitative numerator and a quantitative denominator</statistics:definition>
+        <definition
+            >A variable derived from two quantitative variables by dividing a  numerator variable with a denominator variable</definition>
+        <study_protocol:develop_comment
+            >In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot; (Cambridge Dictionary of Statistics 3nd ed.)</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Robust_regression -->
+
+    <owl:Class rdf:about="#Robust_regression">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Sensitivity -->
+
+    <owl:Class rdf:about="#Sensitivity">
+        <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
+        <definition
+            >An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</definition>
+        <synonym>recall</synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Simple_variable_type -->
+
+    <owl:Class rdf:about="#Simple_variable_type">
+        <rdfs:label
+            >Simple variable type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <definition
+            >Variables whose values are unitary measurements that cannot be defined from other variables</definition>
     </owl:Class>
     
 
@@ -869,31 +1583,61 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Spearmans_rank_correlation_coefficient -->
 
     <owl:Class rdf:about="#Spearmans_rank_correlation_coefficient">
-        <rdfs:subClassOf rdf:resource="#Non_parametric_method"/>
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_analysis -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Specificity -->
 
-    <owl:Class rdf:about="#Statistical_analysis">
+    <owl:Class rdf:about="#Specificity">
+        <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
+        <synonym>precision</synonym>
+        <definition
+            >An index of performance of a discrimiant test calculated as the percentage of  negatives in all true negatives</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_analysis_type -->
+
+    <owl:Class rdf:about="#Statistical_analysis_type">
+        <rdfs:label
+            >Statistical analysis type</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <dc:description
-            >A statistical analysis consists</dc:description>
+        <definition
+            >Meta data characterizing the plan to analyze a set of data</definition>
     </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_concept -->
 
-    <owl:Class rdf:about="#Statistical_concept"/>
+    <owl:Class rdf:about="#Statistical_concept">
+        <definition
+            >Object and values that related to the description of statistical analysis</definition>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_method -->
 
     <owl:Class rdf:about="#Statistical_method">
+        <rdfs:label
+            >Statistical method</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <rdfs:comment
+            >Note that we are excluding descriptive statistical method</rdfs:comment>
+        <definition
+            >A procedure for performing statistica inference</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Students_t_test -->
+
+    <owl:Class rdf:about="#Students_t_test">
+        <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
     </owl:Class>
     
 
@@ -902,14 +1646,8 @@
 
     <owl:Class rdf:about="#Sum">
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Survival_incomplete -->
-
-    <owl:Class rdf:about="#Survival_incomplete">
-        <rdfs:subClassOf rdf:resource="#Continuous"/>
+        <definition
+            >Variables derived from taking the sum of two other variables</definition>
     </owl:Class>
     
 
@@ -917,17 +1655,63 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Time_to_event -->
 
     <owl:Class rdf:about="#Time_to_event">
+        <rdfs:label>Time to event</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <definition
+            >Data representing the times of the occurrances of events of interest</definition>
+        <synonym>Survival data</synonym>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Variable_type -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Univariate_analysis -->
 
-    <owl:Class rdf:about="#Variable_type">
+    <owl:Class rdf:about="#Univariate_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Statistical_analysis_type"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
+                        <owl:someValuesFrom rdf:resource="#univariate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <definition
+            >A plan for statistical analysis where there is only one independent variable</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Variable_data_type -->
+
+    <owl:Class rdf:about="#Variable_data_type">
+        <rdfs:label
+            >Variable data type</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Composite_variable_type"/>
+                    <rdf:Description rdf:about="#Simple_variable_type"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >Descriptor for the type of data a variable holds.</statistics:definition>
+        <definition
+            >A typology of scales measure</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Variable_number -->
+
+    <owl:Class rdf:about="#Variable_number">
+        <rdfs:label
+            >Variable number category</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <definition
+            >A quality of statistical analysis or methods categorizing the number of independent variable</definition>
     </owl:Class>
     
 
@@ -935,7 +1719,15 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Variance -->
 
     <owl:Class rdf:about="#Variance">
-        <rdfs:subClassOf rdf:resource="#Disperion"/>
+        <rdfs:subClassOf rdf:resource="#Dispersion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Wilcoxon_rank_sum_test -->
+
+    <owl:Class rdf:about="#Wilcoxon_rank_sum_test">
+        <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
     </owl:Class>
     
 
@@ -951,8 +1743,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#multivariate -->
 
     <owl:Class rdf:about="#multivariate">
-        <rdfs:subClassOf rdf:resource="#Number_of_variables"/>
+        <rdfs:subClassOf rdf:resource="#Variable_number"/>
         <owl:disjointWith rdf:resource="#univariate"/>
+        <definition
+            >A quality of statistical analysis or method where there are more than one independent variables</definition>
     </owl:Class>
     
 
@@ -960,16 +1754,9 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#univariate -->
 
     <owl:Class rdf:about="#univariate">
-        <rdfs:subClassOf rdf:resource="#Number_of_variables"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#Thing -->
-
-    <owl:Class rdf:about="&owl;Thing">
-        <curator></curator>
-        <definition></definition>
+        <rdfs:subClassOf rdf:resource="#Variable_number"/>
+        <definition
+            >A quality of statistical analysis or method where there is only one independent variable</definition>
     </owl:Class>
     
 
@@ -985,9 +1772,10 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Central_tendency"/>
-            <rdf:Description rdf:about="#Disperion"/>
-            <rdf:Description rdf:about="#Exponential"/>
+            <rdf:Description rdf:about="#F_measure"/>
+            <rdf:Description rdf:about="#ROC_curve"/>
+            <rdf:Description rdf:about="#Sensitivity"/>
+            <rdf:Description rdf:about="#Specificity"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1001,6 +1789,14 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Central_tendency"/>
+            <rdf:Description rdf:about="#Dispersion"/>
+            <rdf:Description rdf:about="#Exponential_distribution_metric"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="#Analysis_of_covariance"/>
             <rdf:Description rdf:about="#Analysis_of_variance"/>
             <rdf:Description rdf:about="#Mixed_linear_model"/>
@@ -1009,15 +1805,14 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Actuarial_model"/>
-            <rdf:Description rdf:about="#Categorical_method"/>
-            <rdf:Description rdf:about="#General_linear_model"/>
-            <rdf:Description rdf:about="#Non-linear_model"/>
+            <rdf:Description rdf:about="#Nominal"/>
+            <rdf:Description rdf:about="#Ordinal"/>
+            <rdf:Description rdf:about="#Quantitative_variable_type"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
 
