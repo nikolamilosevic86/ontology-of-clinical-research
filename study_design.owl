@@ -295,6 +295,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >A type of clinical trial comparing two or more interventions in which the participants, upon completion of the course of one treatment, are switched to another. For example, for a comparison of treatments
+A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -360,28 +364,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Focus_group_study -->
-
-    <owl:Class rdf:about="&research;Focus_group_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;subject_asssessed_in_group"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <statistics:definition
+            >Research carried out on location: a piece of research undertaken outside the laboratory or place of learning, usually in a natural environment or among the general public. [MSN Encarta Dictionary]
+For ex., Participant observation, Ethnographic study, Software field testing.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -433,6 +419,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >A study in which human subjects are assessed individually and not in the field (their environment). For ex., 1-on-1 interview, In-lab protocol analysis.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -475,6 +464,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >Synonym: clinical trial. 
+A clinical trial is any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Clinical trials may also be referred to as interventional trials. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [WHO, available at: http://www.who.int/ictrp/en/]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -627,6 +620,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -669,6 +665,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A clinical trial that has no control group. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -678,7 +677,7 @@
     <owl:Class rdf:about="&research;Non-individual_human_study">
         <rdfs:subClassOf rdf:resource="&research;Study"/>
         <statistics:definition
-            >Study that does not use or collect measurements or assessments about individual humans</statistics:definition>
+            >Study that does not use or collect measurements or assessments about individual humans.</statistics:definition>
     </owl:Class>
     
 
@@ -797,6 +796,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >A trial that compares two groups of people concurrently, one of which receives the intervention of interest and one of which is a control group. Some parallel trials have more than two comparison groups and some compare different interventions without including a nonintervention control group. (Also called independent group design.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -843,7 +845,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is qualitative</statistics:definition>
+            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
     </owl:Class>
     
 
@@ -876,7 +878,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is quantitative</statistics:definition>
+            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
     </owl:Class>
     
 
@@ -919,6 +921,11 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:definition
+            >An experiment in which two or more interventions, possibly including a control intervention or no intervention, are compared by being randomly allocated to participants. In most trials one intervention is assigned to each individual but sometimes assignment is to defined groups of individuals (for example, in a household) or interventions are assigned within individuals (for example, in different orders or to different parts of the body). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: need to review this first and then move on.</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1010,7 +1017,11 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <!-- http://purl.org/net/OCRe/research.owl#Study -->
 
-    <owl:Class rdf:about="&research;Study"/>
+    <owl:Class rdf:about="&research;Study">
+        <statistics:definition
+            >A study is a detailed investigation and analysis of a subject or situation.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
     
 
 
@@ -1117,6 +1128,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
     <owl:Class rdf:about="&research;subject_assessed_individually">
         <rdfs:subClassOf rdf:resource="&research;Subject_assessed_individually_flag"/>
         <owl:disjointWith rdf:resource="&research;subject_asssessed_in_group"/>
+        <study_protocol:develop_comment
+            >Simona: is the lower case name chosen on purpose?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1125,6 +1138,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <owl:Class rdf:about="&research;subject_asssessed_in_group">
         <rdfs:subClassOf rdf:resource="&research;Subject_assessed_individually_flag"/>
+        <study_protocol:develop_comment
+            >Simona: is the lower case name chosen on purpose?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1215,7 +1230,7 @@ Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >An economic analysis that expresses effects as overall health improvement and describes how much it costs for some additional utility gain (e.g. cost per additional quality-adjusted life-year). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <study_protocol:develop_comment
-            >Simona: I found this in the Glossary</study_protocol:develop_comment>
+            >Simona: I found this in the Cochrane Glossary and thought we may want to add it</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1249,6 +1264,33 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Focus_group -->
+
+    <owl:Class rdf:about="#Focus_group">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;subject_asssessed_in_group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: changed from Focus_group_study as suffix seemed redundant</study_protocol:develop_comment>
+        <statistics:definition
+            >An interviewing technique whereby respondents are interviewed in a group setting. Also referred to as Interview Discussion or Group Discussion. [Statistics Canada, Educational Resources, Glossary of Statistical Terms, available at: http://stats.oecd.org/glossary/detail.asp?ID=4899]</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Meta-analysis -->
 
     <owl:Class rdf:about="#Meta-analysis">
@@ -1260,7 +1302,7 @@ Ask Ida to review this definition</study_protocol:develop_comment>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <study_protocol:develop_comment
-            >Simona: I suggest to remove this class and have systematic review instead</study_protocol:develop_comment>
+            >Simona: Based on the Cochrane definition above, should we remove this class and have systematic review instead</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1343,9 +1385,28 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
+            <rdf:Description rdf:about="&research;Location_of_observation"/>
+            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
+            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
+            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&research;Intervention_cardinality"/>
             <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
             <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Decision_strategy"/>
+            <rdf:Description rdf:about="&research;Human_subject"/>
+            <rdf:Description rdf:about="&research;Measurement_instrument"/>
+            <rdf:Description rdf:about="&research;Policy"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1359,28 +1420,9 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
-            <rdf:Description rdf:about="&research;Location_of_observation"/>
-            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
-            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
-            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&research;Investigator_blinding"/>
             <rdf:Description rdf:about="&research;Outcomes_assessor_blinding"/>
             <rdf:Description rdf:about="&research;Subject_blinding"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Decision_strategy"/>
-            <rdf:Description rdf:about="&research;Human_subject"/>
-            <rdf:Description rdf:about="&research;Measurement_instrument"/>
-            <rdf:Description rdf:about="&research;Policy"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
