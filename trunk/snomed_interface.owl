@@ -222,14 +222,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/snomed_interface#diagnostic_procedure -->
-
-    <owl:Class rdf:about="&snomed_interface;diagnostic_procedure">
-        <rdfs:subClassOf rdf:resource="&snomed_interface;procedure"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/snomed_interface#disease -->
 
     <owl:Class rdf:about="&snomed_interface;disease">
@@ -343,6 +335,12 @@
             >Therapeutic treatment with heparin</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
     
 
 
@@ -542,12 +540,6 @@
      -->
 
     <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="&snomed_interface;stroke_code"/>
-        </owl:distinctMembers>
-    </rdf:Description>
-    <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="&snomed_interface;Angiotensin-converting_enzyme_inhibitor_agent"/>
@@ -556,6 +548,12 @@
             <rdf:Description rdf:about="&snomed_interface;Diuretic"/>
             <rdf:Description rdf:about="&snomed_interface;beta-Blocking_agent"/>
         </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&snomed_interface;stroke_code"/>
+        </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
 
