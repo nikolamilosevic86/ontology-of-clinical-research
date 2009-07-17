@@ -290,14 +290,6 @@
         <rdfs:label>part of</rdfs:label>
         <statistics:definition
             >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -306,6 +298,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -331,6 +331,24 @@
             >Properties related to unit of measurements</statistics:definition>
         <rdfs:comment
             >The subproperties came fro the http://purl.oclc.org/NET/muo/muo ontology</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical.owl#has_procedure -->
+
+    <owl:ObjectProperty rdf:about="#has_procedure">
+        <statistics:definition
+            >The procedured performed in a Performed procedure clinical event</statistics:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical.owl#has_substance_administered -->
+
+    <owl:ObjectProperty rdf:about="#has_substance_administered">
+        <statistics:definition
+            >The substrance administered in a Substance Administration event</statistics:definition>
     </owl:ObjectProperty>
     
 
@@ -948,13 +966,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
