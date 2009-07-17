@@ -69,7 +69,21 @@
     <!-- http://purl.org/net/OCRe/study_protocol#associate_from -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;associate_from">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between an act and an act relationship class. This relationship asserts that an activity may be the source for zero or more activity relationships. This relationship also asserts that an activity relationship must associate from one and only one activity. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;StudyRelationship"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedActivity"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedEpoch"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudySegment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -77,15 +91,21 @@
     <!-- http://purl.org/net/OCRe/study_protocol#associated_to -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;associated_to">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between an act and an act relationship. This relationship asserts that an activity may be the target for zero or more activity relationships. This relationship also asserts that an activity relationship must associate to one and only one activity.</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;StudyRelationship"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#coded_description -->
-
-    <owl:ObjectProperty rdf:about="&study_protocol;coded_description">
-        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedActivity"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedEpoch"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudySegment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -93,32 +113,54 @@
     <!-- http://purl.org/net/OCRe/study_protocol#comprised_of -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;comprised_of">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:comment
+            >BRIDG 2.2 used &quot;comprised of&quot; in with different types of entities, hence the specialization into 3 separate subproperties.</rdfs:comment>
+        <statistics:definition
+            >Part/whole relationship</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedArm"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedEpoch"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#contains_the_activities_for -->
+    <!-- http://purl.org/net/OCRe/study_protocol#groups -->
 
-    <owl:ObjectProperty rdf:about="&study_protocol;contains_the_activities_for">
-        <owl:inverseOf rdf:resource="&study_protocol;is_described_by"/>
+    <owl:ObjectProperty rdf:about="&study_protocol;groups">
+        <statistics:definition
+            >This is an aggregation relationship between two acts. This relationship asserts that an activity is grouped by one and only one study protocol or planned study segment. This relationship also asserts that a study protocol or planned study segment groups one or more activities. BRIDG 2.2</statistics:definition>
+        <rdfs:range rdf:resource="&study_protocol;PlannedActivity"/>
+        <owl:inverseOf rdf:resource="&study_protocol;is_groups_by"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudySegment"/>
+                    <rdf:Description rdf:about="&study_protocol;StudyProtocol"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#has_SoA -->
+    <!-- http://purl.org/net/OCRe/study_protocol#has_activities_grouped_by -->
 
-    <owl:ObjectProperty rdf:about="&study_protocol;has_SoA">
-        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#has_planned_study -->
-
-    <owl:ObjectProperty rdf:about="&study_protocol;has_planned_study">
+    <owl:ObjectProperty rdf:about="&study_protocol;has_activities_grouped_by">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that a schedule of activities (SoA) groups activities for one and only one study protocol. This relationship also asserts that a study protocol has activities group by one and only one SoA. BRIDG 2.2</statistics:definition>
+        <rdfs:range rdf:resource="&study_protocol;SoA"/>
+        <rdfs:domain rdf:resource="&study_protocol;StudyProtocol"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
     </owl:ObjectProperty>
     
@@ -127,6 +169,12 @@
     <!-- http://purl.org/net/OCRe/study_protocol#identifies_the_time_slot_for -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;identifies_the_time_slot_for">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two activities. This relationship asserts that an activity is planned within zero to one schedule of activities (SoA) cell. This relationship also asserts that a SoA cell identifies the timeslot for one and only one activity.</statistics:definition>
+        <rdfs:range rdf:resource="&study_protocol;PlannedActivity"/>
+        <rdfs:domain rdf:resource="&study_protocol;SoACell"/>
         <owl:inverseOf rdf:resource="&study_protocol;is_planned_within"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
     </owl:ObjectProperty>
@@ -137,8 +185,26 @@
 
     <owl:ObjectProperty rdf:about="&study_protocol;is_component_of">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <owl:inverseOf rdf:resource="&study_protocol;is_composed_of"/>
+        <statistics:definition
+            >Part/whole relationship</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedArm"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedEpoch"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudySegment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                    <rdf:Description rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -151,17 +217,14 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#is_described_by -->
-
-    <owl:ObjectProperty rdf:about="&study_protocol;is_described_by">
-        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol#is_divided_into -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;is_divided_into">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
+        <rdfs:range rdf:resource="&study_protocol;PlannedEpoch"/>
+        <rdfs:domain rdf:resource="&study_protocol;StudyProtocol"/>
         <owl:inverseOf rdf:resource="&study_protocol;is_division_of"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
     </owl:ObjectProperty>
@@ -171,16 +234,31 @@
     <!-- http://purl.org/net/OCRe/study_protocol#is_division_of -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;is_division_of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedEpoch"/>
+        <rdfs:range rdf:resource="&study_protocol;StudyProtocol"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#is_planned_study_of -->
+    <!-- http://purl.org/net/OCRe/study_protocol#is_groups_by -->
 
-    <owl:ObjectProperty rdf:about="&study_protocol;is_planned_study_of">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    <owl:ObjectProperty rdf:about="&study_protocol;is_groups_by">
+        <statistics:definition
+            >This is an aggregation relationship between two acts. This relationship asserts that an activity is grouped by one and only one study protocol or planned study segment. This relationship also asserts that a study protocol or a planned study segent groups one or more activities.  BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedActivity"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudySegment"/>
+                    <rdf:Description rdf:about="&study_protocol;StudyProtocol"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -188,6 +266,12 @@
     <!-- http://purl.org/net/OCRe/study_protocol#is_planned_within -->
 
     <owl:ObjectProperty rdf:about="&study_protocol;is_planned_within">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two activities. This relationship asserts that an activity is planned within zero to one schedule of activities (SoA) cell. This relationship also asserts that a SoA cell identifies the timeslot for one and only one activity. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedActivity"/>
+        <rdfs:range rdf:resource="&study_protocol;SoACell"/>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
     </owl:ObjectProperty>
     
@@ -199,41 +283,97 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#Arm_comprise_of_StudyCell -->
+
+    <owl:ObjectProperty rdf:about="#Arm_comprise_of_StudyCell">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that a study cell may be a component of zero to one arm. This relationship also asserts that an arm must be comprised of one or more study cells. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedArm"/>
+        <rdfs:range rdf:resource="&study_protocol;PlannedStudyCell"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;comprised_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#Epoch_comprised_of_StudyCell -->
+
+    <owl:ObjectProperty rdf:about="#Epoch_comprised_of_StudyCell">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that an epoch must be comprised of one or more study cells. This relationship also asserts that a study cell must be a component of one and only one epoch. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedEpoch"/>
+        <rdfs:range rdf:resource="&study_protocol;PlannedStudyCell"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;comprised_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#PlannedStudyCell_is_component_of_PlannedArmPlannedEpoch -->
+
+    <owl:ObjectProperty rdf:about="#PlannedStudyCell_is_component_of_PlannedArmPlannedEpoch">
+        <statistics:definition
+            >This is a relationship between two acts. This relationship asserts that a study cell may be a component of zero to one arm . This relationship also asserts that an arm must be comprised of one or more study cells. 
+
+This is a relationship between two acts. This relationship asserts that an epoch must be comprised of one or more study cells. This relationship also asserts that a study cell must be a component of one and only one epoch. BRIDG 2.2</statistics:definition>
+        <rdfs:comment
+            >This property is the inverse of Epoch_comprised_of_StudyCell and Arm_comprise_of_StudyCell properties</rdfs:comment>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedStudyCell"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;is_component_of"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedArm"/>
+                    <rdf:Description rdf:about="&study_protocol;PlannedEpoch"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#PlannedStudySegment_is_component_of_StudyCellStudySegmentRule -->
+
+    <owl:ObjectProperty rdf:about="#PlannedStudySegment_is_component_of_StudyCellStudySegmentRule">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between an act and an act relationship. This relationship asserts that a study cell study segment rule must associate from one and only one study cell. This relationship also asserts that a study cell must be comprised of one or more study cell study segment rules. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedStudySegment"/>
+        <rdfs:range rdf:resource="&study_protocol;StudyCellStudySegmentRule"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;is_component_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#StudyCellStudySegmentRule_comprised_of_StudyCell -->
+
+    <owl:ObjectProperty rdf:about="#StudyCellStudySegmentRule_comprised_of_StudyCell">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is a relationship between an act and an act relationship class. This relationship asserts that a study cell study segment rule must associate from one and only one study cell. This relationship also asserts that a study cell must be comprised of one or more study cell study segment rules. BRIDG 2.2</statistics:definition>
+        <rdfs:domain rdf:resource="&study_protocol;PlannedStudyCell"/>
+        <rdfs:range rdf:resource="&study_protocol;StudyCellStudySegmentRule"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;comprised_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#StudySubjectEncounter_groups_SoACell -->
+
+    <owl:ObjectProperty rdf:about="#StudySubjectEncounter_groups_SoACell">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition
+            >This is an aggregation relationship between two acts. This relationship asserts that a schedule of activities (SoA) cell is grouped by one and only one study subject encounter. This relationship also asserts that a study subject encounter groups one or more SoA cells. BRIDG 2.2</statistics:definition>
+        <rdfs:range rdf:resource="&study_protocol;SoACell"/>
+        <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:domain rdf:resource="#PlannedStudySubjectEncounter"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/2006/12/owl2#members -->
 
     <owl:ObjectProperty rdf:about="&owl2;members"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#definition -->
-
-    <owl:DatatypeProperty rdf:about="&statistics;definition">
-        <rdf:type rdf:resource="&owl;AnnotationProperty"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#has_planned_duration -->
-
-    <owl:DatatypeProperty rdf:about="#has_planned_duration">
-        <statistics:definition
-            >originally attribute plannedDuration: Intended length of time for the study segment as defined by the study. For example, 6 weeks. [BRIDG Release 2.2] </statistics:definition>
-        <develop_comment
-            >Simona: the range is class Duration, defined in clinical.owl How do I refer to it here? If I do so, then the two modules are no longer independent. Does datatype duration work?</develop_comment>
-        <rdfs:domain rdf:resource="&study_protocol;PlannedStudySegment"/>
-        <rdfs:range rdf:resource="&xsd;duration"/>
-    </owl:DatatypeProperty>
     
 
 
@@ -248,9 +388,38 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_protocol#ActivityStudySegmentRule -->
+
+    <owl:Class rdf:about="&study_protocol;ActivityStudySegmentRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+        <statistics:definition
+            >A rule that governs the transition to a new study segment based on the results of an activity in the current study segment.
+
+For example, start the radiation study segment 2-4 weeks after surgery.
+
+NOTE: If a StudySubject is not in StudySegment A, then receiving a dose of Study Drug A is the activity that marks/defines their transition into StudySegment A.</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_protocol#BRIDG_term -->
 
     <owl:Class rdf:about="&study_protocol;BRIDG_term"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#EpochRule -->
+
+    <owl:Class rdf:about="&study_protocol;EpochRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+        <statistics:definition
+            >Rule that governs the transition between two epochs.
+
+For example, if a subject experiences a serious adverse event while in the first treatment epoch, move to follow-up epoch.
+
+For example, if there were entry and exit criteria that applied to all arms of a study.
+BRIDG 2.</statistics:definition>
+    </owl:Class>
     
 
 
@@ -260,13 +429,13 @@
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_planned_within"/>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:onProperty rdf:resource="&study_protocol;is_planned_within"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -282,16 +451,6 @@
         <statistics:definition
             >An activity that is anticipated to occur at some time in the future (where Activity is defined as: Any action that can, in the context of a study, be planned, scheduled or performed. For example, a surgical procedure, a laboratory test, or the administration of the drug.). 
 For example, pregnancy tests are planned for StudySubjects who are females of childbearing potential. The pregnancy tests are in the future, and the particular women who will be tested have not been identified. [BRIDG Release 2.2]</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedActivityStudySegmentRule -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedActivityStudySegmentRule">
-        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report. Class ActivityStudySegmentRule is defined, and it is a subclass of StudyRelationship</develop_comment>
     </owl:Class>
     
 
@@ -314,12 +473,6 @@ For example, assignment to a treatment arm, registration to a study, start of on
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_described_by"/>
-                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedArmSoA"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
                 <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudyCell"/>
             </owl:Restriction>
@@ -327,30 +480,6 @@ For example, assignment to a treatment arm, registration to a study, start of on
         <statistics:definition
             >An arm for which StudySubjects or ExperimentalUnits have not yet been identified (where Arm is defined as: A path through the study which describes what activities the StudySubject or ExperimentalUnit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. For example, a study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.). [BRIDG Release 2.2]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedArmSoA -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedArmSoA">
-        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <rdfs:subClassOf rdf:resource="&study_protocol;ScheduleOfActivities"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;contains_the_activities_for"/>
-                <owl:onClass rdf:resource="&study_protocol;PlannedArm"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
-                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedSoACell"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report</develop_comment>
     </owl:Class>
     
 
@@ -369,16 +498,6 @@ For example, assignment to a treatment arm, registration to a study, start of on
             >A subject passes through a series of states called Epochs in the course of their participation in a study.  Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
 
 For example, a trial designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedEpochRule -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedEpochRule">
-        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report. Class EpochRule is defined, and it is a subclass of StudyRelationship</develop_comment>
     </owl:Class>
     
 
@@ -406,36 +525,14 @@ For example, procedures may involve the disruption of some body surface (e.g. an
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedSoACell -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedSoACell">
-        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;identifies_the_time_slot_for"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report</develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol#PlannedStudyCell -->
 
     <owl:Class rdf:about="&study_protocol;PlannedStudyCell">
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
-                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudySegmentStudyCellRule"/>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -446,8 +543,8 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;StudyCellStudySegmentRule"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:curator>Simona</statistics:curator>
@@ -473,10 +570,6 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         </rdfs:subClassOf>
         <statistics:curator>Simona</statistics:curator>
         <develop_comment
-            >Simona: how was the restriction is_composed_of some PlannedActivity derived?</develop_comment>
-        <develop_comment
-            >Simona: see also my question regarding the description of attribute plannedDuration</develop_comment>
-        <develop_comment
             >Simona: Should the previous definition (moved to Comment) be deleted?</develop_comment>
         <statistics:definition
             >A study segment for which StudySubjects or ExperimentalUnits have not yet been identified (where StudySegment is defined as: A sub-state of an epoch that a StudySubject or ExperimentalUnit passes through in the course of a study.  They involve some intervention (possibly &quot;no treatment&quot;) and an instance of a study segment serves all or part of the purpose of an epoch. Study segments never cross epoch boundaries; when a StudySubject or ExperimentalUnit transitions from one epoch to another they must also transition from one study segment to another. For example, the purpose of a treatment epoch might be accomplished by means of a single study segment (e.g., one which involves administering drug daily for 6 weeks) or by a complex pattern of study segments (e.g., a StudySubject or ExperimentalUnit is to pass through study segment A, which involves daily self-administration of drug X, then study segment B, which involves a single infusion of Drug Y, then study segment C, a 3-week &quot;rest&quot; period; the ABC sequence is repeated until disease progression or Serious Adverse Event X occurs.  If X occurs, B is dropped and AC is repeated until disease progression). [BRIDG Release 2.2]</statistics:definition>
@@ -484,67 +577,6 @@ For example, procedures may involve the disruption of some body surface (e.g. an
             >Previous definition: States that subjects pass through in the course of a study.  They involve some planned intervention (possibly &quot;no treatment&quot;) and an instance of a PlannedStudySegment serves all or part of the purpose of a PlannedEpoch.  PlannedStudySegments are sub-states of epochs in the sense that PlannedStudySegments never cross epoch boundaries; when a subject transitions from one epoch to another they must also transition from one StudySegment to another. 
  
 For example, the purpose of a treatment epoch might be accomplished by means of a single StudySegment (e.g., one which involves administering drug daily for 6 weeks) or by a complex pattern of StudySegments (e.g., a subject is to pass through StudySegment A, which involves daily self-administration of drug X, then StudySegment B, which involves a single infusion of Drug Y, then StudySegment C, a 3-week &quot;rest&quot; period; the ABC sequence is repeated until disease progression or Serious Adverse Event (SAE) X occurs.  If X occurs, B is dropped and AC is repeated until disease progression).</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedStudySegmentStudyCellRule -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedStudySegmentStudyCellRule">
-        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;associate_from"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >Specifies how a StudyCell is related to one of the PlannedStudySegments instances it contains.
-
-For example, if the plan for the Surgery Arm/Treatment Epoch study cell is that subjects should go through the three StudySegments, Pre-Op, Surgery, and Post-Op in that order, then that sequence is defined using StudySegment Study Cell Relationship instances.
-
-For example, A StudyCell &quot;Arm A/Treatment Epoch&quot; may have StudySegments &quot;A1&quot;, &quot;A2&quot;, etc..  The sequence in which the different StudySegments will occur in StudyCell &quot;Arm A/Treatment Epoch&quot; will be defined by the semantics of the StudySegmentStudyCellRule class.
-
-For example, go from surgery StudySegment to post-op StudySegment in StudyCell &quot;Surgery Arm/Treatment Epoch&quot;.</statistics:definition>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report. Class StudySegmentStudyCellRule is defined, and it is a subclass of StudyRelationship</develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedStudySoA -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedStudySoA">
-        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <rdfs:subClassOf rdf:resource="&study_protocol;ScheduleOfActivities"/>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report</develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedSubjectStudyEncounter -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedSubjectStudyEncounter">
-        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
-                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedSoACell"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <develop_comment
-            >Simona: I believe this should be PlannedStudySubjectEncounter (see class created)</develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedSubjectStudyEncounterRule -->
-
-    <owl:Class rdf:about="&study_protocol;PlannedSubjectStudyEncounterRule">
-        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report. Class StudySubjectEncounterRule is defined, and it is a subclass of StudyRelationship</develop_comment>
     </owl:Class>
     
 
@@ -573,12 +605,58 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#ScheduleOfActivities -->
+    <!-- http://purl.org/net/OCRe/study_protocol#SoA -->
 
-    <owl:Class rdf:about="&study_protocol;ScheduleOfActivities">
+    <owl:Class rdf:about="&study_protocol;SoA">
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <develop_comment
             >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report</develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#SoACell -->
+
+    <owl:Class rdf:about="&study_protocol;SoACell">
+        <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;identifies_the_time_slot_for"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition
+            >Relates an activity to a particular encounter with a StudySubject or ExperimentalUnit.  The design of an encounter can be visualized as cells in a matrix whose columns are time points and whose rows are activities; each cell of such a matrix is an SOA cell; and an X in a particular cell indicates that an activity (row) is to take place at point in time (column).
+
+For example, a CBC is to occur during the week 2 encounter.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#StudyCellStudySegmentRule -->
+
+    <owl:Class rdf:about="&study_protocol;StudyCellStudySegmentRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;associate_from"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Specifies how a StudyCell is related to one of the PlannedStudySegments instances it contains.
+
+For example, if the plan for the Surgery Arm/Treatment Epoch study cell is that subjects should go through the three StudySegments, Pre-Op, Surgery, and Post-Op in that order, then that sequence is defined using StudySegment Study Cell Relationship instances.
+
+For example, A StudyCell &quot;Arm A/Treatment Epoch&quot; may have StudySegments &quot;A1&quot;, &quot;A2&quot;, etc..  The sequence in which the different StudySegments will occur in StudyCell &quot;Arm A/Treatment Epoch&quot; will be defined by the semantics of the StudySegmentStudyCellRule class.
+
+For example, go from surgery StudySegment to post-op StudySegment in StudyCell &quot;Surgery Arm/Treatment Epoch&quot;.</statistics:definition>
     </owl:Class>
     
 
@@ -590,8 +668,15 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
         <rdfs:subClassOf rdf:resource="&study_protocol;BRIDG_term"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
+                <owl:onProperty rdf:resource="&study_protocol;groups"/>
                 <owl:someValuesFrom rdf:resource="&study_protocol;PlannedActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;has_activities_grouped_by"/>
+                <owl:onClass rdf:resource="&study_protocol;SoA"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -604,10 +689,22 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
 
     <owl:Class rdf:about="&study_protocol;StudyRelationship">
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <develop_comment
-            >Simona: In BRIDG there are no subclasses of this class with the prefix &quot;Planned&quot;</develop_comment>
         <statistics:definition
             >An abstract class whose subtypes are the specific rules governing relationships between classes. [BRIDG Release 2.2]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#StudySubjectEncounterRule -->
+
+    <owl:Class rdf:about="&study_protocol;StudySubjectEncounterRule">
+        <rdfs:subClassOf rdf:resource="&study_protocol;StudyRelationship"/>
+        <statistics:definition
+            >Specifies how to transition between StudySubjectEncounters.
+
+For example, if the result of activity A at Visit 2 is observation X, then the StudySubject should return to the clinic three days after Visit 2 for a repeat of activity A.
+
+For example, Visit 4 should take place 5-9 days after Visit 3.</statistics:definition>
     </owl:Class>
     
 
@@ -618,16 +715,12 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
-                <owl:someValuesFrom rdf:resource="&study_protocol;PlannedSoACell"/>
+                <owl:onProperty rdf:resource="#StudySubjectEncounter_groups_SoACell"/>
+                <owl:someValuesFrom rdf:resource="&study_protocol;SoACell"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
             >A subject study encounter for which StudySubjects have not yet been identified (where StudySubjectEncounter is defined as: A period of time (of non-zero duration) which is identified in the study protocol as a time during which a common grouping of activities are to take place. For example, Clinic visit, Hospital admission, Telephone contact, Period of time during which a StudySubject is to regularly self-administer medication, Period of time during which a StudySubject is to &quot;monitor Adverse Events&quot;, i.e., to note changes in their health status for reporting to the study investigator.) [BRIDG Release 2.2]</statistics:definition>
-        <develop_comment
-            >Simona: I added this class to substitute PlannedSubjectStudyEncounter</develop_comment>
-        <develop_comment
-            >Simona: class PlannedSoACell does not exist in BRIDG Release 2.2, so restriction is_composed_of some should be updated or removed</develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -668,21 +761,15 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#PlannedStudySegmentStudyCellRule -->
-
-    <owl:Thing rdf:about="&study_protocol;PlannedStudySegmentStudyCellRule"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol#Planning_entity -->
 
     <owl:Thing rdf:about="&study_protocol;Planning_entity"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol#StudyProtocol -->
+    <!-- http://purl.org/net/OCRe/study_protocol#StudyCellStudySegmentRule -->
 
-    <owl:Thing rdf:about="&study_protocol;StudyProtocol"/>
+    <owl:Thing rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
     
 
 
