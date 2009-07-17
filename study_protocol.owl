@@ -188,6 +188,14 @@
         <statistics:definition
             >Part/whole relationship</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                    <rdf:Description rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -197,14 +205,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
-                    <rdf:Description rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -397,7 +397,7 @@ This is a relationship between two acts. This relationship asserts that an epoch
 
 For example, start the radiation study segment 2-4 weeks after surgery.
 
-NOTE: If a StudySubject is not in StudySegment A, then receiving a dose of Study Drug A is the activity that marks/defines their transition into StudySegment A.</statistics:definition>
+NOTE: If a StudySubject is not in StudySegment A, then receiving a dose of Study Drug A is the activity that marks/defines their transition into StudySegment A. [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
 
@@ -417,8 +417,7 @@ NOTE: If a StudySubject is not in StudySegment A, then receiving a dose of Study
 
 For example, if a subject experiences a serious adverse event while in the first treatment epoch, move to follow-up epoch.
 
-For example, if there were entry and exit criteria that applied to all arms of a study.
-BRIDG 2.</statistics:definition>
+For example, if there were entry and exit criteria that applied to all arms of a study. [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
 
@@ -430,7 +429,7 @@ BRIDG 2.</statistics:definition>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -442,15 +441,16 @@ BRIDG 2.</statistics:definition>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
-            >NOTE: A planned activity could also be thought of as an activity at a particular stage in the business process in which the activities occur, i.e., in the &quot;planned&quot; stage rather than the &quot;scheduled&quot; stage or the &quot;performed&quot; stage. An instance of a planned activity is not assigned to a particular StudySubject, but to a &quot;kind of&quot; StudySubject. BRIDG Release 2.2</rdfs:comment>
-        <statistics:curator>Simona</statistics:curator>
+            >NOTE: A planned activity could also be thought of as an activity at a particular stage in the business process in which the activities occur, i.e., in the &quot;planned&quot; stage rather than the &quot;scheduled&quot; stage or the &quot;performed&quot; stage. An instance of a planned activity is not assigned to a particular StudySubject, but to a &quot;kind of&quot; StudySubject. [BRIDG Release 2.2]</rdfs:comment>
         <statistics:definition
             >An activity that is anticipated to occur at some time in the future (where Activity is defined as: Any action that can, in the context of a study, be planned, scheduled or performed. For example, a surgical procedure, a laboratory test, or the administration of the drug.). 
+
 For example, pregnancy tests are planned for StudySubjects who are females of childbearing potential. The pregnancy tests are in the future, and the particular women who will be tested have not been identified. [BRIDG Release 2.2]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -462,6 +462,7 @@ For example, pregnancy tests are planned for StudySubjects who are females of ch
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The planned activity within the context of a given study that is not directly related to the study&#39;s overarching hypothesis evaluation or testing, but is nonetheless essential to the efficient and/or effective coordination and execution of the study.
+
 For example, assignment to a treatment arm, registration to a study, start of on-study period, end of on-study period, obtain informed consent, verify eligibility criteria, enroll, randomize, complete study visits, exit trial, break treatment blind, protocol violation, premature withdrawal, etc. [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
@@ -494,10 +495,15 @@ For example, assignment to a treatment arm, registration to a study, start of on
                 <owl:someValuesFrom rdf:resource="&study_protocol;PlannedStudyCell"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A subject passes through a series of states called Epochs in the course of their participation in a study.  Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+        <rdfs:comment
+            >NOTE (on Arm): A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern.  
 
-For example, a trial designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.</statistics:definition>
+Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted. [BRIDG Release 2.2]</rdfs:comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An epoch defined for a specific study but for which no StudySubjects or ExperimentalUnits have been identified (where Epoch is defined as: One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.). [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
 
@@ -519,6 +525,7 @@ For example, a trial designed to assess the effects of treatments might have 3 e
         <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
         <statistics:definition
             >A planned activity whose immediate and primary intention is the alteration of the physical condition of the StudySubject or ExperimentalUnit.
+
 For example, procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure) conservative procedures such as reduction of a luxated joint, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu, radiation therapy, etc. [BRIDG Release 2.2]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
@@ -532,12 +539,6 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -545,6 +546,12 @@ For example, procedures may involve the disruption of some body surface (e.g. an
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_composed_of"/>
                 <owl:someValuesFrom rdf:resource="&study_protocol;StudyCellStudySegmentRule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:curator>Simona</statistics:curator>
@@ -587,8 +594,8 @@ For example, the purpose of a treatment epoch might be accomplished by means of 
         <rdfs:subClassOf rdf:resource="&study_protocol;PlannedActivity"/>
         <statistics:definition
             >The intended action of applying, dispensing or otherwise giving medications or other substances to ExperimentalUnits.
-For example, a study subject who receives methotrexate as part of chemotherapy.
-[BRIDG Release 2.2]</statistics:definition>
+
+For example, a study subject who receives methotrexate as part of chemotherapy. [BRIDG Release 2.2]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -609,8 +616,11 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
 
     <owl:Class rdf:about="&study_protocol;SoA">
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
-        <develop_comment
-            >Simona: this class is not listed in the BRIDG Release 2.2 Static Elements Report</develop_comment>
+        <rdfs:comment
+            >NOTE: If a study has multiple arms, activities for each arm are contained in this study-level SOA. The arm-specific subsets of activities may be nearly identical (e.g., in a blinded controlled trial) or may be quite different (e.g., in a study that compares different modes of treatment). One could have other subsets of the SOA that are applicable to other groups of StudySubjects or ExperimentalUnits. Some examples: StudySubjects who are or are not part of a correlative study, male subjects/female StudySubjects, StudySubjects in different strata if the stratum membership affects the SOA. [BRIDG Release 2.2]</rdfs:comment>
+        <statistics:definition
+            >The set of activities prescribed by a study protocol including relative time points for when the activites will occur in the course of a subject&#39;s participation. A set of SoACells that is applicable to StudySubjects or ExperimentalUnits in a particular study. [BRIDG Release 2.2]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -634,7 +644,8 @@ For example, a study subject who receives methotrexate as part of chemotherapy.
         <statistics:definition
             >Relates an activity to a particular encounter with a StudySubject or ExperimentalUnit.  The design of an encounter can be visualized as cells in a matrix whose columns are time points and whose rows are activities; each cell of such a matrix is an SOA cell; and an X in a particular cell indicates that an activity (row) is to take place at point in time (column).
 
-For example, a CBC is to occur during the week 2 encounter.</statistics:definition>
+For example, a CBC is to occur during the week 2 encounter. [BRIDG Release 2.2]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -649,14 +660,14 @@ For example, a CBC is to occur during the week 2 encounter.</statistics:definiti
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition rdf:datatype="&xsd;string"
+        <statistics:definition
             >Specifies how a StudyCell is related to one of the PlannedStudySegments instances it contains.
 
 For example, if the plan for the Surgery Arm/Treatment Epoch study cell is that subjects should go through the three StudySegments, Pre-Op, Surgery, and Post-Op in that order, then that sequence is defined using StudySegment Study Cell Relationship instances.
 
 For example, A StudyCell &quot;Arm A/Treatment Epoch&quot; may have StudySegments &quot;A1&quot;, &quot;A2&quot;, etc..  The sequence in which the different StudySegments will occur in StudyCell &quot;Arm A/Treatment Epoch&quot; will be defined by the semantics of the StudySegmentStudyCellRule class.
 
-For example, go from surgery StudySegment to post-op StudySegment in StudyCell &quot;Surgery Arm/Treatment Epoch&quot;.</statistics:definition>
+For example, go from surgery StudySegment to post-op StudySegment in StudyCell &quot;Surgery Arm/Treatment Epoch&quot;. [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
 
@@ -679,8 +690,25 @@ For example, go from surgery StudySegment to post-op StudySegment in StudyCell &
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</statistics:definition>
+        <statistics:definition
+            >An action plan for a formal investigation to assess the utility, impact, pharmacological, physiological, and psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.
+
+Note: Among other things, the action plan may include the design, statistical considerations and all activities to test a particular hypothesis that is the basis of the study.  The study may be of any type that involves StudySubjects, including prevention, therapeutic, interventional or observational.  Subjects may be biological entities (human, animal, specimen, tissue, organ, etc.) or products. [BRIDG Release 2.2]</statistics:definition>
+        <rdfs:comment
+            >NOTE: The StudyProtocol class encapsulates the semantics of two &#39;views&#39; of the single concept &#39;study.&#39;  The name &#39;StudyProtocol&#39; was chosen to both disambiguate the somewhat overloaded term &#39;protocol,&#39; as well as to emphasize that the class has two important relationships to the Document class, each of which emphasizes a different aspect of the overall semantics of the StudyProtocol class:
+1). StudyProtocol is a sub-class of the Document class:
+StudyProtocol is a sub-class of Document and, as such, inherits all of the basic characteristics of its parent.  In particular, an instance can contain all of the definitions, specifications, and content of the various (logical) documents which collectively define a study, including (but not limited to) documents that describe the objective(s), background, and/or plan (including the design, methodology, statistical considerations, organization, or other supplemental materials that describe the required information of a Study.
+2). StudyProtocol is a collector for Document instances:
+StudyProtocol is a collector for all various artifacts (including the protocol itself) which collectively define a study, including (but not limited to) specifications of planned, scheduled, or performed Activities, ObservationResults, Assessments, Analyses and their various inter-relationships.
+
+NOTE:  A StudyProtocol can be either Primary or Correlative.  A StudyProtocol is considered to be Primary if it has one or more Correlative studies associated with it.  A Correlative study extends the objectives or observations/conclusions of a Primary study, enrolling the same (or a subset of the same) subjects as were enrolled in the Primary study. (Correlative Studies are not modeled in BRIDG yet.)
+
+NOTE: We are assuming that a document is a container, which may be physical or logical, with the six characteristics listed in the definition of the Document class.  This class is the container for the Plan. 
+
+NOTE: StudyProtocol describes the pre-study, study, and post-study portions of the plan. [BRIDG Release 2.2]</rdfs:comment>
+        <statistics:curator>Simona</statistics:curator>
+        <rdfs:comment
+            >Previous definition: An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</rdfs:comment>
     </owl:Class>
     
 
@@ -704,7 +732,7 @@ For example, go from surgery StudySegment to post-op StudySegment in StudyCell &
 
 For example, if the result of activity A at Visit 2 is observation X, then the StudySubject should return to the clinic three days after Visit 2 for a repeat of activity A.
 
-For example, Visit 4 should take place 5-9 days after Visit 3.</statistics:definition>
+For example, Visit 4 should take place 5-9 days after Visit 3. [BRIDG Release 2.2]</statistics:definition>
     </owl:Class>
     
 
