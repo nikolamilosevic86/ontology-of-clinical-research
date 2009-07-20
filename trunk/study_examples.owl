@@ -104,6 +104,12 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/clinical#has_duration -->
+
+    <owl:ObjectProperty rdf:about="&clinical;has_duration"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/clinical#has_finding -->
 
     <owl:ObjectProperty rdf:about="&clinical;has_finding"/>
@@ -960,6 +966,7 @@
 
     <owl:Thing rdf:about="&study_examples;6_months_after_discharge">
         <rdf:type rdf:resource="&clinical;Relative_time_point"/>
+        <clinical:has_duration rdf:resource="&study_examples;6_months"/>
         <clinical:has_anchor_time rdf:resource="&study_examples;discharge_time"/>
     </owl:Thing>
     
@@ -979,6 +986,7 @@
 
     <owl:Thing rdf:about="&study_examples;6_weeks_after_discharge">
         <rdf:type rdf:resource="&clinical;Relative_time_point"/>
+        <clinical:has_duration rdf:resource="&study_examples;6_weeks"/>
         <clinical:has_anchor_time rdf:resource="&study_examples;discharge_time"/>
     </owl:Thing>
     
@@ -1014,7 +1022,7 @@
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
         <research:has_assessment_time rdf:resource="&study_examples;6_weeks_after_discharge"/>
         <research:is_derived_from rdf:resource="&study_examples;Composite_stroke_MI_death_outcome"/>
-        <research:has_study_outcome_variable rdf:resource="&study_examples;NumberIncidentOfStrokeDeathMI"/>
+        <research:has_study_outcome_variable rdf:resource="&study_examples;IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <research:has_statistical_analysis rdf:resource="&study_examples;StrokeDeathMIStudyIntentToTreatAnalysis"/>
         <research:has_assessment_time rdf:resource="&study_examples;discharge_time"/>
         <research:has_statistical_analysis rdf:resource="#StrokeDeathMIStudyTreatmentReceivedAnalysis"/>
@@ -1030,7 +1038,7 @@
             >Outcome measure for the Trombolytic therapy versus percutaneous intervention trial: The first occurrences of stroke, MI, or death within 6 months of the index MI.</statistics:definition>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
         <research:has_assessment_time rdf:resource="&study_examples;6_weeks_after_discharge"/>
-        <research:has_subject_outcome_variable rdf:resource="&study_examples;FirstIncidentOfStrokeDeathMI"/>
+        <research:has_subject_outcome_variable rdf:resource="&study_examples;FirstOccurenceOfStrokeDeathMI"/>
         <research:has_outcome_phenomenon rdf:resource="&study_examples;Recurrent_MI_phenomenon"/>
         <research:has_outcome_phenomenon rdf:resource="&study_examples;death_phenomenon"/>
         <research:has_assessment_time rdf:resource="&study_examples;discharge_time"/>
@@ -1088,14 +1096,14 @@
 
     <owl:Thing rdf:about="&study_examples;DiabetesBaselineCharacteristic">
         <rdf:type rdf:resource="&research;Subject_outcome_specification"/>
-        <research:has_outcome_phenomenon rdf:resource="&study_examples;diabetes_phenotype"/>
+        <research:has_outcome_phenomenon rdf:resource="&study_examples;diabetes_phenomenon"/>
     </owl:Thing>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples#FirstIncidentOfStrokeDeathMI -->
+    <!-- http://purl.org/net/OCRe/study_examples#FirstOccurenceOfStrokeDeathMI -->
 
-    <clinical:Variable rdf:about="&study_examples;FirstIncidentOfStrokeDeathMI">
+    <clinical:Variable rdf:about="&study_examples;FirstOccurenceOfStrokeDeathMI">
         <rdf:type rdf:resource="&owl;Thing"/>
         <rdf:type>
             <owl:Restriction>
@@ -1163,6 +1171,23 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_examples#IncidenceOfFirstOccurenceOfStrokeDeathMI -->
+
+    <owl:Thing rdf:about="&study_examples;IncidenceOfFirstOccurenceOfStrokeDeathMI">
+        <rdf:type rdf:resource="&clinical;Variable"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Count"/>
+            </owl:Restriction>
+        </rdf:type>
+        <statistics:definition>The number of</statistics:definition>
+        <research:is_study_outcome_variable_of rdf:resource="&study_examples;Composite_MI_stroke_death_study_outcome"/>
+        <research:is_derived_from rdf:resource="&study_examples;FirstOccurenceOfStrokeDeathMI"/>
+    </owl:Thing>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_examples#NCT00784524 -->
 
     <owl:Thing rdf:about="&study_examples;NCT00784524">
@@ -1182,29 +1207,13 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples#NumberIncidentOfStrokeDeathMI -->
-
-    <owl:Thing rdf:about="&study_examples;NumberIncidentOfStrokeDeathMI">
-        <rdf:type rdf:resource="&clinical;Variable"/>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_outcome_variable_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Count"/>
-            </owl:Restriction>
-        </rdf:type>
-        <statistics:definition>The number of</statistics:definition>
-        <research:is_study_outcome_variable_of rdf:resource="&study_examples;Composite_MI_stroke_death_study_outcome"/>
-        <research:is_derived_from rdf:resource="&study_examples;FirstIncidentOfStrokeDeathMI"/>
-    </owl:Thing>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_examples#OneDotFiveMgPerdL -->
 
     <owl:Thing rdf:about="&study_examples;OneDotFiveMgPerdL">
         <rdf:type rdf:resource="&clinical;Physical_quantity"/>
         <rdfs:label rdf:datatype="&xsd;string">1.5 mg/dL</rdfs:label>
         <clinical:realvalue rdf:datatype="&xsd;float">1.5</clinical:realvalue>
+        <clinical:has_unit rdf:resource="&clinical;mgPerDL"/>
     </owl:Thing>
     
 
@@ -1367,6 +1376,22 @@
 
     <owl:Thing rdf:about="&study_examples;PresenceOfAcuteMI">
         <rdf:type rdf:resource="&clinical;Criterion"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&clinical;has_semantic_constraint"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&clinical;Observation"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&clinical;has_finding"/>
+                                <owl:someValuesFrom rdf:resource="&snomed_interface;acute_myocardial_infarctiion"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
     </owl:Thing>
     
 
@@ -1396,43 +1421,6 @@
 
     <research:Outcome_analysis_specification rdf:about="&study_examples;StrokeDeathMIStudyIntentToTreatAnalysis">
         <rdf:type rdf:resource="&owl;Thing"/>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_group"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&research;Population"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&research;has_members"/>
-                                <owl:allValuesFrom>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="&research;Randomisation"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="&research;assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_group"/>
@@ -1466,13 +1454,50 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_analysis_type"/>
                 <owl:someValuesFrom rdf:resource="&statistics;DepVar_dichotomous_indVar_dichotomous"/>
             </owl:Restriction>
         </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_group"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&research;Population"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&research;has_members"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&research;Randomisation"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&research;assigned_to"/>
+                                                        <owl:hasValue rdf:resource="&study_examples;PCIArm"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
         <research:has_assessment_time rdf:resource="&study_examples;6_weeks_after_discharge"/>
-        <research:has_study_outcome_variable rdf:resource="&study_examples;NumberIncidentOfStrokeDeathMI"/>
+        <research:has_study_outcome_variable rdf:resource="&study_examples;IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <research:has_assessment_time rdf:resource="&study_examples;discharge_time"/>
     </research:Outcome_analysis_specification>
     
@@ -1594,19 +1619,19 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Treatment"/>
+                <owl:someValuesFrom rdf:resource="&research;prospective"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed"/>
+                <owl:someValuesFrom rdf:resource="&research;clinical"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1623,19 +1648,19 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;clinical"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Treatment"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
+                <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;prospective"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1674,9 +1699,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples#diabetes_phenotype -->
+    <!-- http://purl.org/net/OCRe/study_examples#diabetes_phenomenon -->
 
-    <owl:Thing rdf:about="&study_examples;diabetes_phenotype">
+    <owl:Thing rdf:about="&study_examples;diabetes_phenomenon">
         <rdf:type rdf:resource="&research;Outcome_phenomenon"/>
         <research:has_phenomenon rdf:resource="&snomed_interface;diabetes_mellitus_code"/>
     </owl:Thing>
@@ -1721,6 +1746,12 @@
 
     <owl:Thing rdf:about="#StrokeDeathMIStudyTreatmentReceivedAnalysis">
         <rdf:type rdf:resource="&research;Outcome_analysis_specification"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
+            </owl:Restriction>
+        </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_group"/>
@@ -1773,21 +1804,15 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
-            </owl:Restriction>
-        </rdf:type>
         <research:has_assessment_time rdf:resource="&study_examples;6_months_after_discharge"/>
         <research:has_assessment_time rdf:resource="&study_examples;6_weeks_after_discharge"/>
-        <research:has_study_outcome_variable rdf:resource="&study_examples;NumberIncidentOfStrokeDeathMI"/>
+        <research:has_study_outcome_variable rdf:resource="&study_examples;IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <research:has_assessment_time rdf:resource="&study_examples;discharge_time"/>
     </owl:Thing>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples.owl#genid85 -->
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid79 -->
 
     <rdf:Description>
         <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
