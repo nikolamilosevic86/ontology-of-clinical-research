@@ -255,8 +255,8 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The unit component of a Quantity</statistics:definition>
+        <rdfs:range rdf:resource="&clinical;Measurement_term"/>
         <rdfs:domain rdf:resource="&clinical;Physical_quantity"/>
-        <rdfs:range rdf:resource="&clinical;Unit_of_measurement"/>
     </owl:ObjectProperty>
     
 
@@ -726,6 +726,20 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     
 
 
+    <!-- http://purl.org/net/OCRe/clinical#Measurement_term -->
+
+    <owl:Class rdf:about="&clinical;Measurement_term">
+        <rdfs:label
+            >Measurement term</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
+        <statistics:definition
+            >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
+        <study_protocol:develop_comment
+            >A placeholder for a unit of measurement ontology</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/clinical#Observation -->
 
     <owl:Class rdf:about="&clinical;Observation">
@@ -830,7 +844,7 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&clinical;has_unit"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Unit_of_measurement"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Measurement_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -878,14 +892,14 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_duration"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
+                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
+                <owl:onProperty rdf:resource="&clinical;has_duration"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -966,13 +980,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1000,18 +1014,6 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Clinical_event"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;A clinical siutation in which a medical or surgical intervention is carried out on the subject.&quot;^^string</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#Unit_of_measurement -->
-
-    <owl:Class rdf:about="&clinical;Unit_of_measurement">
-        <rdfs:label
-            >Unit of measurement</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
-        <statistics:definition
-            >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
     </owl:Class>
     
 

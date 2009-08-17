@@ -63,64 +63,40 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable_distribution -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_data_type -->
 
-    <owl:ObjectProperty rdf:about="#has_dependent_variable_distribution">
+    <owl:ObjectProperty rdf:about="#has_data_type">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <definition
-            >The probability distribution of the dependent variable in a plan for statistical analysis</definition>
-        <rdfs:range rdf:resource="#Probability_Distribution"/>
-        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
+            >The data type of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable_type -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable -->
 
-    <owl:ObjectProperty rdf:about="#has_dependent_variable_type">
-        <definition
-            >The data type of dependent variable in a plan for a statistical analysis</definition>
-        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
-        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Composite_variable_type"/>
-                    <rdf:Description rdf:about="#Simple_variable_type"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable_distribution -->
-
-    <owl:ObjectProperty rdf:about="#has_independent_variable_distribution">
-        <definition
-            >The probability distribution of an independent variable in a plan for statistical analysis</definition>
-        <rdfs:range rdf:resource="#Probability_Distribution"/>
-        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
+    <owl:ObjectProperty rdf:about="#has_dependent_variable">
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable_type -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_distribution -->
 
-    <owl:ObjectProperty rdf:about="#has_independent_variable_type">
+    <owl:ObjectProperty rdf:about="#has_distribution">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <definition
-            >The data type of independent variable in a plan for a statistical analysis</definition>
-        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
+            >The probability distribution of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Composite_variable_type"/>
-                    <rdf:Description rdf:about="#Simple_variable_type"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable -->
+
+    <owl:ObjectProperty rdf:about="#has_independent_variable">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
@@ -146,26 +122,6 @@
         <rdfs:range rdf:resource="#Statistical_analysis_type"/>
         <rdfs:domain rdf:resource="#Statistical_method"/>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#is_univariate_or_multivariate -->
-
-    <owl:ObjectProperty rdf:about="#is_univariate_or_multivariate">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <definition
-            >Whether the independent variables in a plan for statistical analysis is univariate or multivariate</definition>
-        <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
-        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#multivariate"/>
-                    <rdf:Description rdf:about="#univariate"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -200,8 +156,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -233,8 +194,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -243,13 +209,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -266,8 +232,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -293,8 +264,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_nominal_cardinalityGT2"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -320,8 +296,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_ordinal"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -347,8 +328,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_ordinal"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -374,8 +360,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_ordinal"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -395,8 +386,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_ordinal"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -422,8 +418,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_quantitative"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -449,8 +450,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_quantitative"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -476,8 +482,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_quantitative"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -503,8 +514,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_quantitative"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -530,8 +546,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_survival_data"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -563,8 +584,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_survival_data"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -624,6 +650,26 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Censoring -->
+
+    <owl:Class rdf:about="#Censoring">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <definition
+            >Know event within an time interval, but does not known where in the interval</definition>
+        <rdfs:comment
+            >Somewhere within certain range, open or close</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#CensoringBoundedType -->
+
+    <owl:Class rdf:about="#CensoringBoundedType">
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Central_tendency -->
 
     <owl:Class rdf:about="#Central_tendency">
@@ -638,18 +684,6 @@
 
     <owl:Class rdf:about="#Chi-Squared">
         <rdfs:subClassOf rdf:resource="#Categorical_method"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -662,14 +696,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Composite_variable_type -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Closed -->
 
-    <owl:Class rdf:about="#Composite_variable_type">
-        <rdfs:label
-            >Composite variable  type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
-        <definition
-            >Variable whose values are defined in terms of two or more other variables or their transformations</definition>
+    <owl:Class rdf:about="#Closed">
+        <rdfs:subClassOf rdf:resource="#CensoringBoundedType"/>
+        <definition>[ ]</definition>
+        <rdfs:comment>xx, yy, xy</rdfs:comment>
     </owl:Class>
     
 
@@ -678,9 +710,11 @@
 
     <owl:Class rdf:about="#Continuous">
         <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
-        <owl:disjointWith rdf:resource="#Integer_valued"/>
+        <owl:disjointWith rdf:resource="#Discrete"/>
+        <rdfs:comment
+            >Ties are not exact</rdfs:comment>
         <definition
-            >A measurement not restricted to particular values except in so far as this is constrained by the accurancy of the measuring instrument...For such a variable equal sized differences on different parts of the scale are equivalent. (The Cambridge Dictionary of Statistics, 3rd edition)</definition>
+            >(How measurements of &quot;equal value,&quot; can be differentiated), increase precision</definition>
     </owl:Class>
     
 
@@ -693,13 +727,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Count -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Countable -->
 
-    <owl:Class rdf:about="#Count">
-        <rdfs:label>Count/Discrete</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Integer_valued"/>
-        <definition
-            >Variable having only 0 or positive integer values, for example, number of births, number of pregnancies, number of teeth extracted, etc. (Cambridge Dictionary of Statistics 3nd ed.) AKA Discrete</definition>
+    <owl:Class rdf:about="#Countable">
+        <rdfs:label
+            >Infinite countable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Polychotomous"/>
     </owl:Class>
     
 
@@ -710,8 +743,8 @@
         <rdfs:subClassOf rdf:resource="#Actuarial_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
-                <owl:someValuesFrom rdf:resource="#multivariate"/>
+                <owl:onProperty rdf:resource="#has_independent_variable"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -726,8 +759,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -746,8 +784,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -755,13 +798,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Z-test"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Z-test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -784,8 +827,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -793,13 +841,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -816,8 +864,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -842,12 +895,22 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#DepVar_dichotomous"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_distribution"/>
-                        <owl:someValuesFrom rdf:resource="#Normal_distribution"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Discrete"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Integer_valued"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_distribution"/>
+                                <owl:someValuesFrom rdf:resource="#Normal_distribution"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -855,13 +918,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -878,8 +941,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -898,8 +966,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -918,8 +991,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -938,8 +1016,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Time_to_event"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Time_to_event"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -958,8 +1041,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Dichotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -984,8 +1072,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1011,8 +1104,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Ordinal"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1038,8 +1136,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1065,8 +1168,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Multivariate_non-ordinal_indVar_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_dependent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Time_to_event"/>
+                        <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Time_to_event"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1084,10 +1192,22 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Derived_variable_type -->
+
+    <owl:Class rdf:about="#Derived_variable_type">
+        <rdfs:label
+            >Derived variable  type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+        <definition
+            >Variable whose values are defined in terms of two or more other variables or their transformations</definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Dichotomous -->
 
     <owl:Class rdf:about="#Dichotomous">
-        <rdfs:subClassOf rdf:resource="#Nominal"/>
+        <rdfs:subClassOf rdf:resource="#Granularity"/>
         <owl:disjointWith rdf:resource="#Polychotomous"/>
         <definition
             >Measurements whose values are in one of two possible states, these often being labeled 0 and 1 (adapted from Cambridge Dictionary of Statistics 3nd ed.)</definition>
@@ -1098,9 +1218,19 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Difference -->
 
     <owl:Class rdf:about="#Difference">
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
         <definition
             >Variables derived from taking the difference of two other variables. For example, the first difference of a time series {yt} is defined as Dyt = yt - yt-1</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Discrete -->
+
+    <owl:Class rdf:about="#Discrete">
+        <rdfs:label>Discrete</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
+        <definition>Ties are exact</definition>
     </owl:Class>
     
 
@@ -1187,6 +1317,16 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Finite -->
+
+    <owl:Class rdf:about="#Finite">
+        <rdfs:label
+            >Polychotomous finite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Polychotomous"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Gamma_distribution -->
 
     <owl:Class rdf:about="#Gamma_distribution">
@@ -1211,6 +1351,18 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Granularity -->
+
+    <owl:Class rdf:about="#Granularity">
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <rdfs:comment
+            >Describe background of data, how to present data when you plot it</rdfs:comment>
+        <definition
+            >Number of possible outcomes</definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#IndVar_nominal -->
 
     <owl:Class rdf:about="#IndVar_nominal">
@@ -1219,8 +1371,13 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Univariate_analysis"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
-                        <owl:someValuesFrom rdf:resource="#Nominal"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom rdf:resource="#Nominal_scale_level"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1231,13 +1388,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Integer_valued -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Infinite_non_countable -->
 
-    <owl:Class rdf:about="#Integer_valued">
-        <rdfs:label>Integer-valued</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Quantitative_variable_type"/>
-        <definition
-            >Variable whose values can be positive or negative integers or zero</definition>
+    <owl:Class rdf:about="#Infinite_non_countable">
+        <rdfs:label
+            >Infinite non-countable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Polychotomous"/>
     </owl:Class>
     
 
@@ -1247,6 +1403,31 @@
     <owl:Class rdf:about="#Interquartile_range">
         <rdfs:subClassOf rdf:resource="#Dispersion"/>
         <owl:disjointWith rdf:resource="#Range"/>
+        <definition
+            >The variate distance between the upper and lower quartiles. This range contains one half of the total frequency and provides a simple measure of dispersion which is useful in descriptive statistics (http://stats.oecd.org/glossary/index.htm)</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#IntervalCensored -->
+
+    <owl:Class rdf:about="#IntervalCensored">
+        <rdfs:subClassOf rdf:resource="#X"/>
+        <definition>[x, y] x~=y</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Interval_scale_level -->
+
+    <owl:Class rdf:about="#Interval_scale_level">
+        <rdfs:label
+            >Interval scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Scale_level"/>
+        <rdfs:comment
+            >Cannot meaningfully compute ratios</rdfs:comment>
+        <definition
+            >In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has a an arbitrary zero point.&quot;</definition>
     </owl:Class>
     
 
@@ -1255,6 +1436,8 @@
 
     <owl:Class rdf:about="#Kruskal_Wallis_method">
         <rdfs:subClassOf rdf:resource="#Non-linear_model"/>
+        <definition
+            >the Kruskal-Wallis one-way analysis of variance by ranks (named after William Kruskal and W. Allen Wallis) is a non-parametric method for testing equality of population medians among groups. It is identical to a one-way analysis of variance with the data replaced by their ranks. It is an extension of the Mann-Whitney U test to 3 or more groups. (http://en.wikipedia.org/wiki/Wallis_statistic)</definition>
     </owl:Class>
     
 
@@ -1265,6 +1448,25 @@
         <rdfs:subClassOf rdf:resource="#Exponential_distribution_metric"/>
         <rdfs:comment
             >The lambda co-efficient of an exponential distribution</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#LeftCensored -->
+
+    <owl:Class rdf:about="#LeftCensored">
+        <rdfs:subClassOf rdf:resource="#X"/>
+        <definition
+            >[x, y], x unknown</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#LeftOpen -->
+
+    <owl:Class rdf:about="#LeftOpen">
+        <rdfs:subClassOf rdf:resource="#CensoringBoundedType"/>
+        <definition>(  ]</definition>
     </owl:Class>
     
 
@@ -1299,8 +1501,8 @@
         <rdfs:subClassOf rdf:resource="#Actuarial_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
-                <owl:someValuesFrom rdf:resource="#univariate"/>
+                <owl:onProperty rdf:resource="#has_dependent_variable"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1319,6 +1521,8 @@
 
     <owl:Class rdf:about="#Mean">
         <rdfs:subClassOf rdf:resource="#Central_tendency"/>
+        <definition
+            >When unqualified, the mean usually refers to the expectation of a variate, or to the arithmetic mean of a sample used as an estimate of the expectation. (http://stats.oecd.org/glossary/detail.asp?ID=3762)</definition>
     </owl:Class>
     
 
@@ -1328,6 +1532,8 @@
     <owl:Class rdf:about="#Median">
         <rdfs:subClassOf rdf:resource="#Central_tendency"/>
         <owl:disjointWith rdf:resource="#Mode"/>
+        <definition
+            >The median is that value of the variate which divides the total frequency into two halves. (http://stats.oecd.org/glossary/detail.asp?ID=3717)</definition>
     </owl:Class>
     
 
@@ -1344,6 +1550,8 @@
 
     <owl:Class rdf:about="#Mode">
         <rdfs:subClassOf rdf:resource="#Central_tendency"/>
+        <definition
+            >The mode was originally conceived of as that value of the variate which is possessed by the greatest number of members of the population. (http://stats.oecd.org/glossary/detail.asp?ID=3720)</definition>
     </owl:Class>
     
 
@@ -1356,16 +1564,21 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Statistical_analysis_type"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_independent_variable_type"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:complementOf rdf:resource="#Ordinal"/>
-                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="#Ordinal_scale_level"/>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
-                        <owl:someValuesFrom rdf:resource="#multivariate"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1376,18 +1589,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Nominal -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Nominal_scale_level -->
 
-    <owl:Class rdf:about="#Nominal">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Dichotomous"/>
-                    <rdf:Description rdf:about="#Polychotomous"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+    <owl:Class rdf:about="#Nominal_scale_level">
+        <rdfs:label
+            >Nominal scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Scale_level"/>
         <definition
             >Variables whose values are one or more labels for predefined categories that enumerate possble states of some characteristic (e.g., blood types A, B, AB, or O). AKA &quot;categorical data&quot;</definition>
     </owl:Class>
@@ -1418,12 +1625,32 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Ordinal -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Open -->
 
-    <owl:Class rdf:about="#Ordinal">
-        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+    <owl:Class rdf:about="#Open">
+        <rdfs:subClassOf rdf:resource="#CensoringBoundedType"/>
+        <definition>( )</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Ordinal_scale_level -->
+
+    <owl:Class rdf:about="#Ordinal_scale_level">
+        <rdfs:label
+            >Ordinal scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Scale_level"/>
         <definition
             >A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#PointObervation -->
+
+    <owl:Class rdf:about="#PointObervation">
+        <rdfs:subClassOf rdf:resource="#X"/>
+        <definition>[x, y] x=y</definition>
     </owl:Class>
     
 
@@ -1444,10 +1671,20 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Polarity -->
+
+    <owl:Class rdf:about="#Polarity">
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <rdfs:comment
+            >More is better, more is worse</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Polychotomous -->
 
     <owl:Class rdf:about="#Polychotomous">
-        <rdfs:subClassOf rdf:resource="#Nominal"/>
+        <rdfs:subClassOf rdf:resource="#Granularity"/>
         <definition
             >Categorical variables with more than two categories</definition>
     </owl:Class>
@@ -1468,7 +1705,6 @@
         <rdfs:label
             >Probability distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <owl:disjointWith rdf:resource="#Variable_number"/>
         <definition
             >For a discrete random variable, a mathematical formula that gives the probability of each value of the variable. For a continuous random variable, a curve described by a mathematical formula which specifies, by way of areas under the curve, the probability that the variable falls within a particular interval. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
     </owl:Class>
@@ -1478,7 +1714,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Proportion -->
 
     <owl:Class rdf:about="#Proportion">
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
         <rdfs:comment rdf:datatype="&xsd;string"
             >Ranges from 0 to 1. One way to summarize  count data.</rdfs:comment>
         <definition
@@ -1498,9 +1734,11 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Quantitative_variable_type -->
 
     <owl:Class rdf:about="#Quantitative_variable_type">
-        <rdfs:subClassOf rdf:resource="#Simple_variable_type"/>
+        <rdfs:label
+            >Tie-breaking distinction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
         <definition
-            >Variables where &quot;equal-sized differences on different parts of the scale are equivalent&quot; (Cambridge Dictionary of Statistics 3nd ed.)</definition>
+            >How measurements of &quot;equal value,&quot; can be differentiated</definition>
     </owl:Class>
     
 
@@ -1519,6 +1757,8 @@
 
     <owl:Class rdf:about="#Range">
         <rdfs:subClassOf rdf:resource="#Dispersion"/>
+        <definition
+            >The largest minus the smallest of a set of variate values. The range is of itself an elementary measure of dispersion but, in terms of the mean range in repeated sampling, it may afford a reasonable estimate of the population standard deviation. (http://stats.oecd.org/glossary/detail.asp?ID=3824)</definition>
     </owl:Class>
     
 
@@ -1526,7 +1766,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Rate -->
 
     <owl:Class rdf:about="#Rate">
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
         <study_protocol:develop_comment
             >(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</study_protocol:develop_comment>
         <definition
@@ -1537,14 +1777,35 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#Ratio -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#Ratio_scale_level -->
 
-    <owl:Class rdf:about="#Ratio">
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
-        <definition
-            >A variable derived from two quantitative variables by dividing a  numerator variable with a denominator variable</definition>
+    <owl:Class rdf:about="#Ratio_scale_level">
+        <rdfs:label
+            >Absolute scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Scale_level"/>
+        <rdfs:comment
+            >Can compute ratios</rdfs:comment>
         <study_protocol:develop_comment
             >In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot; (Cambridge Dictionary of Statistics 3nd ed.)</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#RightCensored -->
+
+    <owl:Class rdf:about="#RightCensored">
+        <rdfs:subClassOf rdf:resource="#X"/>
+        <definition
+            >[x, y], y unknown</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#RightOpen -->
+
+    <owl:Class rdf:about="#RightOpen">
+        <rdfs:subClassOf rdf:resource="#CensoringBoundedType"/>
+        <definition>[x, )</definition>
     </owl:Class>
     
 
@@ -1557,6 +1818,17 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Scale_level -->
+
+    <owl:Class rdf:about="#Scale_level">
+        <rdfs:label>Scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <definition
+            >Variables whose values are unitary measurements that cannot be defined from other variables</definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Sensitivity -->
 
     <owl:Class rdf:about="#Sensitivity">
@@ -1564,18 +1836,6 @@
         <definition
             >An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</definition>
         <synonym>recall</synonym>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Simple_variable_type -->
-
-    <owl:Class rdf:about="#Simple_variable_type">
-        <rdfs:label
-            >Simple variable type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
-        <definition
-            >Variables whose values are unitary measurements that cannot be defined from other variables</definition>
     </owl:Class>
     
 
@@ -1592,9 +1852,8 @@
 
     <owl:Class rdf:about="#Specificity">
         <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
-        <synonym>precision</synonym>
         <definition
-            >An index of performance of a discrimiant test calculated as the percentage of  negatives in all true negatives</definition>
+            >An index of performance of a discrimiant test calculated as the percentage of negatives in all true negatives</definition>
     </owl:Class>
     
 
@@ -1645,7 +1904,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Sum -->
 
     <owl:Class rdf:about="#Sum">
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
         <definition
             >Variables derived from taking the sum of two other variables</definition>
     </owl:Class>
@@ -1656,7 +1915,10 @@
 
     <owl:Class rdf:about="#Time_to_event">
         <rdfs:label>Time to event</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Composite_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#Difference"/>
+        <rdfs:comment
+            >On scale of time. Often censored. A difference in time.
+Also whether an event occurs (lowerbound of time to event) Measurement can be one number or an interval. 3 categories: same L &amp; Ul,  right censoring (know lowerbound), an interval</rdfs:comment>
         <definition
             >Data representing the times of the occurrances of events of interest</definition>
         <synonym>Survival data</synonym>
@@ -1672,8 +1934,8 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Statistical_analysis_type"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#is_univariate_or_multivariate"/>
-                        <owl:someValuesFrom rdf:resource="#univariate"/>
+                        <owl:onProperty rdf:resource="#has_independent_variable"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1688,30 +1950,20 @@
 
     <owl:Class rdf:about="#Variable_data_type">
         <rdfs:label
-            >Variable data type</rdfs:label>
+            >Measurement dimension</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Composite_variable_type"/>
-                    <rdf:Description rdf:about="#Simple_variable_type"/>
+                    <rdf:Description rdf:about="#Derived_variable_type"/>
+                    <rdf:Description rdf:about="#Scale_level"/>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
         <definition
             >A typology of scales measure</definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Variable_number -->
-
-    <owl:Class rdf:about="#Variable_number">
-        <rdfs:label
-            >Variable number category</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <definition
-            >A quality of statistical analysis or methods categorizing the number of independent variable</definition>
+        <rdfs:comment
+            >Dimensions about how data can be ordered</rdfs:comment>
     </owl:Class>
     
 
@@ -1720,6 +1972,8 @@
 
     <owl:Class rdf:about="#Variance">
         <rdfs:subClassOf rdf:resource="#Dispersion"/>
+        <definition
+            >The variance is the mean square deviation of the variable around the average value. It reflects the dispersion of the empirical values around its mean. (http://stats.oecd.org/glossary/detail.asp?ID=5160)</definition>
     </owl:Class>
     
 
@@ -1732,6 +1986,17 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#X -->
+
+    <owl:Class rdf:about="#X">
+        <rdfs:label>Censoring type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
+        <rdfs:comment
+            >Censoring need at least ordinal, polychotomous</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Z-test -->
 
     <owl:Class rdf:about="#Z-test">
@@ -1740,24 +2005,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#multivariate -->
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
 
-    <owl:Class rdf:about="#multivariate">
-        <rdfs:subClassOf rdf:resource="#Variable_number"/>
-        <owl:disjointWith rdf:resource="#univariate"/>
-        <definition
-            >A quality of statistical analysis or method where there are more than one independent variables</definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#univariate -->
-
-    <owl:Class rdf:about="#univariate">
-        <rdfs:subClassOf rdf:resource="#Variable_number"/>
-        <definition
-            >A quality of statistical analysis or method where there is only one independent variable</definition>
-    </owl:Class>
+    <owl:Class rdf:about="&owl;Thing"/>
     
 
 
@@ -1772,10 +2022,9 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#F_measure"/>
-            <rdf:Description rdf:about="#ROC_curve"/>
-            <rdf:Description rdf:about="#Sensitivity"/>
-            <rdf:Description rdf:about="#Specificity"/>
+            <rdf:Description rdf:about="#Analysis_of_covariance"/>
+            <rdf:Description rdf:about="#Analysis_of_variance"/>
+            <rdf:Description rdf:about="#Mixed_linear_model"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1789,25 +2038,26 @@
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Nominal_scale_level"/>
+            <rdf:Description rdf:about="#Ordinal_scale_level"/>
+            <rdf:Description rdf:about="#Quantitative_variable_type"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#F_measure"/>
+            <rdf:Description rdf:about="#ROC_curve"/>
+            <rdf:Description rdf:about="#Sensitivity"/>
+            <rdf:Description rdf:about="#Specificity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="#Central_tendency"/>
             <rdf:Description rdf:about="#Dispersion"/>
             <rdf:Description rdf:about="#Exponential_distribution_metric"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Analysis_of_covariance"/>
-            <rdf:Description rdf:about="#Analysis_of_variance"/>
-            <rdf:Description rdf:about="#Mixed_linear_model"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Nominal"/>
-            <rdf:Description rdf:about="#Ordinal"/>
-            <rdf:Description rdf:about="#Quantitative_variable_type"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
