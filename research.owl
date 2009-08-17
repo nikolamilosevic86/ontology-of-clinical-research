@@ -191,14 +191,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_analysis_characteristics -->
-
-    <owl:ObjectProperty rdf:about="#has_analysis_characteristics">
-        <rdfs:subPropertyOf rdf:resource="#outcome_property"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#has_analysis_method -->
 
     <owl:ObjectProperty rdf:about="#has_analysis_method">
@@ -229,14 +221,6 @@
     <!-- http://purl.org/net/OCRe/research.owl#has_assessment_method -->
 
     <owl:ObjectProperty rdf:about="#has_assessment_method">
-        <rdfs:subPropertyOf rdf:resource="#outcome_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_assessment_method_characteristic -->
-
-    <owl:ObjectProperty rdf:about="#has_assessment_method_characteristic">
         <rdfs:subPropertyOf rdf:resource="#outcome_property"/>
     </owl:ObjectProperty>
     
@@ -343,14 +327,6 @@
 
     <owl:ObjectProperty rdf:about="#has_outcome">
         <rdfs:subPropertyOf rdf:resource="#study_design_object_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_outcome_characteristic -->
-
-    <owl:ObjectProperty rdf:about="#has_outcome_characteristic">
-        <rdfs:subPropertyOf rdf:resource="#outcome_property"/>
     </owl:ObjectProperty>
     
 
@@ -837,14 +813,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#trial_outcome_measure -->
-
-    <owl:ObjectProperty rdf:about="#trial_outcome_measure">
-        <rdfs:subPropertyOf rdf:resource="#outcome_property"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol#is_divided_into -->
 
     <owl:ObjectProperty rdf:about="&ontologies;study_protocol#is_divided_into">
@@ -944,7 +912,6 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >Textual description</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="#study_design_data_property"/>
     </owl:DatatypeProperty>
     
 
@@ -1235,12 +1202,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_description"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_method_characteristic"/>
-                <owl:someValuesFrom rdf:resource="#Performance_characteristics"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1875,26 +1836,26 @@
         <rdfs:subClassOf rdf:resource="#Outcome_component_specification"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_assessment_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#outcome_property"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+                <owl:onProperty rdf:resource="#has_study_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_study_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_variable_specification"/>
+                <owl:onProperty rdf:resource="#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#outcome_property"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1907,7 +1868,6 @@
 
     <owl:Class rdf:about="#Outcome_component_specification">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
         <statistics:definition
             >A description of the components of the outcome being studied</statistics:definition>
     </owl:Class>
@@ -1941,7 +1901,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_specification -->
 
     <owl:Class rdf:about="#Outcome_specification">
-        <rdfs:subClassOf rdf:resource="#Outcome_component_specification"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <statistics:definition
             >The description of Information, event, object or state of being produced that are being measured for a study.</statistics:definition>
     </owl:Class>
@@ -2047,7 +2007,6 @@
 
     <owl:Class rdf:about="#Population">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
         <statistics:definition
             >&quot;A set of individuals who are subjects of a defined set of events to form a population or sub-population of a study.&quot;^^string</statistics:definition>
     </owl:Class>
@@ -2186,21 +2145,11 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Research_concept -->
-
-    <owl:Class rdf:about="#Research_concept">
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;A concept used in the planning or description of a clinical research study.&quot;^^string</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Research_event -->
 
     <owl:Class rdf:about="#Research_event">
         <rdfs:label>Research event</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Event"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;An occurence in the planning, administration or execution of a clinical research study.&quot;^^string</statistics:definition>
     </owl:Class>
@@ -2324,7 +2273,6 @@
 
     <owl:Class rdf:about="#Study">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</statistics:definition>
     </owl:Class>
@@ -2335,13 +2283,7 @@
 
     <owl:Class rdf:about="#StudySite">
         <rdfs:label>Study site</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
@@ -2353,6 +2295,12 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -2367,7 +2315,6 @@
         <rdfs:label
             >Study characteristic</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >A meta-level characterization of a study</statistics:definition>
     </owl:Class>
@@ -2460,14 +2407,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_phenomenon"/>
+                <owl:onProperty rdf:resource="#has_subject_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_subject_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_variable_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_phenomenon"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_phenomenon"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -2693,7 +2640,6 @@
 
     <owl:Class rdf:about="&ontologies;study_protocol#Planning_entity">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
     </owl:Class>
     
 
@@ -2702,7 +2648,6 @@
 
     <owl:Class rdf:about="&ontologies;study_protocol#StudyProtocol">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
-        <rdfs:subClassOf rdf:resource="#Research_concept"/>
     </owl:Class>
     
 
