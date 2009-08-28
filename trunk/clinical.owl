@@ -174,14 +174,6 @@
         <statistics:definition
             >If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&clinical;part_of"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -190,6 +182,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -685,7 +685,7 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
             >Health Care Provider</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Role"/>
         <statistics:definition
-            >A person providing a service designed to promode health</statistics:definition>
+            >A person providing a service designed to promote health.</statistics:definition>
     </owl:Class>
     
 
