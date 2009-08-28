@@ -290,15 +290,24 @@
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Treatment_and_control_periods_not_repeated"/>
+                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Data_analyzed_across_multiple_participants"/>
+                                    <rdf:Description rdf:about="#Treatment_assigned_to_multiple_participants"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
         <statistics:definition
             >A type of clinical trial comparing two or more interventions in which the participants, upon completion of the course of one treatment, are switched to another. For example, for a comparison of treatments
 A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -615,18 +624,27 @@ A clinical trial is any research study that prospectively assigns human particip
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Treatment_and_control_periods_repeated"/>
+                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Data_analyzed_across_one_participant"/>
+                                    <rdf:Description rdf:about="#Treatment_assigned_to_one_participant"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <statistics:definition
-            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed across one participant at a time.</statistics:definition>
     </owl:Class>
     
 
@@ -1239,6 +1257,32 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analysis_across_participants -->
+
+    <owl:Class rdf:about="#Data_analysis_across_participants">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: see version 11 of study design slide</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_across_multiple_participants -->
+
+    <owl:Class rdf:about="#Data_analyzed_across_multiple_participants">
+        <rdfs:subClassOf rdf:resource="#Data_analysis_across_participants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_across_one_participant -->
+
+    <owl:Class rdf:about="#Data_analyzed_across_one_participant">
+        <rdfs:subClassOf rdf:resource="#Data_analysis_across_participants"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Decision_analysis -->
 
     <owl:Class rdf:about="#Decision_analysis">
@@ -1378,6 +1422,34 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assigned_to_multiple_participants -->
+
+    <owl:Class rdf:about="#Treatment_assigned_to_multiple_participants">
+        <rdfs:subClassOf rdf:resource="#Treatment_assignment_to_participants"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assigned_to_one_participant -->
+
+    <owl:Class rdf:about="#Treatment_assigned_to_one_participant">
+        <rdfs:subClassOf rdf:resource="#Treatment_assignment_to_participants"/>
+        <study_protocol:develop_comment
+            >Simona: this may not work when the study is a collection of N-of-1</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assignment_to_participants -->
+
+    <owl:Class rdf:about="#Treatment_assignment_to_participants">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: see version 11 of study design slide</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1399,17 +1471,10 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Investigator_blinding"/>
-            <rdf:Description rdf:about="&research;Outcomes_assessor_blinding"/>
-            <rdf:Description rdf:about="&research;Subject_blinding"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
-            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
-            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+            <rdf:Description rdf:about="&research;Decision_strategy"/>
+            <rdf:Description rdf:about="&research;Human_subject"/>
+            <rdf:Description rdf:about="&research;Measurement_instrument"/>
+            <rdf:Description rdf:about="&research;Policy"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1423,10 +1488,17 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Decision_strategy"/>
-            <rdf:Description rdf:about="&research;Human_subject"/>
-            <rdf:Description rdf:about="&research;Measurement_instrument"/>
-            <rdf:Description rdf:about="&research;Policy"/>
+            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
+            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
+            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&research;Investigator_blinding"/>
+            <rdf:Description rdf:about="&research;Outcomes_assessor_blinding"/>
+            <rdf:Description rdf:about="&research;Subject_blinding"/>
         </owl:members>
     </rdf:Description>
     
@@ -1446,12 +1518,6 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <swrl:Imp>
         <swrl:body>
             <swrl:AtomList>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&research;Control_group_locality"/>
-                        <swrl:argument1 rdf:resource="#cgl"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
                         <rdf:rest rdf:resource="&rdf;nil"/>
@@ -1464,16 +1530,16 @@ Ask Ida to review this definition</study_protocol:develop_comment>
                         </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&research;Control_group_locality"/>
+                        <swrl:argument1 rdf:resource="#cgl"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
             </swrl:AtomList>
         </swrl:body>
         <swrl:head>
             <swrl:AtomList>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&research;Has_control_group"/>
-                        <swrl:argument1 rdf:resource="#hcg"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
                         <rdf:rest rdf:resource="&rdf;nil"/>
@@ -1486,6 +1552,12 @@ Ask Ida to review this definition</study_protocol:develop_comment>
                         </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&research;Has_control_group"/>
+                        <swrl:argument1 rdf:resource="#hcg"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
             </swrl:AtomList>
         </swrl:head>
     </swrl:Imp>
