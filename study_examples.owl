@@ -642,12 +642,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Intervention_or_exposure -->
-
-    <owl:Class rdf:about="&research;Intervention_or_exposure"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Interventional_study -->
 
     <owl:Class rdf:about="&research;Interventional_study"/>
@@ -753,14 +747,6 @@
     <!-- http://purl.org/net/OCRe/snomed_interface#percutaneous_coronary_intervention -->
 
     <owl:Class rdf:about="&snomed_interface;percutaneous_coronary_intervention"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/snomed_interface#procedure -->
-
-    <owl:Class rdf:about="&snomed_interface;procedure">
-        <rdfs:subClassOf rdf:resource="&research;Intervention_or_exposure"/>
-    </owl:Class>
     
 
 
@@ -1418,12 +1404,6 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -1451,6 +1431,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&statistics;Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1608,24 +1594,25 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
+                <owl:someValuesFrom rdf:resource="&research;prospective"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;target_subject"/>
-                <owl:allValuesFrom>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
-                    </owl:Restriction>
-                </owl:allValuesFrom>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&research;Interventional_study"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&research;Completed_recruiting"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1642,14 +1629,13 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;prospective"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Completed"/>
+                <owl:onProperty rdf:resource="&research;target_subject"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&clinical;subject_of"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;Acute_MI_Assessment"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1753,7 +1739,17 @@
                                 <owl:allValuesFrom>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                                        <owl:someValuesFrom rdf:resource="&study_examples;Thrombolytic_therapy_treatment"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&research;Treatment"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&clinical2;has_procedure"/>
+                                                        <owl:someValuesFrom rdf:resource="&snomed_interface;percutaneous_coronary_intervention"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
                             </owl:Restriction>
@@ -1774,17 +1770,7 @@
                                 <owl:allValuesFrom>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="&clinical;subject_of"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="&research;Treatment"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="&clinical2;has_procedure"/>
-                                                        <owl:someValuesFrom rdf:resource="&snomed_interface;percutaneous_coronary_intervention"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
+                                        <owl:someValuesFrom rdf:resource="&study_examples;Thrombolytic_therapy_treatment"/>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
                             </owl:Restriction>
@@ -1809,7 +1795,7 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples.owl#genid84 -->
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid83 -->
 
     <rdf:Description>
         <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>

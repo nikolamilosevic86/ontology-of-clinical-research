@@ -268,7 +268,7 @@
                         <owl:someValuesFrom>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -390,7 +390,7 @@
                         <owl:someValuesFrom>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -518,7 +518,7 @@
                         <owl:someValuesFrom>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -561,13 +561,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Log_rank_test"/>
+                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
+                <owl:someValuesFrom rdf:resource="#Log_rank_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -646,18 +646,6 @@
 
     <owl:Class rdf:about="#Categorical_method">
         <rdfs:subClassOf rdf:resource="#Statistical_method"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Censoring -->
-
-    <owl:Class rdf:about="#Censoring">
-        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <definition
-            >Know event within an time interval, but does not known where in the interval</definition>
-        <rdfs:comment
-            >Somewhere within certain range, open or close</rdfs:comment>
     </owl:Class>
     
 
@@ -798,6 +786,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
                 <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -805,12 +799,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
                 <owl:someValuesFrom rdf:resource="#Z-test"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -899,7 +887,7 @@
                         <owl:someValuesFrom>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Discrete"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -986,6 +974,8 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#DepVar_quantitative -->
 
     <owl:Class rdf:about="#DepVar_quantitative">
+        <rdfs:label
+            >Dependent variable quantitative scale</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -995,7 +985,7 @@
                         <owl:someValuesFrom>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -1003,7 +993,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <definition
-            >A univariate analysis wehre the dependent variable is quantitative</definition>
+            >A univariate analysis wehre the dependent variable is interval/absolute scale level</definition>
     </owl:Class>
     
 
@@ -1196,10 +1186,12 @@
 
     <owl:Class rdf:about="#Derived_variable_type">
         <rdfs:label
-            >Derived variable  type</rdfs:label>
+            >Scoring or aggregation method</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
         <definition
-            >Variable whose values are defined in terms of two or more other variables or their transformations</definition>
+            >Method for deriving a variable by scoring from multiple observations or aggregating from multiple events in a subject or from multiple subjects</definition>
+        <rdfs:comment
+            >E.g., population-level variables</rdfs:comment>
     </owl:Class>
     
 
@@ -1247,7 +1239,7 @@
 
     <owl:Class rdf:about="#Discriminant_accuracy_metric">
         <rdfs:label
-            >Discriminant analysis metric</rdfs:label>
+            >Classification analysis metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
         <definition
             >An index of performance of a discrimiant test with binary outcome</definition>
@@ -1423,7 +1415,7 @@
     <owl:Class rdf:about="#Interval_scale_level">
         <rdfs:label
             >Interval scale level</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Scale_level"/>
+        <rdfs:subClassOf rdf:resource="#Quantitative_scale_level"/>
         <rdfs:comment
             >Cannot meaningfully compute ratios</rdfs:comment>
         <definition
@@ -1625,6 +1617,14 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Odds -->
+
+    <owl:Class rdf:about="#Odds">
+        <rdfs:subClassOf rdf:resource="#StatisticalPrimitive"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Open -->
 
     <owl:Class rdf:about="#Open">
@@ -1642,6 +1642,14 @@
         <rdfs:subClassOf rdf:resource="#Scale_level"/>
         <definition
             >A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Placeholder -->
+
+    <owl:Class rdf:about="#Placeholder">
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
     </owl:Class>
     
 
@@ -1714,7 +1722,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Proportion -->
 
     <owl:Class rdf:about="#Proportion">
-        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#StatisticalPrimitive"/>
         <rdfs:comment rdf:datatype="&xsd;string"
             >Ranges from 0 to 1. One way to summarize  count data.</rdfs:comment>
         <definition
@@ -1727,6 +1735,24 @@
 
     <owl:Class rdf:about="#Quantile_regression">
         <rdfs:subClassOf rdf:resource="#Generalized_linear_model"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#Quantitative_scale_level -->
+
+    <owl:Class rdf:about="#Quantitative_scale_level">
+        <rdfs:label
+            >Quantitative scale level</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Interval_scale_level"/>
+                    <rdf:Description rdf:about="#Ratio_scale_level"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Scale_level"/>
     </owl:Class>
     
 
@@ -1766,7 +1792,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#Rate -->
 
     <owl:Class rdf:about="#Rate">
-        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
+        <rdfs:subClassOf rdf:resource="#StatisticalPrimitive"/>
         <study_protocol:develop_comment
             >(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</study_protocol:develop_comment>
         <definition
@@ -1777,12 +1803,20 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#Ratio -->
+
+    <owl:Class rdf:about="#Ratio">
+        <rdfs:subClassOf rdf:resource="#StatisticalPrimitive"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Ratio_scale_level -->
 
     <owl:Class rdf:about="#Ratio_scale_level">
         <rdfs:label
             >Absolute scale level</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Scale_level"/>
+        <rdfs:subClassOf rdf:resource="#Quantitative_scale_level"/>
         <rdfs:comment
             >Can compute ratios</rdfs:comment>
         <study_protocol:develop_comment
@@ -1858,6 +1892,15 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/statistics.owl#StatisticalPrimitive -->
+
+    <owl:Class rdf:about="#StatisticalPrimitive">
+        <rdfs:label>Quotient</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/statistics.owl#Statistical_analysis_type -->
 
     <owl:Class rdf:about="#Statistical_analysis_type">
@@ -1915,7 +1958,7 @@
 
     <owl:Class rdf:about="#Time_to_event">
         <rdfs:label>Time to event</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Difference"/>
+        <rdfs:subClassOf rdf:resource="#Derived_variable_type"/>
         <rdfs:comment
             >On scale of time. Often censored. A difference in time.
 Also whether an event occurs (lowerbound of time to event) Measurement can be one number or an interval. 3 categories: same L &amp; Ul,  right censoring (know lowerbound), an interval</rdfs:comment>
@@ -2022,6 +2065,14 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Central_tendency"/>
+            <rdf:Description rdf:about="#Dispersion"/>
+            <rdf:Description rdf:about="#Exponential_distribution_metric"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="#Analysis_of_covariance"/>
             <rdf:Description rdf:about="#Analysis_of_variance"/>
             <rdf:Description rdf:about="#Mixed_linear_model"/>
@@ -2050,14 +2101,6 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
             <rdf:Description rdf:about="#ROC_curve"/>
             <rdf:Description rdf:about="#Sensitivity"/>
             <rdf:Description rdf:about="#Specificity"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#Central_tendency"/>
-            <rdf:Description rdf:about="#Dispersion"/>
-            <rdf:Description rdf:about="#Exponential_distribution_metric"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

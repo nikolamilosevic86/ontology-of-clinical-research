@@ -892,14 +892,14 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
+                <owl:onProperty rdf:resource="&clinical;has_duration"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_duration"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
+                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -930,7 +930,7 @@ For example, procedures may involve the disruption of some body surface (e.g. an
     <!-- http://purl.org/net/OCRe/clinical#Standard_term -->
 
     <owl:Class rdf:about="&clinical;Standard_term">
-        <rdfs:label rdf:datatype="&xsd;string">Standard term</rdfs:label>
+        <rdfs:label>Domain  term</rdfs:label>
         <statistics:definition
             >A term imported from some external standard terminology</statistics:definition>
     </owl:Class>
@@ -980,13 +980,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
