@@ -63,21 +63,11 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#has_data_type -->
-
-    <owl:ObjectProperty rdf:about="#has_data_type">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <definition
-            >The data type of a variable in a plan for statistical analysis</definition>
-        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable -->
 
     <owl:ObjectProperty rdf:about="#has_dependent_variable">
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+        <owl:inverseOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
 
@@ -96,6 +86,18 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable -->
 
     <owl:ObjectProperty rdf:about="#has_independent_variable">
+        <owl:inverseOf rdf:resource="#is_independent_variable_of"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#has_measurement_dimensin -->
+
+    <owl:ObjectProperty rdf:about="#has_measurement_dimensin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <definition
+            >The data type of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -109,6 +111,22 @@
         <rdfs:domain rdf:resource="#Statistical_analysis_type"/>
         <rdfs:range rdf:resource="#Statistical_method"/>
         <owl:inverseOf rdf:resource="#is_permissible_method_of"/>
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#is_dependent_variable_of -->
+
+    <owl:ObjectProperty rdf:about="#is_dependent_variable_of">
+        <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#is_independent_variable_of -->
+
+    <owl:ObjectProperty rdf:about="#is_independent_variable_of">
         <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -159,7 +177,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -171,13 +189,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -197,7 +215,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -235,7 +253,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -267,7 +285,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -299,7 +317,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -331,7 +349,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -363,7 +381,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -389,7 +407,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -421,7 +439,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -453,7 +471,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -485,7 +503,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -517,7 +535,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -549,7 +567,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -587,7 +605,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -750,7 +768,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -775,7 +793,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -786,7 +804,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Z-test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -798,7 +816,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Z-test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -818,7 +836,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Polychotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -855,7 +873,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -886,8 +904,8 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
+                                <owl:onProperty rdf:resource="#has_distribution"/>
+                                <owl:someValuesFrom rdf:resource="#Normal_distribution"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -895,8 +913,8 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_distribution"/>
-                                <owl:someValuesFrom rdf:resource="#Normal_distribution"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -906,13 +924,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Logistic_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -931,10 +949,18 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
-                            </owl:Restriction>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                        <owl:someValuesFrom rdf:resource="#Nominal_scale_level"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -957,7 +983,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -984,7 +1010,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1009,7 +1035,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Time_to_event"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1034,7 +1060,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Dichotomous"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1064,10 +1090,18 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Polychotomous"/>
-                            </owl:Restriction>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                        <owl:someValuesFrom rdf:resource="#Nominal_scale_level"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                        <owl:someValuesFrom rdf:resource="#Polychotomous"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1097,7 +1131,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Ordinal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1129,8 +1163,8 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
-                                <owl:someValuesFrom rdf:resource="#Quantitative_variable_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
+                                <owl:someValuesFrom rdf:resource="#Quantitative_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
@@ -1161,7 +1195,7 @@
                         <owl:onProperty rdf:resource="#has_dependent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Time_to_event"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1366,7 +1400,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom rdf:resource="#Nominal_scale_level"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1559,7 +1593,7 @@
                         <owl:onProperty rdf:resource="#has_independent_variable"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="#has_data_type"/>
+                                <owl:onProperty rdf:resource="#has_measurement_dimensin"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:complementOf rdf:resource="#Ordinal_scale_level"/>
@@ -1642,14 +1676,6 @@
         <rdfs:subClassOf rdf:resource="#Scale_level"/>
         <definition
             >A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#Placeholder -->
-
-    <owl:Class rdf:about="#Placeholder">
-        <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
     </owl:Class>
     
 

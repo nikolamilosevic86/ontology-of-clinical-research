@@ -1049,9 +1049,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <!-- http://purl.org/net/OCRe/research.owl#Study_design_characteristic -->
 
-    <owl:Class rdf:about="&research;Study_design_characteristic">
-        <rdfs:subClassOf rdf:resource="&study_design;Study_design_term"/>
-    </owl:Class>
+    <owl:Class rdf:about="&research;Study_design_characteristic"/>
     
 
 
@@ -1163,12 +1161,6 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
         <study_protocol:develop_comment
             >Simona: is the lower case name chosen on purpose?</study_protocol:develop_comment>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design#Study_design_term -->
-
-    <owl:Class rdf:about="&study_design;Study_design_term"/>
     
 
 
@@ -1461,11 +1453,9 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
-            <rdf:Description rdf:about="&research;Location_of_observation"/>
-            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
-            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
-            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
+            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
+            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
+            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1480,17 +1470,19 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Control_group_cardinality"/>
-            <rdf:Description rdf:about="&research;Control_group_locality"/>
-            <rdf:Description rdf:about="&research;Control_group_type"/>
+            <rdf:Description rdf:about="&research;Analysis_of_cost_flag"/>
+            <rdf:Description rdf:about="&research;Location_of_observation"/>
+            <rdf:Description rdf:about="&research;Mode_of_inquiry"/>
+            <rdf:Description rdf:about="&research;Subject_assessed_individually_flag"/>
+            <rdf:Description rdf:about="&research;Unit_of_analysis"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="&research;Intervention_cardinality"/>
-            <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
-            <rdf:Description rdf:about="&research;Multiple_intervention_timing"/>
+            <rdf:Description rdf:about="&research;Control_group_cardinality"/>
+            <rdf:Description rdf:about="&research;Control_group_locality"/>
+            <rdf:Description rdf:about="&research;Control_group_type"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1516,30 +1508,14 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     <swrl:Variable rdf:about="#cgl"/>
     <swrl:Variable rdf:about="#hcg"/>
     <swrl:Imp>
-        <swrl:body>
-            <swrl:AtomList>
-                <rdf:rest>
-                    <swrl:AtomList>
-                        <rdf:rest rdf:resource="&rdf;nil"/>
-                        <rdf:first>
-                            <swrl:IndividualPropertyAtom>
-                                <swrl:propertyPredicate rdf:resource="&research;has_study_characteristic"/>
-                                <swrl:argument2 rdf:resource="#cgl"/>
-                                <swrl:argument1 rdf:resource="#study"/>
-                            </swrl:IndividualPropertyAtom>
-                        </rdf:first>
-                    </swrl:AtomList>
-                </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&research;Control_group_locality"/>
-                        <swrl:argument1 rdf:resource="#cgl"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
-            </swrl:AtomList>
-        </swrl:body>
         <swrl:head>
             <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&research;Has_control_group"/>
+                        <swrl:argument1 rdf:resource="#hcg"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
                         <rdf:rest rdf:resource="&rdf;nil"/>
@@ -1552,14 +1528,30 @@ Ask Ida to review this definition</study_protocol:develop_comment>
                         </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&research;Has_control_group"/>
-                        <swrl:argument1 rdf:resource="#hcg"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
             </swrl:AtomList>
         </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&research;Control_group_locality"/>
+                        <swrl:argument1 rdf:resource="#cgl"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                        <rdf:first>
+                            <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="&research;has_study_characteristic"/>
+                                <swrl:argument2 rdf:resource="#cgl"/>
+                                <swrl:argument1 rdf:resource="#study"/>
+                            </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+            </swrl:AtomList>
+        </swrl:body>
     </swrl:Imp>
 </rdf:RDF>
 
