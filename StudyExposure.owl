@@ -1,0 +1,1862 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY www "http://www.hsdb.org/" >
+    <!ENTITY pr "http://www.domain2.com#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY snap "http://www.ifomis.org/bfo/1.1/snap#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY span "http://www.ifomis.org/bfo/1.1/span#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY Study_exposure "http://www.hsdb.org/intervention.owl#" >
+    <!ENTITY StudyExposure "http://www.hsdb.org/StudyExposure.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="&www;StudyExposure.owl#"
+     xml:base="&www;StudyExposure.owl"
+     xmlns:www="http://www.hsdb.org/"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:snap="http://www.ifomis.org/bfo/1.1/snap#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pr="http://www.domain2.com#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Study_exposure="&www;intervention.owl#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:StudyExposure="&www;StudyExposure.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:span="http://www.ifomis.org/bfo/1.1/span#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;definition"/>
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#FDA_Regulatory -->
+
+    <owl:ObjectProperty rdf:about="#FDA_Regulatory"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removing_a_process_from_the_subjects_routine -->
+
+    <owl:ObjectProperty rdf:about="#Removing_a_process_from_the_subjects_routine"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Dosage -->
+
+    <owl:ObjectProperty rdf:about="#has_Dosage">
+        <rdfs:domain rdf:resource="#Drug"/>
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Drug_regulatory_status -->
+
+    <owl:ObjectProperty rdf:about="#has_Drug_regulatory_status">
+        <rdfs:domain rdf:resource="#Drug"/>
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_IND_Number -->
+
+    <owl:ObjectProperty rdf:about="#has_IND_Number">
+        <rdfs:domain rdf:resource="#Drug"/>
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Manufacturer -->
+
+    <owl:ObjectProperty rdf:about="#has_Manufacturer">
+        <rdfs:subPropertyOf rdf:resource="#has_device_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Model_Number -->
+
+    <owl:ObjectProperty rdf:about="#has_Model_Number">
+        <rdfs:subPropertyOf rdf:resource="#has_device_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_NDC_Number -->
+
+    <owl:ObjectProperty rdf:about="#has_NDC_Number">
+        <rdfs:domain rdf:resource="#Drug"/>
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Strength -->
+
+    <owl:ObjectProperty rdf:about="#has_Strength">
+        <rdfs:domain rdf:resource="#Drug"/>
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Unique_ID -->
+
+    <owl:ObjectProperty rdf:about="#has_Unique_ID">
+        <rdfs:subPropertyOf rdf:resource="#has_drug_properties"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_addition_exposure_medium -->
+
+    <owl:ObjectProperty rdf:about="#has_addition_exposure_medium"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_addition_intervention_medium -->
+
+    <owl:ObjectProperty rdf:about="#has_addition_intervention_medium"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_administration_duration -->
+
+    <owl:ObjectProperty rdf:about="#has_administration_duration"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_administration_frequency -->
+
+    <owl:ObjectProperty rdf:about="#has_administration_frequency"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_administration_route -->
+
+    <owl:ObjectProperty rdf:about="#has_administration_route"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_anatomic_disintegration -->
+
+    <owl:ObjectProperty rdf:about="#has_anatomic_disintegration"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_anatomic_integration -->
+
+    <owl:ObjectProperty rdf:about="#has_anatomic_integration"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_device_properties -->
+
+    <owl:ObjectProperty rdf:about="#has_device_properties"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_drug_administration_property -->
+
+    <owl:ObjectProperty rdf:about="#has_drug_administration_property"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_drug_properties -->
+
+    <owl:ObjectProperty rdf:about="#has_drug_properties"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_drug_release_form_range -->
+
+    <owl:ObjectProperty rdf:about="#has_drug_release_form_range">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Drug"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_energy_medium -->
+
+    <owl:ObjectProperty rdf:about="#has_energy_medium"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_implanted_duration -->
+
+    <owl:ObjectProperty rdf:about="#has_implanted_duration"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_implementation_location -->
+
+    <owl:ObjectProperty rdf:about="#has_implementation_location"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_mode_of_administration -->
+
+    <owl:ObjectProperty rdf:about="#has_mode_of_administration"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_process_type -->
+
+    <owl:ObjectProperty rdf:about="#has_process_type"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_property_implanted -->
+
+    <owl:ObjectProperty rdf:about="#has_property_implanted"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_removal_exposure_medium -->
+
+    <owl:ObjectProperty rdf:about="#has_removal_exposure_medium"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_removal_intervention_medium -->
+
+    <owl:ObjectProperty rdf:about="#has_removal_intervention_medium"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_state -->
+
+    <owl:ObjectProperty rdf:about="#has_state"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#is_concretization_of -->
+
+    <owl:ObjectProperty rdf:about="#is_concretization_of"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#realizes -->
+
+    <owl:ObjectProperty rdf:about="#realizes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_12hr_range -->
+
+    <owl:DatatypeProperty rdf:about="#has_12hr_range">
+        <rdfs:domain rdf:resource="#Drug_release_form_range"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_24hr_range -->
+
+    <owl:DatatypeProperty rdf:about="#has_24hr_range">
+        <rdfs:domain rdf:resource="#Drug_release_form_range"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_8hr_range -->
+
+    <owl:DatatypeProperty rdf:about="#has_8hr_range">
+        <rdfs:domain rdf:resource="#Drug_release_form_range"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Drug_Name -->
+
+    <owl:DatatypeProperty rdf:about="#has_Drug_Name">
+        <rdfs:domain rdf:resource="#Drug"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Ingredients -->
+
+    <owl:DatatypeProperty rdf:about="#has_Ingredients">
+        <rdfs:domain rdf:resource="#Drug"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Lot_Number -->
+
+    <owl:DatatypeProperty rdf:about="#has_Lot_Number">
+        <rdfs:domain rdf:resource="#Drug"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Manufacturer -->
+
+    <owl:DatatypeProperty rdf:about="#has_Manufacturer">
+        <owl:dataPropertyDomain rdf:resource="#Drug"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#has_Model_Number -->
+
+    <owl:DatatypeProperty rdf:about="#has_Model_Number"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#is_derived_from -->
+
+    <owl:DatatypeProperty rdf:about="#is_derived_from"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#is_mode_of -->
+
+    <owl:DatatypeProperty rdf:about="#is_mode_of"/>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#is_of_mechanical -->
+
+    <owl:DatatypeProperty rdf:about="#is_of_mechanical"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Active_Ingredients -->
+
+    <owl:Class rdf:about="#Active_Ingredients">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >An active ingredient (AI), also active pharmaceutical ingredient (API) or bulk active, is the substance in a drug that is pharmaceutically active. (Wikipedia). eg., aspirin</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_a_cognitive_process -->
+
+    <owl:Class rdf:about="#Addition_of_a_cognitive_process">
+        <rdfs:subClassOf rdf:resource="#Addition_of_a_process_to_the_subjects_routine"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Behavioral"/>
+                    <rdf:Description rdf:about="#Education"/>
+                    <rdf:Description rdf:about="#Occupational_therapy"/>
+                    <rdf:Description rdf:about="#Psychotherapy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="&xsd;string"></dc:source>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Addition of a process that manipulates thoughts. Wikipedia.
+An information processing view of an individual&#39;s psychological functions. Wikipedia.</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">smollah</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_a_device -->
+
+    <owl:Class rdf:about="#Addition_of_a_device">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:allValuesFrom rdf:resource="#Device"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Addition_of_an_agent_into_the_subject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_anatomic_integration"/>
+                <owl:someValuesFrom rdf:resource="#Device_anatomic_integration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_mode_of_administration"/>
+                <owl:someValuesFrom rdf:resource="#Device_mode_of_administration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_implementation_location"/>
+                <owl:someValuesFrom rdf:resource="#Device_implementation_location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_implanted_duration"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#permanent"/>
+                            <rdf:Description rdf:about="#temporary"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Addition_of_a_substance"/>
+        <owl:disjointWith rdf:resource="#Addition_of_energy"/>
+        <dc:description rdf:datatype="&xsd;string"
+            >Process describing administration of a device/s (a mechanical entity)</dc:description>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >e.g., Single-balloon procedure, implantation of pacemaker, etc. A device is either implanted (e.g., pacemaker) into the subject or used as a vehicle  (e.g., exercise machines) to administer a process.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_a_physical_process -->
+
+    <owl:Class rdf:about="#Addition_of_a_physical_process">
+        <rdfs:subClassOf rdf:resource="#Addition_of_a_process_to_the_subjects_routine"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Exercise"/>
+                    <rdf:Description rdf:about="#Physical_therapy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="&xsd;string"></dc:source>
+        <dc:creator rdf:datatype="&xsd;string"></dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Addition of a physical process.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_a_process_to_the_subjects_routine -->
+
+    <owl:Class rdf:about="#Addition_of_a_process_to_the_subjects_routine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Addition_of_a_cognitive_process"/>
+                    <rdf:Description rdf:about="#Addition_of_a_physical_process"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Study_exposure"/>
+        <owl:disjointWith rdf:resource="#Removal_of_a_process_from_the_subjects_routine"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Acts that involve the addition of a new process to the research subject&#39;s routine, e.g., exercise routine that does not involve addition of any device or substance, if they are involded, they are secondary</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">HSDB group</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_a_substance -->
+
+    <owl:Class rdf:about="#Addition_of_a_substance">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Addition_of_a_device"/>
+                                    <rdf:Description rdf:about="#Addition_of_energy"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Biologic"/>
+                                    <rdf:Description rdf:about="#Drug"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Addition_of_an_agent_into_the_subject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_administration_route"/>
+                <owl:someValuesFrom rdf:resource="#Route"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_administration_duration"/>
+                <owl:someValuesFrom rdf:resource="#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_administration_frequency"/>
+                <owl:someValuesFrom rdf:resource="#Frequency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Addition_of_energy"/>
+        <dc:description rdf:datatype="&xsd;string"
+            >Adding a substance that is either chemically synthesized or naturally derived.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_an_agent_into_the_subject -->
+
+    <owl:Class rdf:about="#Addition_of_an_agent_into_the_subject">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Addition_of_a_device"/>
+                    <rdf:Description rdf:about="#Addition_of_a_substance"/>
+                    <rdf:Description rdf:about="#Addition_of_energy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Study_exposure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Device"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                            <rdf:Description rdf:about="#Energy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Removal_of_an_agent_from_the_subject"/>
+        <dc:creator rdf:datatype="&xsd;string"></dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Addition of an agent to the research subject; an agent can be of body parts, devices or drugs, e.g., adding a particular drug, food, pacemaker, organs, tissue,cell, etc.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Addition_of_energy -->
+
+    <owl:Class rdf:about="#Addition_of_energy">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Putative"/>
+                            <rdf:Description rdf:about="#Veritable"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                        <owl:allValuesFrom rdf:resource="#Energy"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Addition_of_an_agent_into_the_subject"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >1. looked at GALEN ontology: http://bioportal.bioontology.org/visualize/4525/Radiation</rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >1. looked at GALEN ontology: http://bioportal.bioontology.org/visualize/4525/Radiation 2. http://nccam.nih.gov/health/whatiscam/energy/energymed.htm</rdfs:definition>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >2. http://nccam.nih.gov/health/whatiscam/energy/energymed.htm</rdfs:comment>
+        <dc:description rdf:datatype="&xsd;string"
+            >Energy medicine is a domain in Complementry and Alternative Medicine (CAM) that deals with energy fields of two types, putative and vertable.</dc:description>
+        <dc:source rdf:datatype="&xsd;string">NCCAM, NIH</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Administration_duration -->
+
+    <owl:Class rdf:about="#Administration_duration">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <dc:creator rdf:datatype="&xsd;string"></dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Duration of an administered drug/agent</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Administration_frequency -->
+
+    <owl:Class rdf:about="#Administration_frequency">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >number of time a drug is administered</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Behavioral -->
+
+    <owl:Class rdf:about="#Behavioral">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >The use of operant conditioning, including rewards and punishments, in helping a person create an atmosphere where he or she does not contribute to painful stimuli. (NCI)</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">smollah</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Biologic -->
+
+    <owl:Class rdf:about="#Biologic">
+        <rdfs:subClassOf rdf:resource="#Substance"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Unique_ID"/>
+                <owl:someValuesFrom rdf:resource="#RXCUI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Strength"/>
+                <owl:someValuesFrom rdf:resource="#Strength"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Dosage"/>
+                <owl:someValuesFrom rdf:resource="#Dosage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Naturally derived substances, e.g., immunoglobulins, gene products.
+A biological product (as a globulin, serum, vaccine, monoclonal antibodies, antitoxin, or antigen) used in the prevention or treatment of disease. (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Biologic_duration -->
+
+    <owl:Class rdf:about="#Biologic_duration">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Duration of an administered biologic</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Brand_name_drug -->
+
+    <owl:Class rdf:about="#Brand_name_drug">
+        <rdfs:subClassOf rdf:resource="#Drug_Name"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Change_in_environment -->
+
+    <owl:Class rdf:about="#Change_in_environment">
+        <rdfs:subClassOf rdf:resource="#Study_exposure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_exposure_medium"/>
+                <owl:someValuesFrom rdf:resource="#Environment_entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_exposure_medium"/>
+                <owl:someValuesFrom rdf:resource="#Environment_entity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:creator rdf:datatype="&xsd;string">HSDB group</dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >exposures directed at or an exposure to a particular social and/or physical environment in which the subject exists, which involves myriad agents and processes that come as a package that cannot be teased out. The independent variable (ie the intervention or the exposure) is the entire environment, not at the individual subject level.   e.g., of social environment: domestic violence, &quot;homelessness&quot;, adoption, generation of immigration, changing social networks, AA  e.g., of physical environment: homelessness, handgun laws, air pollution levels in Central Valley. Section 8 housing assignment.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Chemical -->
+
+    <owl:Class rdf:about="#Chemical">
+        <rdfs:subClassOf rdf:resource="#Substance"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Acting or operated or produced by chemicals. Detectable by chemical means. (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Continuant -->
+
+    <owl:Class rdf:about="#Continuant">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Controlled_release_of_therapeutic_compound -->
+
+    <owl:Class rdf:about="#Controlled_release_of_therapeutic_compound">
+        <rdfs:subClassOf rdf:resource="#Purpose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Counseling -->
+
+    <owl:Class rdf:about="#Counseling">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >The act of receiving professional guidance in resolving personal conflicts and emotional problems.professional guidance of the individual by utilizing psychological methods especially in collecting case history data, using various techniques of the personal interview, and testing interests and aptitudes (NCI thesaurus). e.g., consultation, deliberation.</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">smollah</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Data_transformation -->
+
+    <owl:Class rdf:about="#Data_transformation">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device -->
+
+    <owl:Class rdf:about="#Device">
+        <rdfs:subClassOf rdf:resource="#Material_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Unique_ID"/>
+                <owl:someValuesFrom rdf:resource="#RXCUI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="&xsd;string"></dc:source>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >A piece of equipment or a mechanism designed to serve a special purpose or perform a special function (MedlinePlus, RxNorm). Mechanical/electrical entities, e.g. pacemaker</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device_anatomic_disintegration -->
+
+    <owl:Class rdf:about="#Device_anatomic_disintegration">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device_anatomic_integration -->
+
+    <owl:Class rdf:about="#Device_anatomic_integration">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device_attributes -->
+
+    <owl:Class rdf:about="#Device_attributes">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device_implementation_location -->
+
+    <owl:Class rdf:about="#Device_implementation_location">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >actual location where a device is implemented.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Device_mode_of_administration -->
+
+    <owl:Class rdf:about="#Device_mode_of_administration">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Mode of device administration</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Dosage -->
+
+    <owl:Class rdf:about="#Dosage">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Dosage of a drug/biologic</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Drug -->
+
+    <owl:Class rdf:about="#Drug">
+        <rdfs:subClassOf rdf:resource="#Chemical"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Strength"/>
+                <owl:someValuesFrom rdf:resource="#Strength"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Dosage"/>
+                <owl:someValuesFrom rdf:resource="#Dosage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_IND_Number"/>
+                <owl:someValuesFrom rdf:resource="#IND_Number"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_NDC_Number"/>
+                <owl:someValuesFrom rdf:resource="#NDC_Number"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Unique_ID"/>
+                <owl:someValuesFrom rdf:resource="#RXCUI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_drug_release_form_range"/>
+                <owl:someValuesFrom rdf:resource="#Drug_release_form_range"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Drug_regulatory_status"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#FDARegulatory"/>
+                            <rdf:Description rdf:about="#Investigational"/>
+                            <rdf:Description rdf:about="#NonFDAApproval"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Chemically synthesized substance. A substance recognized in an official pharmacopoeia or formulary. (FDA) 
+A substance other than food intended to affect the structure or function of the body. A substance intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease.
+(Medline Plus, RxNorm, FDA, RU hosipital pharmacist)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Drug_Name -->
+
+    <owl:Class rdf:about="#Drug_Name">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Brand_name_drug"/>
+                    <rdf:Description rdf:about="#Generic_name_drug"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Drug_RegulatoryStatus -->
+
+    <owl:Class rdf:about="#Drug_RegulatoryStatus">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Drug_regulatory_status"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#FDARegulatory"/>
+                            <rdf:Description rdf:about="#Investigational"/>
+                            <rdf:Description rdf:about="#NonFDAApproval"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Regulatory status of a drug or biologic</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Drug_release_form_range -->
+
+    <owl:Class rdf:about="#Drug_release_form_range">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Duration -->
+
+    <owl:Class rdf:about="#Duration">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >for lack of a better term we are using the term &quot;duration&quot; to define superclass for permanent/temporary implantation of a device to a subject.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Education -->
+
+    <owl:Class rdf:about="#Education">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Education is the process of learning knowledge, information and skills during the course of life. (Wikipedia)</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">smollah</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Electrical -->
+
+    <owl:Class rdf:about="#Electrical">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >devices that utilize electricity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Energy -->
+
+    <owl:Class rdf:about="#Energy">
+        <rdfs:subClassOf rdf:resource="#Material_entity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Ionized_energy"/>
+                    <rdf:Description rdf:about="#Non_ionized_energy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >A scalar physical quantity that describes the amount of work that can be performed by a force.(Wikipedia) e.g. radiation (alpha, beta, gamma), X-ray, electromagnetic radiation, visible light, magnetic, etc.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Environment_entity -->
+
+    <owl:Class rdf:about="#Environment_entity">
+        <rdfs:subClassOf rdf:resource="#Continuant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Removal_of_a_cognitive_process"/>
+                            <rdf:Description rdf:about="#Removal_of_a_physical_process"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Device"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                            <rdf:Description rdf:about="#Energy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Addition_of_a_cognitive_process"/>
+                            <rdf:Description rdf:about="#Addition_of_a_physical_process"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Device"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                            <rdf:Description rdf:about="#Energy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >allows relational view of the space. an  entity composed of agents such as  research subjects, device, substances, energy that occupies space within an environment. e.g., group therapy.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Exercise -->
+
+    <owl:Class rdf:about="#Exercise">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Bodily exertion for the sake of developing and maintaining physical fitness (MedlinePlus). e.g., physical therapy,walking,running,swimming, music therapy, music etc.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#FDARegulatory -->
+
+    <owl:Class rdf:about="#FDARegulatory">
+        <rdfs:subClassOf rdf:resource="#Drug_RegulatoryStatus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Frequency -->
+
+    <owl:Class rdf:about="#Frequency">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Generic_name_drug -->
+
+    <owl:Class rdf:about="#Generic_name_drug">
+        <rdfs:subClassOf rdf:resource="#Drug_Name"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Herbal_supplements -->
+
+    <owl:Class rdf:about="#Herbal_supplements">
+        <rdfs:subClassOf rdf:resource="#NonFDAApproval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#IM -->
+
+    <owl:Class rdf:about="#IM">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Oral administration.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#IND_Number -->
+
+    <owl:Class rdf:about="#IND_Number">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >investigational new drug</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#IV -->
+
+    <owl:Class rdf:about="#IV">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Inactive_Ingredients -->
+
+    <owl:Class rdf:about="#Inactive_Ingredients">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Also known as excipient is an inactive substance used as a carrier for the active ingredients of a medication (wikipedia)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Information_about_a_realizable -->
+
+    <owl:Class rdf:about="#Information_about_a_realizable">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Information_artifact -->
+
+    <owl:Class rdf:about="#Information_artifact">
+        <rdfs:subClassOf rdf:resource="#Continuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Ingredients -->
+
+    <owl:Class rdf:about="#Ingredients">
+        <rdfs:subClassOf rdf:resource="#Material_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_state"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Active_Ingredients"/>
+                            <rdf:Description rdf:about="#Inactive_Ingredients"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >something that enters into a compound or is a component part of any combination or mixture. (Wikipedia)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Inhibit_or_induce_process -->
+
+    <owl:Class rdf:about="#Inhibit_or_induce_process">
+        <rdfs:subClassOf rdf:resource="#Purpose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Interventional -->
+
+    <owl:Class rdf:about="#Interventional">
+        <rdfs:subClassOf rdf:resource="#Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Change_in_environment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >an exposure that plays the role of a manipulated variable in an interventional study. An influencing force or act in which one or more exposures are deliberately manipulated.
+Place holder now.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Investigational -->
+
+    <owl:Class rdf:about="#Investigational">
+        <rdfs:subClassOf rdf:resource="#Drug_RegulatoryStatus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Ionized_energy -->
+
+    <owl:Class rdf:about="#Ionized_energy">
+        <rdfs:subClassOf rdf:resource="#Energy"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Energy capable of producing ionization in substances through which it passes.(NCI thesaurus)</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >e.g., alpha, beta, gamma, x-ray, cosmic radiation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Living -->
+
+    <owl:Class rdf:about="#Living">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Lot_Number -->
+
+    <owl:Class rdf:about="#Lot_Number">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Manufacturer -->
+
+    <owl:Class rdf:about="#Manufacturer">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Material_entity -->
+
+    <owl:Class rdf:about="#Material_entity">
+        <rdfs:subClassOf rdf:resource="#Continuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Measurement_unit_label -->
+
+    <owl:Class rdf:about="#Measurement_unit_label">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >label for measurement unit</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Mechanical -->
+
+    <owl:Class rdf:about="#Mechanical">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Model_Number -->
+
+    <owl:Class rdf:about="#Model_Number">
+        <rdfs:subClassOf rdf:resource="#Device_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#NDC_Number -->
+
+    <owl:Class rdf:about="#NDC_Number">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#NonFDAApproval -->
+
+    <owl:Class rdf:about="#NonFDAApproval">
+        <rdfs:subClassOf rdf:resource="#Drug_RegulatoryStatus"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Drug_RegulatoryStatus"/>
+                    <rdf:Description rdf:about="#NonHerbal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#NonHerbal -->
+
+    <owl:Class rdf:about="#NonHerbal">
+        <rdfs:subClassOf rdf:resource="#NonFDAApproval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#NonPatient_directed -->
+
+    <owl:Class rdf:about="#NonPatient_directed">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Non_interventional -->
+
+    <owl:Class rdf:about="#Non_interventional">
+        <rdfs:subClassOf rdf:resource="#Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_addition_exposure_medium"/>
+                <owl:someValuesFrom rdf:resource="#Change_in_environment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >an exposure that plays the role of a conditional variable in an observational study. do not have exposures that are deliberately manipulated, ie they do not have interventions but only exposures
+For now it is a place holder until we find its place in the classification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Non_ionized_energy -->
+
+    <owl:Class rdf:about="#Non_ionized_energy">
+        <rdfs:subClassOf rdf:resource="#Energy"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Energy which does not produce ions in matter through which it passes. (NCI thesaurus)</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >e.g., UVA, visible light, IR-A, IR-B, IR-C, microwave, radio frequency 
+    radiation,Static Field, low frequency RF, heat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Nonliving -->
+
+    <owl:Class rdf:about="#Nonliving">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Normalize_function -->
+
+    <owl:Class rdf:about="#Normalize_function">
+        <rdfs:subClassOf rdf:resource="#Purpose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Nutrient -->
+
+    <owl:Class rdf:about="#Nutrient">
+        <rdfs:subClassOf rdf:resource="#Chemical"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >A nutritive substance or ingredient. (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Occupational_therapy -->
+
+    <owl:Class rdf:about="#Occupational_therapy">
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >incorporates meaningful and purposeful occupation to enable people with limitations or impairments to participate in everyday life. (Wikipedia) The therapeutic use of work, self-care, and play activities to increase development and prevent disability. It may include adaptation of task or environment to achieve maximum independence and to enhance the quality of life. (American Occupational Therapy Association executive board (1976)) e.g., Self-Care: sleeping, eating, grooming, dressing, and toileting  e.g., Work: effort that is exerted to do or make something, or perform a task  e.g., Leisure: free, unoccupied time in which one chooses to do something they enjoy (i.e., hobby, tv, socializing, sports, &quot;chill out&quot;, read, write, listen to music, travel, etc.)  http://www.sensory-processing-disorder.com/what-is-occupational-therapy.html</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Organism -->
+
+    <owl:Class rdf:about="#Organism">
+        <rdfs:subClassOf rdf:resource="#Material_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_state"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Living"/>
+                            <rdf:Description rdf:about="#Nonliving"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >An organism is any living thing (such as animal, plant, fungus, or micro-organism). (wikipedia/medLinePlus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#PO -->
+
+    <owl:Class rdf:about="#PO">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Patient_directed -->
+
+    <owl:Class rdf:about="#Patient_directed">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Physical_therapy -->
+
+    <owl:Class rdf:about="#Physical_therapy">
+        <dc:source rdf:datatype="&xsd;string"></dc:source>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >provide services to individuals and populations to develop, maintain and restore maximum movement and functional ability throughout life.(Wikipedia) the treatment of disease by physical and mechanical means (as massage, regulated exercise, water, light, heat, and electricity) -- called also physiotherapy (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Plan -->
+
+    <owl:Class rdf:about="#Plan">
+        <rdfs:subClassOf rdf:resource="#Realizable_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Plan_specification -->
+
+    <owl:Class rdf:about="#Plan_specification">
+        <rdfs:subClassOf rdf:resource="#Information_about_a_realizable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Protocol -->
+
+    <owl:Class rdf:about="#Protocol">
+        <rdfs:subClassOf rdf:resource="#Plan_specification"/>
+        <owl:disjointWith rdf:resource="#Study_design"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Provider_directed -->
+
+    <owl:Class rdf:about="#Provider_directed">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Psychotherapy -->
+
+    <owl:Class rdf:about="#Psychotherapy">
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >psychotherapy is an intentional interpersonal relationship used by trained psychotherapists to aid a client in problems of living.(wikipedia). 1.treatment of mental or emotional disorder or maladjustment by psychological means especially involving verbal communication (as in psychoanalysis, nondirective psychotherapy, reeducation, or hypnosis) 2 : any alteration in an individual&#39;s interpersonal environment, relationships, or life situation brought about especially by a qualified therapist and intended to have the effect of alleviating symptoms of mental or emotional disturbance (Medline Plus) e.g., treatments for scrupulosity, social Phobia, agoraphobia, depression in Children and Adolescents</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Purpose -->
+
+    <owl:Class rdf:about="#Purpose">
+        <rdfs:subClassOf rdf:resource="#Realizable_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Putative -->
+
+    <owl:Class rdf:about="#Putative">
+        <rdfs:subClassOf rdf:resource="#Addition_of_energy"/>
+        <dc:description rdf:datatype="&xsd;string"
+            >Energy that has yet to be measured</dc:description>
+        <dc:source rdf:datatype="&xsd;string">NCCAM, NIH</dc:source>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >http://nccam.nih.gov/health/whatiscam/energy/energymed.htm Putative energy fields (also called biofields) have defied measurement to date by reproducible methods. Therapies involving putative energy fields are based on the concept that human beings are infused with a subtle form of energy. This vital energy or life force is known under different names in different cultures, such as qiIn traditional Chinese medicine, the vital energy or life force proposed to regulate a person&#39;s spiritual, emotional, mental, and physical health and to be influenced by the opposing forces of yin and yang. in traditional Chinese medicineA whole medical system that originated in China. It is based on the concept that disease results from disruption in the flow of qi and imbalance in the forces of yin and yang. Practices such as herbs, meditation, massage, and acupuncture seek to aid healing by restoring the yin-yang balance and the flow of qi. (TCM), ki in the Japanese Kampo system, doshas in Ayurvedic medicineA whole medical system that originated in India. It aims to integrate the body, mind, and spirit to prevent and treat disease. Therapies used include herbs, massage, and yoga., and elsewhere as prana, etheric energy, fohat, orgone, odic force, mana, and homeopathic resonance</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#RXCUI -->
+
+    <owl:Class rdf:about="#RXCUI">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Concept unique identifier for drugs</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Realizable_entity -->
+
+    <owl:Class rdf:about="#Realizable_entity">
+        <rdfs:subClassOf rdf:resource="#Continuant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_a_cognitive_process -->
+
+    <owl:Class rdf:about="#Removal_of_a_cognitive_process">
+        <rdfs:subClassOf rdf:resource="#Removal_of_a_process_from_the_subjects_routine"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Psychotherapy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Counseling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Behavioral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:creator rdf:datatype="&xsd;string"></dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Removal of a cognitive process/es from the subject&#39;s routine. e.g.,</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_a_device -->
+
+    <owl:Class rdf:about="#Removal_of_a_device">
+        <rdfs:subClassOf rdf:resource="#Removal_of_an_agent_from_the_subject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_anatomic_disintegration"/>
+                <owl:someValuesFrom rdf:resource="#Device_anatomic_disintegration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:creator rdf:datatype="&xsd;string"></dc:creator>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Removing a physical device/s</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_a_physical_process -->
+
+    <owl:Class rdf:about="#Removal_of_a_physical_process">
+        <rdfs:subClassOf rdf:resource="#Removal_of_a_process_from_the_subjects_routine"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Exercise"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom rdf:resource="#Physical_therapy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Removal of a physical process/es from the subject&#39;s routine. e.g. exercise routine</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_a_process_from_the_subjects_routine -->
+
+    <owl:Class rdf:about="#Removal_of_a_process_from_the_subjects_routine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Removal_of_a_cognitive_process"/>
+                    <rdf:Description rdf:about="#Removal_of_a_physical_process"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Study_exposure"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Procedures that involve removal of a process from the research subject&#39;s routine</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_a_substance -->
+
+    <owl:Class rdf:about="#Removal_of_a_substance">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Removal_of_an_agent_from_the_subject"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Adding a substance that is either chemically synthesized or naturally derived.</rdfs:definition>
+        <dc:creator rdf:datatype="&xsd;string">smollah</dc:creator>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_an_agent_from_the_subject -->
+
+    <owl:Class rdf:about="#Removal_of_an_agent_from_the_subject">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Removal_of_a_device"/>
+                    <rdf:Description rdf:about="#Removal_of_a_substance"/>
+                    <rdf:Description rdf:about="#Removal_of_energy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Study_exposure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Device"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                            <rdf:Description rdf:about="#Energy"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Removal of an agent from the research subject; an agent can be of body parts of body parts, devices or drugs from the research subject. e.g., pacemaker, organs, tissue,cell, etc.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Removal_of_energy -->
+
+    <owl:Class rdf:about="#Removal_of_energy">
+        <rdfs:subClassOf rdf:resource="#Removal_of_an_agent_from_the_subject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:allValuesFrom rdf:resource="#Energy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Removal of putative and vertable energy.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Report -->
+
+    <owl:Class rdf:about="#Report">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Role -->
+
+    <owl:Class rdf:about="#Role">
+        <rdfs:subClassOf rdf:resource="#Realizable_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Route -->
+
+    <owl:Class rdf:about="#Route">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >a path of transmitting</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Strength -->
+
+    <owl:Class rdf:about="#Strength">
+        <rdfs:subClassOf rdf:resource="#Substance_attributes"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >degree of potency of effect or of concentration. (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Study_design -->
+
+    <owl:Class rdf:about="#Study_design">
+        <rdfs:subClassOf rdf:resource="#Plan_specification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Study_exposure -->
+
+    <owl:Class rdf:about="#Study_exposure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Addition_of_a_process_to_the_subjects_routine"/>
+                    <rdf:Description rdf:about="#Addition_of_an_agent_into_the_subject"/>
+                    <rdf:Description rdf:about="#Removal_of_a_process_from_the_subjects_routine"/>
+                    <rdf:Description rdf:about="#Removal_of_an_agent_from_the_subject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Exposure consists of independent variables  in interventional studies that are being exposed delibereberately, as well as conditional variables in observational studies that are being exposed nondeliberately. (Ida, Richard)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Study_participant_role -->
+
+    <owl:Class rdf:about="#Study_participant_role">
+        <rdfs:subClassOf rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Study_personnel_role -->
+
+    <owl:Class rdf:about="#Study_personnel_role">
+        <rdfs:subClassOf rdf:resource="#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Study_subject_role -->
+
+    <owl:Class rdf:about="#Study_subject_role">
+        <rdfs:subClassOf rdf:resource="#Study_participant_role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Substance -->
+
+    <owl:Class rdf:about="#Substance">
+        <rdfs:subClassOf rdf:resource="#Material_entity"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >Matter of particular or definite chemical and biologic constitution. (Medline Plus)</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Substance_attributes -->
+
+    <owl:Class rdf:about="#Substance_attributes">
+        <rdfs:subClassOf rdf:resource="#Information_artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#System_directed -->
+
+    <owl:Class rdf:about="#System_directed">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#Veritable -->
+
+    <owl:Class rdf:about="#Veritable">
+        <rdfs:subClassOf rdf:resource="#Addition_of_energy"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_energy_medium"/>
+                <owl:someValuesFrom rdf:resource="#Ionized_energy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_energy_medium"/>
+                <owl:someValuesFrom rdf:resource="#Non_ionized_energy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="&xsd;string">NCCAM, NIH</dc:source>
+        <dc:description rdf:datatype="&xsd;string"
+            >energy that can be measured</dc:description>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >http://nccam.nih.gov/health/whatiscam/energy/energymed.htm The veritable energies employ mechanical vibrations (such as sound) and electromagnetic forces, including visible light, magnetism, monochromatic radiation (such as laser beams), and rays from other parts of the electromagnetic spectrum. They involve the use of specific, measurable wavelengths and frequencies to treat patients.</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#permanent -->
+
+    <owl:Class rdf:about="#permanent">
+        <rdfs:subClassOf rdf:resource="#Duration"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >last throughout life time</rdfs:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsdb.org/StudyExposure.owl#temporary -->
+
+    <owl:Class rdf:about="#temporary">
+        <rdfs:subClassOf rdf:resource="#Duration"/>
+        <rdfs:definition rdf:datatype="&xsd;string"
+            >last only for a period of time</rdfs:definition>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+
