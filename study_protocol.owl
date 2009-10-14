@@ -192,14 +192,6 @@
         <statistics:definition
             >Part/whole relationship</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&study_protocol;planned_study_property"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
-                    <rdf:Description rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -209,6 +201,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_protocol;PlannedStudyCell"/>
+                    <rdf:Description rdf:about="&study_protocol;StudyCellStudySegmentRule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -434,6 +434,12 @@ For example, if there were entry and exit criteria that applied to all arms of a
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_planned_within"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
@@ -442,12 +448,6 @@ For example, if there were entry and exit criteria that applied to all arms of a
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -687,13 +687,6 @@ For example, go from surgery StudySegment to post-op StudySegment in StudyCell &
         <rdfs:subClassOf rdf:resource="&study_protocol;BRIDG_term"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;has_activities_grouped_by"/>
-                <owl:onClass rdf:resource="&study_protocol;SoA"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;groups"/>
                 <owl:someValuesFrom rdf:resource="&study_protocol;PlannedActivity"/>
             </owl:Restriction>
@@ -817,10 +810,6 @@ For example, Visit 4 should take place 5-9 days after Visit 3. [BRIDG Release 2.
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:resource="&rdf;nil"/>
-    </rdf:Description>
 </rdf:RDF>
 
 

@@ -46,7 +46,6 @@
         <owl:imports rdf:resource="&ontologies;statistics.owl"/>
         <owl:imports rdf:resource="&ontologies;study_design.owl"/>
         <owl:imports rdf:resource="&ontologies;study_protocol.owl"/>
-        <owl:imports rdf:resource="http://www.hsdb.org/StudyExposure.owl"/>
     </owl:Ontology>
     
 
@@ -73,6 +72,20 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#has_part -->
+
+    <owl:ObjectProperty rdf:about="&ontologies;clinical#has_part"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#has_semantic_constraint -->
+
+    <owl:ObjectProperty rdf:about="&ontologies;clinical#has_semantic_constraint">
+        <rdfs:domain rdf:resource="&ontologies;clinical#Criterion"/>
+    </owl:ObjectProperty>
     
 
 
@@ -186,14 +199,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_adverse_event -->
-
-    <owl:ObjectProperty rdf:about="#has_adverse_event">
-        <rdfs:subPropertyOf rdf:resource="#has_outcome"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#has_analysis_method -->
 
     <owl:ObjectProperty rdf:about="#has_analysis_method">
@@ -232,7 +237,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#has_assessment_time -->
 
     <owl:ObjectProperty rdf:about="#has_assessment_time">
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >ocre:is_derived_from o ocre:has_assessment_time</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
     </owl:ObjectProperty>
@@ -245,14 +250,6 @@
         <statistics:definition rdf:datatype="&xsd;string"
             >Baseline characteristics of a StudyProtocol. The range of the property is expected to be Outcome.</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="#study_design_object_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_baseline_outcome -->
-
-    <owl:ObjectProperty rdf:about="#has_baseline_outcome">
-        <rdfs:subPropertyOf rdf:resource="#has_outcome"/>
     </owl:ObjectProperty>
     
 
@@ -360,19 +357,42 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_primary_outcome -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_primary_outcome_analysis -->
 
-    <owl:ObjectProperty rdf:about="#has_primary_outcome">
+    <owl:ObjectProperty rdf:about="#has_primary_outcome_analysis">
+        <rdfs:range rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:subPropertyOf rdf:resource="#has_statistical_analysis"/>
+        <rdfs:domain rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#has_primary_variable -->
+
+    <owl:ObjectProperty rdf:about="#has_primary_variable">
+        <rdfs:range rdf:resource="#Variable_specification"/>
         <rdfs:subPropertyOf rdf:resource="#has_outcome"/>
         <rdfs:domain rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_secondary_outcome -->
+    <!-- http://purl.org/net/OCRe/research.owl#has_secondary_outcome_analysis -->
 
-    <owl:ObjectProperty rdf:about="#has_secondary_outcome">
+    <owl:ObjectProperty rdf:about="#has_secondary_outcome_analysis">
+        <rdfs:range rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:subPropertyOf rdf:resource="#has_statistical_analysis"/>
+        <rdfs:domain rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#has_secondary_variable -->
+
+    <owl:ObjectProperty rdf:about="#has_secondary_variable">
+        <rdfs:range rdf:resource="#Variable_specification"/>
         <rdfs:subPropertyOf rdf:resource="#has_outcome"/>
+        <rdfs:domain rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
     </owl:ObjectProperty>
     
 
@@ -380,6 +400,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#has_statistical_analysis -->
 
     <owl:ObjectProperty rdf:about="#has_statistical_analysis">
+        <rdfs:range rdf:resource="#Outcome_analysis_specification"/>
         <owl:inverseOf rdf:resource="#is_statistical_analysis_of"/>
         <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
         <rdfs:domain rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
@@ -408,19 +429,12 @@
     <!-- http://purl.org/net/OCRe/research.owl#has_study_phenomenon -->
 
     <owl:ObjectProperty rdf:about="#has_study_phenomenon">
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >ocre:is_derived_from o ocre:has_outcome_phenomenon</statistics:definition>
         <rdfs:range rdf:resource="#Study_phenomenon"/>
+        <rdfs:domain rdf:resource="#Variable_specification"/>
         <owl:inverseOf rdf:resource="#is_study_phenomenon_of"/>
         <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Outcome_specification"/>
-                    <rdf:Description rdf:about="#Variable_specification"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -431,24 +445,6 @@
         <rdfs:domain rdf:resource="#Study"/>
         <rdfs:subPropertyOf rdf:resource="#study_design_object_property"/>
         <rdfs:range rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_study_variable -->
-
-    <owl:ObjectProperty rdf:about="#has_study_variable">
-        <rdfs:range rdf:resource="#Variable_specification"/>
-        <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_subject_variable -->
-
-    <owl:ObjectProperty rdf:about="#has_subject_variable">
-        <rdfs:range rdf:resource="#Variable_specification"/>
-        <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
     </owl:ObjectProperty>
     
 
@@ -521,6 +517,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#is_derived_from -->
 
     <owl:ObjectProperty rdf:about="#is_derived_from">
+        <rdfs:domain rdf:resource="#Variable_specification"/>
+        <rdfs:range rdf:resource="#Variable_specification"/>
         <rdfs:subPropertyOf rdf:resource="#study_design_object_property"/>
     </owl:ObjectProperty>
     
@@ -591,10 +589,10 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#is_primary_outcome_of -->
+    <!-- http://purl.org/net/OCRe/research.owl#is_primary_outcome_analysis_of -->
 
-    <owl:ObjectProperty rdf:about="#is_primary_outcome_of">
-        <owl:inverseOf rdf:resource="#has_primary_outcome"/>
+    <owl:ObjectProperty rdf:about="#is_primary_outcome_analysis_of">
+        <owl:inverseOf rdf:resource="#has_primary_outcome_analysis"/>
         <rdfs:subPropertyOf rdf:resource="#is_outcome_of"/>
     </owl:ObjectProperty>
     
@@ -629,10 +627,10 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#is_secondary_outcome_of -->
+    <!-- http://purl.org/net/OCRe/research.owl#is_secondary_outcome_analysis_of -->
 
-    <owl:ObjectProperty rdf:about="#is_secondary_outcome_of">
-        <owl:inverseOf rdf:resource="#has_secondary_outcome"/>
+    <owl:ObjectProperty rdf:about="#is_secondary_outcome_analysis_of">
+        <owl:inverseOf rdf:resource="#has_secondary_outcome_analysis"/>
         <rdfs:subPropertyOf rdf:resource="#is_outcome_of"/>
     </owl:ObjectProperty>
     
@@ -673,16 +671,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#is_study_level_variable_of -->
-
-    <owl:ObjectProperty rdf:about="#is_study_level_variable_of">
-        <rdfs:domain rdf:resource="#Variable_specification"/>
-        <owl:inverseOf rdf:resource="#has_study_variable"/>
-        <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#is_study_phenomenon_of -->
 
     <owl:ObjectProperty rdf:about="#is_study_phenomenon_of">
@@ -696,16 +684,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#is_subject_level_variable_of -->
-
-    <owl:ObjectProperty rdf:about="#is_subject_level_variable_of">
-        <rdfs:domain rdf:resource="#Variable_specification"/>
-        <owl:inverseOf rdf:resource="#has_subject_variable"/>
-        <rdfs:subPropertyOf rdf:resource="#study_analysis_property"/>
     </owl:ObjectProperty>
     
 
@@ -863,25 +841,47 @@
 
     <!-- http://purl.org/net/OCRe/statistics.owl#has_dependent_variable -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#has_dependent_variable"/>
+    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#has_dependent_variable">
+        <rdfs:domain rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:range rdf:resource="#Variable_specification"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#has_independent_variable -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#has_independent_variable"/>
+    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#has_independent_variable">
+        <statistics:definition
+            >Specifies that a Variable specification is an independent variable of an Outcome analysis specification</statistics:definition>
+        <rdfs:domain rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:range rdf:resource="#Variable_specification"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#is_dependent_variable_of -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#is_dependent_variable_of"/>
+    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#is_dependent_variable_of">
+        <rdfs:range rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:domain rdf:resource="#Variable_specification"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/statistics.owl#is_independent_variable_of -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#is_independent_variable_of"/>
+    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#is_independent_variable_of">
+        <rdfs:range rdf:resource="#Outcome_analysis_specification"/>
+        <rdfs:domain rdf:resource="#Variable_specification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#statistics_property -->
+
+    <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#statistics_property">
+        <rdfs:range rdf:resource="#Variable_specification"/>
+    </owl:ObjectProperty>
     
 
 
@@ -1129,6 +1129,12 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/clinical#Criterion -->
+
+    <owl:Class rdf:about="&ontologies;clinical#Criterion"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/clinical#Entity -->
 
     <owl:Class rdf:about="&ontologies;clinical#Entity"/>
@@ -1273,7 +1279,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_description"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1296,7 +1302,7 @@
 
     <owl:Class rdf:about="#Audit">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -1345,7 +1351,7 @@
 
     <owl:Class rdf:about="#Close_to_follow_up">
         <rdfs:subClassOf rdf:resource="#Closure_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -1354,7 +1360,7 @@
 
     <owl:Class rdf:about="#Close_to_recruitment">
         <rdfs:subClassOf rdf:resource="#Closure_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -1611,7 +1617,7 @@
 
     <owl:Class rdf:about="#Evaluation_science_concept">
         <rdfs:subClassOf rdf:resource="#Placeholder"/>
-        <rdfs:comment
+        <rdfs:comment rdf:datatype="&xsd;string"
             >This branch of the &quot;standard term&quot; is largely a placeholder</rdfs:comment>
     </owl:Class>
     
@@ -1670,20 +1676,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Exposure_specification -->
-
-    <owl:Class rdf:about="#Exposure_specification">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_study_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="&study_exposure;Study_exposure"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Field_study -->
 
     <owl:Class rdf:about="#Field_study"/>
@@ -1694,7 +1686,7 @@
 
     <owl:Class rdf:about="#Final_data_analysis">
         <rdfs:subClassOf rdf:resource="#Closure_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -1833,7 +1825,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Investigator -->
 
     <owl:Class rdf:about="#Investigator">
-        <rdfs:label
+        <rdfs:label rdf:datatype="&xsd;string"
             >Study Investigator</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
@@ -1848,7 +1840,7 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >A researcher in a study who oversees all aspects of the study, such as concept development, protocol writing, protocol submission for IRB approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation. (BRIDG 2.1(</statistics:definition>
     </owl:Class>
     
@@ -1860,14 +1852,6 @@
         <rdfs:subClassOf rdf:resource="#Research_event"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;An event in the design, approval, or administration of a clinical research study which affects the study as a whole.&quot;^^string</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Manipuated_exposure -->
-
-    <owl:Class rdf:about="#Manipuated_exposure">
-        <rdfs:subClassOf rdf:resource="#Exposure_specification"/>
     </owl:Class>
     
 
@@ -1906,14 +1890,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Observed_exposure -->
-
-    <owl:Class rdf:about="#Observed_exposure">
-        <rdfs:subClassOf rdf:resource="#Exposure_specification"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#One-on-one_interview -->
 
     <owl:Class rdf:about="#One-on-one_interview">
@@ -1928,13 +1904,13 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_dependent_variable"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1946,12 +1922,18 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_dependent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
-            >The specification of how an outcome of the study will be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</statistics:definition>
+            >The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</statistics:definition>
     </owl:Class>
     
 
@@ -1959,33 +1941,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_phenomenon -->
 
     <owl:Class rdf:about="#Outcome_phenomenon">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Study_phenomenon"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_study_variable"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="#Variable_specification"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&ontologies;statistics.owl#is_dependent_variable_of"/>
-                                        <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_method"/>
-                <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Study_phenomenon"/>
     </owl:Class>
     
 
@@ -1993,20 +1949,14 @@
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_specification -->
 
     <owl:Class rdf:about="#Outcome_specification">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_study_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_phenomenon"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Placeholder"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_assessment_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >The description of Information, event, object or state of being  that are being measured for a study. A study outcome specification is a description of an outcome being studied aggregated over a population of  subjects (e.g., count of subject outcome of specific kind, average of subject outcome). It  may aggregated over other study outcome measures (e.g., proportional hazard model, really any multivariable analysis). An outcome is analyzed using some statistical method.</statistics:definition>
     </owl:Class>
     
@@ -2078,7 +2028,7 @@
 
     <owl:Class rdf:about="#Pilot_data_analysis">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2101,7 +2051,7 @@
 
     <owl:Class rdf:about="#Population">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >&quot;A set of individuals who are subjects of a defined set of events to form a population or sub-population of a study.&quot;^^string</statistics:definition>
     </owl:Class>
     
@@ -2129,7 +2079,7 @@
 
     <owl:Class rdf:about="#Protocol_amendment">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2204,7 +2154,7 @@
 
     <owl:Class rdf:about="#Recruitment_start">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2212,7 +2162,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Recruitment_status -->
 
     <owl:Class rdf:about="#Recruitment_status">
-        <rdfs:label
+        <rdfs:label rdf:datatype="&xsd;string"
             >Recruitment status</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Study_status"/>
     </owl:Class>
@@ -2224,7 +2174,7 @@
     <owl:Class rdf:about="#Registry">
         <rdfs:subClassOf rdf:resource="#Study_kind"/>
         <owl:disjointWith rdf:resource="#clinical"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2242,7 +2192,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Research_event -->
 
     <owl:Class rdf:about="#Research_event">
-        <rdfs:label>Research event</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Research event</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Event"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;An occurence in the planning, administration or execution of a clinical research study.&quot;^^string</statistics:definition>
@@ -2264,7 +2214,7 @@
 
     <owl:Class rdf:about="#Safety_report">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2334,7 +2284,7 @@
 
     <owl:Class rdf:about="#Site_addition">
         <rdfs:subClassOf rdf:resource="#Execution_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2376,8 +2326,14 @@
     <!-- http://purl.org/net/OCRe/research.owl#StudySite -->
 
     <owl:Class rdf:about="#StudySite">
-        <rdfs:label>Study site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study site</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
@@ -2391,13 +2347,7 @@
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <statistics:definition
+        <statistics:definition rdf:datatype="&xsd;string"
             >A health care site in which study activities are conducted.</statistics:definition>
     </owl:Class>
     
@@ -2406,7 +2356,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Study_characteristic -->
 
     <owl:Class rdf:about="#Study_characteristic">
-        <rdfs:label
+        <rdfs:label rdf:datatype="&xsd;string"
             >Study characteristic</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -2423,6 +2373,22 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#Study_data_specification -->
+
+    <owl:Class rdf:about="#Study_data_specification">
+        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;clinical#has_part"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition
+            >A description of the variables whose data are collected in the study.</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#Study_design_characteristic -->
 
     <owl:Class rdf:about="#Study_design_characteristic">
@@ -2435,7 +2401,7 @@
 
     <owl:Class rdf:about="#Study_kind">
         <rdfs:subClassOf rdf:resource="#Study_characteristic"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2454,7 +2420,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="#Study_characteristic"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2462,17 +2428,22 @@
     <!-- http://purl.org/net/OCRe/research.owl#Study_phenomenon -->
 
     <owl:Class rdf:about="#Study_phenomenon">
-        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_phenomenon_term"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment
+        <rdfs:comment rdf:datatype="&xsd;string"
             >Need further examination: e.g., MI hospitalization cost</rdfs:comment>
-        <statistics:definition
-            >The study phenomenon is some event (e.g., an event like stroke, a behavior like smoking, or an intervention like drug administration) or characteristics of the subject (e.g., hair color) that are assessed and recorded in a study</statistics:definition>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >a fact or event of scientific interest susceptible to scientific description and explanation (Merriam-Webster, 2nd edition)</statistics:definition>
     </owl:Class>
     
 
@@ -2481,7 +2452,7 @@
 
     <owl:Class rdf:about="#Study_purpose">
         <rdfs:subClassOf rdf:resource="#Study_characteristic"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2490,7 +2461,7 @@
 
     <owl:Class rdf:about="#Study_status">
         <rdfs:subClassOf rdf:resource="#Study_characteristic"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2571,7 +2542,7 @@
 
     <owl:Class rdf:about="#Suspend">
         <rdfs:subClassOf rdf:resource="#Closure_event"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2633,8 +2604,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2643,8 +2614,14 @@
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <statistics:definition
-            >A description of the variable whose values are the quantitative or enumerable data that are measures an outcome.</statistics:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >A description of the variable whose values are the quantitative or enumerable data collected in a study</statistics:definition>
     </owl:Class>
     
 
@@ -2672,7 +2649,7 @@
     <owl:Class rdf:about="#clinical">
         <rdfs:label rdf:datatype="&xsd;string">Clinical</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Study_kind"/>
-        <study_protocol2:develop_comment>no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2747,87 +2724,13 @@
     
 
 
-    <!-- http://www.hsdb.org/StudyExposure.owl#Behavioral -->
-
-    <owl:Class rdf:about="&study_exposure;Behavioral">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Counseling -->
-
-    <owl:Class rdf:about="&study_exposure;Counseling">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Education -->
-
-    <owl:Class rdf:about="&study_exposure;Education">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Exercise -->
-
-    <owl:Class rdf:about="&study_exposure;Exercise">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Occupational_therapy -->
-
-    <owl:Class rdf:about="&study_exposure;Occupational_therapy">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Physical_therapy -->
-
-    <owl:Class rdf:about="&study_exposure;Physical_therapy">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.hsdb.org/StudyExposure.owl#Psychotherapy -->
-
-    <owl:Class rdf:about="&study_exposure;Psychotherapy">
-        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Standard_term"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.hsdb.org/StudyExposure.owl#Study_exposure -->
 
     <owl:Class rdf:about="&study_exposure;Study_exposure">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Study_phenomenon"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="#has_study_variable"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="#Variable_specification"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&ontologies;statistics.owl#is_independent_variable_of"/>
-                                        <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Study exposure</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Study_phenomenon"/>
+        <statistics:definition rdf:datatype="&xsd;string"
+            >Adding or removing a process to a subject&#39;s routine, adding or removing an agent to a subject, or a change in environment</statistics:definition>
     </owl:Class>
     
 
@@ -2986,25 +2889,6 @@
         <rdf:type rdf:resource="#Study_characteristic_code"/>
         <rdfs:label rdf:datatype="&xsd;string">registry_code</rdfs:label>
     </owl:Thing>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="#inter-rater_variability"/>
-            <rdf:Description rdf:about="#reliability"/>
-            <rdf:Description rdf:about="#reproducibility"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
