@@ -198,8 +198,7 @@
 
     <owl:ObjectProperty rdf:about="&clinical;has_semantic_constraint">
         <statistics:definition
-            >has_semantic_constraint links a syntactic informational entity (e.g., eligibility criteria) to a class expression involving other entities and events that describes the things that satisfy the meaning of the syntactic entity.</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Information_entity"/>
+            >has_semantic_constraint links syntactic criterion (e.g., eligibility criteria) to a class expression involving other entities and events that describes the things that satisfy the meaning of the criterion</statistics:definition>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -290,14 +289,6 @@
         <rdfs:label>part of</rdfs:label>
         <statistics:definition
             >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -306,6 +297,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -705,7 +704,7 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     <!-- http://purl.org/net/OCRe/clinical#Information_entity -->
 
     <owl:Class rdf:about="&clinical;Information_entity">
-        <rdfs:label rdf:datatype="&xsd;string"
+        <rdfs:label
             >Information entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
         <statistics:definition

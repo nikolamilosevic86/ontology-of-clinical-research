@@ -433,14 +433,21 @@ An information processing view of an individual&#39;s psychological functions. W
         <rdfs:subClassOf rdf:resource="#Addition_of_an_agent_into_the_subject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_anatomic_integration"/>
-                <owl:someValuesFrom rdf:resource="#Device_anatomic_integration"/>
+                <owl:onProperty rdf:resource="#has_implanted_duration"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#permanent"/>
+                            <rdf:Description rdf:about="#temporary"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_mode_of_administration"/>
-                <owl:someValuesFrom rdf:resource="#Device_mode_of_administration"/>
+                <owl:onProperty rdf:resource="#has_anatomic_integration"/>
+                <owl:someValuesFrom rdf:resource="#Device_anatomic_integration"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -451,15 +458,8 @@ An information processing view of an individual&#39;s psychological functions. W
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_implanted_duration"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="#permanent"/>
-                            <rdf:Description rdf:about="#temporary"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:onProperty rdf:resource="#has_mode_of_administration"/>
+                <owl:someValuesFrom rdf:resource="#Device_mode_of_administration"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="#Addition_of_a_substance"/>
@@ -545,8 +545,8 @@ An information processing view of an individual&#39;s psychological functions. W
         <rdfs:subClassOf rdf:resource="#Addition_of_an_agent_into_the_subject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_administration_route"/>
-                <owl:someValuesFrom rdf:resource="#Route"/>
+                <owl:onProperty rdf:resource="#has_administration_frequency"/>
+                <owl:someValuesFrom rdf:resource="#Frequency"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -557,8 +557,8 @@ An information processing view of an individual&#39;s psychological functions. W
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_administration_frequency"/>
-                <owl:someValuesFrom rdf:resource="#Frequency"/>
+                <owl:onProperty rdf:resource="#has_administration_route"/>
+                <owl:someValuesFrom rdf:resource="#Route"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="#Addition_of_energy"/>
@@ -675,12 +675,6 @@ An information processing view of an individual&#39;s psychological functions. W
         <rdfs:subClassOf rdf:resource="#Substance"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_Unique_ID"/>
-                <owl:someValuesFrom rdf:resource="#RXCUI"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_Strength"/>
                 <owl:someValuesFrom rdf:resource="#Strength"/>
             </owl:Restriction>
@@ -689,6 +683,12 @@ An information processing view of an individual&#39;s psychological functions. W
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_Dosage"/>
                 <owl:someValuesFrom rdf:resource="#Dosage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Unique_ID"/>
+                <owl:someValuesFrom rdf:resource="#RXCUI"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:definition rdf:datatype="&xsd;string"
@@ -722,13 +722,13 @@ A biological product (as a globulin, serum, vaccine, monoclonal antibodies, anti
         <rdfs:subClassOf rdf:resource="#Study_exposure"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_addition_exposure_medium"/>
+                <owl:onProperty rdf:resource="#has_removal_exposure_medium"/>
                 <owl:someValuesFrom rdf:resource="#Environment_entity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_removal_exposure_medium"/>
+                <owl:onProperty rdf:resource="#has_addition_exposure_medium"/>
                 <owl:someValuesFrom rdf:resource="#Environment_entity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -861,32 +861,14 @@ A biological product (as a globulin, serum, vaccine, monoclonal antibodies, anti
         <rdfs:subClassOf rdf:resource="#Chemical"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_Strength"/>
-                <owl:someValuesFrom rdf:resource="#Strength"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_Dosage"/>
-                <owl:someValuesFrom rdf:resource="#Dosage"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_IND_Number"/>
-                <owl:someValuesFrom rdf:resource="#IND_Number"/>
+                <owl:onProperty rdf:resource="#has_Unique_ID"/>
+                <owl:someValuesFrom rdf:resource="#RXCUI"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_NDC_Number"/>
                 <owl:someValuesFrom rdf:resource="#NDC_Number"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_Unique_ID"/>
-                <owl:someValuesFrom rdf:resource="#RXCUI"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -907,6 +889,24 @@ A biological product (as a globulin, serum, vaccine, monoclonal antibodies, anti
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_IND_Number"/>
+                <owl:someValuesFrom rdf:resource="#IND_Number"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Dosage"/>
+                <owl:someValuesFrom rdf:resource="#Dosage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Strength"/>
+                <owl:someValuesFrom rdf:resource="#Strength"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:definition rdf:datatype="&xsd;string"
@@ -1020,12 +1020,14 @@ A substance other than food intended to affect the structure or function of the 
         <rdfs:subClassOf rdf:resource="#Continuant"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
+                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="#Removal_of_a_cognitive_process"/>
-                            <rdf:Description rdf:about="#Removal_of_a_physical_process"/>
+                            <rdf:Description rdf:about="#Biologic"/>
+                            <rdf:Description rdf:about="#Device"/>
+                            <rdf:Description rdf:about="#Drug"/>
+                            <rdf:Description rdf:about="#Energy"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -1033,7 +1035,7 @@ A substance other than food intended to affect the structure or function of the 
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_addition_intervention_medium"/>
+                <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -1065,10 +1067,8 @@ A substance other than food intended to affect the structure or function of the 
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="#Biologic"/>
-                            <rdf:Description rdf:about="#Device"/>
-                            <rdf:Description rdf:about="#Drug"/>
-                            <rdf:Description rdf:about="#Energy"/>
+                            <rdf:Description rdf:about="#Removal_of_a_cognitive_process"/>
+                            <rdf:Description rdf:about="#Removal_of_a_physical_process"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
@@ -1546,7 +1546,7 @@ For now it is a place holder until we find its place in the classification</rdfs
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
-                <owl:someValuesFrom rdf:resource="#Psychotherapy"/>
+                <owl:someValuesFrom rdf:resource="#Behavioral"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1558,7 +1558,7 @@ For now it is a place holder until we find its place in the classification</rdfs
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_removal_intervention_medium"/>
-                <owl:someValuesFrom rdf:resource="#Behavioral"/>
+                <owl:someValuesFrom rdf:resource="#Psychotherapy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:creator rdf:datatype="&xsd;string"></dc:creator>
@@ -1757,7 +1757,7 @@ For now it is a place holder until we find its place in the classification</rdfs
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:definition rdf:datatype="&xsd;string"
-            >Exposure consists of independent variables  in interventional studies that are being exposed delibereberately, as well as conditional variables in observational studies that are being exposed nondeliberately. (Ida, Richard)</rdfs:definition>
+            >Exposure is something that&#39;s done to a subject, be it an environmental condition, a change in the subject&#39;s routine, a procedure or a substance administration. For a study, an exposure is either allocated (randomly or deterministically) or unallocated (e.g., aspirins that the subject is already taking). An allocated exposure is presented as a variable that usually plays the role of an independent variable in one of the study&#39;s statistically analysis. (However, an exposure is not necessarily an independent variable in a study. For example, in a study of post-surgery morphin administration, an initial dose may be given, which is then adjusted based on observations. In this case, morphin administration may be an dependent variable in the study.)</rdfs:definition>
     </owl:Class>
     
 
@@ -1819,13 +1819,13 @@ For now it is a place holder until we find its place in the classification</rdfs
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_energy_medium"/>
-                <owl:someValuesFrom rdf:resource="#Ionized_energy"/>
+                <owl:someValuesFrom rdf:resource="#Non_ionized_energy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_energy_medium"/>
-                <owl:someValuesFrom rdf:resource="#Non_ionized_energy"/>
+                <owl:someValuesFrom rdf:resource="#Ionized_energy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="&xsd;string">NCCAM, NIH</dc:source>
