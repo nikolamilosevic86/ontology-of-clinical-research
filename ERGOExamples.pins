@@ -1,0 +1,133 @@
+; Wed Nov 04 17:56:13 PST 2009
+; 
+;+ (version "3.4.1")
+;+ (build "Build 536")
+
+([ERGOExamples_Class0] of  Protocol
+
+	(eligibility_criteria
+		[ERGOExamples_Class1]
+		[ERGOExamples_Class10000]
+		[ERGOExamples_Class10002]
+		[ERGOExamples_Class10007])
+	(title "Test Protocol"))
+
+([ERGOExamples_Class1] of  Assessment
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(noun_phrase [ERGOExamples_Class2])
+	(original_text "No evidence of gross hematuria")
+	(reference_file "Rules.31May07.sim.mod2.xls"))
+
+([ERGOExamples_Class10000] of  Assessment
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(noun_phrase [ERGOExamples_Class10001])
+	(original_text "suspected diagnosis of Breast Neoplasms"))
+
+([ERGOExamples_Class10001] of  Primitive_Noun_Phrase
+
+	(code "C0006149")
+	(code_system UMLS)
+	(preferred_name "Breast Neoplasms"))
+
+([ERGOExamples_Class10002] of  Comparison_Statement
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(first_expression [ERGOExamples_Class10004])
+	(original_text "Must have received 3 prior chemotherapy regimens")
+	(second_expression [ERGOExamples_Class10003]))
+
+([ERGOExamples_Class10003] of  Integer
+
+	(integer_value 3))
+
+([ERGOExamples_Class10004] of  Subject_Query
+
+	(aggregation_term [Eligibility_Frame_IdeasSWT3_Instance_0])
+	(clinical_statement_template [ERGOExamples_Class10005]))
+
+([ERGOExamples_Class10005] of  Intervention_Statement
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(noun_phrase [ERGOExamples_Class10006]))
+
+([ERGOExamples_Class10006] of  Primitive_Noun_Phrase
+
+	(code "C0392920")
+	(code_system UMLS)
+	(preferred_name "chemotherapy regimen"))
+
+([ERGOExamples_Class10007] of  Comparison_Statement
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_30016])
+	(first_expression [ERGOExamples_Class10011])
+	(second_expression [ERGOExamples_Class10008]))
+
+([ERGOExamples_Class10008] of  Duration
+
+	(numeric_value [ERGOExamples_Class10010])
+	(unit [ERGOExamples_Class10009]))
+
+([ERGOExamples_Class10009] of  Unit
+
+	(preferred_name "month"))
+
+([ERGOExamples_Class10010] of  Integer
+
+	(integer_value 1))
+
+([ERGOExamples_Class10011] of  Function
+
+	(functional_expression "?HotFlushesTime.duration()")
+	(variables [ERGOExamples_Class10012]))
+
+([ERGOExamples_Class10012] of  Variable
+
+	(derivation_expression [ERGOExamples_Class10013])
+	(variable_name "?HotFlushesTime"))
+
+([ERGOExamples_Class10013] of  Subject_Query
+
+	(aggregation_term [Eligibility_Frame_Ideas_Instance_5])
+	(clinical_statement_template [ERGOExamples_Class10014])
+	(selected_attribute [effective_time]))
+
+([ERGOExamples_Class10014] of  Assessment
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(noun_phrase [ERGOExamples_Class10015]))
+
+([ERGOExamples_Class10015] of  Primitive_Noun_Phrase
+
+	(code "C0600142")
+	(code_system UMLS)
+	(preferred_name "Hot Flushes"))
+
+([ERGOExamples_Class2] of  Modified_Noun_Phrase
+
+	(binary_modifier [ERGOExamples_Class4])
+	(root_concept [ERGOExamples_Class3]))
+
+([ERGOExamples_Class3] of  Primitive_Noun_Phrase
+
+	(code "373572006")
+	(code_system SNOMEDCT)
+	(preferred_name "clinical finding absent"))
+
+([ERGOExamples_Class4] of  Modifier
+
+	(modifier_attribute [ERGOExamples_Class5])
+	(modifier_value [ERGOExamples_Class6]))
+
+([ERGOExamples_Class5] of  Relational_Modifier_Term
+
+	(code "246090004")
+	(code_system SNOMEDCT)
+	(preferred_name "associated finding"))
+
+([ERGOExamples_Class6] of  Primitive_Noun_Phrase
+
+	(code "197941005")
+	(code_system SNOMEDCT)
+	(preferred_name "Frank Hematuria"))
