@@ -1,0 +1,295 @@
+; Mon Nov 02 17:03:33 PST 2009
+; 
+;+ (version "3.4.1")
+;+ (build "Build 536")
+
+([effective_time] of  Clinical_Statement_Attribute
+)
+
+([Eligibility_Frame_Ideas_Instance_10013] of  Expression_Comparator
+
+	(preferred_name ">="))
+
+([Eligibility_Frame_Ideas_Instance_10039] of  AndOr_Term
+
+	(preferred_name "and"))
+
+([Eligibility_Frame_Ideas_Instance_13] of  Unit
+
+	(code "258947003")
+	(code_system SNOMEDCT)
+	(preferred_name "U/L"))
+
+([Eligibility_Frame_Ideas_Instance_20001] of  Logical_Connector
+
+	(preferred_name "OR"))
+
+([Eligibility_Frame_Ideas_Instance_30007] of  Negation_Term
+
+	(preferred_name "Not"))
+
+([Eligibility_Frame_Ideas_Instance_30015] of  Expression_Comparator
+
+	(preferred_name "<"))
+
+([Eligibility_Frame_Ideas_Instance_30016] of  Expression_Comparator
+
+	(preferred_name ">"))
+
+([Eligibility_Frame_Ideas_Instance_30019] of  Done%2FNot_Done
+
+	(code "385658003")
+	(code_system SNOMEDCT)
+	(preferred_name "Done"))
+
+([Eligibility_Frame_Ideas_Instance_30020] of  Done%2FNot_Done
+
+	(code "385660001")
+	(code_system SNOMEDCT)
+	(preferred_name "Not Done"))
+
+([Eligibility_Frame_Ideas_Instance_30023] of  AndOr_Term
+
+	(preferred_name "or"))
+
+([Eligibility_Frame_Ideas_Instance_33] of  Logical_Connector
+
+	(preferred_name "AND"))
+
+([Eligibility_Frame_Ideas_Instance_35] of  Logical_Connector
+
+	(preferred_name "NOT"))
+
+([Eligibility_Frame_Ideas_Instance_5] of  Aggregation_Term
+
+	(preferred_name "most recent"))
+
+([Eligibility_Frame_Ideas_Instance_7] of  Expression_Comparator
+
+	(preferred_name "<="))
+
+([Eligibility_Frame_IdeasSWT3_Instance_0] of  Aggregation_Term
+
+	(preferred_name "count"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10001] of  Time_Interval_Comparator
+
+	(preferred_name "overlap"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10002] of  Time_Interval_Comparator
+
+	(preferred_name "before"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10003] of  Time_Interval_Comparator
+
+	(preferred_name "after"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10004] of  Time_Interval_Comparator
+
+	(preferred_name "meet"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10005] of  Time_Interval_Comparator
+
+	(preferred_name "meet-inverse"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10006] of  Time_Interval_Comparator
+
+	(preferred_name "during-inverse"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10007] of  Time_Interval_Comparator
+
+	(preferred_name "overlap-inverse"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10008] of  Time_Interval_Comparator
+
+	(preferred_name "start"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10009] of  Time_Interval_Comparator
+
+	(preferred_name "start-inverse"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10010] of  Time_Interval_Comparator
+
+	(preferred_name "finish"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10011] of  Time_Interval_Comparator
+
+	(preferred_name "finish-inverse"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_10012] of  Time_Interval_Comparator
+
+	(preferred_name "equal"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_23] of  Unit
+
+	(code "118582008")
+	(code_system SNOMEDCT)
+	(preferred_name "Percent"))
+
+([Eligibility_Frame_IdeasSWT3_Instance_36] of  Expression_Comparator
+
+	(preferred_name "="))
+
+([Eligibility_Frame_IdeasSWT3_Instance_64] of  Time_Interval_Comparator
+
+	(preferred_name "during"))
+
+([Eligibility_Frame_IdeasSWT_Instance_12] of  Mood_Code
+
+	(code_system HL7)
+	(preferred_name "Event"))
+
+([Eligibility_Frame_IdeasSWT_Instance_13] of  Mood_Code
+
+	(code_system HL7)
+	(preferred_name "Order"))
+
+([Eligibility_Frame_IdeasSWT_Instance_14] of  Mood_Code
+
+	(code_system HL7)
+	(preferred_name "Intent"))
+
+([ERGO_Class0] of  Assessed_Value
+
+	(code "52101004")
+	(code_system SNOMEDCT)
+	(preferred_name "Present"))
+
+([ERGO_Class1] of  Assessed_Value
+
+	(code "2667000")
+	(code_system SNOMEDCT)
+	(preferred_name "Absent"))
+
+([ERGO_Class10000] of  Assessed_Value
+
+	(code "10828004")
+	(code_system SNOMEDCT)
+	(preferred_name "Positive"))
+
+([ERGO_Class10001] of  Assessed_Value
+
+	(code "260385009")
+	(code_system SNOMEDCT)
+	(preferred_name "Negative"))
+
+([ERGO_Class10002] of  Assessed_Value
+
+	(code "415684004")
+	(code_system SNOMEDCT)
+	(preferred_name "Suspected"))
+
+([ERGO_Class10003] of  Assessed_Value
+
+	(code "373066001")
+	(code_system SNOMEDCT)
+	(preferred_name "Yes"))
+
+([ERGO_Class10004] of  Assessed_Value
+
+	(code "373067005")
+	(code_system SNOMEDCT)
+	(preferred_name "No"))
+
+([ERGO_Class10005] of  Unit
+
+	(code "258797006")
+	(code_system SNOMEDCT)
+	(preferred_name "mg/dL"))
+
+([ERGO_Class2] of  Version_Note
+
+	(date "2008/06/09")
+	(use_cases "Primary outcome: the proportion of patients who remained on their initially prescribed monotherapy at 1 year, modeled as a ratio of two instances of Aggregate_Subject_Query. The first specifying the count of an expression consisting of a conjunction of three subject-level Clinical_Statement_Template. The semantics of the count is the number of subjects that satisfy the expression.\nSubject-level primary outcome:\n(1) count of first antihypertensive agent = 1\n(2) count antihypertensive agent not the same as that of the first prescription = 0 (Involving a NounPhrase constructed from a NounPhrase and a Variable.\n(3) stop_time of the effective_time of the last anti-hypertensive agent prescription + 30 days < start_tiime of the effective_time of the first anti-hypertensive agent prescription + 1 year")
+	(version_note
+		"Created Version_Note class to document version number and changes."
+		"Added Clinical_Statement_Template to the allowed classes of expression, because we want to count the number of subjects that satisfy some criteria."
+		"Changed Allowed class from NounPhrase and Expression because we want to use query expression for constructing noun phrases.")
+	(version_number "1.01"))
+
+([ERGO_Class20000] of  Version_Note
+
+	(date "2008/08/04")
+	(version_note
+		"Deleted old instaces of Semantic_Connector"
+		"Deleted subclasses: Present/Absent, Suspected and Yes/No and added instances instead. Added also instances Positive and Negative"
+		"Deleted all old instances of Relational modifier term"
+		"Changed UMLS to SNOMED-CT codes for instances of Term Code (except mood_code, which came from HL7)")
+	(version_number "1.02"))
+
+([ERGO_Class30000] of  Version_Note
+
+	(date "2008/08/04")
+	(version_note
+		"Updated Time_Point class, so the value of slot literal is displayed as instance name"
+		"Added class Integer")
+	(version_number "1.03"))
+
+([ERGO_Class40000] of  Version_Note
+
+	(date "2008-08-20")
+	(version_note
+		"Deleted partially specified noun phrases"
+		"Added documentation for toplevel classes")
+	(version_number "1.05"))
+
+([ERGO_Class40003] of  Version_Note
+
+	(date "2008-08-14")
+	(version_note
+		"1. Created ERGO_Class and grouped specifically ERGO classes there"
+		"2. Made Constraint a subclass of ERGO_Class instead of Expression"
+		"3. Renaming: Semantially_Connected_Statement"
+		"4. Made class names consistent"
+		"5. Rename them as modifier_value and modifier_attribute. So \"severity of moderate\" will be modifer_attribute = severity and modifier_value = moderate.")
+	(version_number "1.04"))
+
+([ERGO_Class50000] of  Version_Note
+
+	(date "2008/10/29")
+	(version_note
+		"Changed Comparison Statement to be a subclass of Clinical Statement Template"
+		"Renamed \"Semantic Connector\" class to \"Act-Act-Relationship\""
+		"Renamed \"semantic_connector\" slot to \"act-act-relationship\"")
+	(version_number "1.08"))
+
+([ERGO_Class50001] of  Version_Note
+
+	(date "2008-09-30")
+	(use_cases "Laboratory results, like RBC, WBC, platelets, for which a real value is not appropriate")
+	(version_note
+		"Created numeric_value slot and added it to Physical_Quantity class and to the relevant form."
+		"Changed slot names integervalue to integer_value and realvalue to real_value for consistency.")
+	(version_number "1.06"))
+
+([ERGO_Class50002] of  Version_Note
+
+	(date "2008/10/02")
+	(version_note
+		"Added ERGO_Annotation and its subclasses"
+		"Added \"annotation\" property to simple clinical statement, comparison statement, and compound statement")
+	(version_number "1.07"))
+
+([ERGO_Instance_0] of  %3APAL-CONSTRAINT
+
+	(%3APAL-NAME "negation code")
+	(%3APAL-RANGE "(defrange ?negterm :FRAME Negation_term)")
+	(%3APAL-STATEMENT "(forall ?negterm \n        (own-slot-not-null code ?negterm))"))
+
+([ERGO_Instance_0x] of  Non-Exhaustive_Connector
+
+	(preferred_name "NonExhaustive OR"))
+
+([ERGO_Instance_1x] of  Non-Exhaustive_Connector
+
+	(preferred_name "NonExhaustive AND"))
+
+([ERGO_Instance_22] of  Aggregation_Term
+
+	(preferred_name "first"))
+
+([noun_phrase] of  Clinical_Statement_Attribute
+)
+
+([value] of  Clinical_Statement_Attribute
+)
