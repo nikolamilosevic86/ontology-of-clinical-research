@@ -163,10 +163,10 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;External_control_group"/>
+                        <owl:someValuesFrom rdf:resource="&research;Case_and_control_not_in_same_person"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
@@ -175,6 +175,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
     </owl:Class>
     
 
@@ -185,7 +186,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Case_and_control_in_same_person"/>
@@ -197,6 +198,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
     </owl:Class>
     
 
@@ -207,7 +209,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
@@ -219,6 +221,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
     </owl:Class>
     
 
@@ -227,6 +230,8 @@
 
     <owl:Class rdf:about="&research;Control_group_cardinality">
         <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: I believe this is no longer needed (investigator&#39;s choice of interventions used instead of control group to define this node of typology)</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -261,7 +266,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_analytic_study"/>
+                    <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
@@ -273,6 +278,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
     </owl:Class>
     
 
@@ -286,22 +292,19 @@
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                        <owl:someValuesFrom rdf:resource="&research;Multiple_human_unit_assignment"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="#Data_analyzed_across_multiple_participants"/>
-                                    <rdf:Description rdf:about="#Treatment_assigned_to_multiple_participants"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
+                        <owl:someValuesFrom rdf:resource="#Data_analyzed_across_multiple_participants"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -363,28 +366,6 @@ A and B, the participants are randomly allocated to receive them in either the o
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Field_study -->
-
-    <owl:Class rdf:about="&research;Field_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Observed_in_the_field"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <statistics:definition
-            >Research carried out on location: a piece of research undertaken outside the laboratory or place of learning, usually in a natural environment or among the general public. [MSN Encarta Dictionary]
-For ex., Participant observation, Ethnographic study, Software field testing.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Has_control_group -->
 
     <owl:Class rdf:about="&research;Has_control_group">
@@ -410,47 +391,6 @@ For ex., Participant observation, Ethnographic study, Software field testing.</s
     <owl:Class rdf:about="&research;Include_analysis_of_cost">
         <rdfs:subClassOf rdf:resource="&research;Analysis_of_cost_flag"/>
         <owl:disjointWith rdf:resource="&research;No_analysis_of_cost"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Individual_qualitative_study -->
-
-    <owl:Class rdf:about="&research;Individual_qualitative_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;subject_assessed_individually"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <statistics:definition
-            >A study in which human subjects are assessed individually and not in the field (their environment). For ex., 1-on-1 interview, In-lab protocol analysis.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Instrument_development_study -->
-
-    <owl:Class rdf:about="&research;Instrument_development_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Measurement_instrument"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <study_protocol:develop_comment
-            >Simona: This category is not in the most recent study design categorizer</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -522,6 +462,8 @@ A clinical trial is any research study that prospectively assigns human particip
 
     <owl:Class rdf:about="&research;Location_of_observation">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: I believe this is no longer needed (Qualitative studies now grouped together, without distinctions)</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -590,6 +532,8 @@ A clinical trial is any research study that prospectively assigns human particip
     <owl:Class rdf:about="&research;Multiple_human_unit_assignment">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
         <owl:disjointWith rdf:resource="&research;Single_human_unit_assignment"/>
+        <statistics:definition
+            >Investigator assigns intervention(s) across more than one participant</statistics:definition>
     </owl:Class>
     
 
@@ -607,44 +551,6 @@ A clinical trial is any research study that prospectively assigns human particip
 
     <owl:Class rdf:about="&research;Multiple_intervention_timing">
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#N-of-1_study -->
-
-    <owl:Class rdf:about="&research;N-of-1_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Interventional_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="#Data_analyzed_across_one_participant"/>
-                                    <rdf:Description rdf:about="#Treatment_assigned_to_one_participant"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <study_protocol:develop_comment
-            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed across one participant at a time.</statistics:definition>
     </owl:Class>
     
 
@@ -682,12 +588,14 @@ A clinical trial is any research study that prospectively assigns human particip
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;No_control_group"/>
+                        <owl:someValuesFrom rdf:resource="&research;Single_intervention"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: changed from no control group to single intervention, as per updated typology</study_protocol:develop_comment>
         <statistics:definition
             >A clinical trial that has no control group. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
@@ -709,42 +617,6 @@ A clinical trial is any research study that prospectively assigns human particip
     <owl:Class rdf:about="&research;Not_observed_in_the_field">
         <rdfs:subClassOf rdf:resource="&research;Location_of_observation"/>
         <owl:disjointWith rdf:resource="&research;Observed_in_the_field"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Observational_analytic_study -->
-
-    <owl:Class rdf:about="&research;Observational_analytic_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Observational_descriptive_study -->
-
-    <owl:Class rdf:about="&research;Observational_descriptive_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Observational_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;No_control_group"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -809,11 +681,11 @@ A clinical trial is any research study that prospectively assigns human particip
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;External_control_group"/>
+                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                        <owl:someValuesFrom rdf:resource="#Main_comparison_across_participants"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -938,6 +810,10 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -947,7 +823,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             >An experiment in which two or more interventions, possibly including a control intervention or no intervention, are compared by being randomly allocated to participants. In most trials one intervention is assigned to each individual but sometimes assignment is to defined groups of individuals (for example, in a household) or interventions are assigned within individuals (for example, in different orders or to different parts of the body). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
-            >Simona: need to review this first and then move on.</study_protocol:develop_comment>
+            >Simona: are we going to have a different place since in the hierarchy for study types based on additional factors (e.g., randomized, factorial, etc.).
+Added multiple interventions to equivalence assertions</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -998,6 +875,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <owl:Class rdf:about="&research;Single_human_unit_assignment">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
+        <statistics:definition
+            >Investigator assigns intervention(s) within a single participant</statistics:definition>
     </owl:Class>
     
 
@@ -1114,6 +993,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <owl:Class rdf:about="&research;Unit_of_assignment">
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: see version 16 of study design slide</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1304,29 +1185,32 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Focus_group -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_across_participants -->
 
-    <owl:Class rdf:about="#Focus_group">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Qualitative_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Not_observed_in_the_field"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;subject_asssessed_in_group"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <statistics:curator>Simona</statistics:curator>
+    <owl:Class rdf:about="#Main_comparison_across_participants">
+        <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
-            >Simona: changed from Focus_group_study as suffix seemed redundant</study_protocol:develop_comment>
-        <statistics:definition
-            >An interviewing technique whereby respondents are interviewed in a group setting. Also referred to as Interview Discussion or Group Discussion. [Statistics Canada, Educational Resources, Glossary of Statistical Terms, available at: http://stats.oecd.org/glossary/detail.asp?ID=4899]</statistics:definition>
+            >Simona: see version 16 of typology</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_and_participants -->
+
+    <owl:Class rdf:about="#Main_comparison_and_participants">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: see version 11 of study design slide</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_within_participants -->
+
+    <owl:Class rdf:about="#Main_comparison_within_participants">
+        <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
+        <study_protocol:develop_comment
+            >Simona: see version 16 of typology</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1378,6 +1262,41 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#N-of-1_crossover_study -->
+
+    <owl:Class rdf:about="#N-of-1_crossover_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Single_human_unit_assignment"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Data_analyzed_across_one_participant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
+        <statistics:definition
+            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed across one participant at a time.</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Policy_analysis -->
 
     <owl:Class rdf:about="#Policy_analysis">
@@ -1410,34 +1329,6 @@ Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assigned_to_multiple_participants -->
-
-    <owl:Class rdf:about="#Treatment_assigned_to_multiple_participants">
-        <rdfs:subClassOf rdf:resource="#Treatment_assignment_to_participants"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assigned_to_one_participant -->
-
-    <owl:Class rdf:about="#Treatment_assigned_to_one_participant">
-        <rdfs:subClassOf rdf:resource="#Treatment_assignment_to_participants"/>
-        <study_protocol:develop_comment
-            >Simona: this may not work when the study is a collection of N-of-1</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Treatment_assignment_to_participants -->
-
-    <owl:Class rdf:about="#Treatment_assignment_to_participants">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: see version 11 of study design slide</study_protocol:develop_comment>
     </owl:Class>
 </rdf:RDF>
 

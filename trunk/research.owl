@@ -1573,14 +1573,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Ethnographic_study -->
-
-    <owl:Class rdf:about="#Ethnographic_study">
-        <rdfs:subClassOf rdf:resource="#Field_study"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Evaluation_science_concept -->
 
     <owl:Class rdf:about="#Evaluation_science_concept">
@@ -1641,12 +1633,6 @@
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;The population of subjects who are in a research arm of a controlled or other multi-armed trial.&quot;^^string</statistics:definition>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Field_study -->
-
-    <owl:Class rdf:about="#Field_study"/>
     
 
 
@@ -1726,15 +1712,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#In_lab_protocol_analysis -->
 
     <owl:Class rdf:about="#In_lab_protocol_analysis">
-        <rdfs:subClassOf rdf:resource="#Individual_qualitative_study"/>
         <owl:disjointWith rdf:resource="#One-on-one_interview"/>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Individual_qualitative_study -->
-
-    <owl:Class rdf:about="#Individual_qualitative_study"/>
     
 
 
@@ -1799,13 +1778,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1860,9 +1839,7 @@
 
     <!-- http://purl.org/net/OCRe/research.owl#One-on-one_interview -->
 
-    <owl:Class rdf:about="#One-on-one_interview">
-        <rdfs:subClassOf rdf:resource="#Individual_qualitative_study"/>
-    </owl:Class>
+    <owl:Class rdf:about="#One-on-one_interview"/>
     
 
 
@@ -1870,6 +1847,18 @@
 
     <owl:Class rdf:about="#Outcome_analysis_specification">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_analysis_type"/>
@@ -1888,18 +1877,6 @@
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
             >The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</statistics:definition>
     </owl:Class>
@@ -1912,24 +1889,16 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_outcome_analysis"/>
                 <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Participant_observation_study -->
-
-    <owl:Class rdf:about="#Participant_observation_study">
-        <rdfs:subClassOf rdf:resource="#Field_study"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2253,14 +2222,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Software_field_testing -->
-
-    <owl:Class rdf:about="#Software_field_testing">
-        <rdfs:subClassOf rdf:resource="#Field_study"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Specificity -->
 
     <owl:Class rdf:about="#Specificity">
@@ -2394,14 +2355,14 @@
     <owl:Class rdf:about="#Study_phenomenon">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_term_code"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
+                <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_term_code"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -2593,12 +2554,6 @@ represent(?v2, ?sp)
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_time"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_variable_expression"/>
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
             </owl:Restriction>
@@ -2607,6 +2562,12 @@ represent(?v2, ?sp)
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_assessment_method"/>
                 <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
