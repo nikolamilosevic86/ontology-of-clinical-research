@@ -396,6 +396,21 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#has_principal_investigator_role -->
+
+    <owl:ObjectProperty rdf:about="#has_principal_investigator_role">
+        <rdfs:label
+            >has_principal_investigator_role</rdfs:label>
+        <study_protocol2:develop_comment
+            >Simona: added as per 12/1 email</study_protocol2:develop_comment>
+        <rdfs:range rdf:resource="&ontologies;clinical#Role"/>
+        <rdfs:domain rdf:resource="#Study"/>
+        <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
+        <owl:inverseOf rdf:resource="#is_principal_investigator_of"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#has_study_characteristic -->
 
     <owl:ObjectProperty rdf:about="#has_study_characteristic">
@@ -732,7 +747,9 @@
     <owl:ObjectProperty rdf:about="#principal_investigator">
         <rdfs:label rdf:datatype="&xsd;string"
             >principal_investigator</rdfs:label>
-        <rdfs:range rdf:resource="&ontologies;clinical#Person"/>
+        <study_protocol2:develop_comment
+            >Simona: superseded by has_principal_investogator_role</study_protocol2:develop_comment>
+        <rdfs:range rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:domain rdf:resource="#Study"/>
         <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
     </owl:ObjectProperty>
@@ -1855,25 +1872,25 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_analysis_type"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_dependent_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1889,14 +1906,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_analysis"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_analysis"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2353,6 +2370,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#Study_phenomenon -->
 
     <owl:Class rdf:about="#Study_phenomenon">
+        <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
@@ -2365,6 +2383,8 @@
                 <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <study_protocol2:develop_comment
+            >Simona: made Study_phenomenon a subclass of Role as per 12/1 email</study_protocol2:develop_comment>
         <rdfs:comment
             >a study_phenomenon that is represented by one or more variables at least one of which is intended to be used as a stand-alone independent variable or as a source for deriving an independent variable in at least one specified analysis in the study
 
@@ -2554,8 +2574,8 @@ represent(?v2, ?sp)
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_variable_expression"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2566,14 +2586,14 @@ represent(?v2, ?sp)
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_time"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
+                <owl:onProperty rdf:resource="#has_variable_expression"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
