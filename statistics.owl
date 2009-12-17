@@ -19,17 +19,17 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/statistics.owl#"
      xml:base="http://purl.org/net/OCRe/statistics.owl"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-     xmlns:research="http://purl.org/net/OCRe/research.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -47,8 +47,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="#synonym"/>
-    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     <owl:AnnotationProperty rdf:about="#definition"/>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     
 
 
@@ -579,13 +579,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
+                <owl:someValuesFrom rdf:resource="#Log_rank_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Log_rank_test"/>
+                <owl:someValuesFrom rdf:resource="#Wilcoxon_rank_sum_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -804,12 +804,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_permissible_method"/>
                 <owl:someValuesFrom rdf:resource="#Z-test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -817,6 +811,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
                 <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_permissible_method"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -847,13 +847,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
+                <owl:someValuesFrom rdf:resource="#Exact_test"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_permissible_method"/>
-                <owl:someValuesFrom rdf:resource="#Exact_test"/>
+                <owl:someValuesFrom rdf:resource="#Chi-Squared"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <definition
@@ -1295,10 +1295,10 @@
 
     <owl:Class rdf:about="#Distributional_metric">
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <synonym
-            >Descriptive statistics</synonym>
         <definition
             >A numeric characteristic of a distribution or a random variable</definition>
+        <synonym
+            >Descriptive statistics</synonym>
     </owl:Class>
     
 
@@ -1381,10 +1381,10 @@
 
     <owl:Class rdf:about="#Granularity">
         <rdfs:subClassOf rdf:resource="#Variable_data_type"/>
-        <rdfs:comment
-            >Describe background of data, how to present data when you plot it</rdfs:comment>
         <definition
             >Number of possible outcomes</definition>
+        <rdfs:comment
+            >Describe background of data, how to present data when you plot it</rdfs:comment>
     </owl:Class>
     
 
@@ -1450,10 +1450,10 @@
         <rdfs:label
             >Interval scale level</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Quantitative_scale_level"/>
+        <definition
+            >In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has an arbitrary zero point.&quot;</definition>
         <rdfs:comment
             >Cannot meaningfully compute ratios</rdfs:comment>
-        <definition
-            >In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has a an arbitrary zero point.&quot;</definition>
     </owl:Class>
     
 
@@ -1843,10 +1843,10 @@
         <rdfs:label
             >Absolute scale level</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Quantitative_scale_level"/>
-        <rdfs:comment
-            >Can compute ratios</rdfs:comment>
         <study_protocol:develop_comment
             >In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot; (Cambridge Dictionary of Statistics 3nd ed.)</study_protocol:develop_comment>
+        <rdfs:comment
+            >Can compute ratios</rdfs:comment>
     </owl:Class>
     
 
@@ -1893,9 +1893,9 @@
 
     <owl:Class rdf:about="#Sensitivity">
         <rdfs:subClassOf rdf:resource="#Discriminant_accuracy_metric"/>
+        <synonym>recall</synonym>
         <definition
             >An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</definition>
-        <synonym>recall</synonym>
     </owl:Class>
     
 
@@ -1954,10 +1954,10 @@
         <rdfs:label
             >Statistical method</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <rdfs:comment
-            >Note that we are excluding descriptive statistical method</rdfs:comment>
         <definition
             >A procedure for performing statistica inference</definition>
+        <rdfs:comment
+            >Note that we are excluding descriptive statistical method</rdfs:comment>
     </owl:Class>
     
 
@@ -1988,9 +1988,9 @@
         <rdfs:comment
             >On scale of time. Often censored. A difference in time.
 Also whether an event occurs (lowerbound of time to event) Measurement can be one number or an interval. 3 categories: same L &amp; Ul,  right censoring (know lowerbound), an interval</rdfs:comment>
+        <synonym>Survival data</synonym>
         <definition
             >Data representing the times of the occurrances of events of interest</definition>
-        <synonym>Survival data</synonym>
     </owl:Class>
     
 
@@ -2029,10 +2029,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="#Statistical_concept"/>
-        <definition
-            >A typology of scales measure</definition>
         <rdfs:comment
             >Dimensions about how data can be ordered</rdfs:comment>
+        <definition
+            >A typology of scales measure</definition>
     </owl:Class>
     
 
