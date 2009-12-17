@@ -5,8 +5,8 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -21,20 +21,20 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/clinical.owl#"
      xml:base="http://purl.org/net/OCRe/clinical.owl"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:clinical2="http://purl.org/net/OCRe/clinical.owl#"
-     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
-     xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:clinical="http://purl.org/net/OCRe/clinical#"
      xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:clinical="http://purl.org/net/OCRe/clinical#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
             >Shared terms and definitions held in common between multiple clinical research domains and clinical information systems. Contains a basic model of clinical situations and measurements which can be extended to build models of research data sets or to include specific diseases, diagnoses and interventions.</rdfs:comment>
@@ -51,9 +51,9 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     <owl:AnnotationProperty rdf:about="&clinical;source"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
-    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     
 
 
@@ -174,14 +174,6 @@
         <statistics:definition
             >If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&clinical;part_of"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -190,6 +182,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -289,14 +289,6 @@
         <rdfs:label>part of</rdfs:label>
         <statistics:definition
             >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -305,6 +297,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -326,10 +326,19 @@
     <owl:ObjectProperty rdf:about="&clinical;unit_of_measure_property">
         <study_protocol:develop_comment
             >Copied these properties from http://purl.oclc.org/NET/muo/muo ontology in case we want to jettison most of http://purl.oclc.org/NET/muo/muo ontology instances.</study_protocol:develop_comment>
-        <statistics:definition
-            >Properties related to unit of measurements</statistics:definition>
         <rdfs:comment
             >The subproperties came fro the http://purl.oclc.org/NET/muo/muo ontology</rdfs:comment>
+        <statistics:definition
+            >Properties related to unit of measurements</statistics:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical.owl#has_offset -->
+
+    <owl:ObjectProperty rdf:about="#has_offset">
+        <rdfs:range rdf:resource="&clinical;Duration"/>
+        <rdfs:domain rdf:resource="&clinical;Relative_time_point"/>
     </owl:ObjectProperty>
     
 
@@ -363,62 +372,12 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#contact_detail -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;contact_detail">
-        <statistics:definition
-            >contact detail of an individual or organization</statistics:definition>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Organization"/>
-                    <rdf:Description rdf:about="&clinical;Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#email_address -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;email_address">
-        <statistics:definition
-            >email address of an individual or organization</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/clinical#has_name -->
 
     <owl:DatatypeProperty rdf:about="&clinical;has_name">
         <statistics:definition
             >name of a person</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Person"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#phone_number -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;phone_number">
-        <statistics:definition
-            >phone number of an individual or organization</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#postal_address -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;postal_address">
-        <statistics:definition
-            >postal address of an individual or organization</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="&clinical;contact_detail"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -707,9 +666,9 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:label
             >Information entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
+        <statistics:curator>Samson Tu</statistics:curator>
         <statistics:definition
             >Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</statistics:definition>
-        <statistics:curator>Samson Tu</statistics:curator>
     </owl:Class>
     
 
@@ -731,10 +690,10 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:label
             >Measurement term</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
-        <statistics:definition
-            >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
         <study_protocol:develop_comment
             >A placeholder for a unit of measurement ontology</study_protocol:develop_comment>
+        <statistics:definition
+            >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
     </owl:Class>
     
 
