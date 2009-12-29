@@ -80,20 +80,14 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Allocation_concealment_type -->
-
-    <owl:Class rdf:about="&research;Allocation_concealment_type">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <owl:disjointWith rdf:resource="&research;Allocation_type"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Allocation_type -->
 
     <owl:Class rdf:about="&research;Allocation_type">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <owl:disjointWith rdf:resource="&research;Randomization_method"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The way in which each participant in an interventional trial is allocated to a treatment.</statistics:definition>
     </owl:Class>
     
 
@@ -176,6 +170,9 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
+        <statistics:definition
+            >A study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -199,6 +196,11 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A case-crossover study is a scientific method to answer the question, &#8220;Was this event triggered by something unusual that happened just before?&#8221; The simple part of the question is &#8220;What happened just before?&#8221; The challenging part is to quantify &#8220;How unusual was that?&#8221; The latter question must be answered for all people in the study who experience the outcome event (disease onset, injury, or behavioral change), not just the people who had the hypothesized triggers just before... 
+The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
     </owl:Class>
     
 
@@ -222,6 +224,9 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
+        <statistics:definition
+            >An observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -281,6 +286,9 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
+        <statistics:definition
+            >A study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -302,7 +310,7 @@
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Data_analyzed_across_multiple_participants"/>
+                        <owl:someValuesFrom rdf:resource="#Data_analyzed_within_multiple_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
@@ -311,6 +319,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:comment
+            >Does investigator assign interventions to and analyze data only within a single study participant?</rdfs:comment>
         <study_protocol:develop_comment
             >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
         <statistics:definition
@@ -338,6 +348,9 @@ A and B, the participants are randomly allocated to receive them in either the o
 
     <owl:Class rdf:about="&research;Deterministic_allocation">
         <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Also called Non-randomized allocation.</statistics:definition>
     </owl:Class>
     
 
@@ -596,8 +609,6 @@ A clinical trial is any research study that prospectively assigns human particip
             </owl:Class>
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: changed from no control group to single intervention, as per updated typology</study_protocol:develop_comment>
         <statistics:definition
             >A clinical trial that has no control group. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
@@ -637,6 +648,9 @@ A clinical trial is any research study that prospectively assigns human particip
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A study in which the investigators do not seek to intervene, and simply observe the course of events. (Also called nonexperimental study.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -799,34 +813,11 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
 
     <owl:Class rdf:about="&research;Randomized_allocation">
         <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Randomized_clinical_trial -->
-
-    <owl:Class rdf:about="&research;Randomized_clinical_trial">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Interventional_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Randomized_allocation"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <statistics:definition
-            >An experiment in which two or more interventions, possibly including a control intervention or no intervention, are compared by being randomly allocated to participants. In most trials one intervention is assigned to each individual but sometimes assignment is to defined groups of individuals (for example, in a household) or interventions are assigned within individuals (for example, in different orders or to different parts of the body). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Randomization is &quot;The process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence, and its implementation, ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
-            >Simona: are we going to have a different place since in the hierarchy for study types based on additional factors (e.g., randomized, factorial, etc.).
-Added multiple interventions to equivalence assertions</study_protocol:develop_comment>
+            >Simona: do we need the hierarchy below?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1047,6 +1038,41 @@ Added multiple interventions to equivalence assertions</study_protocol:develop_c
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: Do we really want an exhaustive list of options here?</study_protocol:develop_comment>
+        <statistics:definition
+            >The process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. (Also called allocation concealment.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Centralized_allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Centralized_allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+        <statistics:definition
+            >Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Comparative_intent -->
+
+    <owl:Class rdf:about="#Comparative_intent">
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Additional descriptor: Intent of comparison made in a study with two or more arms.</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Cost-benefit_analysis -->
 
     <owl:Class rdf:about="#Cost-benefit_analysis">
@@ -1067,11 +1093,11 @@ Added multiple interventions to equivalence assertions</study_protocol:develop_c
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: changed old Decision_analysis_study to current name. 
-Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >An economic analysis that converts effects into the same monetary terms as costs and compares them. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: changed old Decision_analysis_study to current name. 
+Ask Ida to review this definition. Also, do we need an additional study characteristic to distinguish between the 3 Cost_X classes?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1098,7 +1124,7 @@ Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >An economic analysis that views effects in terms of overall health specific to the problem, and describes the costs for some additional health gain (e.g. cost per additional stroke prevented). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <study_protocol:develop_comment
-            >Ask Ida to review this definition</study_protocol:develop_comment>
+            >Simona: Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1132,28 +1158,28 @@ Ask Ida to review this definition</study_protocol:develop_comment>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analysis_across_participants -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analysis_within_participants -->
 
-    <owl:Class rdf:about="#Data_analysis_across_participants">
+    <owl:Class rdf:about="#Data_analysis_within_participants">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
-            >Simona: see version 11 of study design slide</study_protocol:develop_comment>
+            >Simona: see version 18 of study design slide</study_protocol:develop_comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_across_multiple_participants -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_within_multiple_participants -->
 
-    <owl:Class rdf:about="#Data_analyzed_across_multiple_participants">
-        <rdfs:subClassOf rdf:resource="#Data_analysis_across_participants"/>
+    <owl:Class rdf:about="#Data_analyzed_within_multiple_participants">
+        <rdfs:subClassOf rdf:resource="#Data_analysis_within_participants"/>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_across_one_participant -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_within_single_participant -->
 
-    <owl:Class rdf:about="#Data_analyzed_across_one_participant">
-        <rdfs:subClassOf rdf:resource="#Data_analysis_across_participants"/>
+    <owl:Class rdf:about="#Data_analyzed_within_single_participant">
+        <rdfs:subClassOf rdf:resource="#Data_analysis_within_participants"/>
     </owl:Class>
     
 
@@ -1183,6 +1209,25 @@ Ask Ida to review this definition</study_protocol:develop_comment>
 Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Equivalence -->
+
+    <owl:Class rdf:about="#Equivalence">
+        <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
+        <statistics:definition
+            >An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Identical_container_allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Identical_container_allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
     </owl:Class>
     
 
@@ -1227,11 +1272,11 @@ Ask Ida to review this definition</study_protocol:develop_comment>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <study_protocol:develop_comment
-            >Simona: Based on the Cochrane definition above, should we remove this class and have systematic review instead</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: Based on the Cochrane definition above, should we remove this class and have systematic review instead?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1273,7 +1318,7 @@ Ask Ida to review this definition</study_protocol:develop_comment>
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Has_control_group"/>
+                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
@@ -1281,20 +1326,51 @@ Ask Ida to review this definition</study_protocol:develop_comment>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Within_subject_control_locality"/>
+                        <owl:someValuesFrom rdf:resource="#Data_analyzed_within_single_participant"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Data_analyzed_across_one_participant"/>
+                        <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
         <statistics:definition
-            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed across one participant at a time.</statistics:definition>
+            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed within one participant at a time.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non-inferiority -->
+
+    <owl:Class rdf:about="#Non-inferiority">
+        <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
+        <statistics:definition
+            >A trial designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Onsite_file_allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Onsite_file_allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Other_allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Other_allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+        <statistics:definition
+            >A method other than the ones defined as asserted classes.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1314,6 +1390,28 @@ Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Policy analysis can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Sealed_envelope_allocation_concealment_method -->
+
+    <owl:Class rdf:about="#Sealed_envelope_allocation_concealment_method">
+        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+        <statistics:definition
+            >Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Superiority -->
+
+    <owl:Class rdf:about="#Superiority">
+        <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
+        <statistics:definition
+            >When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C. [Bull NYU Hosp Jt Dis. 2008;66(2):150-4.]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
