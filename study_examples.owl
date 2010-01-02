@@ -858,12 +858,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#prospective -->
-
-    <owl:Class rdf:about="&OCRe;research.owl#prospective"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/snomed_interface#Diuretic -->
 
     <owl:Class rdf:about="&OCRe;snomed_interface#Diuretic"/>
@@ -1567,7 +1561,7 @@
                                                     <rdf:Description rdf:about="&OCRe;research.owl#Randomisation"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="&OCRe;research.owl#assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&OCRe;study_examples#ThrombolyticTherapyArm"/>
+                                                        <owl:hasValue rdf:resource="&OCRe;study_examples#PCTArm"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -1578,12 +1572,6 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1610,7 +1598,7 @@
                                                     <rdf:Description rdf:about="&OCRe;research.owl#Randomisation"/>
                                                     <owl:Restriction>
                                                         <owl:onProperty rdf:resource="&OCRe;research.owl#assigned_to"/>
-                                                        <owl:hasValue rdf:resource="&OCRe;study_examples#PCTArm"/>
+                                                        <owl:hasValue rdf:resource="&OCRe;study_examples#ThrombolyticTherapyArm"/>
                                                     </owl:Restriction>
                                                 </owl:intersectionOf>
                                             </owl:Class>
@@ -1621,6 +1609,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <research:has_description rdf:datatype="&xsd;string"
@@ -1763,25 +1757,19 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed_recruiting"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#prospective"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Interventional_study"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;research.owl#clinical"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Randomized_allocation"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -1798,13 +1786,13 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Randomized_allocation"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Interventional_study"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed_recruiting"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
@@ -2069,39 +2057,8 @@
         <rdf:type rdf:resource="&OCRe;research.owl#Outcome_analysis_specification"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&OCRe;research.owl#Population"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&OCRe;research.owl#has_members"/>
-                                <owl:allValuesFrom>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;clinical#subject_of"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:intersectionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="&OCRe;research.owl#Randomisation"/>
-                                                    <owl:Restriction>
-                                                        <owl:onProperty rdf:resource="&OCRe;research.owl#assigned_to"/>
-                                                        <owl:hasValue rdf:resource="#PlannedArm_6"/>
-                                                    </owl:Restriction>
-                                                </owl:intersectionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Analysis_of_variance"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -2137,8 +2094,39 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Analysis_of_variance"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&OCRe;research.owl#Population"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&OCRe;research.owl#has_members"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&OCRe;clinical#subject_of"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&OCRe;research.owl#Randomisation"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&OCRe;research.owl#assigned_to"/>
+                                                        <owl:hasValue rdf:resource="#PlannedArm_6"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label
@@ -2196,12 +2184,6 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -2229,6 +2211,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label
@@ -2497,6 +2485,12 @@
         <rdf:type rdf:resource="&OCRe;research.owl#Outcome_analysis_specification"/>
         <rdf:type>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -2553,12 +2547,6 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
-            </owl:Restriction>
-        </rdf:type>
         <research:has_description rdf:datatype="&xsd;string"
             >StrokeDeathMIStudyTreatmentReceivedAnalysis</research:has_description>
         <research:has_assessment_time rdf:resource="&OCRe;study_examples#6_months_after_indexMI"/>
@@ -2607,13 +2595,13 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Randomized_allocation"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Double_blinded"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Double_blinded"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Randomized_allocation"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label rdf:datatype="&xsd;string"
@@ -3012,7 +3000,7 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_examples.owl#genid126 -->
+    <!-- http://purl.org/net/OCRe/study_examples.owl#genid125 -->
 
     <rdf:Description>
         <xsd:maxInclusive rdf:datatype="&xsd;double">1.5</xsd:maxInclusive>
