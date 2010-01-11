@@ -305,30 +305,28 @@ The simplest case-crossover design is closely analogous to a traditional matched
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Multiple_human_unit_assignment"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Data_analyzed_within_multiple_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_participant_unit_assignment"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment
-            >Does investigator assign interventions to and analyze data only within a single study participant?</rdfs:comment>
-        <study_protocol:develop_comment
-            >Simona: see change in equivalent class definition. However, I don&#39;t know how to capture &quot;and/or&quot;</study_protocol:develop_comment>
         <statistics:definition
-            >A type of clinical trial comparing two or more interventions in which the participants, upon completion of the course of one treatment, are switched to another. For example, for a comparison of treatments
-A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
+Regimens are assigned to and data are analyzed within more than one participant at a time.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed.</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -419,6 +417,8 @@ A and B, the participants are randomly allocated to receive them in either the o
 
     <owl:Class rdf:about="&research;Intervention_cardinality">
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: to be removed after review of recent changes (1/11/10) unless we need an extra layer for regimens</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -437,6 +437,8 @@ A and B, the participants are randomly allocated to receive them in either the o
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed for the inclusion of &quot;clinical&quot;</study_protocol:develop_comment>
         <statistics:definition
             >Synonym: clinical trial. 
 A clinical trial is any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Clinical trials may also be referred to as interventional trials. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [WHO, available at: http://www.who.int/ictrp/en/]</statistics:definition>
@@ -449,6 +451,8 @@ A clinical trial is any research study that prospectively assigns human particip
 
     <owl:Class rdf:about="&research;Investigator_assignment_role">
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: do we want to change intervention to &quot;regimen of interventions&quot; in these subclasses?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -458,6 +462,9 @@ A clinical trial is any research study that prospectively assigns human particip
     <owl:Class rdf:about="&research;Investigator_assigns_intervention">
         <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
         <owl:disjointWith rdf:resource="&research;Investigator_assigns_no_intervention"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The investigator actively assigns the study participants to one or more regimens of interventions (each including one or more interventions, or no intervention).</statistics:definition>
     </owl:Class>
     
 
@@ -466,6 +473,9 @@ A clinical trial is any research study that prospectively assigns human particip
 
     <owl:Class rdf:about="&research;Investigator_assigns_no_intervention">
         <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
+        <statistics:definition
+            >The investigator does not actively assign study participants to regimens of interventions.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -513,16 +523,6 @@ A clinical trial is any research study that prospectively assigns human particip
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Measurement_instrument -->
-
-    <owl:Class rdf:about="&research;Measurement_instrument">
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
-        <study_protocol:develop_comment
-            >Simona: this should be removed if not referenced</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Minimization -->
 
     <owl:Class rdf:about="&research;Minimization">
@@ -543,17 +543,6 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Multiple_human_unit_assignment -->
-
-    <owl:Class rdf:about="&research;Multiple_human_unit_assignment">
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
-        <owl:disjointWith rdf:resource="&research;Single_human_unit_assignment"/>
-        <statistics:definition
-            >Investigator assigns intervention(s) across more than one participant</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Multiple_intervention -->
 
     <owl:Class rdf:about="&research;Multiple_intervention">
@@ -566,9 +555,9 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Multiple_intervention_timing -->
 
     <owl:Class rdf:about="&research;Multiple_intervention_timing">
-        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
         <study_protocol:develop_comment
-            >Simona: I am not sure what this means</study_protocol:develop_comment>
+            >Simona: I am not sure where this goes. Need clarification</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -598,33 +587,12 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Non-controlled_interventional_study -->
-
-    <owl:Class rdf:about="&research;Non-controlled_interventional_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Interventional_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Single_intervention"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >A clinical trial that has no control group. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Non-individual_human_study -->
 
     <owl:Class rdf:about="&research;Non-individual_human_study">
         <rdfs:subClassOf rdf:resource="&research;Study"/>
         <statistics:definition
-            >Study that does not use or collect measurements or assessments about individual humans.</statistics:definition>
+            >Study that does not use or collect measurements or assessments about / at the level of individual humans.</statistics:definition>
     </owl:Class>
     
 
@@ -684,17 +652,19 @@ The next participant is assessed with regard to several characteristics, and ass
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
+                        <owl:someValuesFrom rdf:resource="#Main_comparison_across_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Main_comparison_across_participants"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed.</study_protocol:develop_comment>
         <statistics:definition
-            >A trial that compares two groups of people concurrently, one of which receives the intervention of interest and one of which is a control group. Some parallel trials have more than two comparison groups and some compare different interventions without including a nonintervention control group. (Also called independent group design.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A study that compares across at least two allocation groups concurrently, each receiving a regimen of interventions (which can be &quot;no intervention&quot;).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -742,7 +712,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
+            >Study that uses or collects measurements or assessments about / at the level of individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
     </owl:Class>
     
 
@@ -775,7 +745,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
+            >Study that uses or collects measurements or assessments about / at the level of individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
     </owl:Class>
     
 
@@ -843,16 +813,6 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
 
     <owl:Class rdf:about="&research;Simultaneous_assignment">
         <rdfs:subClassOf rdf:resource="&research;Multiple_intervention_timing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Single_human_unit_assignment -->
-
-    <owl:Class rdf:about="&research;Single_human_unit_assignment">
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
-        <statistics:definition
-            >Investigator assigns intervention(s) within a single participant</statistics:definition>
     </owl:Class>
     
 
@@ -938,7 +898,7 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <owl:Class rdf:about="&research;Unit_of_assignment">
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
         <study_protocol:develop_comment
-            >Simona: see version 18 of study design slide</study_protocol:develop_comment>
+            >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -959,6 +919,33 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
             >Simona: Do we really want an exhaustive list of options here?</study_protocol:develop_comment>
         <statistics:definition
             >The process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. (Also called allocation concealment.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Animal -->
+
+    <owl:Class rdf:about="#Animal">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Animal_study -->
+
+    <owl:Class rdf:about="#Animal_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="#Animal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:definition
+            >A study that uses or collects measurements or assessments about animals.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1029,97 +1016,12 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-benefit_analysis -->
-
-    <owl:Class rdf:about="#Cost-benefit_analysis">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >An economic analysis that converts effects into the same monetary terms as costs and compares them. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: changed old Decision_analysis_study to current name. 
-Ask Ida to review this definition. Also, do we need an additional study characteristic to distinguish between the 3 Cost_X classes?</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-effectiveness_analysis -->
-
-    <owl:Class rdf:about="#Cost-effectiveness_analysis">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >An economic analysis that views effects in terms of overall health specific to the problem, and describes the costs for some additional health gain (e.g. cost per additional stroke prevented). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: Ask Ida to review this definition</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Cost-utility_analysis -->
-
-    <owl:Class rdf:about="#Cost-utility_analysis">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >An economic analysis that expresses effects as overall health improvement and describes how much it costs for some additional utility gain (e.g. cost per additional quality-adjusted life-year). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: I found this in the Cochrane Glossary and thought we may want to add it</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Data_analysis_within_participants -->
 
     <owl:Class rdf:about="#Data_analysis_within_participants">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
-            >Simona: see version 18 of study design slide</study_protocol:develop_comment>
+            >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1160,9 +1062,6 @@ Ask Ida to review this definition. Also, do we need an additional study characte
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: changed old Decision_analysis_study to current name. 
-Ask Ida to review this definition</study_protocol:develop_comment>
         <statistics:definition
             >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
@@ -1219,12 +1118,31 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Laboratory_study -->
+
+    <owl:Class rdf:about="#Laboratory_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="#Non-human_biological_entity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >A study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_across_participants -->
 
     <owl:Class rdf:about="#Main_comparison_across_participants">
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
-            >Simona: see version 16 of typology</study_protocol:develop_comment>
+            >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1244,7 +1162,7 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <owl:Class rdf:about="#Main_comparison_within_participants">
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
-            >Simona: see version 16 of typology</study_protocol:develop_comment>
+            >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1263,48 +1181,36 @@ case. Researchers match cases and controls according to particular variables tha
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Meta-analysis -->
-
-    <owl:Class rdf:about="#Meta-analysis">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >The use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: Based on the Cochrane definition above, should we remove this class and have systematic review instead?</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Model_organism -->
 
     <owl:Class rdf:about="#Model_organism">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
         <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: remove after we verify that it is not needed</study_protocol:develop_comment>
         <statistics:definition
             >A species that has been widely studied, usually because it is easy to maintain and breed in a laboratory setting and has particular experimental advantages. We can distinguish three major types of model organism: genetic, experimental and genomic. [http://genome.wellcome.ac.uk/doc_WTD020803.html]</statistics:definition>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Model_organism_study -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Multiple_participant_unit_assignment -->
 
-    <owl:Class rdf:about="#Model_organism_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="#Model_organism"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+    <owl:Class rdf:about="#Multiple_participant_unit_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
         <statistics:definition
-            >A study that uses or collects measurements or assessments about a model organism.</statistics:definition>
+            >Investigator assigns regimen of interventions to an allocation group made up of more than one participant.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Multiple_regimen -->
+
+    <owl:Class rdf:about="#Multiple_regimen">
+        <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
+        <statistics:definition
+            >Multiple regimens of intervention, each including one or more individual interventions (treatments). This means the study has at least one contemporaneous comparison group.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1319,26 +1225,28 @@ case. Researchers match cases and controls according to particular variables tha
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Multiple_intervention"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Single_human_unit_assignment"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Data_analyzed_within_single_participant"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Single_participant_unit_assignment"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A study where the population is a single human subject in which an experimental and a control intervention are given alternatingly. Data are analyzed within one participant at a time.</statistics:definition>
+            >A study where the population is a single human subject in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1360,6 +1268,44 @@ case. Researchers match cases and controls according to particular variables tha
         <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
         <statistics:definition
             >Most trials only consider a single factor, where an intervention is compared with one or more alternatives, or a placebo. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_biological_entity -->
+
+    <owl:Class rdf:about="#Non-human_biological_entity">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_cost-utility_analysis -->
+
+    <owl:Class rdf:about="#Non-human_cost-utility_analysis">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >An economic analysis that expresses effects as overall health improvement and describes how much it costs for some additional utility gain (e.g. cost per additional quality-adjusted life-year). [Glossary of Terms in The Cochrane Collaboration]
+
+Note that this type of analysis can also be applied to outcomes in a human study.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1440,8 +1386,6 @@ case. Researchers match cases and controls according to particular variables tha
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <study_protocol:develop_comment
-            >Simona: changed old Policy_analysis_study to current name</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Policy analysis can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
@@ -1489,6 +1433,19 @@ controlled trials are always prospective studies. Cohort studies are commonly ei
 retrospective, whereas case-control studies are usually retrospective. In Epidemiology, &#39;prospective
 study&#8217; is sometimes misused as a synonym for cohort study. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Regimen_cardinality -->
+
+    <owl:Class rdf:about="#Regimen_cardinality">
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The number of regimens of interventions in a study. Each regimen includes one or more individual interventions (treatments).</statistics:definition>
     </owl:Class>
     
 
@@ -1546,6 +1503,55 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Single_group_study -->
+
+    <owl:Class rdf:about="#Single_group_study">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Single_regimen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A study that has a single allocation group and no contemporaneuos comparison group.
+
+A study in which an individual acts has his/her own comparison does not fall into this category, since an individual is not a group.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Single_participant_unit_assignment -->
+
+    <owl:Class rdf:about="#Single_participant_unit_assignment">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
+        <study_protocol:develop_comment
+            >Simona: was &quot;single human&quot; Changed for consistency</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Investigator assigns regimen of interventions to an allocation group made up of a single participant.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Single_regimen -->
+
+    <owl:Class rdf:about="#Single_regimen">
+        <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
+        <statistics:definition
+            >Single regimen of intervention, which includes one or more individual interventions (treatments). This means the study has no contemporaneous comparison group.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Stratified_randomization -->
 
     <owl:Class rdf:about="#Stratified_randomization">
@@ -1591,7 +1597,38 @@ trial of women with breast cancer, it may be important to have similar numbers o
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
-            >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]
+
+Meta-analysis is the use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Technological_product -->
+
+    <owl:Class rdf:about="#Technological_product">
+        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Technology_study -->
+
+    <owl:Class rdf:about="#Technology_study">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="#Technological_product"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <statistics:definition
+            >A study that uses or collects measurements or assessments about a technological product (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
