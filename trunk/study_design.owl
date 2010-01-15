@@ -361,12 +361,6 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Ecologic_study -->
 
     <owl:Class rdf:about="&research;Ecologic_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Population_as_unit_of_analysis"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
             >Epidemiological study in which the unit of observation is a population or community. [Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
@@ -437,12 +431,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed for the inclusion of &quot;clinical&quot;</study_protocol:develop_comment>
         <statistics:definition
-            >Synonym: clinical trial. 
-A clinical trial is any research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Clinical trials may also be referred to as interventional trials. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [WHO, available at: http://www.who.int/ictrp/en/]</statistics:definition>
+            >A research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [WHO, available at: http://www.who.int/ictrp/en/ with the removal of all references to &quot;clinical&quot; as being too restrictive]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -935,12 +928,6 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/study_design.owl#Animal_study -->
 
     <owl:Class rdf:about="#Animal_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="#Animal"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1045,25 +1032,14 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/study_design.owl#Decision_analysis -->
 
     <owl:Class rdf:about="#Decision_analysis">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;No_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]
+
+Cost-benefit analysis, cost-effectiveness analysis and cost-utility analysis are special cases of decision analysis.
+
+Note that this type of analysis can also be applied to outcomes in a human study.</statistics:definition>
     </owl:Class>
     
 
@@ -1121,12 +1097,6 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Laboratory_study -->
 
     <owl:Class rdf:about="#Laboratory_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="#Non-human_biological_entity"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
             >A study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
@@ -1281,36 +1251,6 @@ case. Researchers match cases and controls according to particular variables tha
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_cost-utility_analysis -->
-
-    <owl:Class rdf:about="#Non-human_cost-utility_analysis">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Non-individual_human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Decision_strategy"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Include_analysis_of_cost"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >An economic analysis that expresses effects as overall health improvement and describes how much it costs for some additional utility gain (e.g. cost per additional quality-adjusted life-year). [Glossary of Terms in The Cochrane Collaboration]
-
-Note that this type of analysis can also be applied to outcomes in a human study.</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-inferiority -->
 
     <owl:Class rdf:about="#Non-inferiority">
@@ -1379,12 +1319,6 @@ Note that this type of analysis can also be applied to outcomes in a human study
     <!-- http://purl.org/net/OCRe/study_design.owl#Policy_analysis -->
 
     <owl:Class rdf:about="#Policy_analysis">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Policy"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
@@ -1589,12 +1523,6 @@ trial of women with breast cancer, it may be important to have similar numbers o
     <!-- http://purl.org/net/OCRe/study_design.owl#Systematic_review -->
 
     <owl:Class rdf:about="#Systematic_review">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&research;Studies_as_unit_of_analysis"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
             >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]
@@ -1618,15 +1546,9 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <!-- http://purl.org/net/OCRe/study_design.owl#Technology_study -->
 
     <owl:Class rdf:about="#Technology_study">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="#Technological_product"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
-            >A study that uses or collects measurements or assessments about a technological product (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
+            >A study that uses or collects measurements or assessments about a man-made product (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
