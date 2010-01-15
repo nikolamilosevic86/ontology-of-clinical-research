@@ -36,6 +36,51 @@
             >Gathered under &quot;Start-Here&quot; are (1) the core OCRe ontology (research), (2) mapping from OCRe to BFO (bfo-mapping), and (3) examples of studies annotated using OCRe (study_examples).</rdfs:comment>
         <owl:imports rdf:resource="http://purl.org/net/OCRe/study_examples.owl"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Blinding_type -->
+
+    <owl:Class rdf:about="&research;Blinding_type"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Double_blinded -->
+
+    <owl:Class rdf:about="&research;Double_blinded">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Investigator_blinding"/>
+                    <rdf:Description rdf:about="&research;Subject_blinding"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Investigator_blinding -->
+
+    <owl:Class rdf:about="&research;Investigator_blinding"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Subject_blinding -->
+
+    <owl:Class rdf:about="&research;Subject_blinding"/>
 </rdf:RDF>
 
 
