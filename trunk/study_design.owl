@@ -196,9 +196,9 @@
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A case-crossover study is a scientific method to answer the question, &#8220;Was this event triggered by something unusual that happened just before?&#8221; The simple part of the question is &#8220;What happened just before?&#8221; The challenging part is to quantify &#8220;How unusual was that?&#8221; The latter question must be answered for all people in the study who experience the outcome event (disease onset, injury, or behavioral change), not just the people who had the hypothesized triggers just before... 
+            >A case-crossover study is an observational study that aims to answer the question, &#8220;Was this event triggered by something unusual that happened just before?&#8221; The simple part of the question is &#8220;What happened just before?&#8221; The challenging part is to quantify &#8220;How unusual was that?&#8221; The latter question must be answered for all people in the study who experience the outcome event (disease onset, injury, or behavioral change), not just the people who had the hypothesized triggers just before... 
 The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
-The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [adapted from: Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
     </owl:Class>
     
 
@@ -222,9 +222,9 @@ The simplest case-crossover design is closely analogous to a traditional matched
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
-        <statistics:definition
-            >An observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -290,7 +290,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
         <statistics:definition
-            >A study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -362,9 +362,9 @@ Regimens are assigned to and data are analyzed within more than one participant 
 
     <owl:Class rdf:about="&research;Ecologic_study">
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >Epidemiological study in which the unit of observation is a population or community. [Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An ecologic study is a non-individual human study in which the unit of observation is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
     </owl:Class>
     
 
@@ -432,7 +432,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >A research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [WHO, available at: http://www.who.int/ictrp/en/ with the removal of all references to &quot;clinical&quot; as being too restrictive]</statistics:definition>
+            >An interventional study is a quantitative study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [adapted from: WHO, available at: http://www.who.int/ictrp/en/ with the removal of all references to &quot;clinical&quot; as being too restrictive]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -585,7 +585,8 @@ The next participant is assessed with regard to several characteristics, and ass
     <owl:Class rdf:about="&research;Non-individual_human_study">
         <rdfs:subClassOf rdf:resource="&research;Study"/>
         <statistics:definition
-            >Study that does not use or collect measurements or assessments about / at the level of individual humans.</statistics:definition>
+            >A non-individual human study is a study that does not use or collect measurements or assessments about, or at the level of, individual humans.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -705,7 +706,8 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about / at the level of individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
+            >A qualitative study is a study that uses or collects measurements or assessments about, or at the level of, individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -738,7 +740,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Study that uses or collects measurements or assessments about / at the level of individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
+            >A quantitative study is a study that uses or collects measurements or assessments about, or at the level of, individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
     </owl:Class>
     
 
@@ -931,9 +933,9 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:definition
-            >A study that uses or collects measurements or assessments about animals.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An animal study is a non-individual human study that uses or collects measurements or assessments about animals.</statistics:definition>
     </owl:Class>
     
 
@@ -1035,7 +1037,7 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [Glossary of Terms in The Cochrane Collaboration]
+            >A decision analysis is a non-individual human study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
 Cost-benefit analysis, cost-effectiveness analysis and cost-utility analysis are special cases of decision analysis.
 
@@ -1099,7 +1101,7 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <owl:Class rdf:about="#Laboratory_study">
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
         <statistics:definition
-            >A study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
+            >A laboratory study is a non-individual human study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1320,9 +1322,9 @@ case. Researchers match cases and controls according to particular variables tha
 
     <owl:Class rdf:about="#Policy_analysis">
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Policy analysis can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+            >A policy analysis is a non-individual human study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1524,12 +1526,12 @@ trial of women with breast cancer, it may be important to have similar numbers o
 
     <owl:Class rdf:about="#Systematic_review">
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >A review of a clearly formulated question that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [Glossary of Terms in The Cochrane Collaboration]
-
-Meta-analysis is the use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:definition
+            >A systematic review is a non-individual human study that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
+
+Meta-analysis is the use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1547,11 +1549,11 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
 
     <owl:Class rdf:about="#Technology_study">
         <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >A study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A technology study is a non-individual human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
     </owl:Class>
     
 
