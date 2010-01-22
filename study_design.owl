@@ -168,9 +168,9 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
-        <statistics:definition
-            >A study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A case control study is an observational study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -224,7 +224,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -290,7 +290,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
         <statistics:definition
-            >A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -322,11 +322,11 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <statistics:definition
-            >A study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
-Regimens are assigned to and data are analyzed within more than one participant at a time.</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed.</study_protocol:develop_comment>
+        <statistics:definition
+            >A crossover study is an interventional study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
+Regimens are assigned to and data are analyzed within more than one participant at a time.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -605,9 +605,9 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A study in which the investigators do not seek to intervene, and simply observe the course of events. (Also called nonexperimental study.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >An observational study is a quantitative study in which the investigators do not seek to intervene, and simply observe the course of events. (Also called nonexperimental study.) [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -658,7 +658,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <study_protocol:develop_comment
             >Simona: to be reviewed.</study_protocol:develop_comment>
         <statistics:definition
-            >A study that compares across at least two allocation groups concurrently, each receiving a regimen of interventions (which can be &quot;no intervention&quot;).</statistics:definition>
+            >A parallel group study is an interventional study that compares across at least two allocation groups concurrently, each receiving a regimen of interventions (which can be &quot;no intervention&quot;).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -741,6 +741,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
         </owl:equivalentClass>
         <statistics:definition
             >A quantitative study is a study that uses or collects measurements or assessments about, or at the level of, individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1215,10 +1216,10 @@ case. Researchers match cases and controls according to particular variables tha
             </owl:Class>
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >A study where the population is a single human subject in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:definition
+            >An N-of-1 crossover study is an interventional study where the population is a single human subject and in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</statistics:definition>
     </owl:Class>
     
 
@@ -1457,7 +1458,7 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A study that has a single allocation group and no contemporaneuos comparison group.
+            >A single group study is an interventional study that has a single allocation group and no contemporaneuos comparison group.
 
 A study in which an individual acts has his/her own comparison does not fall into this category, since an individual is not a group.</statistics:definition>
     </owl:Class>
