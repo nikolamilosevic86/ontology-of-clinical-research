@@ -85,6 +85,8 @@
     <owl:Class rdf:about="&research;Allocation_type">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <owl:disjointWith rdf:resource="&research;Randomization_method"/>
+        <study_protocol:develop_comment
+            >Simona: should this be called allocation scheme?</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The way in which each participant in an interventional trial is allocated to a treatment.</statistics:definition>
@@ -96,6 +98,8 @@
 
     <owl:Class rdf:about="&research;Analysis_of_cost_flag">
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: no longer used; delete?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -349,11 +353,12 @@ Regimens are assigned to and data are analyzed within more than one participant 
 
     <owl:Class rdf:about="&research;Deterministic_allocation">
         <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
+        <owl:disjointWith rdf:resource="&research;Randomized_allocation"/>
+        <statistics:definition
+            >A deterministic allocation scheme is an allocation type that follows a non-random rule (e.g., sequential allocation).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: Samson, is that what you meant?</study_protocol:develop_comment>
-        <statistics:definition
-            >Also called Non-randomized allocation.</statistics:definition>
     </owl:Class>
     
 
@@ -361,10 +366,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Ecologic_study -->
 
     <owl:Class rdf:about="&research;Ecologic_study">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:curator>Simona</statistics:curator>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:definition
-            >An ecologic study is a non-individual human study in which the unit of observation is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+            >An ecologic study is a non individual-human study in which the unit of observation is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -580,17 +585,6 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Non-individual_human_study -->
-
-    <owl:Class rdf:about="&research;Non-individual_human_study">
-        <rdfs:subClassOf rdf:resource="&research;Study"/>
-        <statistics:definition
-            >A non-individual human study is a study that does not use or collect measurements or assessments about, or at the level of, individual humans.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Observational_study -->
 
     <owl:Class rdf:about="&research;Observational_study">
@@ -705,6 +699,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Individual-human_study"/>
         <statistics:definition
             >A qualitative study is a study that uses or collects measurements or assessments about, or at the level of, individual humans and whose primary mode of inquiry is qualitative.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -739,6 +734,7 @@ be defined by any characteristics e.g. geography, age group, certain diseases. [
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Individual-human_study"/>
         <statistics:definition
             >A quantitative study is a study that uses or collects measurements or assessments about, or at the level of, individual humans and whose primary mode of inquiry is quantitative.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -784,6 +780,7 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <owl:Class rdf:about="&research;Restricted_randomization">
         <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
         <owl:disjointWith rdf:resource="&research;Simple_randomization"/>
+        <study_protocol:develop_comment>Simona: source?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -801,6 +798,7 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
 
     <owl:Class rdf:about="&research;Simple_randomization">
         <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
+        <study_protocol:develop_comment>Simona: source?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -843,8 +841,11 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/research.owl#Study -->
 
     <owl:Class rdf:about="&research;Study">
+        <study_protocol:develop_comment
+            >Simona: to be reviewed.
+Old definition: &quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</study_protocol:develop_comment>
         <statistics:definition
-            >A study is a detailed investigation and analysis of a subject or situation.</statistics:definition>
+            >A study is a program of analysis of data collected to answer a particular question, to reach conclusions about subject(s) or situation(s).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -931,12 +932,12 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/study_design.owl#Animal_study -->
 
     <owl:Class rdf:about="#Animal_study">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >An animal study is a non-individual human study that uses or collects measurements or assessments about animals.</statistics:definition>
+            >An animal study is a non individual-human study that uses or collects measurements or assessments about animals.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1035,10 +1036,10 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/study_design.owl#Decision_analysis -->
 
     <owl:Class rdf:about="#Decision_analysis">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A decision analysis is a non-individual human study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [adapted from: Glossary of Terms in The Cochrane Collaboration]
+            >A decision analysis is a non individual-human study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
 Cost-benefit analysis, cost-effectiveness analysis and cost-utility analysis are special cases of decision analysis.
 
@@ -1062,6 +1063,7 @@ Note that this type of analysis can also be applied to outcomes in a human study
 
     <owl:Class rdf:about="#Factorial">
         <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
+        <owl:disjointWith rdf:resource="#Non-factorial"/>
         <statistics:definition
             >Factorial design is &quot;A trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1089,6 +1091,16 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Individual-human_study -->
+
+    <owl:Class rdf:about="#Individual-human_study">
+        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <study_protocol:develop_comment
+            >can use de-novo or pooled individual data [it will be a factor]</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Individual_as_unit_of_allocation -->
 
     <owl:Class rdf:about="#Individual_as_unit_of_allocation">
@@ -1100,9 +1112,9 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Laboratory_study -->
 
     <owl:Class rdf:about="#Laboratory_study">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:definition
-            >A laboratory study is a non-individual human study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
+            >A laboratory study is a non individual-human study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1171,6 +1183,7 @@ case. Researchers match cases and controls according to particular variables tha
 
     <owl:Class rdf:about="#Multiple_participant_unit_assignment">
         <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
+        <owl:disjointWith rdf:resource="#Single_participant_unit_assignment"/>
         <statistics:definition
             >Investigator assigns regimen of interventions to an allocation group made up of more than one participant.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1182,9 +1195,9 @@ case. Researchers match cases and controls according to particular variables tha
 
     <owl:Class rdf:about="#Multiple_regimen">
         <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
-        <statistics:definition
-            >Multiple regimens of intervention, each including one or more individual interventions (treatments). This means the study has at least one contemporaneous comparison group.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Multiple regimens of intervention, each including one or more individual interventions (treatments), each assigned to one allocation group. This means the study has at least one contemporaneous comparison group.</statistics:definition>
     </owl:Class>
     
 
@@ -1215,11 +1228,12 @@ case. Researchers match cases and controls according to particular variables tha
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;Interventional_study"/>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >An N-of-1 crossover study is a crossover study where the population is a single human subject and in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:definition
-            >An N-of-1 crossover study is an interventional study where the population is a single human subject and in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</statistics:definition>
     </owl:Class>
     
 
@@ -1284,6 +1298,17 @@ case. Researchers match cases and controls according to particular variables tha
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non_individual-human_study -->
+
+    <owl:Class rdf:about="#Non_individual-human_study">
+        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <statistics:definition
+            >A non individual-human study is a study that does not use or collect measurements or assessments about, or at the level of, individual humans.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Onsite_file_allocation_concealment_method -->
 
     <owl:Class rdf:about="#Onsite_file_allocation_concealment_method">
@@ -1322,10 +1347,10 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Policy_analysis -->
 
     <owl:Class rdf:about="#Policy_analysis">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
-        <statistics:definition
-            >A policy analysis is a non-individual human study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A policy analysis is a non individual-human study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
     </owl:Class>
     
 
@@ -1458,7 +1483,7 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A single group study is an interventional study that has a single allocation group and no contemporaneuos comparison group.
+            >A single group study is an interventional study that has only a single allocation group and no contemporaneuos comparison group.
 
 A study in which an individual acts has his/her own comparison does not fall into this category, since an individual is not a group.</statistics:definition>
     </owl:Class>
@@ -1482,8 +1507,10 @@ A study in which an individual acts has his/her own comparison does not fall int
 
     <owl:Class rdf:about="#Single_regimen">
         <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed. Should this be single allocation group?</study_protocol:develop_comment>
         <statistics:definition
-            >Single regimen of intervention, which includes one or more individual interventions (treatments). This means the study has no contemporaneous comparison group.</statistics:definition>
+            >A single regimen of intervention, which includes one or more individual interventions (treatments), is assigned to one allocation group. This means the study has no contemporaneous comparison group.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1526,13 +1553,13 @@ trial of women with breast cancer, it may be important to have similar numbers o
     <!-- http://purl.org/net/OCRe/study_design.owl#Systematic_review -->
 
     <owl:Class rdf:about="#Systematic_review">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <statistics:definition
+            >A systematic review is a non individual-human study that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
+
+Meta-analysis is the use of statistical techniques in a systematic review to integrate the summary results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:definition
-            >A systematic review is a non-individual human study that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
-
-Meta-analysis is the use of statistical techniques in a systematic review to integrate the results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1549,12 +1576,12 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <!-- http://purl.org/net/OCRe/study_design.owl#Technology_study -->
 
     <owl:Class rdf:about="#Technology_study">
-        <rdfs:subClassOf rdf:resource="&research;Non-individual_human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A technology study is a non-individual human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
+            >A technology study is a non individual-human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
     </owl:Class>
     
 

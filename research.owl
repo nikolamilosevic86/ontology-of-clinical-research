@@ -1777,13 +1777,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#HealthCareProvider"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1836,8 +1836,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1848,20 +1848,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_dependent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#has_independent_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1882,14 +1882,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_phenomenon"/>
-                <owl:someValuesFrom rdf:resource="#Study_phenomenon"/>
+                <owl:onProperty rdf:resource="#has_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_phenomenon"/>
+                <owl:someValuesFrom rdf:resource="#Study_phenomenon"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2227,8 +2227,6 @@
 
     <owl:Class rdf:about="#Study">
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Entity"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
@@ -2240,12 +2238,6 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#is_represented_by"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -2255,6 +2247,12 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -2534,6 +2532,12 @@ represent(?v2, ?sp)
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_variable_expression"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_variable_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
             </owl:Restriction>
@@ -2542,12 +2546,6 @@ represent(?v2, ?sp)
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_assessment_method"/>
                 <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_variable_expression"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
