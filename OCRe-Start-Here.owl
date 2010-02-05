@@ -1,89 +1,37 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
-    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
-    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY p1 "http://purl.org/net/OCRe/study_protocol.owl#" >
-    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
-    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
-]>
-
-
-<rdf:RDF xmlns="http://purl.org/net/OCRe/OCRe-Start-Here#"
-     xml:base="http://purl.org/net/OCRe/OCRe-Start-Here"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:p1="http://purl.org/net/OCRe/study_protocol.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:clinical="http://purl.org/net/OCRe/clinical#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:research="http://purl.org/net/OCRe/research.owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="">
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Gathered under &quot;Start-Here&quot; are (1) the core OCRe ontology (research), (2) mapping from OCRe to BFO (bfo-mapping), and (3) examples of studies annotated using OCRe (study_examples).</rdfs:comment>
-        <owl:imports rdf:resource="http://purl.org/net/OCRe/study_examples.owl"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Blinding_type -->
-
-    <owl:Class rdf:about="&research;Blinding_type"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Double_blinded -->
-
-    <owl:Class rdf:about="&research;Double_blinded">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Investigator_blinding"/>
-                    <rdf:Description rdf:about="&research;Subject_blinding"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Investigator_blinding -->
-
-    <owl:Class rdf:about="&research;Investigator_blinding"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Subject_blinding -->
-
-    <owl:Class rdf:about="&research;Subject_blinding"/>
+<rdf:RDF
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:clinical="http://purl.org/net/OCRe/clinical#"
+    xmlns:research="http://purl.org/net/OCRe/research.owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://purl.org/net/OCRe/OCRe-Start-Here#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:p1="http://purl.org/net/OCRe/study_protocol.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://purl.org/net/OCRe/OCRe-Start-Here">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gathered under "Start-Here" are (1) the core OCRe ontology (research), (2) mapping from OCRe to BFO (bfo-mapping), and (3) examples of studies annotated using OCRe (study_examples).</rdfs:comment>
+    <owl:imports rdf:resource="http://purl.org/net/OCRe/study_examples.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#Double_blinded">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#Blinding_type"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#Investigator_blinding"/>
+          <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#Subject_blinding"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
 </rdf:RDF>
 
-
-
-<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
-
+<!-- Created with Protege (with OWL Plugin 3.4.2, Build 562)  http://protege.stanford.edu -->
