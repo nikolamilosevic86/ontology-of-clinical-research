@@ -63,9 +63,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_study_characteristic -->
+    <!-- http://purl.org/net/OCRe/research.owl#study_characteristic -->
 
-    <owl:ObjectProperty rdf:about="&research;has_study_characteristic"/>
+    <owl:ObjectProperty rdf:about="&research;study_characteristic"/>
     
 
 
@@ -161,11 +161,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Case_and_control_not_in_same_person"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_case_status"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -187,11 +187,11 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Case_and_control_in_same_person"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_case_status"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -214,11 +214,11 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Outcome_measured_after_measurement_of_predictors"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -281,11 +281,11 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Observational_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Outcome_measured_at_the_same_time_as_predictors"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -307,19 +307,19 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Data_analyzed_within_multiple_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Multiple_participant_unit_assignment"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -416,7 +416,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Quantitative_human_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Investigator_assigns_intervention"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -579,7 +579,7 @@ The next participant is assessed with regard to several characteristics, and ass
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Quantitative_human_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Investigator_assigns_no_intervention"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -625,11 +625,11 @@ The next participant is assessed with regard to several characteristics, and ass
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Main_comparison_across_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -652,7 +652,7 @@ The next participant is assessed with regard to several characteristics, and ass
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Individual-human_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Qualitative_inquiry_mode"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -683,7 +683,7 @@ The next participant is assessed with regard to several characteristics, and ass
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Individual-human_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Quantitative_inquiry_mode"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1035,7 +1035,7 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1148,19 +1148,19 @@ case. Researchers match cases and controls according to particular variables tha
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Data_analyzed_within_single_participant"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Single_participant_unit_assignment"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1403,7 +1403,7 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Interventional_study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;has_study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="#Single_regimen"/>
                     </owl:Restriction>
                 </owl:intersectionOf>

@@ -5,8 +5,8 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
-    <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
     <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -21,20 +21,20 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/clinical.owl#"
      xml:base="http://purl.org/net/OCRe/clinical.owl"
-     xmlns:clinical2="http://purl.org/net/OCRe/clinical.owl#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-     xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:clinical="http://purl.org/net/OCRe/clinical#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:clinical2="http://purl.org/net/OCRe/clinical.owl#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:clinical="http://purl.org/net/OCRe/clinical#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
             >Shared terms and definitions held in common between multiple clinical research domains and clinical information systems. Contains a basic model of clinical situations and measurements which can be extended to build models of research data sets or to include specific diseases, diagnoses and interventions.</rdfs:comment>
@@ -51,9 +51,9 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
-    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     <owl:AnnotationProperty rdf:about="&clinical;source"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     
 
 
@@ -122,9 +122,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_agent -->
+    <!-- http://purl.org/net/OCRe/clinical#agent -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_agent">
+    <owl:ObjectProperty rdf:about="&clinical;agent">
         <statistics:definition
             >The object that participate in a process</statistics:definition>
         <rdfs:range rdf:resource="&clinical;Physical_entity"/>
@@ -132,9 +132,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_anchor_time -->
+    <!-- http://purl.org/net/OCRe/clinical#anchor_time -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_anchor_time">
+    <owl:ObjectProperty rdf:about="&clinical;anchor_time">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The reference time point against which a relative time is defined (e.g., the &quot;enrollment&quot; time in &quot;3 weeks after enrollment&quot;).</statistics:definition>
@@ -144,9 +144,21 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_duration -->
+    <!-- http://purl.org/net/OCRe/clinical#code_for -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_duration">
+    <owl:ObjectProperty rdf:about="&clinical;code_for">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition
+            >A code is the terminology code of a concept</statistics:definition>
+        <rdfs:range rdf:resource="&clinical;Standard_term"/>
+        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#duration -->
+
+    <owl:ObjectProperty rdf:about="&clinical;duration">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The duration of an interval</statistics:definition>
@@ -156,9 +168,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_finding -->
+    <!-- http://purl.org/net/OCRe/clinical#finding -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_finding">
+    <owl:ObjectProperty rdf:about="&clinical;finding">
         <rdfs:label>has finding</rdfs:label>
         <statistics:definition
             >The finding associated with a clinical event</statistics:definition>
@@ -167,9 +179,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_part -->
+    <!-- http://purl.org/net/OCRe/clinical#part -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_part">
+    <owl:ObjectProperty rdf:about="&clinical;part">
         <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
         <statistics:definition
             >If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
@@ -194,9 +206,35 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_semantic_constraint -->
+    <!-- http://purl.org/net/OCRe/clinical#part_of -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_semantic_constraint">
+    <owl:ObjectProperty rdf:about="&clinical;part_of">
+        <rdfs:label>part of</rdfs:label>
+        <statistics:definition
+            >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#semantic_constraint -->
+
+    <owl:ObjectProperty rdf:about="&clinical;semantic_constraint">
         <statistics:definition
             >has_semantic_constraint links syntactic criterion (e.g., eligibility criteria) to a class expression involving other entities and events that describes the things that satisfy the meaning of the criterion</statistics:definition>
         <rdfs:range>
@@ -211,9 +249,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_start_time -->
+    <!-- http://purl.org/net/OCRe/clinical#start_time -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_start_time">
+    <owl:ObjectProperty rdf:about="&clinical;start_time">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The start time (lower bound) of a time interval</statistics:definition>
@@ -223,9 +261,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_stop_time -->
+    <!-- http://purl.org/net/OCRe/clinical#stop_time -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_stop_time">
+    <owl:ObjectProperty rdf:about="&clinical;stop_time">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The stop time (upper bound) of a time interval</statistics:definition>
@@ -235,76 +273,15 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_subject -->
+    <!-- http://purl.org/net/OCRe/clinical#subject -->
 
-    <owl:ObjectProperty rdf:about="&clinical;has_subject">
+    <owl:ObjectProperty rdf:about="&clinical;subject">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >The identified clinical situation has the identified clinical subject as its sole or primary subject.</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
         <rdfs:range rdf:resource="&clinical;Subject"/>
         <owl:inverseOf rdf:resource="&clinical;subject_of"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#has_unit -->
-
-    <owl:ObjectProperty rdf:about="&clinical;has_unit">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <statistics:definition
-            >The unit component of a Quantity</statistics:definition>
-        <rdfs:range rdf:resource="&clinical;Measurement_term"/>
-        <rdfs:domain rdf:resource="&clinical;Physical_quantity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#has_value -->
-
-    <owl:ObjectProperty rdf:about="&clinical;has_value">
-        <statistics:definition rdf:datatype="&xsd;string"
-            >The clinical assessment has a recorded outcome with the specified clinical assessment value.</statistics:definition>
-        <rdfs:range rdf:resource="&clinical;Assessment_value"/>
-        <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#is_code_for -->
-
-    <owl:ObjectProperty rdf:about="&clinical;is_code_for">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <statistics:definition
-            >A code is the terminology code of a concept</statistics:definition>
-        <rdfs:range rdf:resource="&clinical;Standard_term"/>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#part_of -->
-
-    <owl:ObjectProperty rdf:about="&clinical;part_of">
-        <rdfs:label>part of</rdfs:label>
-        <statistics:definition
-            >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -321,40 +298,63 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/clinical#unit -->
+
+    <owl:ObjectProperty rdf:about="&clinical;unit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition
+            >The unit component of a Quantity</statistics:definition>
+        <rdfs:range rdf:resource="&clinical;Measurement_term"/>
+        <rdfs:domain rdf:resource="&clinical;Physical_quantity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/clinical#unit_of_measure_property -->
 
     <owl:ObjectProperty rdf:about="&clinical;unit_of_measure_property">
         <study_protocol:develop_comment
             >Copied these properties from http://purl.oclc.org/NET/muo/muo ontology in case we want to jettison most of http://purl.oclc.org/NET/muo/muo ontology instances.</study_protocol:develop_comment>
-        <rdfs:comment
-            >The subproperties came fro the http://purl.oclc.org/NET/muo/muo ontology</rdfs:comment>
         <statistics:definition
             >Properties related to unit of measurements</statistics:definition>
+        <rdfs:comment
+            >The subproperties came fro the http://purl.oclc.org/NET/muo/muo ontology</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical.owl#has_offset -->
+    <!-- http://purl.org/net/OCRe/clinical#value -->
 
-    <owl:ObjectProperty rdf:about="#has_offset">
+    <owl:ObjectProperty rdf:about="&clinical;value">
+        <statistics:definition rdf:datatype="&xsd;string"
+            >The clinical assessment has a recorded outcome with the specified clinical assessment value.</statistics:definition>
+        <rdfs:range rdf:resource="&clinical;Assessment_value"/>
+        <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical.owl#offset -->
+
+    <owl:ObjectProperty rdf:about="#offset">
         <rdfs:range rdf:resource="&clinical;Duration"/>
         <rdfs:domain rdf:resource="&clinical;Relative_time_point"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical.owl#has_procedure -->
+    <!-- http://purl.org/net/OCRe/clinical.owl#procedure -->
 
-    <owl:ObjectProperty rdf:about="#has_procedure">
+    <owl:ObjectProperty rdf:about="#procedure">
         <statistics:definition
             >The procedured performed in a Performed procedure clinical event</statistics:definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical.owl#has_substance_administered -->
+    <!-- http://purl.org/net/OCRe/clinical.owl#substance_administered -->
 
-    <owl:ObjectProperty rdf:about="#has_substance_administered">
+    <owl:ObjectProperty rdf:about="#substance_administered">
         <statistics:definition
             >The substrance administered in a Substance Administration event</statistics:definition>
     </owl:ObjectProperty>
@@ -372,9 +372,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#has_name -->
+    <!-- http://purl.org/net/OCRe/clinical#name -->
 
-    <owl:DatatypeProperty rdf:about="&clinical;has_name">
+    <owl:DatatypeProperty rdf:about="&clinical;name">
         <statistics:definition
             >name of a person</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Person"/>
@@ -463,25 +463,25 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical.owl#has_first_name -->
+    <!-- http://purl.org/net/OCRe/clinical.owl#first_name -->
 
-    <owl:DatatypeProperty rdf:about="#has_first_name">
+    <owl:DatatypeProperty rdf:about="#first_name">
         <statistics:definition
             >first name of a person</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Person"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;has_name"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;name"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical.owl#has_last_name -->
+    <!-- http://purl.org/net/OCRe/clinical.owl#last_name -->
 
-    <owl:DatatypeProperty rdf:about="#has_last_name">
+    <owl:DatatypeProperty rdf:about="#last_name">
         <statistics:definition
             >last name of a person</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Person"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;has_name"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;name"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -542,7 +542,7 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:subClassOf rdf:resource="&clinical;Event"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_subject"/>
+                <owl:onProperty rdf:resource="&clinical;subject"/>
                 <owl:allValuesFrom rdf:resource="&clinical;Subject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -609,7 +609,7 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     <!-- http://purl.org/net/OCRe/clinical#Entity -->
 
     <owl:Class rdf:about="&clinical;Entity">
-        <rdfs:label rdf:datatype="&xsd;string">Entity</rdfs:label>
+        <rdfs:label>Entity</rdfs:label>
         <statistics:definition
             >A physical thing, group of physical things, an organization or information content that can exist in multiple forms.</statistics:definition>
     </owl:Class>
@@ -666,9 +666,9 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:label
             >Information entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
-        <statistics:curator>Samson Tu</statistics:curator>
         <statistics:definition
             >Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</statistics:definition>
+        <statistics:curator>Samson Tu</statistics:curator>
     </owl:Class>
     
 
@@ -690,10 +690,10 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:label
             >Measurement term</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Standard_term"/>
-        <study_protocol:develop_comment
-            >A placeholder for a unit of measurement ontology</study_protocol:develop_comment>
         <statistics:definition
             >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
+        <study_protocol:develop_comment
+            >A placeholder for a unit of measurement ontology</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -801,7 +801,7 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Quantity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_unit"/>
+                <owl:onProperty rdf:resource="&clinical;unit"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Measurement_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -850,13 +850,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_duration"/>
+                <owl:onProperty rdf:resource="&clinical;duration"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_anchor_time"/>
+                <owl:onProperty rdf:resource="&clinical;anchor_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -938,13 +938,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_start_time"/>
+                <owl:onProperty rdf:resource="&clinical;stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;has_stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
