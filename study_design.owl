@@ -8,29 +8,35 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
     <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY study_design "http://purl.org/net/OCRe/study_design#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY study_design2 "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
+    <!ENTITY Outcome_after_main_predictor "http://purl.org/net/OCRe/study_design.owl#Outcome_after_main_predictor/" >
+    <!ENTITY Outcome_before_main_predictor "http://purl.org/net/OCRe/study_design.owl#Outcome_before_main_predictor/" >
+    <!ENTITY Timing_of_outcome_and_main_predictor "http://purl.org/net/OCRe/study_design.owl#Timing_of_outcome_and_main_predictor/" >
 ]>
 
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/study_design#"
      xml:base="http://purl.org/net/OCRe/study_design.owl"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Outcome_before_main_predictor="&study_design2;Outcome_before_main_predictor/"
+     xmlns:Outcome_after_main_predictor="&study_design2;Outcome_after_main_predictor/"
      xmlns:study_design2="http://purl.org/net/OCRe/study_design.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:study_design="http://purl.org/net/OCRe/study_design#"
-     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
      xmlns:research="http://purl.org/net/OCRe/research.owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:study_design="http://purl.org/net/OCRe/study_design#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Timing_of_outcome_and_main_predictor="&study_design2;Timing_of_outcome_and_main_predictor/">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
             >An ontology of study design descriptors and categorization of study types in terms of their design descriptors.</rdfs:comment>
@@ -47,8 +53,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
-    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
     
 
 
@@ -80,35 +86,15 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Allocation_type -->
-
-    <owl:Class rdf:about="&research;Allocation_type">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <owl:disjointWith rdf:resource="&research;Randomization_method"/>
-        <study_protocol:develop_comment
-            >Simona: should this be called allocation scheme?</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >The way in which each participant in an interventional trial is allocated to a treatment.</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Analysis_of_cost_flag -->
-
-    <owl:Class rdf:about="&research;Analysis_of_cost_flag">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: no longer used; delete?</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Assignment_characteristics -->
 
     <owl:Class rdf:about="&research;Assignment_characteristics">
+        <rdfs:label
+            >Assignment characteristics</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <owl:disjointWith rdf:resource="&research;Control_group_characteristics"/>
+        <statistics:definition
+            >Characteristics of the assignment of subjects to a regimen of interventions</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -116,22 +102,11 @@
     <!-- http://purl.org/net/OCRe/research.owl#Blinding_type -->
 
     <owl:Class rdf:about="&research;Blinding_type">
+        <rdfs:label>Blinding type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >[In a controlled trial:] Blinding is&quot; The process of preventing those involved in a trial from knowing to which comparison group a particular participant belongs. The risk of bias is minimised when as few people as possible know who is receiving the experimental intervention and who the control intervention. Participants, caregivers, outcome assessors, and analysts are all candidates for being blinded. Blinding of certain groups is not always possible, for example surgeons in surgical trials. The terms single blind, double blind and triple blind are in common use, but are not used consistently and so are ambiguous unless the specific people who are blinded are listed. (Also called masking.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: are these classes supposed to be flags?</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Case -->
-
-    <owl:Class rdf:about="&research;Case">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
-        <study_protocol:develop_comment
-            >Simona: where is this in the typology?</study_protocol:develop_comment>
+            >[In a controlled trial:] Blinding is the process of preventing those involved in a trial from knowing to which comparison group a particular participant belongs. The risk of bias is minimised when as few people as possible know who is receiving the experimental intervention and who the control intervention. Participants, caregivers, outcome assessors, and analysts are all candidates for being blinded. Blinding of certain groups is not always possible, for example surgeons in surgical trials. The terms single blind, double blind and triple blind are in common use, but are not used consistently and so are ambiguous unless the specific people who are blinded are listed. (Also called masking.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -139,8 +114,11 @@
     <!-- http://purl.org/net/OCRe/research.owl#Case_and_control_in_same_person -->
 
     <owl:Class rdf:about="&research;Case_and_control_in_same_person">
+        <rdfs:label
+            >Case and control in same person</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
         <owl:disjointWith rdf:resource="&research;Case_and_control_not_in_same_person"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -148,7 +126,19 @@
     <!-- http://purl.org/net/OCRe/research.owl#Case_and_control_not_in_same_person -->
 
     <owl:Class rdf:about="&research;Case_and_control_not_in_same_person">
-        <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+        <rdfs:label
+            >Case and control not in same person</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Main_control_group_definition"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&research;Case_and_control_in_same_person"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -156,6 +146,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#Case_control_study -->
 
     <owl:Class rdf:about="&research;Case_control_study">
+        <rdfs:label
+            >Case-control study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -171,10 +163,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A case control study is an observational study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A case control study is an observational study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -182,6 +173,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#Case_crossover_study -->
 
     <owl:Class rdf:about="&research;Case_crossover_study">
+        <rdfs:label
+            >Case-crossover study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -197,11 +190,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A case-crossover study is an observational study that aims to answer the question, &#8220;Was this event triggered by something unusual that happened just before?&#8221; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
-The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [adapted from: Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -209,6 +201,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
     <!-- http://purl.org/net/OCRe/research.owl#Cohort_study -->
 
     <owl:Class rdf:about="&research;Cohort_study">
+        <rdfs:label>Cohort study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -224,38 +217,9 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Control_group_cardinality -->
-
-    <owl:Class rdf:about="&research;Control_group_cardinality">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_locality"/>
-        <study_protocol:develop_comment
-            >Simona: I believe this is no longer needed (investigator&#39;s choice of interventions used instead of control group to define this node of typology)</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Control_group_characteristics -->
-
-    <owl:Class rdf:about="&research;Control_group_characteristics">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Control_group_locality -->
-
-    <owl:Class rdf:about="&research;Control_group_locality">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
-        <study_protocol:develop_comment
-            >Simona: I believe this is no longer needed (main comparison used instead of control group locality to define this node of typology)</study_protocol:develop_comment>
+            >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -263,12 +227,14 @@ The simplest case-crossover design is closely analogous to a traditional matched
     <!-- http://purl.org/net/OCRe/research.owl#Control_group_type -->
 
     <owl:Class rdf:about="&research;Control_group_type">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_characteristics"/>
-        <statistics:definition
-            >Whether cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</statistics:definition>
+        <rdfs:label
+            >Control group type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
             >Simona: need to review hierarchy</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Whether cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</statistics:definition>
     </owl:Class>
     
 
@@ -291,46 +257,9 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Observational_study"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Crossover_study -->
-
-    <owl:Class rdf:about="&research;Crossover_study">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Interventional_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Data_analyzed_within_multiple_participants"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Multiple_participant_unit_assignment"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed.</study_protocol:develop_comment>
-        <statistics:definition
-            >A crossover study is an interventional study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
-Regimens are assigned to and data are analyzed within more than one participant at a time.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -338,13 +267,24 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Deterministic_allocation -->
 
     <owl:Class rdf:about="&research;Deterministic_allocation">
-        <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
-        <owl:disjointWith rdf:resource="&research;Randomized_allocation"/>
+        <rdfs:label
+            >Non-random allocation</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Allocation_scheme"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Quasi-random_allocation"/>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Random_allocation"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
-            >A deterministic allocation scheme is an allocation type that follows a non-random rule (e.g., sequential allocation).</statistics:definition>
+            >Non-random (or Deterministic) allocation is an allocation scheme that follows a non-random rule (e.g., sequential allocation).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: Samson, is that what you meant?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -352,28 +292,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Ecologic_study -->
 
     <owl:Class rdf:about="&research;Ecologic_study">
+        <rdfs:label>Ecologic study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >An ecologic study is a non individual-human study in which the unit of observation is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#External_control_group -->
-
-    <owl:Class rdf:about="&research;External_control_group">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_locality"/>
-        <owl:disjointWith rdf:resource="&research;Within_subject_control_locality"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Has_control_group -->
-
-    <owl:Class rdf:about="&research;Has_control_group">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_cardinality"/>
-        <owl:disjointWith rdf:resource="&research;No_control_group"/>
     </owl:Class>
     
 
@@ -381,29 +304,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Human_subject -->
 
     <owl:Class rdf:about="&research;Human_subject">
+        <rdfs:label>Human subject</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A human subject is an individual about whom an investigator conducting research obtains data through intervention or interaction with individual or identifiable private information. [45 CFR &#167;46.102(f)]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Include_analysis_of_cost -->
-
-    <owl:Class rdf:about="&research;Include_analysis_of_cost">
-        <rdfs:subClassOf rdf:resource="&research;Analysis_of_cost_flag"/>
-        <owl:disjointWith rdf:resource="&research;No_analysis_of_cost"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Intervention_cardinality -->
-
-    <owl:Class rdf:about="&research;Intervention_cardinality">
-        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
-        <study_protocol:develop_comment
-            >Simona: to be removed after review of recent changes (1/11/10) unless we need an extra layer for regimens</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -411,6 +316,8 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Interventional_study -->
 
     <owl:Class rdf:about="&research;Interventional_study">
+        <rdfs:label
+            >Interventional study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -422,11 +329,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:definition
             >An interventional study is a quantitative study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [adapted from: WHO, available at: http://www.who.int/ictrp/en/]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -434,9 +341,12 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Investigator_assignment_role -->
 
     <owl:Class rdf:about="&research;Investigator_assignment_role">
+        <rdfs:label
+            >Investigator assignment role</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
-        <study_protocol:develop_comment
-            >Simona: do we want to change intervention to &quot;regimen of interventions&quot; in these subclasses?</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The role the investigator plays in the assignment of study participants to one or more regimens of interventions (each including one or more interventions, or no intervention).</statistics:definition>
     </owl:Class>
     
 
@@ -444,11 +354,13 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Investigator_assigns_intervention -->
 
     <owl:Class rdf:about="&research;Investigator_assigns_intervention">
+        <rdfs:label
+            >Investigator assigns intervention</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
         <owl:disjointWith rdf:resource="&research;Investigator_assigns_no_intervention"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The investigator actively assigns the study participants to one or more regimens of interventions (each including one or more interventions, or no intervention).</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -456,18 +368,21 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Investigator_assigns_no_intervention -->
 
     <owl:Class rdf:about="&research;Investigator_assigns_no_intervention">
-        <rdfs:subClassOf rdf:resource="&research;Investigator_assignment_role"/>
+        <rdfs:label
+            >Investigator assigns no intervention</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Investigator_assignment_role"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&research;Investigator_assigns_intervention"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The investigator does not actively assign study participants to regimens of interventions.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Investigator_blinding -->
-
-    <owl:Class rdf:about="&research;Investigator_blinding">
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
     </owl:Class>
     
 
@@ -475,8 +390,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Main_control_group_defined_by_case_status -->
 
     <owl:Class rdf:about="&research;Main_control_group_defined_by_case_status">
+        <rdfs:label
+            >Main control group defined by case status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
         <owl:disjointWith rdf:resource="&research;Main_control_group_defined_by_exposure_status"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -484,7 +402,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Main_control_group_defined_by_exposure_status -->
 
     <owl:Class rdf:about="&research;Main_control_group_defined_by_exposure_status">
+        <rdfs:label
+            >Main control group defined by exposure status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Main_control_group_definition"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -492,17 +413,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Main_control_group_definition -->
 
     <owl:Class rdf:about="&research;Main_control_group_definition">
+        <rdfs:label
+            >Main control group definition</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Matched_cohort -->
-
-    <owl:Class rdf:about="&research;Matched_cohort">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
-        <study_protocol:develop_comment
-            >Simona: where is this in the typology?</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -510,11 +424,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/research.owl#Minimization -->
 
     <owl:Class rdf:about="&research;Minimization">
-        <rdfs:subClassOf rdf:resource="&research;Randomization_method"/>
+        <rdfs:subClassOf rdf:resource="&research;Restricted_randomization"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A method of allocation used to provide comparison groups that are closely similar for several variables.
 The next participant is assessed with regard to several characteristics, and assigned to the treatment group that has so far had fewer such people assigned to it. It can be done with a component of randomisation, where the chance of allocation to the group with fewer similar participants is less than one. Minimisation is best performed centrally with the aid of a computer program to ensure concealment of allocation. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -522,16 +436,11 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Mode_of_inquiry -->
 
     <owl:Class rdf:about="&research;Mode_of_inquiry">
+        <rdfs:label>Mode of inquiry</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Multiple_intervention -->
-
-    <owl:Class rdf:about="&research;Multiple_intervention">
-        <rdfs:subClassOf rdf:resource="&research;Intervention_cardinality"/>
-        <owl:disjointWith rdf:resource="&research;Single_intervention"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Mode of inquiry refers to the research method used in a study</statistics:definition>
     </owl:Class>
     
 
@@ -546,34 +455,11 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Nested_case-control -->
-
-    <owl:Class rdf:about="&research;Nested_case-control">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
-        <study_protocol:develop_comment>Simona: delete?</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#No_analysis_of_cost -->
-
-    <owl:Class rdf:about="&research;No_analysis_of_cost">
-        <rdfs:subClassOf rdf:resource="&research;Analysis_of_cost_flag"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#No_control_group -->
-
-    <owl:Class rdf:about="&research;No_control_group">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_cardinality"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Observational_study -->
 
     <owl:Class rdf:about="&research;Observational_study">
+        <rdfs:label
+            >Observational study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -595,8 +481,11 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_measured_after_measurement_of_predictors -->
 
     <owl:Class rdf:about="&research;Outcome_measured_after_measurement_of_predictors">
+        <rdfs:label
+            >Outcome measured after measurement of predictors</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Timing_of_outcome_measurement"/>
         <owl:disjointWith rdf:resource="&research;Outcome_measured_at_the_same_time_as_predictors"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -604,15 +493,10 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_measured_at_the_same_time_as_predictors -->
 
     <owl:Class rdf:about="&research;Outcome_measured_at_the_same_time_as_predictors">
+        <rdfs:label
+            >Outcome measured at the same time as predictors</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Timing_of_outcome_measurement"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Outcomes_assessor_blinding -->
-
-    <owl:Class rdf:about="&research;Outcomes_assessor_blinding">
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -620,6 +504,8 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Parallel_group_study -->
 
     <owl:Class rdf:about="&research;Parallel_group_study">
+        <rdfs:label
+            >Parallel group study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -635,11 +521,11 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed.</study_protocol:develop_comment>
         <statistics:definition
             >A parallel group study is an interventional study that compares across at least two allocation groups concurrently, each receiving a regimen of interventions (which can be &quot;no intervention&quot;).</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -647,6 +533,8 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Qualitative_human_study -->
 
     <owl:Class rdf:about="&research;Qualitative_human_study">
+        <rdfs:label
+            >Qualitative human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -658,10 +546,9 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="#Individual-human_study"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A qualitative study is an individual-human study whose primary mode of inquiry is qualitative.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -669,8 +556,13 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Qualitative_inquiry_mode -->
 
     <owl:Class rdf:about="&research;Qualitative_inquiry_mode">
+        <rdfs:label
+            >Qualitative inquiry mode</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Mode_of_inquiry"/>
         <owl:disjointWith rdf:resource="&research;Quantitative_inquiry_mode"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A qualitative research method is an inductive research process that involves the collection and analysis of qualitative (i.e., non-numerical) data to search for patterns, themes, and holistic features. [Source: http://www.utexas.edu/academic/diia/assessment/iar/glossary.php#q ] (See http://www.google.com/search?hl=en&amp;client=safari&amp;rls=en&amp;defl=en&amp;q=define:Qualitative+research for other definitions)</statistics:definition>
     </owl:Class>
     
 
@@ -678,6 +570,8 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Quantitative_human_study -->
 
     <owl:Class rdf:about="&research;Quantitative_human_study">
+        <rdfs:label
+            >Quantitative human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -689,7 +583,6 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="#Individual-human_study"/>
         <statistics:definition
             >A quantitative study is an individual-human study whose primary mode of inquiry is quantitative.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -700,32 +593,12 @@ The next participant is assessed with regard to several characteristics, and ass
     <!-- http://purl.org/net/OCRe/research.owl#Quantitative_inquiry_mode -->
 
     <owl:Class rdf:about="&research;Quantitative_inquiry_mode">
+        <rdfs:label
+            >Quantitative inquiry mode</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Mode_of_inquiry"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Randomization_method -->
-
-    <owl:Class rdf:about="&research;Randomization_method">
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Randomization is &quot;The process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence, and its implementation, ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Randomized_allocation -->
-
-    <owl:Class rdf:about="&research;Randomized_allocation">
-        <rdfs:subClassOf rdf:resource="&research;Allocation_type"/>
+            >A quantitative research method is a deductive research process that uses statistical techniques to test a specific claim or statement about a phenomenon (a hypothesis) by collecting and analyzing data to decide whether the claim is true (i.e., accept or reject the null or alternative hypothesis). [Source: http://www.utexas.edu/academic/diia/assessment/iar/glossary.php#q ]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: do we need the hierarchy below? Where do the terms come from?</study_protocol:develop_comment>
-        <statistics:definition
-            >Random allocation is &quot;A method that uses the play of chance to assignparticipants to comparison groups in a trial, e.g. by using a random numbers table or a computer-generated random sequence. Random allocation implies that each individual or unit being entered into a trial has the same chance of receiving each of the possible interventions. It also implies that the probability that an individual will receive a particular intervention is independent of the probability that any other individual will receive the same
-intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -733,9 +606,17 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/research.owl#Restricted_randomization -->
 
     <owl:Class rdf:about="&research;Restricted_randomization">
-        <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
+        <rdfs:subClassOf rdf:resource="#Random_allocation"/>
         <owl:disjointWith rdf:resource="&research;Simple_randomization"/>
-        <study_protocol:develop_comment>Simona: source?</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: should we put the 3 schemes elsewhere?</study_protocol:develop_comment>
+        <statistics:definition
+            >Restricted randomization is a random allocation scheme used to control the randomization to achieve balance between groups in size (or other characteristics). 
+Different types of restricted randomization are as follows:
+- Blocking: Blocking is used to ensure close balance of the numbers in each group at any time during the study. After every block the number of participants in each group would be equal. Of course blocking tends to reduce the unpredictability of randomization. Therefore it is recommended to use random block sizes when using block randomization.
+- Stratification: Stratification ensures that the numbers of participants receiving each intervention are closely balanced within each stratum. Stratified randomization is achieved by performing a separate randomization procedure within each of two or more subsets of participants
+- Minimization: Minimization is not a method of randomization. Indeed it is the only non-random method which is an acceptable alternative to randomization. Minimization ensures balance between intervention groups for several patient factors. Randomization lists are not set up in advance. The first patient is truly randomly allocated; for each subsequent patient, the treatment allocation is identified, which minimizes the imbalance between groups at that time. [Source: http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html ]</statistics:definition>
     </owl:Class>
     
 
@@ -752,8 +633,10 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     <!-- http://purl.org/net/OCRe/research.owl#Simple_randomization -->
 
     <owl:Class rdf:about="&research;Simple_randomization">
-        <rdfs:subClassOf rdf:resource="&research;Randomized_allocation"/>
-        <study_protocol:develop_comment>Simona: source?</study_protocol:develop_comment>
+        <rdfs:subClassOf rdf:resource="#Random_allocation"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Simple randomization is a random allocation scheme that has no restriction, i.e. a single sequence of random assignment. When the sample size is relatively large, simple randomization is expected to produce equal sized treatment groups. [source: http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html ]</statistics:definition>
     </owl:Class>
     
 
@@ -766,31 +649,15 @@ intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:defi
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Single_intervention -->
-
-    <owl:Class rdf:about="&research;Single_intervention">
-        <rdfs:subClassOf rdf:resource="&research;Intervention_cardinality"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Statistician_blinding -->
-
-    <owl:Class rdf:about="&research;Statistician_blinding">
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Study -->
 
     <owl:Class rdf:about="&research;Study">
         <study_protocol:develop_comment
             >Simona: to be reviewed.
 Old definition: &quot;A structured scientific programme of planned clinical research based on prospective investigations or retrospective evaluation of clinical data under defined  conditions.&quot;^^string</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A study is a program of data collection and of analysis of the data collected to answer a particular question, to reach conclusions about subject(s) or situation(s).</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -804,16 +671,12 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/research.owl#Study_time_dimension -->
 
     <owl:Class rdf:about="&research;Study_time_dimension">
+        <rdfs:label
+            >Study time dimension</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: terrible label, but it will go away if we deleted two of the subclasses</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Subject_blinding -->
-
-    <owl:Class rdf:about="&research;Subject_blinding">
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
     </owl:Class>
     
 
@@ -821,7 +684,10 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/research.owl#Timing_of_outcome_measurement -->
 
     <owl:Class rdf:about="&research;Timing_of_outcome_measurement">
+        <rdfs:label
+            >Timing of outcome measurement</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -829,25 +695,10 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/research.owl#Unit_of_analysis -->
 
     <owl:Class rdf:about="&research;Unit_of_analysis">
+        <rdfs:label
+            >Unit of analysis</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Unit_of_assignment -->
-
-    <owl:Class rdf:about="&research;Unit_of_assignment">
-        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Within_subject_control_locality -->
-
-    <owl:Class rdf:about="&research;Within_subject_control_locality">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_locality"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -855,12 +706,60 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_concealment_method -->
 
     <owl:Class rdf:about="#Allocation_concealment_method">
+        <rdfs:label
+            >Allocation concealment method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: Do we really want an exhaustive list of options here?</study_protocol:develop_comment>
+        <rdfs:comment
+            >Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
         <statistics:definition
-            >The process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. (Also called allocation concealment.) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
+
+Examples:
+- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
+- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
+- Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_group_cardinality -->
+
+    <owl:Class rdf:about="#Allocation_group_cardinality">
+        <rdfs:label
+            >Allocation group cardinality</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant. This is different from</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_scheme -->
+
+    <owl:Class rdf:about="#Allocation_scheme">
+        <rdfs:label
+            >Allocation scheme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:definition
+            >Allocation scheme describes the way in which each participant in an interventional trial is allocated to a treatment group.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Analysis_of_cost -->
+
+    <owl:Class rdf:about="#Analysis_of_cost">
+        <rdfs:label
+            >Analysis of cost</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Study includes an analysis of cost.</statistics:definition>
     </owl:Class>
     
 
@@ -868,12 +767,13 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Animal_study -->
 
     <owl:Class rdf:about="#Animal_study">
+        <rdfs:label>Animal study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:definition
             >An animal study is a non individual-human study that uses or collects measurements or assessments about animals other than humans.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -881,7 +781,12 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Assignment_to_interventions -->
 
     <owl:Class rdf:about="#Assignment_to_interventions">
+        <rdfs:label
+            >Assignment to interventions</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The scheme used to assign regimens of interventions: single factor or factorial.</statistics:definition>
     </owl:Class>
     
 
@@ -889,18 +794,34 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Block_randomization -->
 
     <owl:Class rdf:about="#Block_randomization">
-        <rdfs:subClassOf rdf:resource="&research;Randomization_method"/>
+        <rdfs:subClassOf rdf:resource="&research;Restricted_randomization"/>
         <statistics:definition
-            >or Random permuted blocks: A method of randomisation that ensures that, at any point in a trial, roughly equal numbers of participants have been allocated to all the comparison groups. Permuted blocks should be used in trials using stratified randomisation. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Block randomization (or Random permuted blocks) is a restricted randomisation that ensures that, at any point in a trial, roughly equal numbers of participants have been allocated to all the comparison groups. Permuted blocks should be used in trials using stratified randomisation. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Care_provider_blinding -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Care_provider_blinded -->
 
-    <owl:Class rdf:about="#Care_provider_blinding">
+    <owl:Class rdf:about="#Care_provider_blinded">
+        <rdfs:label
+            >Care provider blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Caregiver_blinded -->
+
+    <owl:Class rdf:about="#Caregiver_blinded">
+        <rdfs:label
+            >Caregiver blinded</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <statistics:definition
+            >or Individual participant blinded</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -908,17 +829,10 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Case_definition -->
 
     <owl:Class rdf:about="#Case_definition">
+        <rdfs:label>Case definition</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Centralized_allocation_concealment_method -->
-
-    <owl:Class rdf:about="#Centralized_allocation_concealment_method">
-        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
         <statistics:definition
-            >Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.</statistics:definition>
+            >Case definition uses incidence or prevalence</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -927,7 +841,12 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Cluster_as_unit_of_allocation -->
 
     <owl:Class rdf:about="#Cluster_as_unit_of_allocation">
+        <rdfs:label
+            >Cluster as unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Unit_of_allocation"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -935,10 +854,49 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Comparative_intent -->
 
     <owl:Class rdf:about="#Comparative_intent">
+        <rdfs:label
+            >Comparative intent</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Additional descriptor: Intent of comparison made in a study with two or more arms.</statistics:definition>
+            >Comparative intent is an additional descriptor: Intent of comparison made in a study with two or more arms.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Crossover_study -->
+
+    <owl:Class rdf:about="#Crossover_study">
+        <rdfs:label>Crossover study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Interventional_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Data_analyzed_within_multiple_participants"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Main_comparison_within_participants"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_participant_allocation_group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Multiple_regimen"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:definition
+            >A crossover study is an interventional study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
+Regimens are assigned to and data are analyzed within more than one participant at a time.</statistics:definition>
     </owl:Class>
     
 
@@ -946,6 +904,8 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Data_analysis_within_participants -->
 
     <owl:Class rdf:about="#Data_analysis_within_participants">
+        <rdfs:label
+            >Data analysis within participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
@@ -956,6 +916,8 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_within_multiple_participants -->
 
     <owl:Class rdf:about="#Data_analyzed_within_multiple_participants">
+        <rdfs:label
+            >Data analyzed within multiple participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Data_analysis_within_participants"/>
     </owl:Class>
     
@@ -964,6 +926,8 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Data_analyzed_within_single_participant -->
 
     <owl:Class rdf:about="#Data_analyzed_within_single_participant">
+        <rdfs:label
+            >Data analyzed within single participant</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Data_analysis_within_participants"/>
     </owl:Class>
     
@@ -972,6 +936,8 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     <!-- http://purl.org/net/OCRe/study_design.owl#Decision_analysis -->
 
     <owl:Class rdf:about="#Decision_analysis">
+        <rdfs:label
+            >Decision analysis</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
@@ -987,10 +953,12 @@ Note that this type of analysis can also be applied to outcomes in a human study
     <!-- http://purl.org/net/OCRe/study_design.owl#Equivalence -->
 
     <owl:Class rdf:about="#Equivalence">
+        <rdfs:label>Equivalence</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
-        <statistics:definition
-            >An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Equivalence is a type of comparative intent. 
+An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -998,19 +966,13 @@ Note that this type of analysis can also be applied to outcomes in a human study
     <!-- http://purl.org/net/OCRe/study_design.owl#Factorial -->
 
     <owl:Class rdf:about="#Factorial">
+        <rdfs:label>Factorial</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
-        <owl:disjointWith rdf:resource="#Non-factorial"/>
         <statistics:definition
-            >Factorial design is &quot;A trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Factorial design is a trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. [Glossary of Terms in The Cochrane Collaboration]
+
+Example: in a factorial-design study where regimens of interventions A and B are tested, the 4 possible combinations are: A, B, A and B, neither  A nor B (placebo).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Identical_container_allocation_concealment_method -->
-
-    <owl:Class rdf:about="#Identical_container_allocation_concealment_method">
-        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
     </owl:Class>
     
 
@@ -1018,11 +980,11 @@ Note that this type of analysis can also be applied to outcomes in a human study
     <!-- http://purl.org/net/OCRe/study_design.owl#Incidence -->
 
     <owl:Class rdf:about="#Incidence">
+        <rdfs:label>Incidence</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Case_definition"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >The number of new occurrences of something in a population over a particular period of time, e.g. the
-number of cases of a disease in a country over one year. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1030,22 +992,23 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Individual-human_study -->
 
     <owl:Class rdf:about="#Individual-human_study">
+        <rdfs:label
+            >Individual-human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;Study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
+                        <owl:allValuesFrom rdf:resource="&research;Human_subject"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Study"/>
-        <study_protocol:develop_comment
-            >can use de-novo or pooled individual data [it will be a factor]</study_protocol:develop_comment>
         <statistics:definition
             >An individual-human study is a study that uses or collects measurements or assessments about, or at the level of, individual humans.</statistics:definition>
+        <study_protocol:develop_comment
+            >can use de-novo or pooled individual data [it will be a factor]</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1053,7 +1016,23 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Individual_as_unit_of_allocation -->
 
     <owl:Class rdf:about="#Individual_as_unit_of_allocation">
+        <rdfs:label
+            >Individual as unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Unit_of_allocation"/>
+        <statistics:definition
+            >The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Investigator_blinded -->
+
+    <owl:Class rdf:about="#Investigator_blinded">
+        <rdfs:label
+            >Investigator blinded</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1061,6 +1040,8 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Laboratory_study -->
 
     <owl:Class rdf:about="#Laboratory_study">
+        <rdfs:label
+            >Laboratory study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:definition
             >A laboratory study is a non individual-human study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
@@ -1074,6 +1055,8 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_across_participants -->
 
     <owl:Class rdf:about="#Main_comparison_across_participants">
+        <rdfs:label
+            >Main comparison across participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1084,6 +1067,8 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_and_participants -->
 
     <owl:Class rdf:about="#Main_comparison_and_participants">
+        <rdfs:label
+            >Main comparison and participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
             >Simona: see version 18 of study design slide</study_protocol:develop_comment>
@@ -1094,6 +1079,8 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Main_comparison_within_participants -->
 
     <owl:Class rdf:about="#Main_comparison_within_participants">
+        <rdfs:label
+            >Main comparison within participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1104,22 +1091,24 @@ number of cases of a disease in a country over one year. [Glossary of Terms in T
     <!-- http://purl.org/net/OCRe/study_design.owl#Matching -->
 
     <owl:Class rdf:about="#Matching">
+        <rdfs:label>Matching</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
         <statistics:definition
             >[In a case-control study:] Choosing one or more controls with particular matching attributes for each
 case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Multiple_participant_unit_assignment -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Multiple_participant_allocation_group -->
 
-    <owl:Class rdf:about="#Multiple_participant_unit_assignment">
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
-        <owl:disjointWith rdf:resource="#Single_participant_unit_assignment"/>
+    <owl:Class rdf:about="#Multiple_participant_allocation_group">
+        <rdfs:label
+            >Multiple participant allocation group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Allocation_group_cardinality"/>
         <statistics:definition
             >Investigator assigns regimen of interventions to an allocation group made up of more than one participant.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1130,12 +1119,14 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Multiple_regimen -->
 
     <owl:Class rdf:about="#Multiple_regimen">
+        <rdfs:label
+            >Multiple regimen</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
-        <study_protocol:develop_comment
-            >Simona: this depends on the level of granularity of the concept of study.</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Multiple regimens of intervention, each including one or more individual interventions (treatments), each assigned to one allocation group. This means the study has at least one contemporaneous comparison group.</statistics:definition>
+            >Multiple regimens of intervention, each including one or more individual interventions (treatments) or no treatment, each assigned to one allocation group. This means the study has at least one contemporaneous comparison group.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: this depends on the level of granularity of the concept of study.</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1143,6 +1134,8 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#N-of-1_crossover_study -->
 
     <owl:Class rdf:about="#N-of-1_crossover_study">
+        <rdfs:label
+            >N-of-1 crossover study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1161,12 +1154,11 @@ case. Researchers match cases and controls according to particular variables tha
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Single_participant_unit_assignment"/>
+                        <owl:someValuesFrom rdf:resource="#Single_participant_allocation_group"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&research;Interventional_study"/>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1179,21 +1171,11 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Nested -->
 
     <owl:Class rdf:about="#Nested">
+        <rdfs:label>Nested</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Non-factorial -->
-
-    <owl:Class rdf:about="#Non-factorial">
-        <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
-        <statistics:definition
-            >Most trials only consider a single factor, where an intervention is compared with one or more alternatives, or a placebo. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1201,10 +1183,11 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-inferiority -->
 
     <owl:Class rdf:about="#Non-inferiority">
+        <rdfs:label>Non-inferiority</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
-        <statistics:definition
-            >A trial designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A non-inferiority trial is designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -1212,10 +1195,22 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-nested -->
 
     <owl:Class rdf:about="#Non-nested">
-        <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+        <rdfs:label>Non-nested</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Control_group_type"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Nested"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Cases and controls (or exposed and unexposed) are not drawn from the same cohort/sample? [aka double cohort for cohort studies]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: do we need this or should we use NOT Nested?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -1223,7 +1218,12 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-probability_sampling -->
 
     <owl:Class rdf:about="#Non-probability_sampling">
+        <rdfs:label
+            >Non-probability sampling</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Sampling_method"/>
+        <statistics:definition
+            >Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1231,7 +1231,23 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Non_individual-human_study -->
 
     <owl:Class rdf:about="#Non_individual-human_study">
-        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <rdfs:label
+            >Non individual-human study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                                <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
             >A non individual-human study is a study that does not use or collect measurements or assessments about, or at the level of, individual humans.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1239,36 +1255,150 @@ case. Researchers match cases and controls according to particular variables tha
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Onsite_file_allocation_concealment_method -->
-
-    <owl:Class rdf:about="#Onsite_file_allocation_concealment_method">
-        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Open_label -->
 
     <owl:Class rdf:about="#Open_label">
-        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <rdfs:label>Open label</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Blinding_type"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Investigator_blinded"/>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Subject_blinded"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
-            >A clinical trial in which the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: this may not be needed, depending on how the sibling classes are used</study_protocol:develop_comment>
+            >Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Other_allocation_concealment_method -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_after_main_predictor/exposure_identified -->
 
-    <owl:Class rdf:about="#Other_allocation_concealment_method">
-        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+    <owl:Class rdf:about="#Outcome_after_main_predictor/exposure_identified">
+        <rdfs:label
+            >Outcome after main predictor/exposure identified</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Timing_of_outcome_and_main_predictor/exposure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_assessor_blinded -->
+
+    <owl:Class rdf:about="#Outcome_assessor_blinded">
+        <rdfs:label
+            >Outcome assessor blinded</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_before_main_predictor/exposure_identified -->
+
+    <owl:Class rdf:about="#Outcome_before_main_predictor/exposure_identified">
+        <rdfs:label
+            >Outcome before main predictor/exposure identified</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Timing_of_outcome_and_main_predictor/exposure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase -->
+
+    <owl:Class rdf:about="#Phase">
+        <rdfs:label>Phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A method other than the ones defined as asserted classes.</statistics:definition>
+            >Phase described the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
+- Phase I trials assess toxic effects on humans (not many people participate in them, and usually without controls); 
+- Phase ll trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
+- Phase III trials compare the new treatment against standard (or placebo) treatment (usually a full
+randomised controlled trial). At this point, a drug can be approved for community use. 
+- Phase IV monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]
+
+A trial can be of a combination phase (e.g., I/II).
+The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_0 -->
+
+    <owl:Class rdf:about="#Phase_0">
+        <rdfs:label>Phase 0</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A Phase 0 trial is an exploratory trial involving very limited human exposure, with no therapeutic or diagnostic intent (e.g., screening study, microdose study). [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_1 -->
+
+    <owl:Class rdf:about="#Phase_1">
+        <rdfs:label>Phase 1</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A Phase I trial assesses toxic effects on humans (not many people participate, and usually without controls) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_2 -->
+
+    <owl:Class rdf:about="#Phase_2">
+        <rdfs:label>Phase 2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:definition
+            >A Phase ll trial assesses therapeutic benefit (usually involving a few hundred people, usually with controls, but not always) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_3 -->
+
+    <owl:Class rdf:about="#Phase_3">
+        <rdfs:label>Phase 3</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:definition
+            >A Phase III trial compares the new treatment against standard (or placebo) treatment (usually a full
+randomised controlled trial). At this point, a drug can be approved for community use. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_4 -->
+
+    <owl:Class rdf:about="#Phase_4">
+        <rdfs:label>Phase 4</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A Phase IV study monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Phase_not_applicable -->
+
+    <owl:Class rdf:about="#Phase_not_applicable">
+        <rdfs:label
+            >Phase not applicable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Phase"/>
+        <statistics:definition
+            >The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1277,10 +1407,25 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Policy_analysis -->
 
     <owl:Class rdf:about="#Policy_analysis">
+        <rdfs:label>Policy analysis</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A policy analysis is a non individual-human study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Pooled_data -->
+
+    <owl:Class rdf:about="#Pooled_data">
+        <rdfs:label>Pooled data</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: I am not sure this should be here</study_protocol:develop_comment>
+        <statistics:definition
+            >In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1288,9 +1433,10 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Prevalence -->
 
     <owl:Class rdf:about="#Prevalence">
+        <rdfs:label>Prevalence</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Case_definition"/>
         <statistics:definition
-            >The proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Prevalence is the proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1299,7 +1445,12 @@ case. Researchers match cases and controls according to particular variables tha
     <!-- http://purl.org/net/OCRe/study_design.owl#Probability_sampling -->
 
     <owl:Class rdf:about="#Probability_sampling">
+        <rdfs:label
+            >Probability sampling</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Sampling_method"/>
+        <statistics:definition
+            >Probability sampling is an exclusively random process to guarantee that each participant or population has specified chance of selection, such as simple random sampling, systematic sampling, stratified random sampling, cluster sampling, and consecutive patient sampling [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1308,9 +1459,9 @@ case. Researchers match cases and controls according to particular variables tha
 
     <owl:Class rdf:about="#Prolective">
         <rdfs:subClassOf rdf:resource="#Timing_of_determination_of_status"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Selection by today&#39;s status (outcome or risk factor).</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1329,15 +1480,45 @@ study&#8217; is sometimes misused as a synonym for cohort study. [Glossary of Te
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Quasi-random_allocation -->
+
+    <owl:Class rdf:about="#Quasi-random_allocation">
+        <rdfs:label
+            >Quasi-random allocation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Allocation_scheme"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Quasi-random allocation is an allocation scheme that is not random, but is intended to produce similar groups when used to allocate participants. Quasi-random methods include: allocation by the person&#39;s date of birth, by the day of the week or month of the year, by a person&#39;s medical record number, or just allocating every alternate person. In practice, these methods of allocation are relatively easy to manipulate, introducing selection bias. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Random_allocation -->
+
+    <owl:Class rdf:about="#Random_allocation">
+        <rdfs:label
+            >Random allocation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Allocation_scheme"/>
+        <statistics:curator>Simona</statistics:curator>
+        <rdfs:comment
+            >Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
+        <statistics:definition
+            >Random allocation is an allocation scheme that uses the play of chance to assign participants to comparison groups in a trial, e.g. by using a random numbers table or a computer-generated random sequence. Random allocation implies that each individual or unit being entered into a trial has the same chance of receiving each of the possible interventions. It also implies that the probability that an individual will receive a particular intervention is independent of the probability that any other individual will receive the same intervention. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Regimen_cardinality -->
 
     <owl:Class rdf:about="#Regimen_cardinality">
+        <rdfs:label
+            >Regimen cardinality</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Assignment_characteristics"/>
+        <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >The number of regimens of interventions in a study. Each regimen includes one or more individual interventions (treatments).</statistics:definition>
+            >The number of regimens of interventions in a study. Each regimen includes one or more individual interventions (treatments) or no intervention.</statistics:definition>
     </owl:Class>
     
 
@@ -1357,10 +1538,10 @@ study&#8217; is sometimes misused as a synonym for cohort study. [Glossary of Te
 
     <owl:Class rdf:about="#Retrospective">
         <rdfs:subClassOf rdf:resource="#Timing_of_measurements_to_events"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A study in which the outcomes have occurred to the participants before the study commenced. Case control studies are usually retrospective, cohort studies sometimes are, randomised controlled trials
 never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1368,10 +1549,11 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
     <!-- http://purl.org/net/OCRe/study_design.owl#Run-in_period -->
 
     <owl:Class rdf:about="#Run-in_period">
+        <rdfs:label>Run-in period</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Study_period"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A period before randomisation when participants are monitored but receive no treatment (or they sometimes all receive one of the study treatments, possibly in a blind fashion). The data from this stage of a trial are only occasionally of value but can serve a valuable role in screening out ineligible or non-compliant participants, in ensuring that participants are in a stable condition, and in providing baseline observations. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >A study period before randomisation when participants are monitored but receive no treatment (or they sometimes all receive one of the study treatments, possibly in a blind fashion). The data from this stage of a trial are only occasionally of value but can serve a valuable role in screening out ineligible or non-compliant participants, in ensuring that participants are in a stable condition, and in providing baseline observations. A run-in period is sometimes called a washout period if treatments that participants were using before entering the trial are discontinued.[Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1379,17 +1561,22 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
     <!-- http://purl.org/net/OCRe/study_design.owl#Sampling_method -->
 
     <owl:Class rdf:about="#Sampling_method">
+        <rdfs:label>Sampling method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:definition
+            >For observational studies only</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Sealed_envelope_allocation_concealment_method -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Single-factor -->
 
-    <owl:Class rdf:about="#Sealed_envelope_allocation_concealment_method">
-        <rdfs:subClassOf rdf:resource="#Allocation_concealment_method"/>
+    <owl:Class rdf:about="#Single-factor">
+        <rdfs:label>Single-factor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
         <statistics:definition
-            >Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
+            >In a single-factor design, an intervention is compared with one or more alternatives, or a placebo. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1398,6 +1585,8 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
     <!-- http://purl.org/net/OCRe/study_design.owl#Single_group_study -->
 
     <owl:Class rdf:about="#Single_group_study">
+        <rdfs:label
+            >Single group study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1409,26 +1598,26 @@ never are. [Glossary of Terms in The Cochrane Collaboration]</statistics:definit
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A single group study is an interventional study that has only a single allocation group and no contemporaneuos comparison group.
 
 A study in which an individual acts has his/her own comparison does not fall into this category, since an individual is not a group.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: to be reviewed</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Single_participant_unit_assignment -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Single_participant_allocation_group -->
 
-    <owl:Class rdf:about="#Single_participant_unit_assignment">
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_assignment"/>
-        <study_protocol:develop_comment
-            >Simona: was &quot;single human&quot; Changed for consistency</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
+    <owl:Class rdf:about="#Single_participant_allocation_group">
+        <rdfs:label
+            >Single participant allocation group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Allocation_group_cardinality"/>
         <statistics:definition
             >Investigator assigns regimen of interventions to an allocation group made up of a single participant.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1436,11 +1625,21 @@ A study in which an individual acts has his/her own comparison does not fall int
     <!-- http://purl.org/net/OCRe/study_design.owl#Single_regimen -->
 
     <owl:Class rdf:about="#Single_regimen">
+        <rdfs:label>Single regimen</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
-        <study_protocol:develop_comment
-            >Simona: to be reviewed. Should this be single allocation group?</study_protocol:develop_comment>
         <statistics:definition
             >A single regimen of intervention, which includes one or more individual interventions (treatments), is assigned to one allocation group. This means the study has no contemporaneous comparison group.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Statistician_blinded -->
+
+    <owl:Class rdf:about="#Statistician_blinded">
+        <rdfs:label
+            >Statistician blinded</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1449,11 +1648,10 @@ A study in which an individual acts has his/her own comparison does not fall int
     <!-- http://purl.org/net/OCRe/study_design.owl#Stratified_randomization -->
 
     <owl:Class rdf:about="#Stratified_randomization">
-        <rdfs:subClassOf rdf:resource="&research;Randomization_method"/>
-        <statistics:curator>Simona</statistics:curator>
+        <rdfs:subClassOf rdf:resource="&research;Restricted_randomization"/>
         <statistics:definition
-            >A method used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a
-trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >Stratified randomization is restricted randomization used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1461,10 +1659,31 @@ trial of women with breast cancer, it may be important to have similar numbers o
     <!-- http://purl.org/net/OCRe/study_design.owl#Study_period -->
 
     <owl:Class rdf:about="#Study_period">
+        <rdfs:label>Study period</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <statistics:definition
+            >Also called epoch. An epoch is one of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
+
+Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+
+NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG 3]</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: I am not sure this should be here</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Subject_blinded -->
+
+    <owl:Class rdf:about="#Subject_blinded">
+        <rdfs:label>Subject blinded</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Also called epoch</statistics:definition>
+            >or Individual participant blinded</statistics:definition>
     </owl:Class>
     
 
@@ -1472,10 +1691,12 @@ trial of women with breast cancer, it may be important to have similar numbers o
     <!-- http://purl.org/net/OCRe/study_design.owl#Superiority -->
 
     <owl:Class rdf:about="#Superiority">
+        <rdfs:label>Superiority</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
-        <statistics:definition
-            >When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C. [Bull NYU Hosp Jt Dis. 2008;66(2):150-4.]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Superiority is a type of comparative intent. 
+When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C. [Bull NYU Hosp Jt Dis. 2008;66(2):150-4.]</statistics:definition>
     </owl:Class>
     
 
@@ -1483,14 +1704,16 @@ trial of women with breast cancer, it may be important to have similar numbers o
     <!-- http://purl.org/net/OCRe/study_design.owl#Systematic_review -->
 
     <owl:Class rdf:about="#Systematic_review">
+        <rdfs:label
+            >Systematic review</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:definition
             >A systematic review is a non individual-human study that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
 Meta-analysis is the use of statistical techniques in a systematic review to integrate the summary results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1498,10 +1721,12 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <!-- http://purl.org/net/OCRe/study_design.owl#Technology_study -->
 
     <owl:Class rdf:about="#Technology_study">
+        <rdfs:label
+            >Technology study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A technology study is a non individual-human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1510,9 +1735,10 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
 
     <owl:Class rdf:about="#Timing_of_determination_of_status">
         <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment>Simona: delete?</study_protocol:develop_comment>
         <statistics:definition
             >Timing of determination of case or exposure status</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1525,13 +1751,28 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Timing_of_outcome_and_main_predictor/exposure -->
+
+    <owl:Class rdf:about="#Timing_of_outcome_and_main_predictor/exposure">
+        <rdfs:label
+            >Timing of outcome and main predictor/exposure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: additional descriptor proposed by Karla. Not sure if replaces others</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Unit_of_allocation -->
 
     <owl:Class rdf:about="#Unit_of_allocation">
+        <rdfs:label
+            >Unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >The unit that is assigned to the alternative interventions being investigated in a trial. Most commonly, the unit will be an individual person but, in a cluster randomised trial, groups of people will be assigned together to one or the other of the interventions. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different interventions. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+            >The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person, but in a cluster randomised trial, groups of people will be assigned together to one or the other of the  regimens of interventions. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1539,13 +1780,14 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <!-- http://purl.org/net/OCRe/study_design.owl#Washout_period -->
 
     <owl:Class rdf:about="#Washout_period">
+        <rdfs:label>Washout period</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Study_period"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >[In a cross-over trial:] The stage after the first treatment is withdrawn, but before the second treatment
 is started. The washout period aims to allow time for any active effects of the first treatment to wear off before the new one gets started. [Glossary of Terms in The Cochrane Collaboration]
 
 A run-in period is sometimes called a washout period if treatments that participants were using before entering the trial are discontinued. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
 </rdf:RDF>
 

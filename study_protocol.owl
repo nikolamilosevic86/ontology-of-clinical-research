@@ -435,12 +435,6 @@ For example, if there were entry and exit criteria that applied to all arms of a
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -448,6 +442,12 @@ For example, if there were entry and exit criteria that applied to all arms of a
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_planned_within"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -503,12 +503,16 @@ For example, assignment to a treatment arm, registration to a study, start of on
         </rdfs:subClassOf>
         <statistics:definition
             >An epoch defined for a specific study but for which no StudySubjects or ExperimentalUnits have been identified (where Epoch is defined as: One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.). [BRIDG Release 2.2]</statistics:definition>
+        <develop_comment
+            >Simona: this class has been deleted in BRIDG 3. Use Epoch instead?</develop_comment>
         <rdfs:comment
-            >NOTE (on Arm): A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern.  
+            >An epoch is one of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
 
 Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
 
-For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted. [BRIDG Release 2.2]</rdfs:comment>
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+
+NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</rdfs:comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -551,15 +555,15 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:onClass rdf:resource="&study_protocol;PlannedEpoch"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="&study_protocol;PlannedArm"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
-                <owl:onClass rdf:resource="&study_protocol;PlannedArm"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="&study_protocol;PlannedEpoch"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -641,13 +645,13 @@ For example, a study subject who receives methotrexate as part of chemotherapy. 
         <rdfs:subClassOf rdf:resource="&study_protocol;Planning_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
+                <owl:onProperty rdf:resource="&study_protocol;identifies_the_time_slot_for"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;identifies_the_time_slot_for"/>
+                <owl:onProperty rdf:resource="&study_protocol;is_component_of"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
