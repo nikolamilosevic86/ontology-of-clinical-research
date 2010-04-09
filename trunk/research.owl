@@ -11,10 +11,11 @@
     <!ENTITY clinical "http://purl.org/net/OCRe/clinical#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY study_exposure "http://www.hsdb.org/StudyExposure.owl#" >
     <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY study_exposure "http://www.hsdb.org/StudyExposure.owl#" >
     <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY study_design "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY study_protocol2 "http://purl.org/net/OCRe/study_protocol.owl#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
@@ -24,23 +25,24 @@
 
 <rdf:RDF xmlns="&ontologies;research.owl#"
      xml:base="&ontologies;research.owl"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:study_protocol2="&ontologies;study_protocol.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:study_protocol="&ontologies;study_protocol#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:clinical="&ontologies;clinical#"
-     xmlns:statistics="&ontologies;statistics.owl#"
-     xmlns:research="&ontologies;research.owl#"
      xmlns:ontologies="http://purl.org/net/OCRe/"
-     xmlns:study_exposure="http://www.hsdb.org/StudyExposure.owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:study_protocol2="&ontologies;study_protocol.owl#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:research="&ontologies;research.owl#"
+     xmlns:statistics="&ontologies;statistics.owl#"
+     xmlns:study_design="&ontologies;study_design.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="&ontologies;study_protocol#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:clinical="&ontologies;clinical#"
+     xmlns:study_exposure="http://www.hsdb.org/StudyExposure.owl#">
     <owl:Ontology rdf:about="">
         <rdfs:comment rdf:datatype="&xsd;string"
             >An ontology for the planning, execution and analysis of clinical research including logitudinal studies and clinical trials. This is designed to be used in conjunction with domain specific models of diseases and measurements which conform to the shared ontology of clinical concepts to provide specific models of studies and trials.</rdfs:comment>
@@ -60,9 +62,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
     <owl:AnnotationProperty rdf:about="&ontologies;clinical#code"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
-    <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
     
 
 
@@ -288,8 +290,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#derived_from -->
 
     <owl:ObjectProperty rdf:about="#derived_from">
-        <rdfs:range rdf:resource="#Variable_specification"/>
         <rdfs:domain rdf:resource="#Variable_specification"/>
+        <rdfs:range rdf:resource="#Variable_specification"/>
         <owl:inverseOf rdf:resource="#derives"/>
         <rdfs:subPropertyOf rdf:resource="#study_design_object_property"/>
     </owl:ObjectProperty>
@@ -1418,14 +1420,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#annotation"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
+                <owl:onProperty rdf:resource="#description"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#description"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="#annotation"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1551,13 +1553,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#represented_by"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Person"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#represented_by"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;clinical#Person"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1590,8 +1592,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#analyisis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1614,8 +1616,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#analyisis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1630,12 +1632,6 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#outcome_analysis"/>
                 <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
             </owl:Restriction>
@@ -1644,6 +1640,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#outcome_phenomenon"/>
                 <owl:someValuesFrom rdf:resource="#StudyPhenomenon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1733,12 +1735,6 @@ For example, Medicines and Healthcare Products Regulatory Agency (MHRA) in the U
         <owl:disjointWith rdf:resource="#Supportive_care"/>
         <owl:disjointWith rdf:resource="#Treatment"/>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Randomized_allocation -->
-
-    <owl:Class rdf:about="#Randomized_allocation"/>
     
 
 
@@ -1839,6 +1835,12 @@ represent(?v2, ?sp)
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#represented_by"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1848,12 +1850,6 @@ represent(?v2, ?sp)
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1929,7 +1925,8 @@ represent(?v2, ?sp)
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="#Study_characteristic"/>
-        <study_protocol2:develop_comment rdf:datatype="&xsd;string">no definition</study_protocol2:develop_comment>
+        <study_protocol2:develop_comment
+            >no definition Simona: this is superseded by Phase class in study design module. Also, a study can be phase 1/2, so the equivalent classes definition is not accurate</study_protocol2:develop_comment>
     </owl:Class>
     
 
@@ -2020,14 +2017,8 @@ represent(?v2, ?sp)
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#variable_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#assessment_method"/>
-                <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
+                <owl:onProperty rdf:resource="#assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2038,8 +2029,14 @@ represent(?v2, ?sp)
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#assessment_time"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;clinical#Relative_time_point"/>
+                <owl:onProperty rdf:resource="#variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#assessment_method"/>
+                <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -2081,6 +2078,12 @@ represent(?v2, ?sp)
     <!-- http://purl.org/net/OCRe/statistics.owl#Variable_data_type -->
 
     <owl:Class rdf:about="&ontologies;statistics.owl#Variable_data_type"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Random_allocation -->
+
+    <owl:Class rdf:about="&ontologies;study_design.owl#Random_allocation"/>
     
 
 
@@ -2145,8 +2148,8 @@ represent(?v2, ?sp)
 
     <!-- http://purl.org/net/OCRe/research.owl#Completed_recruiting_code -->
 
-    <Study_characteristic_code rdf:about="#Completed_recruiting_code">
-        <rdf:type rdf:resource="&owl;Thing"/>
+    <owl:Thing rdf:about="#Completed_recruiting_code">
+        <rdf:type rdf:resource="#Study_characteristic_code"/>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;clinical#code_for"/>
@@ -2155,15 +2158,15 @@ represent(?v2, ?sp)
         </rdf:type>
         <rdfs:label rdf:datatype="&xsd;string"
             >Completed recruiting code</rdfs:label>
-    </Study_characteristic_code>
+    </owl:Thing>
     
 
 
     <!-- http://purl.org/net/OCRe/research.owl#Interventional_study_code -->
 
-    <Study_characteristic_code rdf:about="#Interventional_study_code">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </Study_characteristic_code>
+    <owl:Thing rdf:about="#Interventional_study_code">
+        <rdf:type rdf:resource="#Study_characteristic_code"/>
+    </owl:Thing>
     
 
 
@@ -2171,6 +2174,9 @@ represent(?v2, ?sp)
 
     <owl:Thing rdf:about="#Open_blinding_code">
         <rdf:type rdf:resource="#Study_characteristic_code"/>
+        <rdfs:label>Open label code</rdfs:label>
+        <study_protocol2:develop_comment
+            >Simona: I assume this indicated Open label, which is now a class defined in study design</study_protocol2:develop_comment>
     </owl:Thing>
     
 
@@ -2202,9 +2208,9 @@ represent(?v2, ?sp)
 
     <!-- http://purl.org/net/OCRe/research.owl#Phase_I_code -->
 
-    <Study_characteristic_code rdf:about="#Phase_I_code">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </Study_characteristic_code>
+    <owl:Thing rdf:about="#Phase_I_code">
+        <rdf:type rdf:resource="#Study_characteristic_code"/>
+    </owl:Thing>
     
 
 
@@ -2225,13 +2231,13 @@ represent(?v2, ?sp)
                     <rdf:Description rdf:about="#Study_characteristic_code"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;clinical#code_for"/>
-                        <owl:someValuesFrom rdf:resource="#Randomized_allocation"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;study_design.owl#Random_allocation"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </rdf:type>
         <rdfs:label rdf:datatype="&xsd;string"
-            >Randomize_allocation_code</rdfs:label>
+            >Random_allocation_code</rdfs:label>
     </owl:Thing>
     
 
@@ -2246,19 +2252,19 @@ represent(?v2, ?sp)
 
     <!-- http://purl.org/net/OCRe/research.owl#clinical_trial_code -->
 
-    <owl:Thing rdf:about="#clinical_trial_code">
-        <rdf:type rdf:resource="#Study_characteristic_code"/>
+    <Study_characteristic_code rdf:about="#clinical_trial_code">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdfs:label rdf:datatype="&xsd;string"
             >clinical_trial_code</rdfs:label>
-    </owl:Thing>
+    </Study_characteristic_code>
     
 
 
     <!-- http://purl.org/net/OCRe/research.owl#http -->
 
-    <owl:Thing rdf:about="#http">
-        <rdf:type rdf:resource="#Telecommunication_scheme"/>
-    </owl:Thing>
+    <Telecommunication_scheme rdf:about="#http">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Telecommunication_scheme>
     
 
 
@@ -2281,9 +2287,9 @@ represent(?v2, ?sp)
 
     <!-- http://purl.org/net/OCRe/research.owl#tel -->
 
-    <owl:Thing rdf:about="#tel">
-        <rdf:type rdf:resource="#Telecommunication_scheme"/>
-    </owl:Thing>
+    <Telecommunication_scheme rdf:about="#tel">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Telecommunication_scheme>
     
 
 
