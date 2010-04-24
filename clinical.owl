@@ -50,6 +50,8 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="&clinical;source"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
@@ -150,8 +152,8 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >A code is the terminology code of a concept</statistics:definition>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
         <rdfs:range rdf:resource="&clinical;Standard_term"/>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
     </owl:ObjectProperty>
     
 
@@ -186,14 +188,6 @@
         <statistics:definition
             >If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&clinical;part_of"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&clinical;Entity"/>
-                    <rdf:Description rdf:about="&clinical;Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -202,6 +196,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Entity"/>
+                    <rdf:Description rdf:about="&clinical;Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -280,7 +282,6 @@
         <statistics:definition rdf:datatype="&xsd;string"
             >The identified clinical situation has the identified clinical subject as its sole or primary subject.</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Clinical_event"/>
-        <rdfs:range rdf:resource="&clinical;Subject"/>
         <owl:inverseOf rdf:resource="&clinical;subject_of"/>
     </owl:ObjectProperty>
     
@@ -293,7 +294,6 @@
         <statistics:definition rdf:datatype="&xsd;string"
             >The identified clinical subject is the sole or primary subject of the identified clinical situation.</statistics:definition>
         <rdfs:range rdf:resource="&clinical;Clinical_event"/>
-        <rdfs:domain rdf:resource="&clinical;Subject"/>
     </owl:ObjectProperty>
     
 
@@ -372,13 +372,75 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/clinical#code -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;code">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>code</rdfs:label>
+        <statistics:definition
+            >The unique code of a term in a controlled vocabulary</statistics:definition>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;coded_value_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#coded_value_property -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;coded_value_property">
+        <rdfs:label
+            >coded value property</rdfs:label>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#coding_system_name -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;coding_system_name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label
+            >coding system name</rdfs:label>
+        <statistics:definition
+            >The name of a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;coded_value_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#coding_system_version -->
+
+    <owl:DatatypeProperty rdf:about="&clinical;coding_system_version">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label
+            >coding system version</rdfs:label>
+        <statistics:definition
+            >The version of a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;coded_value_property"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/clinical#name -->
 
     <owl:DatatypeProperty rdf:about="&clinical;name">
         <statistics:definition
             >name of a person</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Person"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&clinical;Organization"/>
+                    <rdf:Description rdf:about="&clinical;Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -389,9 +451,9 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">preferred_name</rdfs:label>
         <statistics:definition
-            >The preferred name of a term in a terminology</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
+            >The preferred name of a term in a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&clinical;Coded_value"/>
+        <rdfs:subPropertyOf rdf:resource="&clinical;coded_value_property"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -404,61 +466,6 @@
             >The real number represented by an object of the type Real</statistics:definition>
         <rdfs:domain rdf:resource="&clinical;Real"/>
         <rdfs:range rdf:resource="&xsd;long"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#termcode -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;termcode">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">termcode</rdfs:label>
-        <statistics:definition
-            >The unique code of a term in a terminology</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#terminology_property -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;terminology_property">
-        <rdfs:label rdf:datatype="&xsd;string"
-            >terminology property</rdfs:label>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#terminology_system_name -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;terminology_system_name">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string"
-            >terminology system name</rdfs:label>
-        <statistics:definition
-            >The name of a terminology system</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#terminology_system_version -->
-
-    <owl:DatatypeProperty rdf:about="&clinical;terminology_system_version">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string"
-            >terminology system version</rdfs:label>
-        <statistics:definition
-            >The version of a terminology</statistics:definition>
-        <rdfs:domain rdf:resource="&clinical;Terminology_code"/>
-        <rdfs:subPropertyOf rdf:resource="&clinical;terminology_property"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -498,17 +505,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#AdverseEvent -->
-
-    <owl:Class rdf:about="&clinical;AdverseEvent">
-        <rdfs:label>Adverse event</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
-        <statistics:definition
-            >Any unexpected or dangerous reaction to a drug</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/clinical#Assessment_value -->
 
     <owl:Class rdf:about="&clinical;Assessment_value">
@@ -540,12 +536,6 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     <owl:Class rdf:about="&clinical;Clinical_event">
         <rdfs:label>Clinical event</rdfs:label>
         <rdfs:subClassOf rdf:resource="&clinical;Event"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;subject"/>
-                <owl:allValuesFrom rdf:resource="&clinical;Subject"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
             >&quot;A recorded or inferred clinical event (for example assessment, intervention or onset of symptoms) involving a patient or volunteer subject and an attending or recording clinician. (An occurrent)&quot;^^string</statistics:definition>
     </owl:Class>
@@ -559,6 +549,17 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:subClassOf rdf:resource="&clinical;HealthCareProvider"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >A clinically trained and registered medical practitioner involved in the assessment or administration of treatment to a patient or healthy volunteer.</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#Coded_value -->
+
+    <owl:Class rdf:about="&clinical;Coded_value">
+        <rdfs:label>Coded value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
+        <statistics:definition
+            >&quot;The code of an entity represented in some controlled vocabulary.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
@@ -581,17 +582,6 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:subClassOf rdf:resource="&clinical;Expression"/>
         <statistics:definition
             >An abstract data type that is the generalization of all concrete data types</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#Diagnosis -->
-
-    <owl:Class rdf:about="&clinical;Diagnosis">
-        <rdfs:label>Diagnosis</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;A clinical assessment which determines the nature of a disease or injury.&quot;^^string</statistics:definition>
     </owl:Class>
     
 
@@ -709,18 +699,6 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#Observation_satisfying_criterion -->
-
-    <owl:Class rdf:about="&clinical;Observation_satisfying_criterion">
-        <rdfs:label
-            >Observation satisfying a criterion</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Observation"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;A clinical assessment whose recorded results fall within a specified range.&quot;^^string</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/clinical#Organization -->
 
     <owl:Class rdf:about="&clinical;Organization">
@@ -728,21 +706,6 @@ For example, virus, therapeutic serum, toxin, antitoxin, vaccine, blood, blood c
         <rdfs:subClassOf rdf:resource="&clinical;Entity"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. (from BRIDG 1.1.1)</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#PerformedProcedure -->
-
-    <owl:Class rdf:about="&clinical;PerformedProcedure">
-        <rdfs:label
-            >Performed procedure</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Treatment"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >An Activity whose immediate and primary intention is the alteration of the physical condition of the subject.
-
-For example, procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure) conservative procedures such as reduction of a luxated join, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu, radiation therapy, etc.</statistics:definition>
-        <clinical:source rdf:datatype="&xsd;string">BRIDG 1.1.1</clinical:source>
     </owl:Class>
     
 
@@ -850,14 +813,14 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;duration"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
+                <owl:onProperty rdf:resource="&clinical;anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&clinical;Expression"/>
+                <owl:onProperty rdf:resource="&clinical;duration"/>
+                <owl:someValuesFrom rdf:resource="&clinical;Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -895,42 +858,6 @@ For example, procedures may involve the disruption of some body surface (e.g. an
     
 
 
-    <!-- http://purl.org/net/OCRe/clinical#Subject -->
-
-    <owl:Class rdf:about="&clinical;Subject">
-        <rdfs:subClassOf rdf:resource="&clinical;Role"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;A patient or healthy volunteer who is the subject of a clinical procedure or assessment.&quot;^^string</statistics:definition>
-        <rdfs:comment
-            >OCRe subject can only be human</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#Surgical_treatment -->
-
-    <owl:Class rdf:about="&clinical;Surgical_treatment">
-        <rdfs:label
-            >Surgical treatment</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;PerformedProcedure"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >A treatment event invoving a surgical procedure of any kind.</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/clinical#Terminology_code -->
-
-    <owl:Class rdf:about="&clinical;Terminology_code">
-        <rdfs:label
-            >Terminology code</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
-        <statistics:definition rdf:datatype="&xsd;string"
-            >&quot;Terminology code of a concept represented in some ontology.&quot;^^string</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/clinical#Time_interval -->
 
     <owl:Class rdf:about="&clinical;Time_interval">
@@ -938,13 +865,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:subClassOf rdf:resource="&clinical;Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;stop_time"/>
+                <owl:onProperty rdf:resource="&clinical;start_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&clinical;start_time"/>
+                <owl:onProperty rdf:resource="&clinical;stop_time"/>
                 <owl:someValuesFrom rdf:resource="&clinical;Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
