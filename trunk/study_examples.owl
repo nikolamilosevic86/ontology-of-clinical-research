@@ -261,18 +261,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#has_control_intervention -->
-
-    <owl:ObjectProperty rdf:about="&OCRe;research.owl#has_control_intervention"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#has_experimental_intervention -->
-
-    <owl:ObjectProperty rdf:about="&OCRe;research.owl#has_experimental_intervention"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#has_group -->
 
     <owl:ObjectProperty rdf:about="&OCRe;research.owl#has_group"/>
@@ -725,27 +713,21 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Double_blinded -->
-
-    <owl:Class rdf:about="&OCRe;research.owl#Double_blinded"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Interventional_study -->
 
     <owl:Class rdf:about="&OCRe;research.owl#Interventional_study"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Investigator -->
-
-    <owl:Class rdf:about="&OCRe;research.owl#Investigator"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Outcome_analysis_specification -->
 
     <owl:Class rdf:about="&OCRe;research.owl#Outcome_analysis_specification"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Outcome_phenomenon -->
+
+    <owl:Class rdf:about="&OCRe;research.owl#Outcome_phenomenon"/>
     
 
 
@@ -776,18 +758,6 @@
     <!-- http://purl.org/net/OCRe/research.owl#Study_data_specification -->
 
     <owl:Class rdf:about="&OCRe;research.owl#Study_data_specification"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Study_phenomenon -->
-
-    <owl:Class rdf:about="&OCRe;research.owl#Study_phenomenon"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Subject_blinding -->
-
-    <owl:Class rdf:about="&OCRe;research.owl#Subject_blinding"/>
     
 
 
@@ -1103,7 +1073,6 @@
     <!-- http://purl.org/net/OCRe/study_examples#AversanoStudy_PI_Role -->
 
     <owl:Thing rdf:about="&OCRe;study_examples#AversanoStudy_PI_Role">
-        <rdf:type rdf:resource="&OCRe;research.owl#Investigator"/>
         <statistics:definition rdf:datatype="&xsd;string"
             >A clinician role played by Thomas Aversano</statistics:definition>
         <clinical:is_played_by rdf:resource="&OCRe;study_examples#AversanoThomas"/>
@@ -1605,8 +1574,6 @@
         <research:public_title rdf:datatype="&xsd;string"
             >Thrombolytic Therapy versus Primary Percutaneous Intervention</research:public_title>
         <research:has_health_condition_studied rdf:resource="&OCRe;snomed_interface#acute_myocardial_infarction_code"/>
-        <research:has_experimental_intervention rdf:resource="&OCRe;snomed_interface#percutaneous_coronary_procedure_code"/>
-        <research:has_control_intervention rdf:resource="&OCRe;snomed_interface#thrombolytic_therapy_code"/>
         <research:eligibility_criterion rdf:resource="&OCRe;study_examples#CreatinineLessThanOrEqual1.5mgPerdL"/>
         <study_protocol2:is_divided_into rdf:resource="&OCRe;study_examples#PCTArm"/>
         <study_protocol:is_divided_into rdf:resource="&OCRe;study_examples#PCTArm"/>
@@ -1627,6 +1594,24 @@
         <rdf:type rdf:resource="&OCRe;research.owl#Study"/>
         <rdf:type>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Interventional_study"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;clinical#Treatment"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#target_subject"/>
                 <owl:allValuesFrom>
                     <owl:Restriction>
@@ -1639,25 +1624,7 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;clinical#Treatment"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed_recruiting"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Interventional_study"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Completed"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>
@@ -1698,7 +1665,7 @@
     <!-- http://purl.org/net/OCRe/study_examples#diabetes_phenomenon -->
 
     <owl:Thing rdf:about="&OCRe;study_examples#diabetes_phenomenon">
-        <rdf:type rdf:resource="&OCRe;research.owl#Study_phenomenon"/>
+        <rdf:type rdf:resource="&OCRe;research.owl#Outcome_phenomenon"/>
         <research:has_term_code rdf:resource="&OCRe;snomed_interface#diabetes_mellitus_code"/>
     </owl:Thing>
     
@@ -1948,14 +1915,14 @@
         <rdf:type rdf:resource="&OCRe;research.owl#Outcome_analysis_specification"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Analysis_of_variance"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Analysis_of_variance"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label
@@ -2064,12 +2031,6 @@
 
     <owl:Thing rdf:about="#PlannedEpoch_1">
         <rdf:type rdf:resource="&OCRe;study_protocol#PlannedEpoch"/>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Subject_blinding"/>
-            </owl:Restriction>
-        </rdf:type>
         <rdfs:label
             >2-week placebo run-in epoch</rdfs:label>
         <study_protocol2:is_composed_of rdf:resource="#PlannedStudyCell_5"/>
@@ -2082,12 +2043,6 @@
 
     <owl:Thing rdf:about="#PlannedEpoch_2">
         <rdf:type rdf:resource="&OCRe;study_protocol#PlannedEpoch"/>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Double_blinded"/>
-            </owl:Restriction>
-        </rdf:type>
         <rdfs:label
             >8-week acitve treatment epoch</rdfs:label>
         <study_protocol2:is_composed_of rdf:resource="#PlannedStudyCell_3"/>
@@ -2224,29 +2179,8 @@
         <rdf:type rdf:resource="&OCRe;research.owl#Outcome_analysis_specification"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#DepVar_dichotomous_indVar_dichotomous"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&OCRe;research.owl#Population"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&OCRe;research.owl#members"/>
-                                <owl:allValuesFrom>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;clinical#subject_of"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;study_examples#Thrombolytic_therapy_treatment"/>
-                                    </owl:Restriction>
-                                </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
@@ -2282,8 +2216,29 @@
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#Chi-Squared"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#DepVar_dichotomous_indVar_dichotomous"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&OCRe;research.owl#Population"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&OCRe;research.owl#members"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&OCRe;clinical#subject_of"/>
+                                        <owl:someValuesFrom rdf:resource="&OCRe;study_examples#Thrombolytic_therapy_treatment"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdf:type>
         <research:description rdf:datatype="&xsd;string"
@@ -2331,12 +2286,6 @@
     <research:Study rdf:about="#Study_2">
         <rdf:type rdf:resource="&OCRe;research.owl#Parallel_group_study"/>
         <rdf:type rdf:resource="&owl;Thing"/>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#Double_blinded"/>
-            </owl:Restriction>
-        </rdf:type>
         <rdfs:label rdf:datatype="&xsd;string"
             >Montelukas for Chronic Asthma in 6- to 14-Year-Old Children</rdfs:label>
         <research:description rdf:datatype="&xsd;string"
@@ -2400,7 +2349,7 @@
     <!-- http://purl.org/net/OCRe/study_examples.owl#Study_phenomenon_4 -->
 
     <owl:Thing rdf:about="#Study_phenomenon_4">
-        <rdf:type rdf:resource="&OCRe;research.owl#Study_phenomenon"/>
+        <rdf:type rdf:resource="&OCRe;research.owl#Outcome_phenomenon"/>
         <rdfs:label
             >Asthma  phenomenon</rdfs:label>
         <research:has_term_code rdf:resource="#Asthma"/>
