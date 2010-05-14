@@ -1185,7 +1185,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#Non-cases_based_on_biological_relation">
         <rdfs:label
-            >Biological relation of cases and non-cases</rdfs:label>
+            >Relation between cases and non-cases</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
@@ -1196,7 +1196,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#Non-cases_not_selected_based_on_biological_relation">
         <rdfs:label
-            >Non-cases not selected based on biological relation</rdfs:label>
+            >Genetically unrelated non-cases</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1208,7 +1208,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >Non-cases were not selected based on biological relation</statistics:definition>
+            >Non-cases were not selected based on genetic relation</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1218,11 +1218,11 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#Non-cases_selected_based_on_biological_relation">
         <rdfs:label
-            >Non-cases selected based on biological relation</rdfs:label>
+            >Genetically related non-cases</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non-cases_based_on_biological_relation"/>
-        <statistics:definition
-            >Non-cases were selected based on biological relation</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >Non-cases were selected based on genetic relation</statistics:definition>
     </owl:Class>
     
 
