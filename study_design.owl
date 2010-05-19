@@ -1501,17 +1501,6 @@ randomised controlled trial). At this point, a drug can be approved for communit
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Prolective -->
-
-    <owl:Class rdf:about="#Prolective">
-        <rdfs:subClassOf rdf:resource="#Timing_of_determination_of_status"/>
-        <statistics:definition
-            >Selection by today&#39;s status (outcome or risk factor).</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Prospective -->
 
     <owl:Class rdf:about="#Prospective">
@@ -1562,17 +1551,6 @@ randomised controlled trial). At this point, a drug can be approved for communit
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:definition
             >The number of regimens of interventions in a study. Each regimen includes one or more individual interventions (treatments) or no intervention.</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Retrolective -->
-
-    <owl:Class rdf:about="#Retrolective">
-        <rdfs:subClassOf rdf:resource="#Timing_of_determination_of_status"/>
-        <statistics:definition
-            >Selection by a status (outcome or risk factor) reported in the past.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1769,18 +1747,6 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
         <statistics:definition
             >A technology study is a non individual-human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Timing_of_determination_of_status -->
-
-    <owl:Class rdf:about="#Timing_of_determination_of_status">
-        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
-        <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment>Simona: delete?</study_protocol:develop_comment>
-        <statistics:definition
-            >Timing of determination of case or exposure status</statistics:definition>
     </owl:Class>
     
 
