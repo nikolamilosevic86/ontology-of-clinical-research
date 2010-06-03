@@ -151,8 +151,6 @@
     <owl:ObjectProperty rdf:about="#administrative_object_property">
         <rdfs:label rdf:datatype="&xsd;string"
             >administrative_object_property</rdfs:label>
-        <rdfs:range rdf:resource="&ontologies;clinical#Organization"/>
-        <rdfs:range rdf:resource="#Study"/>
     </owl:ObjectProperty>
     
 
@@ -301,16 +299,6 @@
         <rdfs:range rdf:resource="&ontologies;clinical#Organization"/>
         <rdfs:domain rdf:resource="#Study"/>
         <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#funder_of -->
-
-    <owl:ObjectProperty rdf:about="#funder_of">
-        <rdfs:domain rdf:resource="&ontologies;clinical#Organization"/>
-        <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
-        <owl:inverseOf rdf:resource="#funded_by"/>
     </owl:ObjectProperty>
     
 
@@ -728,7 +716,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologies;clinical#Organization"/>
-                    <rdf:Description rdf:about="&ontologies;clinical#Person"/>
+                    <rdf:Description rdf:about="&ontologies;clinical#Physical_entity"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -765,6 +753,8 @@
     <!-- http://purl.org/net/OCRe/research.owl#primary_sponsor_of -->
 
     <owl:ObjectProperty rdf:about="#primary_sponsor_of">
+        <rdfs:domain rdf:resource="&ontologies;clinical#Organization"/>
+        <rdfs:range rdf:resource="#Study"/>
         <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
         <owl:inverseOf rdf:resource="#primary_sponsor"/>
     </owl:ObjectProperty>
@@ -808,6 +798,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#recruitment_site -->
 
     <owl:ObjectProperty rdf:about="#recruitment_site">
+        <rdfs:range rdf:resource="&ontologies;clinical#Organization"/>
         <rdfs:domain rdf:resource="#Study"/>
         <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
     </owl:ObjectProperty>
@@ -829,6 +820,8 @@
     <owl:ObjectProperty rdf:about="#represented_by">
         <statistics:definition rdf:datatype="&xsd;string"
             >A study site is represented by some healthcare organization (from BRIDG 1.1.1)</statistics:definition>
+        <rdfs:range rdf:resource="&ontologies;clinical#Organization"/>
+        <rdfs:domain rdf:resource="#StudySite"/>
         <rdfs:subPropertyOf rdf:resource="#administrative_object_property"/>
         <owl:inverseOf rdf:resource="#function_as"/>
     </owl:ObjectProperty>
@@ -1592,7 +1585,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1610,7 +1603,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
                 <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1652,14 +1645,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_analysis"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_outcome_analysis"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_analysis_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1897,12 +1890,6 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_assessment_method"/>
                 <owl:someValuesFrom rdf:resource="#Assessment_method_specification"/>
             </owl:Restriction>
@@ -1917,6 +1904,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#has_variable_expression"/>
                 <owl:allValuesFrom rdf:resource="&ontologies;clinical#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_variable_characteristic"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -1971,14 +1964,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;clinical#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#factor_specificaion"/>
-                <owl:someValuesFrom rdf:resource="#Factor_specification"/>
+                <owl:onProperty rdf:resource="#has_primary_outcome"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_primary_outcome"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_specification"/>
+                <owl:onProperty rdf:resource="#factor_specificaion"/>
+                <owl:someValuesFrom rdf:resource="#Factor_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>

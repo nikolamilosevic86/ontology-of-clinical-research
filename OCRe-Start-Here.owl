@@ -56,6 +56,25 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#recruitment_site -->
+
+    <owl:ObjectProperty rdf:about="&research;recruitment_site">
+        <rdfs:range rdf:resource="&clinical;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -64,9 +83,159 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Clinic -->
+
+    <owl:Class rdf:about="#Clinic">
+        <rdfs:subClassOf rdf:resource="#Organization_as_study_subject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Collection -->
+
+    <owl:Class rdf:about="#Collection">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Human -->
+
+    <owl:Class rdf:about="#Human">
+        <rdfs:subClassOf rdf:resource="#Organism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#KInd_of_thing_the_study_is_about -->
+
+    <owl:Class rdf:about="#KInd_of_thing_the_study_is_about">
+        <rdfs:subClassOf rdf:resource="&research;Study_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Organism -->
+
+    <owl:Class rdf:about="#Organism">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Organization_as_study_subject -->
+
+    <owl:Class rdf:about="#Organization_as_study_subject">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Part_of_organism -->
+
+    <owl:Class rdf:about="#Part_of_organism">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Physician -->
+
+    <owl:Class rdf:about="#Physician">
+        <rdfs:subClassOf rdf:resource="#Human"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Policy -->
+
+    <owl:Class rdf:about="#Policy">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Population -->
+
+    <owl:Class rdf:about="#Population">
+        <rdfs:subClassOf rdf:resource="#Collection"/>
+        <rdfs:comment
+            >Collection of organisms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Role_of_kind_of_thing_the_study_is_about -->
+
+    <owl:Class rdf:about="#Role_of_kind_of_thing_the_study_is_about">
+        <rdfs:subClassOf rdf:resource="&research;Study_characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Study -->
+
+    <owl:Class rdf:about="#Study">
+        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Things_that_get_selected -->
+
+    <owl:Class rdf:about="#Things_that_get_selected">
+        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Unit_of_randomization -->
+
+    <owl:Class rdf:about="#Unit_of_randomization">
+        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Unit_of_recruitment -->
+
+    <owl:Class rdf:about="#Unit_of_recruitment">
+        <rdfs:subClassOf rdf:resource="#Things_that_get_selected"/>
+        <rdfs:comment
+            >Only make sense for someone show can consent (or consent by proxy)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/clinical#Organization -->
+
+    <owl:Class rdf:about="&clinical;Organization"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Study_characteristic -->
+
+    <owl:Class rdf:about="&research;Study_characteristic"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#Telecommunication_scheme -->
 
     <owl:Class rdf:about="&research;Telecommunication_scheme"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Unit_of_analysis -->
+
+    <owl:Class rdf:about="&research;Unit_of_analysis">
+        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
     
 
 
