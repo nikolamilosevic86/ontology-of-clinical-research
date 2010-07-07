@@ -542,7 +542,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Individual-human_study"/>
+                    <rdf:Description rdf:about="#Study_design"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Qualitative_inquiry_mode"/>
@@ -579,7 +579,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Individual-human_study"/>
+                    <rdf:Description rdf:about="#Study_design"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;study_characteristic"/>
                         <owl:someValuesFrom rdf:resource="&research;Quantitative_inquiry_mode"/>
@@ -683,7 +683,7 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
             >Study time dimension</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <study_protocol:develop_comment
-            >Simona: terrible label, but it will go away if we deleted two of the subclasses</study_protocol:develop_comment>
+            >Simona: terrible label, but it will go away if we deleted one of the subclasses. The hierarchy needs to be reviewed and updated relatively to Karla&#39;s proposal for the relevant additional descriptor: When does the outcome occur with respect to when the main predictor/exposure variable(s) are identified? [before, after -&gt; retrospective, prospective]</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -706,6 +706,8 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
         <rdfs:label
             >Unit of analysis</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
+        <study_protocol:develop_comment
+            >Simona: currently under review</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -741,7 +743,7 @@ Examples:
             >Simona: to be reviewed. see version 18 of study design slide</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant. This is different from</statistics:definition>
+            >Investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant.</statistics:definition>
     </owl:Class>
     
 
@@ -1255,9 +1257,8 @@ Example: in a factorial-design study where regimens of interventions A and B are
         </owl:equivalentClass>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Cases and controls (or exposed and unexposed) are not drawn from the same cohort/sample? [aka double cohort for cohort studies]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: do we need this or should we use NOT Nested?</study_protocol:develop_comment>
+            >Cases and controls (or exposed and unexposed) are not drawn from the same cohort/sample.
+ [aka double cohort for cohort studies]</statistics:definition>
     </owl:Class>
     
 
@@ -1364,7 +1365,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >Phase described the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
+            >Phase describes the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
 - Phase I trials assess toxic effects on humans (not many people participate in them, and usually without controls); 
 - Phase ll trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
 - Phase III trials compare the new treatment against standard (or placebo) treatment (usually a full randomised controlled trial). At this point, a drug can be approved for community use. 
@@ -1671,6 +1672,17 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:subClassOf rdf:resource="&research;Restricted_randomization"/>
         <statistics:definition
             >Stratified randomization is restricted randomization used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Study_design -->
+
+    <owl:Class rdf:about="#Study_design">
+        <rdfs:label>Study design</rdfs:label>
+        <statistics:definition
+            >A study design is a common pattern of relationships to each other (in time and causation) of various study elements (e.g., time of intervention to outcomes assessment in which participants). </statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
