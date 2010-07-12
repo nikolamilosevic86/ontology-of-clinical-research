@@ -676,19 +676,6 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Study_time_dimension -->
-
-    <owl:Class rdf:about="&research;Study_time_dimension">
-        <rdfs:label
-            >Study time dimension</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: terrible label, but it will go away if we deleted one of the subclasses. The hierarchy needs to be reviewed and updated relatively to Karla&#39;s proposal for the relevant additional descriptor: When does the outcome occur with respect to when the main predictor/exposure variable(s) are identified? [before, after -&gt; retrospective, prospective]</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Timing_of_outcome_measurement -->
 
     <owl:Class rdf:about="&research;Timing_of_outcome_measurement">
@@ -1327,16 +1314,6 @@ Example: in a factorial-design study where regimens of interventions A and B are
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_after_main_predictor/exposure_identified -->
-
-    <owl:Class rdf:about="#Outcome_after_main_predictor/exposure_identified">
-        <rdfs:label
-            >Outcome after main predictor/exposure identified variable</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Timing_of_outcome_and_main_predictor/exposure"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_assessor_blinded -->
 
     <owl:Class rdf:about="#Outcome_assessor_blinded">
@@ -1344,16 +1321,6 @@ Example: in a factorial-design study where regimens of interventions A and B are
             >Outcome assessor blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Outcome_before_main_predictor/exposure_identified -->
-
-    <owl:Class rdf:about="#Outcome_before_main_predictor/exposure_identified">
-        <rdfs:label
-            >Outcome before main predictor/exposure identified variable</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Timing_of_outcome_and_main_predictor/exposure"/>
     </owl:Class>
     
 
@@ -1681,9 +1648,9 @@ A study in which an individual acts has his/her own comparison does not fall int
 
     <owl:Class rdf:about="#Study_design">
         <rdfs:label>Study design</rdfs:label>
-        <statistics:definition
-            >A study design is a common pattern of relationships to each other (in time and causation) of various study elements (e.g., time of intervention to outcomes assessment in which participants). </statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A study design is a common pattern of relationships to each other (in time and causation) of various study elements (e.g., time of intervention to outcomes assessment in which participants).</statistics:definition>
     </owl:Class>
     
 
@@ -1766,20 +1733,12 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <!-- http://purl.org/net/OCRe/study_design.owl#Timing_of_measurements_to_events -->
 
     <owl:Class rdf:about="#Timing_of_measurements_to_events">
-        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Timing_of_outcome_and_main_predictor/exposure -->
-
-    <owl:Class rdf:about="#Timing_of_outcome_and_main_predictor/exposure">
         <rdfs:label
-            >Timing of outcome and main predictor/exposure variable</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_time_dimension"/>
+            >Main outcome assessment with respect to the main predictor/exposure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: additional descriptor proposed by Karla. Not sure if replaces others</study_protocol:develop_comment>
+        <statistics:definition
+            >When is the main outcome assessed with respect to the main predictor/exposure? (before [retrospective assessment], after [prospective assessment])</statistics:definition>
     </owl:Class>
     
 
