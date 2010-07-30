@@ -298,7 +298,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >An ecologic study is a non individual-human study in which the unit of observation is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+            >An ecologic study is an aggregated human study in which the finest grain entity available for analysis is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
     </owl:Class>
     
 
@@ -538,7 +538,7 @@ The next participant is assessed with regard to several characteristics, and ass
 
     <owl:Class rdf:about="&research;Qualitative_human_study">
         <rdfs:label
-            >Qualitative human study</rdfs:label>
+            >Qualitative individual-human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -553,6 +553,8 @@ The next participant is assessed with regard to several characteristics, and ass
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A qualitative study is an individual-human study whose primary mode of inquiry is qualitative.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: should we add &quot;individual&quot; to name? Where is the link between Individual-human study and this part of the hierarchy?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -575,7 +577,7 @@ The next participant is assessed with regard to several characteristics, and ass
 
     <owl:Class rdf:about="&research;Quantitative_human_study">
         <rdfs:label
-            >Quantitative human study</rdfs:label>
+            >Quantitative individual-human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -590,6 +592,8 @@ The next participant is assessed with regard to several characteristics, and ass
         <statistics:definition
             >A quantitative study is an individual-human study whose primary mode of inquiry is quantitative.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: should we add &quot;individual&quot; to name? Where is the link between Individual-human study and this part of the hierarchy?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -700,6 +704,16 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Aggregated_human_subject -->
+
+    <owl:Class rdf:about="#Aggregated_human_subject">
+        <rdfs:label
+            >Aggregated human subject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Human_subject"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_concealment_method -->
 
     <owl:Class rdf:about="#Allocation_concealment_method">
@@ -765,12 +779,12 @@ Examples:
 
     <owl:Class rdf:about="#Animal_study">
         <rdfs:label>Animal study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non-human_organism_study"/>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:definition
-            >An animal study is a non individual-human study that uses or collects measurements or assessments about animals other than humans.</statistics:definition>
+            >An animal study is a non-human organism study whose finest grain entity available for analysis are animals other than humans.</statistics:definition>
     </owl:Class>
     
 
@@ -824,7 +838,8 @@ Examples:
     <!-- http://purl.org/net/OCRe/study_design.owl#Case_definition -->
 
     <owl:Class rdf:about="#Case_definition">
-        <rdfs:label>Case definition</rdfs:label>
+        <rdfs:label
+            >Measure of case frequency</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
         <statistics:definition
             >Case definition uses incidence or prevalence</statistics:definition>
@@ -933,10 +948,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <owl:Class rdf:about="#Decision_analysis">
         <rdfs:label
             >Decision analysis</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non-organismal_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >A decision analysis is a non individual-human study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [adapted from: Glossary of Terms in The Cochrane Collaboration]
+            >A decision analysis is a non-organismal study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
 Cost-benefit analysis, cost-effectiveness analysis and cost-utility analysis are special cases of decision analysis.
 
@@ -972,6 +987,28 @@ Example: in a factorial-design study where regimens of interventions A and B are
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Human_study -->
+
+    <owl:Class rdf:about="#Human_study">
+        <rdfs:label>Human study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Organismal_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:allValuesFrom rdf:resource="&research;Human_subject"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:definition
+            >A human study is an organismal study whose finest grain entity available for analysis is the human organism (whole or parts thereof).</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Incidence -->
 
     <owl:Class rdf:about="#Incidence">
@@ -992,16 +1029,17 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Study"/>
+                    <rdf:Description rdf:about="#Human_study"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:allValuesFrom rdf:resource="&research;Human_subject"/>
+                        <owl:allValuesFrom rdf:resource="#Individual_human_subject"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >An individual-human study is a study that uses or collects measurements or assessments about, or at the level of, individual humans.</statistics:definition>
+            >An individual-human study is a human study whose finest grain entity available for analysis are individual humans (whole or parts thereof).</statistics:definition>
     </owl:Class>
     
 
@@ -1015,6 +1053,16 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <statistics:definition
             >The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Individual_human_subject -->
+
+    <owl:Class rdf:about="#Individual_human_subject">
+        <rdfs:label
+            >Individual human subject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Human_subject"/>
     </owl:Class>
     
 
@@ -1035,12 +1083,12 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Laboratory_study">
         <rdfs:label
             >Laboratory study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
-        <statistics:definition
-            >A laboratory study is a non individual-human study that uses or collects measurements or assessments about a non-human biological entity.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
+        <rdfs:subClassOf rdf:resource="#Non-human_organism_study"/>
         <study_protocol:develop_comment
-            >Simona: to be reviewed</study_protocol:develop_comment>
+            >Simona: to be reviewed. Seems the same as non-human organism study</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A laboratory study is a non-human organism study whose finest grain entity available for analysis is a non-human biological entity.</statistics:definition>
     </owl:Class>
     
 
@@ -1216,6 +1264,33 @@ Example: in a factorial-design study where regimens of interventions A and B are
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_organism_study -->
+
+    <owl:Class rdf:about="#Non-human_organism_study">
+        <rdfs:label
+            >Non-human organism study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Organismal_study"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                                <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A non-human organism study is an organismal study whose finest grain entity available for analysis is a non-human organism (whole or parts thereof).</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-inferiority -->
 
     <owl:Class rdf:about="#Non-inferiority">
@@ -1250,12 +1325,34 @@ Example: in a factorial-design study where regimens of interventions A and B are
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Non-organismal_study -->
+
+    <owl:Class rdf:about="#Non-organismal_study">
+        <rdfs:label
+            >Non-organismal study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <statistics:curator>Simona</statistics:curator>
+        <statistics:definition
+            >A non-organismal study is a study whose finest grain entity available for analysis is not an organism (e.g., a policy, a course of action).</statistics:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-probability_sampling -->
 
     <owl:Class rdf:about="#Non-probability_sampling">
         <rdfs:label
             >Non-probability sampling</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Sampling_method"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Sampling_method"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Probability_sampling"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
             >Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1267,24 +1364,20 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#Non_individual-human_study">
         <rdfs:label
-            >Non individual-human study</rdfs:label>
+            >Aggregated human study</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;Study"/>
-                    <owl:Class>
-                        <owl:complementOf>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                                <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
-                            </owl:Restriction>
-                        </owl:complementOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="#Human_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:allValuesFrom rdf:resource="#Aggregated_human_subject"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <statistics:definition
-            >A non individual-human study is a study that does not use or collect measurements or assessments about, or at the level of, individual humans.</statistics:definition>
+            >An aggregated human study is a human study whose finest grain entity available for analysis are aggregated humans (whole or parts thereof).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1309,6 +1402,19 @@ Example: in a factorial-design study where regimens of interventions A and B are
         </owl:equivalentClass>
         <statistics:definition
             >Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Organismal_study -->
+
+    <owl:Class rdf:about="#Organismal_study">
+        <rdfs:label
+            >Organismal study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <statistics:definition
+            >An organismal study is a study whose finest grain entity available for analysis is an organism (e.g., an individual human, a human population, a mouse).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1349,6 +1455,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="#Phase_0">
         <rdfs:label>Phase 0</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Phase"/>
+        <owl:disjointWith rdf:resource="#Phase_not_applicable"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A Phase 0 trial is an exploratory trial involving very limited human exposure, with no therapeutic or diagnostic intent (e.g., screening study, microdose study). [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
@@ -1361,6 +1468,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="#Phase_1">
         <rdfs:label>Phase 1</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Phase"/>
+        <owl:disjointWith rdf:resource="#Phase_not_applicable"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A Phase I trial assesses toxic effects on humans (not many people participate, and usually without controls) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1373,6 +1481,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="#Phase_2">
         <rdfs:label>Phase 2</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Phase"/>
+        <owl:disjointWith rdf:resource="#Phase_not_applicable"/>
         <statistics:definition
             >A Phase ll trial assesses therapeutic benefit (usually involving a few hundred people, usually with controls, but not always) [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1385,6 +1494,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="#Phase_3">
         <rdfs:label>Phase 3</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Phase"/>
+        <owl:disjointWith rdf:resource="#Phase_not_applicable"/>
         <statistics:definition
             >A Phase III trial compares the new treatment against standard (or placebo) treatment (usually a full
 randomised controlled trial). At this point, a drug can be approved for community use. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1398,6 +1508,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="#Phase_4">
         <rdfs:label>Phase 4</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Phase"/>
+        <owl:disjointWith rdf:resource="#Phase_not_applicable"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A Phase IV study monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1422,9 +1533,9 @@ randomised controlled trial). At this point, a drug can be approved for communit
 
     <owl:Class rdf:about="#Policy_analysis">
         <rdfs:label>Policy analysis</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non-organismal_study"/>
         <statistics:definition
-            >A policy analysis is a non individual-human study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
+            >A policy analysis is a non-organismal study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systemativ analytic methods that can be quantitative or qualitative [adapted from: Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1526,6 +1637,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <!-- http://purl.org/net/OCRe/study_design.owl#Retrospective -->
 
     <owl:Class rdf:about="#Retrospective">
+        <rdfs:label>Historical</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Timing_of_measurements_to_events"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
@@ -1704,10 +1816,12 @@ When the aim of the study is to show that an experimental (E) treatment is super
 
     <owl:Class rdf:about="#Systematic_review">
         <rdfs:label
-            >Systematic review</rdfs:label>
+            >Systematic review of human data</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
         <statistics:definition
-            >A systematic review is a non individual-human study that uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
+            >A systematic review of human data is an aggregated human study whose finest grain entity available for analysis are groups of humans (whole or parts thereof) from other studies.
+
+A systematic review uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
 Meta-analysis is the use of statistical techniques in a systematic review to integrate the summary results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1722,9 +1836,9 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <owl:Class rdf:about="#Technology_study">
         <rdfs:label
             >Technology study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Non-organismal_study"/>
         <statistics:definition
-            >A technology study is a non individual-human study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
+            >A technology study is a non-organismal study in which the finest grain entity available for analysis is a man-made object (e.g., a device) in terms of its technical/physical performance.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1734,11 +1848,11 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
 
     <owl:Class rdf:about="#Timing_of_measurements_to_events">
         <rdfs:label
-            >Main outcome assessment with respect to the main predictor/exposure</rdfs:label>
+            >Assessment completed before or after study start</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >When is the main outcome assessed with respect to the main predictor/exposure? (before [retrospective assessment], after [prospective assessment])</statistics:definition>
+            >Were all assessment of case status and predictors completed before the start of the study? (yes [historical], no [prospective]). Applies only to cohort studies.</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
