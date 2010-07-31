@@ -758,14 +758,6 @@
         <rdfs:label>part of</rdfs:label>
         <statistics:definition
             >A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Entity"/>
-                    <rdf:Description rdf:about="#Event"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -774,6 +766,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Entity"/>
+                    <rdf:Description rdf:about="#Event"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1115,7 +1115,6 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <statistics:definition
             >The unit component of a Quantity</statistics:definition>
-        <rdfs:range rdf:resource="#Measurement_term"/>
         <rdfs:domain rdf:resource="#Physical_quantity"/>
     </owl:ObjectProperty>
     
@@ -1713,14 +1712,14 @@
         <rdfs:subClassOf rdf:resource="#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#annotation"/>
-                <owl:someValuesFrom rdf:resource="#Standard_term"/>
+                <owl:onProperty rdf:resource="#description"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#description"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="#annotation"/>
+                <owl:someValuesFrom rdf:resource="#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
@@ -2080,20 +2079,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Measurement_term -->
-
-    <owl:Class rdf:about="#Measurement_term">
-        <rdfs:label
-            >Measurement term</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Standard_term"/>
-        <study_protocol2:develop_comment
-            >A placeholder for a unit of measurement ontology</study_protocol2:develop_comment>
-        <statistics:definition
-            >A standard for measurement of physical properties or qualities. Every unit is related to a particular kind of property. For instance, the meter unit is uniquely related to the length property</statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Mode_of_inquiry -->
 
     <owl:Class rdf:about="#Mode_of_inquiry">
@@ -2118,17 +2103,6 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Study"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="#study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="#Not_yet_recruiting"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Study"/>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="#recruited_in_the_past"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
                     </owl:Restriction>
@@ -2139,6 +2113,17 @@
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="#will_recruit_in_the_future"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="#Not_yet_recruiting"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2187,8 +2172,14 @@
         <rdfs:subClassOf rdf:resource="#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2199,14 +2190,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
+                <owl:onProperty rdf:resource="#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2227,14 +2212,14 @@
         <rdfs:subClassOf rdf:resource="#Study_phenomenon"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_term_code"/>
-                <owl:someValuesFrom rdf:resource="#Standard_term"/>
+                <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
+                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#is_study_phenomenon_of"/>
-                <owl:someValuesFrom rdf:resource="#Variable_specification"/>
+                <owl:onProperty rdf:resource="#has_term_code"/>
+                <owl:someValuesFrom rdf:resource="#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <study_protocol2:develop_comment rdf:datatype="&xsd;string"
@@ -2292,12 +2277,6 @@
 
     <owl:Class rdf:about="#Physical_quantity">
         <rdfs:subClassOf rdf:resource="#Quantity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#unit"/>
-                <owl:someValuesFrom rdf:resource="#Measurement_term"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string"
             >A quantity counted or measured in some unit</statistics:definition>
     </owl:Class>
@@ -2403,14 +2382,14 @@
         <rdfs:subClassOf rdf:resource="#Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#anchor_time"/>
-                <owl:someValuesFrom rdf:resource="#Expression"/>
+                <owl:onProperty rdf:resource="#duration"/>
+                <owl:someValuesFrom rdf:resource="#Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#duration"/>
-                <owl:someValuesFrom rdf:resource="#Physical_quantity"/>
+                <owl:onProperty rdf:resource="#anchor_time"/>
+                <owl:someValuesFrom rdf:resource="#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition
@@ -2966,14 +2945,14 @@
         <rdfs:subClassOf rdf:resource="#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#factor_specificaion"/>
-                <owl:someValuesFrom rdf:resource="#Factor_specification"/>
+                <owl:onProperty rdf:resource="#has_primary_outcome"/>
+                <owl:someValuesFrom rdf:resource="#Outcome_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#has_primary_outcome"/>
-                <owl:someValuesFrom rdf:resource="#Outcome_specification"/>
+                <owl:onProperty rdf:resource="#factor_specificaion"/>
+                <owl:someValuesFrom rdf:resource="#Factor_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -3205,20 +3184,14 @@
     <swrl:Variable rdf:about="#study"/>
     <swrl:Variable rdf:about="#recruitmentStatus"/>
     <swrl:Imp>
-        <swrl:head>
-            <swrl:AtomList>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <swrl:DatavaluedPropertyAtom>
-                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
-                        <swrl:propertyPredicate rdf:resource="#recruiting_in_the_present"/>
-                        <swrl:argument1 rdf:resource="#study"/>
-                    </swrl:DatavaluedPropertyAtom>
-                </rdf:first>
-            </swrl:AtomList>
-        </swrl:head>
         <swrl:body>
             <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="#Recruiting"/>
+                        <swrl:argument1 rdf:resource="#recruitmentStatus"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
                         <rdf:rest>
@@ -3241,14 +3214,20 @@
                         </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="#Recruiting"/>
-                        <swrl:argument1 rdf:resource="#recruitmentStatus"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
             </swrl:AtomList>
         </swrl:body>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:DatavaluedPropertyAtom>
+                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
+                        <swrl:propertyPredicate rdf:resource="#recruiting_in_the_present"/>
+                        <swrl:argument1 rdf:resource="#study"/>
+                    </swrl:DatavaluedPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
     </swrl:Imp>
 </rdf:RDF>
 
