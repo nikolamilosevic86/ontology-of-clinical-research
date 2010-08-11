@@ -69,9 +69,126 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#part_of -->
+
+    <owl:ObjectProperty rdf:about="&research;part_of">
+        <rdfs:label>part_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#study_characteristic -->
 
     <owl:ObjectProperty rdf:about="&research;study_characteristic"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#entity_conclusions_are_about -->
+
+    <owl:ObjectProperty rdf:about="#entity_conclusions_are_about">
+        <rdfs:label
+            >entity conclusions are about</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#entity_directly_observed -->
+
+    <owl:ObjectProperty rdf:about="#entity_directly_observed">
+        <rdfs:label
+            >entity directly observed</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#entity_randomized -->
+
+    <owl:ObjectProperty rdf:about="#entity_randomized">
+        <rdfs:label
+            >entity randomized</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#entity_recruited_or_selected -->
+
+    <owl:ObjectProperty rdf:about="#entity_recruited_or_selected">
+        <rdfs:label
+            >entity recruited or selected</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#entity_subject_to_intervention_or_exposure -->
+
+    <owl:ObjectProperty rdf:about="#entity_subject_to_intervention_or_exposure">
+        <rdfs:label
+            >entity subject to intervention or exposure</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#finest-grained_entity_available_for_analysis -->
+
+    <owl:ObjectProperty rdf:about="#finest-grained_entity_available_for_analysis">
+        <rdfs:label
+            >finest-grained entity available for analysis</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: see https://sites.google.com/site/hsdbwiki/Home/modeling/what-study-is-about</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#allocation_concealment_method -->
+
+    <owl:DatatypeProperty rdf:about="#allocation_concealment_method">
+        <rdfs:label
+            >allocation concealment method</rdfs:label>
+        <statistics:definition
+            >Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
+
+Examples:
+- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
+- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
+- Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
+        <rdfs:comment
+            >Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -147,7 +264,7 @@
 
     <owl:Class rdf:about="&research;Case_control_study">
         <rdfs:label
-            >Case-control study</rdfs:label>
+            >Case-control study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -163,6 +280,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&research;Case_crossover_study"/>
+        <owl:disjointWith rdf:resource="&research;Cohort_study"/>
+        <owl:disjointWith rdf:resource="&research;Cross-sectional_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A case control study is an observational study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -174,7 +294,7 @@
 
     <owl:Class rdf:about="&research;Case_crossover_study">
         <rdfs:label
-            >Case-crossover study</rdfs:label>
+            >Case-crossover study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -190,6 +310,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&research;Cohort_study"/>
+        <owl:disjointWith rdf:resource="&research;Cross-sectional_study"/>
         <statistics:definition
             >A case-crossover study is an observational study that aims to answer the question, &#8220;Was this event triggered by something unusual that happened just before?&#8221; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
 The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [Annu Rev Public Health. 2000;21:193-221.]</statistics:definition>
@@ -201,7 +323,8 @@ The simplest case-crossover design is closely analogous to a traditional matched
     <!-- http://purl.org/net/OCRe/research.owl#Cohort_study -->
 
     <owl:Class rdf:about="&research;Cohort_study">
-        <rdfs:label>Cohort study</rdfs:label>
+        <rdfs:label
+            >Cohort study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -217,6 +340,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&research;Cross-sectional_study"/>
         <statistics:definition
             >A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -243,7 +367,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
 
     <owl:Class rdf:about="&research;Cross-sectional_study">
         <rdfs:label
-            >Cross-sectional study</rdfs:label>
+            >Cross-sectional study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -284,6 +408,8 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Quasi-random_allocation"/>
+        <owl:disjointWith rdf:resource="#Random_allocation"/>
         <statistics:definition
             >Non-random (or Deterministic) allocation is an allocation scheme that follows a non-random rule (e.g., sequential allocation).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -295,22 +421,10 @@ The simplest case-crossover design is closely analogous to a traditional matched
 
     <owl:Class rdf:about="&research;Ecologic_study">
         <rdfs:label>Ecologic study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Aggregated-human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >An ecologic study is an aggregated human study in which the finest grain entity available for analysis is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Human_subject -->
-
-    <owl:Class rdf:about="&research;Human_subject">
-        <rdfs:label>Human subject</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Unit_of_analysis"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >A human subject is an individual about whom an investigator conducting research obtains data through intervention or interaction with individual or identifiable private information. [45 CFR &#167;46.102(f)]</statistics:definition>
     </owl:Class>
     
 
@@ -319,7 +433,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
 
     <owl:Class rdf:about="&research;Interventional_study">
         <rdfs:label
-            >Interventional study</rdfs:label>
+            >Interventional study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -331,6 +445,7 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&research;Observational_study"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
         <statistics:definition
@@ -447,23 +562,11 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Multiple_intervention_timing -->
-
-    <owl:Class rdf:about="&research;Multiple_intervention_timing">
-        <rdfs:label
-            >Multiple intervention timing</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: I am not sure where this goes. Need clarification. Possibly will be deleted</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Observational_study -->
 
     <owl:Class rdf:about="&research;Observational_study">
         <rdfs:label
-            >Observational study</rdfs:label>
+            >Observational study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -478,6 +581,14 @@ The next participant is assessed with regard to several characteristics, and ass
         <statistics:definition
             >An observational study is a quantitative study in which the investigators do not seek to intervene, and simply observe the course of events. [adapted from: Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Organism -->
+
+    <owl:Class rdf:about="&research;Organism">
+        <rdfs:label>Organism</rdfs:label>
     </owl:Class>
     
 
@@ -509,7 +620,7 @@ The next participant is assessed with regard to several characteristics, and ass
 
     <owl:Class rdf:about="&research;Parallel_group_study">
         <rdfs:label
-            >Parallel group study</rdfs:label>
+            >Parallel group study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -525,6 +636,9 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Crossover_study"/>
+        <owl:disjointWith rdf:resource="#N-of-1_crossover_study"/>
+        <owl:disjointWith rdf:resource="#Single_group_study"/>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed.</study_protocol:develop_comment>
@@ -534,11 +648,27 @@ The next participant is assessed with regard to several characteristics, and ass
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#Person -->
+
+    <owl:Class rdf:about="&research;Person">
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#Population -->
+
+    <owl:Class rdf:about="&research;Population">
+        <rdfs:label>Population</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#Qualitative_human_study -->
 
     <owl:Class rdf:about="&research;Qualitative_human_study">
         <rdfs:label
-            >Qualitative individual-human study</rdfs:label>
+            >Qualitative study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -550,11 +680,10 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&research;Quantitative_human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A qualitative study is an individual-human study whose primary mode of inquiry is qualitative.</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: should we add &quot;individual&quot; to name? Where is the link between Individual-human study and this part of the hierarchy?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -577,7 +706,7 @@ The next participant is assessed with regard to several characteristics, and ass
 
     <owl:Class rdf:about="&research;Quantitative_human_study">
         <rdfs:label
-            >Quantitative individual-human study</rdfs:label>
+            >Quantitative study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -592,8 +721,6 @@ The next participant is assessed with regard to several characteristics, and ass
         <statistics:definition
             >A quantitative study is an individual-human study whose primary mode of inquiry is quantitative.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-        <study_protocol:develop_comment
-            >Simona: should we add &quot;individual&quot; to name? Where is the link between Individual-human study and this part of the hierarchy?</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -629,17 +756,6 @@ Different types of restricted randomization are as follows:
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Sequential_assignment -->
-
-    <owl:Class rdf:about="&research;Sequential_assignment">
-        <rdfs:label
-            >Sequential assignment</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Multiple_intervention_timing"/>
-        <owl:disjointWith rdf:resource="&research;Simultaneous_assignment"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Simple_randomization -->
 
     <owl:Class rdf:about="&research;Simple_randomization">
@@ -647,16 +763,6 @@ Different types of restricted randomization are as follows:
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Simple randomization is a random allocation scheme that has no restriction, i.e. a single sequence of random assignment. When the sample size is relatively large, simple randomization is expected to produce equal sized treatment groups. [source: http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html ]</statistics:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Simultaneous_assignment -->
-
-    <owl:Class rdf:about="&research;Simultaneous_assignment">
-        <rdfs:label
-            >Simultaneous assignment</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Multiple_intervention_timing"/>
     </owl:Class>
     
 
@@ -691,45 +797,37 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Unit_of_analysis -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#Aggregated-human_study -->
 
-    <owl:Class rdf:about="&research;Unit_of_analysis">
+    <owl:Class rdf:about="#Aggregated-human_study">
         <rdfs:label
-            >Unit of analysis</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: currently under review</study_protocol:develop_comment>
+            >Aggregated-human_study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Aggregated-organism_study"/>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Aggregated_human_subject -->
-
-    <owl:Class rdf:about="#Aggregated_human_subject">
-        <rdfs:label
-            >Aggregated human subject</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Human_subject"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Allocation_concealment_method -->
-
-    <owl:Class rdf:about="#Allocation_concealment_method">
-        <rdfs:label
-            >Allocation concealment method</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <rdfs:comment
-            >Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
         <statistics:definition
-            >Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
+            >An aggregated human study is a human study whose finest grain entity available for analysis are aggregated humans (whole or parts thereof).</statistics:definition>
+    </owl:Class>
+    
 
-Examples:
-- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
-- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
-- Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Aggregated-organism_study -->
+
+    <owl:Class rdf:about="#Aggregated-organism_study">
+        <rdfs:label
+            >Aggregated-organism_study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Organismal_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                        <owl:someValuesFrom rdf:resource="&research;Population"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <study_protocol:develop_comment
+            >change to analyzed</study_protocol:develop_comment>
     </owl:Class>
     
 
@@ -819,6 +917,7 @@ Examples:
         <rdfs:label
             >Care provider blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <owl:disjointWith rdf:resource="#Open_label"/>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -830,6 +929,7 @@ Examples:
         <rdfs:label
             >Caregiver blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <owl:disjointWith rdf:resource="#Open_label"/>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -854,6 +954,7 @@ Examples:
         <rdfs:label
             >Cluster as unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Unit_of_allocation"/>
+        <owl:disjointWith rdf:resource="#Individual_as_unit_of_allocation"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -877,7 +978,8 @@ Examples:
     <!-- http://purl.org/net/OCRe/study_design.owl#Crossover_study -->
 
     <owl:Class rdf:about="#Crossover_study">
-        <rdfs:label>Crossover study</rdfs:label>
+        <rdfs:label
+            >Crossover study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -901,6 +1003,8 @@ Examples:
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#N-of-1_crossover_study"/>
+        <owl:disjointWith rdf:resource="#Single_group_study"/>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -929,6 +1033,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
         <rdfs:label
             >Data analyzed within multiple participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Data_analysis_within_participants"/>
+        <owl:disjointWith rdf:resource="#Data_analyzed_within_single_participant"/>
     </owl:Class>
     
 
@@ -965,6 +1070,8 @@ Note that this type of analysis can also be applied to outcomes in a human study
     <owl:Class rdf:about="#Equivalence">
         <rdfs:label>Equivalence</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
+        <owl:disjointWith rdf:resource="#Non-inferiority"/>
+        <owl:disjointWith rdf:resource="#Superiority"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Equivalence is a type of comparative intent. 
@@ -978,6 +1085,7 @@ An equivalence trial is designed to determine whether the response to two or mor
     <owl:Class rdf:about="#Factorial">
         <rdfs:label>Factorial</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
+        <owl:disjointWith rdf:resource="#Single-factor"/>
         <statistics:definition
             >Factorial design is a trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. [Glossary of Terms in The Cochrane Collaboration]
 
@@ -991,17 +1099,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#Human_study">
         <rdfs:label>Human study</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Organismal_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:allValuesFrom rdf:resource="&research;Human_subject"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Organismal_study"/>
         <statistics:definition
             >A human study is an organismal study whose finest grain entity available for analysis is the human organism (whole or parts thereof).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1014,6 +1112,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Incidence">
         <rdfs:label>Incidence</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Case_definition"/>
+        <owl:disjointWith rdf:resource="#Prevalence"/>
         <statistics:definition
             >Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1026,20 +1125,22 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Individual-human_study">
         <rdfs:label
             >Individual-human study</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:allValuesFrom rdf:resource="#Individual_human_subject"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Individual-organism_study"/>
+        <study_protocol:develop_comment
+            >entity_analyzed is some human</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >An individual-human study is a human study whose finest grain entity available for analysis are individual humans (whole or parts thereof).</statistics:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Individual-organism_study -->
+
+    <owl:Class rdf:about="#Individual-organism_study">
+        <rdfs:label
+            >Individual-organism_study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Organismal_study"/>
     </owl:Class>
     
 
@@ -1057,22 +1158,13 @@ Example: in a factorial-design study where regimens of interventions A and B are
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Individual_human_subject -->
-
-    <owl:Class rdf:about="#Individual_human_subject">
-        <rdfs:label
-            >Individual human subject</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Human_subject"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Investigator_blinded -->
 
     <owl:Class rdf:about="#Investigator_blinded">
         <rdfs:label
             >Investigator blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Blinding_type"/>
+        <owl:disjointWith rdf:resource="#Open_label"/>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1099,6 +1191,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:label
             >Main comparison across participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
+        <owl:disjointWith rdf:resource="#Main_comparison_within_participants"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
     </owl:Class>
@@ -1149,6 +1242,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:label
             >Multiple participant allocation group</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Allocation_group_cardinality"/>
+        <owl:disjointWith rdf:resource="#Single_participant_allocation_group"/>
         <statistics:definition
             >Investigator assigns regimen of interventions to an allocation group made up of more than one participant.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1162,6 +1256,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:label
             >Multiple regimen</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Regimen_cardinality"/>
+        <owl:disjointWith rdf:resource="#Single_regimen"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Multiple regimens of intervention, each including one or more individual interventions (treatments) or no treatment, each assigned to one allocation group. This means the study has at least one contemporaneous comparison group.</statistics:definition>
@@ -1173,7 +1268,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
     <owl:Class rdf:about="#N-of-1_crossover_study">
         <rdfs:label
-            >N-of-1 crossover study</rdfs:label>
+            >N-of-1 crossover study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1197,6 +1292,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Single_group_study"/>
         <statistics:curator>Simona</statistics:curator>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
@@ -1211,6 +1307,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Nested">
         <rdfs:label>Nested</rdfs:label>
         <rdfs:subClassOf rdf:resource="&research;Control_group_type"/>
+        <owl:disjointWith rdf:resource="#Non-nested"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</statistics:definition>
@@ -1244,6 +1341,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Non-cases_selected_based_on_biological_relation"/>
         <statistics:definition
             >Non-cases were not selected based on genetic relation</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1267,23 +1365,8 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_organism_study -->
 
     <owl:Class rdf:about="#Non-human_organism_study">
-        <rdfs:label
-            >Non-human organism study</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Organismal_study"/>
-                    <owl:Class>
-                        <owl:complementOf>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                                <owl:someValuesFrom rdf:resource="&research;Human_subject"/>
-                            </owl:Restriction>
-                        </owl:complementOf>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label>Non-human study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Organismal_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A non-human organism study is an organismal study whose finest grain entity available for analysis is a non-human organism (whole or parts thereof).</statistics:definition>
@@ -1296,6 +1379,7 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Non-inferiority">
         <rdfs:label>Non-inferiority</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Comparative_intent"/>
+        <owl:disjointWith rdf:resource="#Superiority"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A non-inferiority trial is designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1330,7 +1414,22 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Non-organismal_study">
         <rdfs:label
             >Non-organismal study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&research;Organism"/>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Organismal_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >A non-organismal study is a study whose finest grain entity available for analysis is not an organism (e.g., a policy, a course of action).</statistics:definition>
@@ -1353,31 +1452,9 @@ Example: in a factorial-design study where regimens of interventions A and B are
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Probability_sampling"/>
         <statistics:definition
             >Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer [http://prsinfo.clinicaltrials.gov/definitions.html]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Non_individual-human_study -->
-
-    <owl:Class rdf:about="#Non_individual-human_study">
-        <rdfs:label
-            >Aggregated human study</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Human_study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
-                        <owl:allValuesFrom rdf:resource="#Aggregated_human_subject"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <statistics:definition
-            >An aggregated human study is a human study whose finest grain entity available for analysis are aggregated humans (whole or parts thereof).</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1400,6 +1477,9 @@ Example: in a factorial-design study where regimens of interventions A and B are
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Outcome_assessor_blinded"/>
+        <owl:disjointWith rdf:resource="#Statistician_blinded"/>
+        <owl:disjointWith rdf:resource="#Subject_blinded"/>
         <statistics:definition
             >Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded). [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1412,9 +1492,34 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Organismal_study">
         <rdfs:label
             >Organismal study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;Study"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                                <owl:someValuesFrom rdf:resource="&research;Organism"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;part_of"/>
+                                        <owl:someValuesFrom rdf:resource="&research;Organism"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
             >An organismal study is a study whose finest grain entity available for analysis is an organism (e.g., an individual human, a human population, a mouse).</statistics:definition>
+        <study_protocol:develop_comment
+            >change definition once samson has created organism class</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1584,6 +1689,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
 
     <owl:Class rdf:about="#Prospective">
         <rdfs:subClassOf rdf:resource="#Timing_of_measurements_to_events"/>
+        <owl:disjointWith rdf:resource="#Retrospective"/>
         <statistics:definition
             >In evaluations of the effects of healthcare interventions, a study in which people are identified according to current risk status or exposure, and followed forwards through time to observe outcome. Randomised controlled trials are always prospective studies. Cohort studies are commonly either prospective or retrospective, whereas case-control studies are usually retrospective. In Epidemiology, &#39;prospective study&#8217; is sometimes misused as a synonym for cohort study. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1597,6 +1703,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
         <rdfs:label
             >Quasi-random allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Allocation_scheme"/>
+        <owl:disjointWith rdf:resource="#Random_allocation"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
             >Quasi-random allocation is an allocation scheme that is not random, but is intended to produce similar groups when used to allocate participants. Quasi-random methods include: allocation by the person&#39;s date of birth, by the day of the week or month of the year, by a person&#39;s medical record number, or just allocating every alternate person. In practice, these methods of allocation are relatively easy to manipulate, introducing selection bias. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
@@ -1646,18 +1753,6 @@ randomised controlled trial). At this point, a drug can be approved for communit
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Run-in_period -->
-
-    <owl:Class rdf:about="#Run-in_period">
-        <rdfs:label>Run-in period</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Study_period"/>
-        <statistics:definition
-            >A study period before randomisation when participants are monitored but receive no treatment (or they sometimes all receive one of the study treatments, possibly in a blind fashion). The data from this stage of a trial are only occasionally of value but can serve a valuable role in screening out ineligible or non-compliant participants, in ensuring that participants are in a stable condition, and in providing baseline observations. A run-in period is sometimes called a washout period if treatments that participants were using before entering the trial are discontinued.[Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Sampling_method -->
 
     <owl:Class rdf:about="#Sampling_method">
@@ -1686,7 +1781,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
 
     <owl:Class rdf:about="#Single_group_study">
         <rdfs:label
-            >Single group study</rdfs:label>
+            >Single group study design</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1767,26 +1862,6 @@ A study in which an individual acts has his/her own comparison does not fall int
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Study_period -->
-
-    <owl:Class rdf:about="#Study_period">
-        <rdfs:label>Study period</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:definition
-            >Also called epoch. An epoch is one of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
-
-Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
-
-For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
-
-NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG 3]</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: I am not sure this should be here</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Subject_blinded -->
 
     <owl:Class rdf:about="#Subject_blinded">
@@ -1817,7 +1892,7 @@ When the aim of the study is to show that an experimental (E) treatment is super
     <owl:Class rdf:about="#Systematic_review">
         <rdfs:label
             >Systematic review of human data</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Non_individual-human_study"/>
+        <rdfs:subClassOf rdf:resource="#Aggregated-human_study"/>
         <statistics:definition
             >A systematic review of human data is an aggregated human study whose finest grain entity available for analysis are groups of humans (whole or parts thereof) from other studies.
 
@@ -1870,18 +1945,9 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Washout_period -->
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
 
-    <owl:Class rdf:about="#Washout_period">
-        <rdfs:label>Washout period</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Study_period"/>
-        <statistics:definition
-            >[In a cross-over trial:] The stage after the first treatment is withdrawn, but before the second treatment
-is started. The washout period aims to allow time for any active effects of the first treatment to wear off before the new one gets started. [Glossary of Terms in The Cochrane Collaboration]
-
-A run-in period is sometimes called a washout period if treatments that participants were using before entering the trial are discontinued. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
+    <owl:Class rdf:about="&owl;Thing"/>
 </rdf:RDF>
 
 
