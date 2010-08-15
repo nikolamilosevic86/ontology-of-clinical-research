@@ -172,6 +172,17 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#study_design_data_property -->
+
+    <owl:DatatypeProperty rdf:about="&research;study_design_data_property">
+        <rdfs:label
+            >study_design_data_property</rdfs:label>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#allocation_concealment_method -->
 
     <owl:DatatypeProperty rdf:about="#allocation_concealment_method">
@@ -184,10 +195,59 @@ Examples:
 - Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
 - On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
 - Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
+        <study_protocol:develop_comment
+            >Simona: used ot be a class</study_protocol:develop_comment>
         <rdfs:comment
             >Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
         <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#analysis_of_cost -->
+
+    <owl:DatatypeProperty rdf:about="#analysis_of_cost">
+        <rdfs:label
+            >analysis of cost</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: used ot be a class</study_protocol:develop_comment>
+        <statistics:definition
+            >Study includes an analysis of cost.</statistics:definition>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#matching -->
+
+    <owl:DatatypeProperty rdf:about="#matching">
+        <rdfs:label>matching</rdfs:label>
+        <statistics:definition
+            >[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
+        <study_protocol:develop_comment
+            >Simona: used to be a class. Does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#pooled_data -->
+
+    <owl:DatatypeProperty rdf:about="#pooled_data">
+        <rdfs:label>pooled data</rdfs:label>
+        <study_protocol:develop_comment
+            >Simona: used to be a class.</study_protocol:develop_comment>
+        <statistics:definition
+            >In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</statistics:definition>
+        <rdfs:domain rdf:resource="&research;Study"/>
+        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
     </owl:DatatypeProperty>
     
 
@@ -422,9 +482,9 @@ The simplest case-crossover design is closely analogous to a traditional matched
     <owl:Class rdf:about="&research;Ecologic_study">
         <rdfs:label>Ecologic study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Aggregated-human_study"/>
-        <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >An ecologic study is an aggregated human study in which the finest grain entity available for analysis is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+            >An ecologic study is an aggregated-human study in which the finest grain entity available for analysis is a population or community. [adapted from: Epidemiology for the Uninitiated, available at http://www.bmj.com/epidem/epid.html]</statistics:definition>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -803,9 +863,10 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
         <rdfs:label
             >Aggregated-human_study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Aggregated-organism_study"/>
+        <owl:disjointWith rdf:resource="#Aggregated_non-human_study"/>
         <statistics:curator>Simona</statistics:curator>
         <statistics:definition
-            >An aggregated human study is a human study whose finest grain entity available for analysis are aggregated humans (whole or parts thereof).</statistics:definition>
+            >An aggregated human study is an aggregated-organism study whose finest grain entity available for analysis are aggregated humans (whole or parts thereof).</statistics:definition>
     </owl:Class>
     
 
@@ -826,8 +887,23 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Individual-organism_study"/>
+        <statistics:definition
+            >An aggregated-organism study is an organismal study whose finest grain entity available for analysis are aggregated organisms (whole or parts thereof).</statistics:definition>
         <study_protocol:develop_comment
             >change to analyzed</study_protocol:develop_comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Aggregated_non-human_study -->
+
+    <owl:Class rdf:about="#Aggregated_non-human_study">
+        <rdfs:label
+            >Aggregated non-human study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Aggregated-organism_study"/>
+        <statistics:definition
+            >An aggregated non-human study is an aggregated-organism study whose finest grain entity available for analysis are aggregated organism (whole or parts thereof) other than humans.</statistics:definition>
     </owl:Class>
     
 
@@ -856,19 +932,6 @@ Old definition: &quot;A structured scientific programme of planned clinical rese
         <statistics:definition
             >Allocation scheme describes the way in which each participant in an interventional trial is allocated to a treatment group.</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Analysis_of_cost -->
-
-    <owl:Class rdf:about="#Analysis_of_cost">
-        <rdfs:label
-            >Analysis of cost</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >Study includes an analysis of cost.</statistics:definition>
     </owl:Class>
     
 
@@ -1125,12 +1188,23 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <owl:Class rdf:about="#Individual-human_study">
         <rdfs:label
             >Individual-human study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Individual-organism_study"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Individual-organism_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                        <owl:someValuesFrom rdf:resource="&research;Person"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Non-human_organism_study"/>
+        <statistics:definition
+            >An individual-human study is an individual-organism study whose finest grain entity available for analysis are individual humans (whole or parts thereof).</statistics:definition>
         <study_protocol:develop_comment
             >entity_analyzed is some human</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >An individual-human study is a human study whose finest grain entity available for analysis are individual humans (whole or parts thereof).</statistics:definition>
     </owl:Class>
     
 
@@ -1141,6 +1215,8 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:label
             >Individual-organism_study</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Organismal_study"/>
+        <statistics:definition
+            >An individual-organism study is an organismal study whose finest grain entity available for analysis are individual organisms (whole or parts thereof).</statistics:definition>
     </owl:Class>
     
 
@@ -1218,20 +1294,6 @@ Example: in a factorial-design study where regimens of interventions A and B are
         <rdfs:subClassOf rdf:resource="#Main_comparison_and_participants"/>
         <study_protocol:develop_comment
             >Simona: to be reviewed</study_protocol:develop_comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#Matching -->
-
-    <owl:Class rdf:about="#Matching">
-        <rdfs:label>Matching</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <study_protocol:develop_comment
-            >Simona: does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-        <statistics:definition
-            >[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
     </owl:Class>
     
 
@@ -1365,11 +1427,24 @@ Example: in a factorial-design study where regimens of interventions A and B are
     <!-- http://purl.org/net/OCRe/study_design.owl#Non-human_organism_study -->
 
     <owl:Class rdf:about="#Non-human_organism_study">
-        <rdfs:label>Non-human study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Organismal_study"/>
-        <statistics:curator>Simona</statistics:curator>
+        <rdfs:label
+            >Individual non-human study</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Individual-organism_study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#finest-grained_entity_available_for_analysis"/>
+                        <owl:someValuesFrom rdf:resource="&research;Person"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
-            >A non-human organism study is an organismal study whose finest grain entity available for analysis is a non-human organism (whole or parts thereof).</statistics:definition>
+            >An individual non-human organism study is an individual organism study whose finest grain entity available for analysis is an individual non-human organism (whole or parts thereof).</statistics:definition>
+        <study_protocol:develop_comment
+            >How do I define this?</study_protocol:develop_comment>
+        <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
 
@@ -1518,8 +1593,6 @@ Example: in a factorial-design study where regimens of interventions A and B are
         </owl:equivalentClass>
         <statistics:definition
             >An organismal study is a study whose finest grain entity available for analysis is an organism (e.g., an individual human, a human population, a mouse).</statistics:definition>
-        <study_protocol:develop_comment
-            >change definition once samson has created organism class</study_protocol:develop_comment>
         <statistics:curator>Simona</statistics:curator>
     </owl:Class>
     
@@ -1646,20 +1719,6 @@ randomised controlled trial). At this point, a drug can be approved for communit
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#Pooled_data -->
-
-    <owl:Class rdf:about="#Pooled_data">
-        <rdfs:label>Pooled data</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&research;Study_design_characteristic"/>
-        <statistics:definition
-            >In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</statistics:definition>
-        <study_protocol:develop_comment
-            >Simona: I am not sure this should be here</study_protocol:develop_comment>
-        <statistics:curator>Simona</statistics:curator>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#Prevalence -->
 
     <owl:Class rdf:about="#Prevalence">
@@ -1769,7 +1828,16 @@ randomised controlled trial). At this point, a drug can be approved for communit
 
     <owl:Class rdf:about="#Single-factor">
         <rdfs:label>Single-factor</rdfs:label>
-        <rdfs:subClassOf rdf:resource="#Assignment_to_interventions"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Assignment_to_interventions"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="#Factorial"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <statistics:definition
             >In a single-factor design, an intervention is compared with one or more alternatives, or a placebo. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <statistics:curator>Simona</statistics:curator>
@@ -1894,7 +1962,7 @@ When the aim of the study is to show that an experimental (E) treatment is super
             >Systematic review of human data</rdfs:label>
         <rdfs:subClassOf rdf:resource="#Aggregated-human_study"/>
         <statistics:definition
-            >A systematic review of human data is an aggregated human study whose finest grain entity available for analysis are groups of humans (whole or parts thereof) from other studies.
+            >A systematic review of human data is an aggregated-human study whose finest grain entity available for analysis are groups of humans (whole or parts thereof) from other studies.
 
 A systematic review uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies. [adapted from: Glossary of Terms in The Cochrane Collaboration]
 
