@@ -10,7 +10,7 @@
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
-    <!ENTITY OCRe-Start-Here "http://purl.org/net/OCRe/OCRe-Start-Here#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY p1 "http://purl.org/net/OCRe/study_protocol.owl#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
@@ -26,19 +26,18 @@
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:p1="http://purl.org/net/OCRe/study_protocol.owl#"
      xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:OCRe-Start-Here="http://purl.org/net/OCRe/OCRe-Start-Here#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:clinical="http://purl.org/net/OCRe/clinical#">
-    <owl:Ontology rdf:about="">
+    <owl:Ontology rdf:about="http://purl.org/net/OCRe/OCRe-Start-Here">
         <protege:defaultLanguage rdf:datatype="&xsd;string"></protege:defaultLanguage>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Gathered under &quot;Start-Here&quot; are (1) the core OCRe ontology (research), (2) mapping from OCRe to BFO (bfo-mapping), and (3) examples of studies annotated using OCRe (study_examples).</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Gathered under &quot;Start-Here&quot; are (1) the core OCRe ontology (research), (2) mapping from OCRe to BFO (bfo-mapping), and (3) examples of studies annotated using OCRe (study_examples).</rdfs:comment>
         <owl:imports rdf:resource="http://purl.org/net/OCRe/study_examples.owl"/>
     </owl:Ontology>
     
@@ -52,8 +51,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&protege;defaultLanguage"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     
 
 
@@ -68,13 +68,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#recruitment_site -->
-
-    <owl:ObjectProperty rdf:about="&research;recruitment_site">
-        <rdfs:range rdf:resource="&research;Organization"/>
-    </owl:ObjectProperty>
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -87,150 +80,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Clinic -->
-
-    <owl:Class rdf:about="#Clinic">
-        <rdfs:subClassOf rdf:resource="#Organization_as_study_subject"/>
-    </owl:Class>
-    
 
 
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Collection -->
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-    <owl:Class rdf:about="#Collection">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Human -->
-
-    <owl:Class rdf:about="#Human">
-        <rdfs:subClassOf rdf:resource="#Organism"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#KInd_of_thing_the_study_is_about -->
-
-    <owl:Class rdf:about="#KInd_of_thing_the_study_is_about">
-        <rdfs:subClassOf rdf:resource="&research;Study_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Organism -->
-
-    <owl:Class rdf:about="#Organism">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Organization_as_study_subject -->
-
-    <owl:Class rdf:about="#Organization_as_study_subject">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Part_of_organism -->
-
-    <owl:Class rdf:about="#Part_of_organism">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Physician -->
-
-    <owl:Class rdf:about="#Physician">
-        <rdfs:subClassOf rdf:resource="#Human"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Policy -->
-
-    <owl:Class rdf:about="#Policy">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Population -->
-
-    <owl:Class rdf:about="#Population">
-        <rdfs:subClassOf rdf:resource="#Collection"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Collection of organisms</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Role_of_kind_of_thing_the_study_is_about -->
-
-    <owl:Class rdf:about="#Role_of_kind_of_thing_the_study_is_about">
-        <rdfs:subClassOf rdf:resource="&research;Study_characteristic"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Study -->
-
-    <owl:Class rdf:about="#Study">
-        <rdfs:subClassOf rdf:resource="#KInd_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Things_that_get_selected -->
-
-    <owl:Class rdf:about="#Things_that_get_selected">
-        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Unit_of_observation -->
-
-    <owl:Class rdf:about="#Unit_of_observation">
-        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Unit_of_randomization -->
-
-    <owl:Class rdf:about="#Unit_of_randomization">
-        <rdfs:subClassOf rdf:resource="#Role_of_kind_of_thing_the_study_is_about"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe-Start-Here#Unit_of_recruitment -->
-
-    <owl:Class rdf:about="#Unit_of_recruitment">
-        <rdfs:subClassOf rdf:resource="#Things_that_get_selected"/>
-        <rdfs:comment rdf:datatype="&xsd;string"
-            >Only make sense for someone show can consent (or consent by proxy)</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Organization -->
-
-    <owl:Class rdf:about="&research;Organization"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Study_characteristic -->
-
-    <owl:Class rdf:about="&research;Study_characteristic"/>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.0.0.1573) http://owlapi.sourceforge.net -->
 
