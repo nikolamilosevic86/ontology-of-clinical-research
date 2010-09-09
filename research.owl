@@ -1827,14 +1827,14 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#annotation"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Standard_term"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#description"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#description"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#annotation"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string">Method for assessing an outcome such as questionnaire or laboratory test.</statistics:definition>
@@ -1874,14 +1874,6 @@ Population is also used to refer to a set of potential measurements or values, i
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#Blinding_type -->
-
-    <owl:Class rdf:about="&ontologies;research.owl#Blinding_type">
-        <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Value_set"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#Blood -->
 
     <owl:Class rdf:about="&ontologies;research.owl#Blood">
@@ -1894,14 +1886,6 @@ Population is also used to refer to a set of potential measurements or values, i
 
     <owl:Class rdf:about="&ontologies;research.owl#Bodily_fluid">
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Biospecimen_type"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Case_control_study -->
-
-    <owl:Class rdf:about="&ontologies;research.owl#Case_control_study">
-        <owl:disjointWith rdf:resource="&ontologies;research.owl#Cohort_study"/>
     </owl:Class>
     
 
@@ -1931,12 +1915,6 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Data_value"/>
         <statistics:definition>&quot;The code of an entity represented in some controlled vocabulary.&quot;^^string</statistics:definition>
     </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#Cohort_study -->
-
-    <owl:Class rdf:about="&ontologies;research.owl#Cohort_study"/>
     
 
 
@@ -2332,14 +2310,8 @@ Population is also used to refer to a set of potential measurements or values, i
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2350,8 +2322,14 @@ Population is also used to refer to a set of potential measurements or values, i
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_analysis_type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Statistical_method"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</statistics:definition>
@@ -2365,14 +2343,14 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Study_phenomenon"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_term_code"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Standard_term"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#is_study_phenomenon_of"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#is_study_phenomenon_of"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_term_code"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Standard_term"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <study_protocol2:develop_comment rdf:datatype="&xsd;string">Simona: made Study_phenomenon a subclass of Role as per 12/1 email</study_protocol2:develop_comment>
@@ -2388,14 +2366,14 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_outcome_analysis"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Outcome_analysis_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_outcome_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_outcome_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Variable_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_outcome_analysis"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Outcome_analysis_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2515,14 +2493,14 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Time_point"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#duration"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Physical_quantity"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Expression"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#duration"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Physical_quantity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition>A time point defined as a duration before or after another time point</statistics:definition>
@@ -2580,12 +2558,6 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Role"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#executes"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#represented_by"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -2595,6 +2567,12 @@ Population is also used to refer to a set of potential measurements or values, i
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#executes"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol#StudyProtocol"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string">A health care site in which study activities are conducted.</statistics:definition>
@@ -2765,13 +2743,13 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Data_value"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#start_time"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#stop_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#stop_time"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#start_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2828,26 +2806,26 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Assessment_method_specification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#Relative_time_point"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#has_variable_expression"/>
                 <owl:allValuesFrom rdf:resource="&ontologies;research.owl#Expression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Assessment_method_specification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#has_variable_characteristic"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#Variable_data_type"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#Relative_time_point"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <statistics:definition rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</statistics:definition>
@@ -2869,6 +2847,17 @@ Population is also used to refer to a set of potential measurements or values, i
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#Study"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Withdrawn"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;research.owl#recruited_in_the_past"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
@@ -2880,17 +2869,6 @@ Population is also used to refer to a set of potential measurements or values, i
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;research.owl#will_recruit_in_the_future"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#Study"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Withdrawn"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -3010,11 +2988,33 @@ Population is also used to refer to a set of potential measurements or values, i
     
 
 
+    <!-- http://purl.org/net/OCRe/study_design.owl#Blinding_type -->
+
+    <owl:Class rdf:about="&ontologies;study_design.owl#Blinding_type">
+        <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Value_set"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Case_control_study -->
+
+    <owl:Class rdf:about="&ontologies;study_design.owl#Case_control_study">
+        <owl:disjointWith rdf:resource="&ontologies;study_design.owl#Cohort_study"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_design.owl#Case_definition -->
 
     <owl:Class rdf:about="&ontologies;study_design.owl#Case_definition">
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Value_set"/>
     </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#Cohort_study -->
+
+    <owl:Class rdf:about="&ontologies;study_design.owl#Cohort_study"/>
     
 
 
@@ -3406,14 +3406,14 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#Information_entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_primary_outcome"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Outcome_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#factor_specificaion"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Factor_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#factor_specificaion"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Factor_specification"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_primary_outcome"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#Outcome_specification"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
