@@ -747,12 +747,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#DefinedCompositionRelationship -->
-
-    <owl:Class rdf:about="&OCRe;study_protocol.owl#DefinedCompositionRelationship"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300009 -->
 
     <owl:Class rdf:about="&OCRe;study_protocol.owl#OCRE300009"/>
@@ -993,7 +987,6 @@
     <!-- http://purl.org/net/OCRe/study_examples.owl#AC-P2A -->
 
     <owl:NamedIndividual rdf:about="&OCRe;study_examples.owl#AC-P2A">
-        <rdf:type rdf:resource="&OCRe;study_protocol.owl#DefinedCompositionRelationship"/>
         <study_protocol:sequence_number rdf:datatype="&xsd;positiveInteger">1</study_protocol:sequence_number>
         <study_protocol:composite rdf:resource="&OCRe;study_examples.owl#AC-P"/>
         <study_protocol:component rdf:resource="&OCRe;study_examples.owl#AC-P-doxorubicin"/>
@@ -1005,7 +998,6 @@
     <!-- http://purl.org/net/OCRe/study_examples.owl#AC-P2C -->
 
     <owl:NamedIndividual rdf:about="&OCRe;study_examples.owl#AC-P2C">
-        <rdf:type rdf:resource="&OCRe;study_protocol.owl#DefinedCompositionRelationship"/>
         <study_protocol:sequence_number rdf:datatype="&xsd;positiveInteger">1</study_protocol:sequence_number>
         <study_protocol:composite rdf:resource="&OCRe;study_examples.owl#AC-P"/>
         <study_protocol:component rdf:resource="&OCRe;study_examples.owl#AC-P-cytoxan"/>
@@ -1017,7 +1009,6 @@
     <!-- http://purl.org/net/OCRe/study_examples.owl#AC-P2P -->
 
     <owl:NamedIndividual rdf:about="&OCRe;study_examples.owl#AC-P2P">
-        <rdf:type rdf:resource="&OCRe;study_protocol.owl#DefinedCompositionRelationship"/>
         <study_protocol:sequence_number rdf:datatype="&xsd;positiveInteger">2</study_protocol:sequence_number>
         <study_protocol:composite rdf:resource="&OCRe;study_examples.owl#AC-P"/>
         <study_protocol:component rdf:resource="&OCRe;study_examples.owl#AC-P-paclitaxel"/>
@@ -1412,14 +1403,14 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#DepVar_quantitative_indVar_dichotomous"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label>Knorr 1998 Primary outcome analysis specification (FEV1)</rdfs:label>
@@ -1928,12 +1919,6 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
             </owl:Restriction>
@@ -1957,6 +1942,12 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
             </owl:Restriction>
         </rdf:type>
         <research:description rdf:datatype="&xsd;string">StrokeDeathMIStudyTreatmentReceivedAnalysis</research:description>
