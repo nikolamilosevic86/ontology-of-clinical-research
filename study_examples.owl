@@ -439,6 +439,12 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#route_of_administration -->
+
+    <owl:ObjectProperty rdf:about="&OCRe;study_protocol.owl#route_of_administration"/>
+    
+
+
     <!-- http://www.w3.org/2002/07/owl#onDatatype -->
 
     <owl:ObjectProperty rdf:about="&owl;onDatatype"/>
@@ -1300,6 +1306,7 @@
         <rdf:type rdf:resource="&OCRe;study_protocol.owl#OCRE300013"/>
         <study_protocol:dose rdf:resource="&OCRe;study_examples.owl#FiveMg"/>
         <study_protocol:name_code rdf:resource="&OCRe;study_examples.owl#PlaceboCode"/>
+        <study_protocol:route_of_administration rdf:resource="&OCRe;study_examples.owl#oral"/>
         <study_protocol:dose_frequency_code rdf:resource="&OCRe;study_protocol.owl#qd"/>
     </owl:NamedIndividual>
     
@@ -1382,14 +1389,14 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE200107"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE200107"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label>Knorr 1998 Secondary outcome analysis specification (Daytime astham symptoms1)</rdfs:label>
@@ -1843,14 +1850,14 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
             </owl:Restriction>
         </rdf:type>
         <research:description rdf:datatype="&xsd;string">StrokeDeathMIStudyIntentToTreatAnalysis</research:description>
@@ -2511,6 +2518,12 @@
         <rdf:type rdf:resource="&muo;ComplexDerivedUnit"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
     </owl:Thing>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_examples.owl#oral -->
+
+    <owl:NamedIndividual rdf:about="&OCRe;study_examples.owl#oral"/>
     
 
 

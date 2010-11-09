@@ -140,14 +140,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#component">
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300002"/>
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -156,6 +148,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300002"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -164,14 +164,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#composite">
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300002"/>
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -180,6 +172,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300002"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -228,6 +228,12 @@
         <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#has_device_code -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#has_device_code"/>
     
 
 
@@ -419,6 +425,14 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#DefinedDeviceProcedure -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#DefinedDeviceProcedure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000">
@@ -567,13 +581,13 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:label>DefinedCompositionRelationship</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#composite"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#component"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#component"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#composite"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -706,6 +720,20 @@ NOTE:  The number of times this activity occurs during the Study and the relativ
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/study_protocol.owl#tid">
         <rdf:type rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_examples.owl#AC-P-cytoxan">
+        <rdfs:comment>Homogeneous substance administered in some quantity</rdfs:comment>
+    </rdf:Description>
 </rdf:RDF>
 
 

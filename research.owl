@@ -306,20 +306,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#event -->
-
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#event">
-        <owl:inverseOf rdf:resource="&ontologies;research.owl#event_of"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#event_of -->
-
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#event_of"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#executed_at -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#executed_at">
@@ -597,17 +583,13 @@
 
     <!-- http://purl.org/net/OCRe/research.owl#has_variable_characteristic -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#has_variable_characteristic">
-        <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#variable_property"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&ontologies;research.owl#has_variable_characteristic"/>
     
 
 
     <!-- http://purl.org/net/OCRe/research.owl#has_variable_expression -->
 
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#has_variable_expression">
-        <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#variable_property"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&ontologies;research.owl#has_variable_expression"/>
     
 
 
@@ -807,14 +789,6 @@
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#part_of">
         <rdfs:label>part of</rdfs:label>
         <statistics:definition>A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -823,6 +797,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -874,12 +856,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#preceded_by_in_plan -->
-
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#preceded_by_in_plan"/>
-    
-
-
     <!-- http://purl.org/net/OCRe/research.owl#precedes -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#precedes">
@@ -927,14 +903,6 @@
         <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE400076"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#administrative_object_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#procedes_in_plan -->
-
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#procedes_in_plan">
-        <owl:inverseOf rdf:resource="&ontologies;research.owl#preceded_by_in_plan"/>
     </owl:ObjectProperty>
     
 
@@ -1146,12 +1114,6 @@
         <statistics:definition>The unit component of a Quantity</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE400115"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#variable_property -->
-
-    <owl:ObjectProperty rdf:about="&ontologies;research.owl#variable_property"/>
     
 
 
@@ -1957,7 +1919,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400018 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400018">
-        <rdfs:label xml:lang="en">OCT media</rdfs:label>
+        <rdfs:label>OCT media</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Fresh specimen frozen onto a sectioning planchet using OCT (Optimum Cutting Temperatur) and then stored frozen</obo:IAO_0000115>
     </owl:Class>
@@ -1967,7 +1929,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400019 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400019">
-        <rdfs:label xml:lang="en">Fast freeze</rdfs:label>
+        <rdfs:label>Fast freeze</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
         <obo:IAO_0000115 xml:lang="en">Specimen placed into typically Liquid Nitrogen or Dry Ice so the specimen is frozen in seconds then stored colder than (-160° C) ; </obo:IAO_0000115>
     </owl:Class>
@@ -1977,7 +1939,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400020 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400020">
-        <rdfs:label xml:lang="en">Biospecimen preservation method</rdfs:label>
+        <rdfs:label>Biospecimen preservation method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Specimen placed into typically Liquid Nitrogen or Dry Ice so the specimen is frozen in seconds then stored colder than (-160° C)</obo:IAO_0000115>
     </owl:Class>
@@ -1997,7 +1959,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400022 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400022">
-        <rdfs:label xml:lang="en">Formalin fixation</rdfs:label>
+        <rdfs:label>Formalin fixation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Typically fixed overnight in buffered formalin and then embedded in parrafin and stored at room temp</obo:IAO_0000115>
     </owl:Class>
@@ -2080,6 +2042,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400030 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400030">
+        <rdfs:label>Completed recruiting</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400045"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400062"/>
@@ -2190,13 +2153,13 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400031"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#start_time"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#stop_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#stop_time"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#start_time"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2473,6 +2436,7 @@ Population is also used to refer to a set of potential measurements or values, i
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400053 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400053">
+        <rdfs:label>Completed</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400074"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400077"/>
     </owl:Class>
@@ -2644,7 +2608,7 @@ Population is also used to refer to a set of potential measurements or values, i
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400066 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400066">
-        <rdfs:label xml:lang="en">Slow freeze</rdfs:label>
+        <rdfs:label>Slow freeze</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">specimen placed into environment (&gt;or= -80° C) and allowed to freeze over minutes</obo:IAO_0000115>
     </owl:Class>
@@ -2654,7 +2618,7 @@ Population is also used to refer to a set of potential measurements or values, i
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400067 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400067">
-        <rdfs:label xml:lang="en">Para-formaldehyde fixation</rdfs:label>
+        <rdfs:label>Para-formaldehyde fixation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string"> Typically Fixed in Para-Formaldehyde for hours to days and then embedded in plastic and stored at room temp</obo:IAO_0000115>
     </owl:Class>
@@ -2751,8 +2715,20 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2765,18 +2741,6 @@ Population is also used to refer to a set of potential measurements or values, i
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_method"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
@@ -3478,14 +3442,14 @@ Population is also used to refer to a set of potential measurements or values, i
         </swrl:head>
         <swrl:body>
             <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400016"/>
+                        <swrl:argument1 rdf:resource="&ontologies;research.owl#recruitmentStatus"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
-                        <rdf:first>
-                            <swrl:ClassAtom>
-                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
-                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
-                            </swrl:ClassAtom>
-                        </rdf:first>
                         <rdf:rest>
                             <swrl:AtomList>
                                 <rdf:rest rdf:resource="&rdf;nil"/>
@@ -3498,14 +3462,14 @@ Population is also used to refer to a set of potential measurements or values, i
                                 </rdf:first>
                             </swrl:AtomList>
                         </rdf:rest>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
+                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400016"/>
-                        <swrl:argument1 rdf:resource="&ontologies;research.owl#recruitmentStatus"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
             </swrl:AtomList>
         </swrl:body>
     </swrl:Imp>
