@@ -46,6 +46,18 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE250000 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE250000"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE733000 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE733000"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#is_IRB_of -->
 
     <owl:ObjectProperty rdf:about="&research;is_IRB_of"/>
@@ -88,16 +100,35 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500001 -->
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534000 -->
 
-    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500001">
-        <rdfs:label>Principal Investigator</rdfs:label>
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534000">
+        <rdfs:label>Funder</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;OCRE400076"/>
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;principal_investigator_of"/>
+                        <owl:onProperty rdf:resource="&research;OCRE733000"/>
+                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000">
+        <rdfs:label>Sponsor</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;OCRE250000"/>
                         <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
