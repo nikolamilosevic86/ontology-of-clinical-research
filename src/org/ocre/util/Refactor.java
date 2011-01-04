@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.stanford.bmir.ocre.util;
+package org.ocre.util;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.*;
 import org.semanticweb.owlapi.model.*;
@@ -71,7 +71,7 @@ public class Refactor {
 					setOntName(root);
 					File localFile = new File(ontDir+"/"+root+".owl");
 					resetSeed();
-					Set<OWLProperty> props = ont.getPropertiesInSignature();
+					Set<OWLObjectProperty> props = ont.getObjectPropertiesInSignature();
 					for (OWLEntity prop : props) {
 						System.out.println(prop.getIRI());
 						//Call renameURI(..)						

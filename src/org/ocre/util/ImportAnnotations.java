@@ -1,4 +1,4 @@
-package edu.stanford.bmir.ocre.util;
+package org.ocre.util;
 
 import java.io.File;
 
