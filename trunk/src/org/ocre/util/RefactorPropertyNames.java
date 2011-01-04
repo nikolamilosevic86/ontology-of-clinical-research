@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.stanford.bmir.ocre.util;
+package org.ocre.util;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.*;
 import org.semanticweb.owlapi.model.*;
