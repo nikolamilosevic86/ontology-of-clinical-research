@@ -3,20 +3,32 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY OCRE_ext "http://purl.org/net/OCRe/OCRE_ext#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
 ]>
 
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/OCRe_ext.owl#"
      xml:base="http://purl.org/net/OCRe/OCRe_ext.owl"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:OCRE_ext="http://purl.org/net/OCRe/OCRE_ext#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:research="http://purl.org/net/OCRe/research.owl#">
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl">
         <owl:imports rdf:resource="http://purl.org/net/OCRe/research.owl"/>
     </owl:Ontology>
@@ -31,6 +43,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     
 
@@ -46,21 +59,82 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRE_ext#has_funder -->
+
+    <owl:ObjectProperty rdf:about="&OCRE_ext;has_funder">
+        <rdfs:label rdf:datatype="&xsd;string">has funder</rdfs:label>
+        <rdfs:domain rdf:resource="&research;OCRE400029"/>
+        <rdfs:range rdf:resource="&research;OCRE400079"/>
+        <rdfs:subPropertyOf rdf:resource="&research;OCRE5000006"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRE_ext#is_IRB_of -->
+
+    <owl:ObjectProperty rdf:about="&OCRE_ext;is_IRB_of"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#OCRE250000 -->
 
     <owl:ObjectProperty rdf:about="&research;OCRE250000"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#OCRE733000 -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE5000006 -->
 
-    <owl:ObjectProperty rdf:about="&research;OCRE733000"/>
+    <owl:ObjectProperty rdf:about="&research;OCRE5000006"/>
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#is_IRB_of -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE518308 -->
 
-    <owl:ObjectProperty rdf:about="&research;is_IRB_of"/>
+    <owl:ObjectProperty rdf:about="&research;OCRE518308"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE533511 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE533511"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE547004 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE547004"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE549929 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE549929"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE576287 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE576287"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE583480 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE583480"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE585289 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE585289"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE733000 -->
+
+    <owl:ObjectProperty rdf:about="&research;OCRE733000">
+        <owl:inverseOf rdf:resource="&OCRE_ext;has_funder"/>
+    </owl:ObjectProperty>
     
 
 
@@ -84,18 +158,58 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000">
-        <rdfs:label>IRB</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">IRB</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;OCRE400079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;is_IRB_of"/>
-                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE568687"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE533511"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747">
+        <rdfs:label>Recruitment site</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE595405"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE549929"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;OCRE400079"/>
     </owl:Class>
     
 
@@ -103,14 +217,24 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534000">
-        <rdfs:label>Funder</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Funder</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;OCRE733000"/>
-                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE50034"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE576287"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -119,17 +243,90 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
+        <rdfs:label>Person or Organization</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400076"/>
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892">
+        <rdfs:label>Person or social institution</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400076"/>
+                    <rdf:Description rdf:about="&research;OCRE541581"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&research;OCRE400032"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000">
-        <rdfs:label>Sponsor</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Sponsor</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&research;OCRE400079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;OCRE250000"/>
-                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE581634"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE547004"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730">
+        <rdfs:label>Participating stie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE541581"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE513134"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE583480"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -144,15 +341,100 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400032 -->
+
+    <owl:Class rdf:about="&research;OCRE400032"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400043 -->
+
+    <owl:Class rdf:about="&research;OCRE400043">
+        <rdfs:label rdf:datatype="&xsd;string">Study site</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE541581"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&research;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&research;OCRE590011"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&research;OCRE518308"/>
+                                        <owl:someValuesFrom rdf:resource="&research;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A health care site in which study activities are conducted.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400076 -->
 
-    <owl:Class rdf:about="&research;OCRE400076"/>
+    <owl:Class rdf:about="&research;OCRE400076">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280"/>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400079 -->
 
-    <owl:Class rdf:about="&research;OCRE400079"/>
+    <owl:Class rdf:about="&research;OCRE400079">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE50034 -->
+
+    <owl:Class rdf:about="&research;OCRE50034"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE513134 -->
+
+    <owl:Class rdf:about="&research;OCRE513134"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE541581 -->
+
+    <owl:Class rdf:about="&research;OCRE541581">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE568687 -->
+
+    <owl:Class rdf:about="&research;OCRE568687"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE581634 -->
+
+    <owl:Class rdf:about="&research;OCRE581634"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE590011 -->
+
+    <owl:Class rdf:about="&research;OCRE590011"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE595405 -->
+
+    <owl:Class rdf:about="&research;OCRE595405"/>
 </rdf:RDF>
 
 
