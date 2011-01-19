@@ -66,6 +66,9 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:ID="OCRE200097"/>
           <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="dependent_variable"/>
+            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:someValuesFrom>
@@ -76,9 +79,6 @@
                 </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:ID="dependent_variable"/>
-            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -148,12 +148,12 @@
   <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_dichotomous">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200081"/>
-        </owl:someValuesFrom>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="OCRE200081"/>
+        </owl:someValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -165,9 +165,6 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:ID="OCRE200060"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:onProperty>
@@ -178,6 +175,9 @@
                 </owl:someValuesFrom>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -249,9 +249,6 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200032"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:someValuesFrom>
@@ -262,6 +259,9 @@
                 </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -270,10 +270,10 @@
     >A univariate analysis where the dependent variable is polychotomous and independent variable is polychotomous</obo:IAO_0000115>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -313,19 +313,19 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200060"/>
           <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200015"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                  <owl:Class rdf:ID="OCRE200015"/>
+                </owl:someValuesFrom>
+              </owl:Restriction>
+            </owl:someValuesFrom>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -341,11 +341,11 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:ID="OCRE200053"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
                 <owl:someValuesFrom>
                   <owl:Class>
                     <owl:complementOf>
@@ -353,18 +353,18 @@
                     </owl:complementOf>
                   </owl:Class>
                 </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
-          </owl:Restriction>
-          <owl:Restriction>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >2</owl:minCardinality>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >2</owl:minCardinality>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -455,6 +455,9 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200032"/>
           <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:someValuesFrom>
@@ -465,9 +468,6 @@
                 </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -534,29 +534,29 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:ID="OCRE200079"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
     </owl:equivalentClass>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200004"/>
-        </owl:someValuesFrom>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#OCRE200004"/>
+        </owl:someValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -569,12 +569,12 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
         <owl:someValuesFrom>
           <owl:Class rdf:ID="OCRE200029"/>
         </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#permissible_method"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -636,6 +636,9 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200097"/>
           <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#dependent_variable"/>
+            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:onProperty>
@@ -646,9 +649,6 @@
                 </owl:someValuesFrom>
               </owl:Restriction>
             </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -671,11 +671,11 @@
   <owl:Class rdf:ID="OCRE200054">
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</owl:minCardinality>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#independent_variable"/>
         </owl:onProperty>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >2</owl:minCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
@@ -740,16 +740,16 @@
               <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                   <owl:Restriction>
-                    <owl:someValuesFrom rdf:resource="#OCRE200000"/>
                     <owl:onProperty>
                       <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                     </owl:onProperty>
+                    <owl:someValuesFrom rdf:resource="#OCRE200000"/>
                   </owl:Restriction>
                   <owl:Restriction>
+                    <owl:someValuesFrom rdf:resource="#OCRE200084"/>
                     <owl:onProperty>
                       <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                     </owl:onProperty>
-                    <owl:someValuesFrom rdf:resource="#OCRE200084"/>
                   </owl:Restriction>
                 </owl:intersectionOf>
               </owl:Class>
@@ -850,9 +850,6 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:ID="OCRE200106"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:onProperty>
@@ -861,6 +858,9 @@
                 <owl:someValuesFrom rdf:resource="#OCRE200001"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -917,11 +917,11 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200053"/>
           <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
-            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:cardinality>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -976,12 +976,12 @@
     >DepVar quantitative indVar nominalGT2</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200033"/>
-        </owl:someValuesFrom>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="OCRE200033"/>
+        </owl:someValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -1014,17 +1014,17 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200092"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200000"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200000"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1051,19 +1051,19 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200092"/>
           <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200103"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#dependent_variable"/>
             </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                  <owl:Class rdf:about="#OCRE200103"/>
+                </owl:someValuesFrom>
+              </owl:Restriction>
+            </owl:someValuesFrom>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1096,10 +1096,10 @@
     </owl:equivalentClass>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1129,10 +1129,10 @@
   <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_ordinal">
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#OCRE200054"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200054"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:equivalentClass>
@@ -1140,19 +1140,19 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200106"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
                 <owl:someValuesFrom>
                   <owl:Class rdf:about="#OCRE200015"/>
                 </owl:someValuesFrom>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1284,10 +1284,10 @@
     >A univariate analysis where the dependent variable is quantitative and independent variable is ordinal</obo:IAO_0000115>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1297,17 +1297,17 @@
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200098"/>
           <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
+              </owl:Restriction>
+            </owl:someValuesFrom>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1329,10 +1329,10 @@
     >A univariate analysis where the dependent variable is polychotomous and independent variable is ordinal</obo:IAO_0000115>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <owl:equivalentClass>
@@ -1413,9 +1413,6 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200079"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:onProperty>
@@ -1424,6 +1421,9 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
                 <owl:someValuesFrom rdf:resource="#OCRE200015"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1461,10 +1461,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
             </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
+                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
               </owl:Restriction>
             </owl:someValuesFrom>
           </owl:Restriction>
@@ -1508,17 +1508,17 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200098"/>
           <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
+              </owl:Restriction>
+            </owl:someValuesFrom>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1554,6 +1554,9 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200079"/>
           <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#independent_variable"/>
+            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:someValuesFrom rdf:resource="#OCRE200078"/>
@@ -1562,11 +1565,11 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
                 </owl:onProperty>
               </owl:Restriction>
             </owl:someValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
-          </owl:Restriction>
-          <owl:Restriction>
             <owl:someValuesFrom>
               <owl:Restriction>
                 <owl:onProperty>
@@ -1575,9 +1578,6 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
                 <owl:someValuesFrom rdf:resource="#OCRE200049"/>
               </owl:Restriction>
             </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1588,10 +1588,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
     >Dep var dichotomous multivariate indVar</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200027"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#OCRE200027"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -1660,10 +1660,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
             </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
+                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
               </owl:Restriction>
             </owl:someValuesFrom>
           </owl:Restriction>
@@ -1727,17 +1727,17 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200097"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#dependent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1758,17 +1758,17 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200079"/>
           <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
             <owl:onProperty>
               <owl:ObjectProperty rdf:about="#independent_variable"/>
             </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
+              </owl:Restriction>
+            </owl:someValuesFrom>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1787,10 +1787,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#OCRE200004"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#permissible_method"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200004"/>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -1853,17 +1853,17 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <owl:intersectionOf rdf:parseType="Collection">
           <owl:Class rdf:about="#OCRE200092"/>
           <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
             <owl:someValuesFrom>
               <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200049"/>
                 <owl:onProperty>
                   <owl:ObjectProperty rdf:about="#measurement_dimension"/>
                 </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#OCRE200049"/>
               </owl:Restriction>
             </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#dependent_variable"/>
+            </owl:onProperty>
           </owl:Restriction>
         </owl:intersectionOf>
       </owl:Class>
@@ -1941,4 +1941,4 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
   <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000116"/>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.4.5, Build 585)  http://protege.stanford.edu -->
+<!-- Created with Protege (with OWL Plugin 3.4.5, Build 599)  http://protege.stanford.edu -->
