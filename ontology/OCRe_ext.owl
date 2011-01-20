@@ -83,8 +83,15 @@
         <rdfs:label rdf:datatype="&xsd;string">is funder of</rdfs:label>
         <owl:inverseOf rdf:resource="&OCRe_ext;has_funder"/>
         <rdfs:range rdf:resource="&research;OCRE400029"/>
-        <rdfs:domain rdf:resource="&research;OCRE400079"/>
         <rdfs:subPropertyOf rdf:resource="&research;OCRE5000006"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400076"/>
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&research;OCRE585289"/>
             <rdf:Description rdf:about="&research;OCRE576287"/>
@@ -110,8 +117,15 @@
     <owl:ObjectProperty rdf:about="&OCRe_ext;has_funder">
         <rdfs:label rdf:datatype="&xsd;string">has funder</rdfs:label>
         <rdfs:domain rdf:resource="&research;OCRE400029"/>
-        <rdfs:range rdf:resource="&research;OCRE400079"/>
         <rdfs:subPropertyOf rdf:resource="&research;OCRE5000006"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&research;OCRE400076"/>
+                    <rdf:Description rdf:about="&research;OCRE400079"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&research;OCRE551318"/>
             <rdf:Description rdf:about="&research;OCRE529106"/>
