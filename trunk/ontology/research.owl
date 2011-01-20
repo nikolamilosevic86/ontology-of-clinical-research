@@ -130,7 +130,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRE500036">
         <rdfs:label>is administrative relation of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE50048"/>
     </owl:ObjectProperty>
     
 
@@ -155,7 +157,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE518308">
         <rdfs:label>is study assessment/intervention agreement of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE590011"/>
     </owl:ObjectProperty>
     
 
@@ -186,7 +190,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE533511">
         <rdfs:label>is IRB process of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE568687"/>
     </owl:ObjectProperty>
     
 
@@ -206,7 +212,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE547004">
         <rdfs:label>is sponsoring relation of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE581634"/>
     </owl:ObjectProperty>
     
 
@@ -215,7 +223,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE549929">
         <rdfs:label>is recruitment agreement of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE595405"/>
     </owl:ObjectProperty>
     
 
@@ -256,6 +266,7 @@
         <rdfs:label>has recruitment agreement</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE525938"/>
         <owl:inverseOf rdf:resource="&ontologies;research.owl#OCRE549929"/>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE595405"/>
     </owl:ObjectProperty>
     
 
@@ -275,7 +286,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE576287">
         <rdfs:label>is funding relation of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE50034"/>
     </owl:ObjectProperty>
     
 
@@ -284,7 +297,9 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE583480">
         <rdfs:label>is study performance agreemnt of</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE513134"/>
     </owl:ObjectProperty>
     
 
@@ -294,6 +309,15 @@
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#OCRE585289">
         <rdfs:label>is an actor of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:range rdf:resource="&ontologies;research.owl#OCRE50048"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400076"/>
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE541581"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -432,8 +456,19 @@
     <!-- http://purl.org/net/OCRe/research.owl#executed_at -->
 
     <owl:ObjectProperty rdf:about="&ontologies;research.owl#executed_at">
-        <rdfs:domain rdf:resource="&ontologies;research.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
+        <rdfs:domain rdf:resource="&ontologies;study_protocol.owl#OCRE300012"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE541581"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;research.owl#OCRE585289"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE513134"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -444,6 +479,17 @@
         <statistics:definition rdf:datatype="&xsd;string">A StudySite executes some Study Protocol (from BRIDG 1.1.1)</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&ontologies;research.owl#OCRE5000006"/>
         <rdfs:range rdf:resource="&ontologies;study_protocol.owl#OCRE300012"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE541581"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;research.owl#OCRE585289"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE513134"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -495,7 +541,6 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400027"/>
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400076"/>
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400079"/>
                 </owl:unionOf>
@@ -832,7 +877,6 @@
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400027"/>
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400076"/>
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400079"/>
                 </owl:unionOf>
@@ -3575,6 +3619,12 @@ Population is also used to refer to a set of potential measurements or values, i
             <swrl:AtomList>
                 <rdf:rest>
                     <swrl:AtomList>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
+                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
                         <rdf:rest>
                             <swrl:AtomList>
                                 <rdf:rest rdf:resource="&rdf;nil"/>
@@ -3587,12 +3637,6 @@ Population is also used to refer to a set of potential measurements or values, i
                                 </rdf:first>
                             </swrl:AtomList>
                         </rdf:rest>
-                        <rdf:first>
-                            <swrl:ClassAtom>
-                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
-                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
-                            </swrl:ClassAtom>
-                        </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
                 <rdf:first>
