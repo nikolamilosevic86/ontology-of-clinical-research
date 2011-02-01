@@ -1,145 +1,513 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-    xmlns:research="http://purl.org/net/OCRe/research.owl#"
-    xmlns:obo="http://purl.obolibrary.org/obo/"
-    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-    xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol#"
-    xmlns:dctype="http://purl.org/dc/dcmitype/Image"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns="http://purl.org/net/OCRe/study_protocol.owl#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:dcterms="http://purl.org/dc/terms/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns:owl2="http://www.w3.org/2006/12/owl2#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://purl.org/net/OCRe/study_protocol.owl">
-  <owl:Ontology rdf:about="">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Concept imported from BRIDG that related to the planned activities and schedules of a study protocol.</rdfs:comment>
-  </owl:Ontology>
-  <owl:Class rdf:ID="OCRE300004">
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The planned activity within the context of a given study that is not directly related to the study's overarching hypothesis evaluation or testing, but is nonetheless essential to the efficient and/or effective coordination and execution of the study.
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY dctype "http://purl.org/dc/dcmitype/Image" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/OCRe/study_protocol.owl#"
+     xml:base="http://purl.org/net/OCRe/study_protocol.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:dctype="http://purl.org/dc/dcmitype/Image"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://purl.org/net/OCRe/study_protocol.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">Concept imported from BRIDG that related to the planned activities and schedules of a study protocol.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#develop_comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#is_a_division_of -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_a_division_of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <statistics:definition rdf:datatype="&xsd;string">This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol#is_divided_into -->
+
+    <owl:ObjectProperty rdf:about="&study_protocol;is_divided_into">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <statistics:definition rdf:datatype="&xsd;string">This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
+        <owl:inverseOf rdf:resource="&study_protocol;is_a_division_of"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#associates_a_study_to -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#associates_a_study_to">
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#associates_an_activity_to -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#associates_an_activity_to">
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#component -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#component">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#composite -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#composite">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#contains">
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#daily_dose_total -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#daily_dose_total">
+        <rdfs:range rdf:resource="&research;OCRE400115"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#dose -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#dose">
+        <rdfs:range rdf:resource="&research;OCRE400115"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#dose_frequency_code -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#dose_frequency_code">
+        <rdfs:range rdf:resource="&research;OCRE400055"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#has_device_code -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#has_device_code"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#is_a_use_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#is_a_use_of">
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#is_associated_to_a_study_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#is_associated_to_a_study_by">
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#associates_a_study_to"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#is_associated_to_an_activity_by -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#is_associated_to_an_activity_by">
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#is_used_as -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#is_used_as">
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#name_code -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#name_code">
+        <rdfs:range rdf:resource="&research;OCRE400055"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#occurs_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#occurs_in">
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#contains"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#pause_quantity -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#pause_quantity">
+        <rdfs:range rdf:resource="&research;OCRE400057"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#repeat_duration -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#repeat_duration">
+        <rdfs:range rdf:resource="&research;OCRE400057"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#route_of_administration -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#route_of_administration">
+        <rdfs:range rdf:resource="&research;OCRE400055"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#repeat_quantity -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#repeat_quantity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#sequence_number -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#sequence_number">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="&owl;topDataProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400055 -->
+
+    <owl:Class rdf:about="&research;OCRE400055">
+        <rdfs:label rdf:datatype="&xsd;string">ConceptDescriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400057 -->
+
+    <owl:Class rdf:about="&research;OCRE400057">
+        <rdfs:label rdf:datatype="&xsd;string">Duration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400115 -->
+
+    <owl:Class rdf:about="&research;OCRE400115">
+        <rdfs:label rdf:datatype="&xsd;string">Physical quantity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#DefinedDeviceProcedure -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#DefinedDeviceProcedure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300000 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000">
+        <rdfs:label rdf:datatype="&xsd;string">Epoch</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An epoch defined for a specific study but for which no StudySubjects or ExperimentalUnits have been identified (where Epoch is defined as: One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.). [BRIDG Release 2.2]</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">An epoch is one of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
+
+Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+
+NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: this class has been deleted in BRIDG 3. Use Epoch instead?</obo:IAO_0000232>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300001 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
+        <rdfs:label rdf:datatype="&xsd;string">Arm</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An arm for which StudySubjects or ExperimentalUnits have not yet been identified (where Arm is defined as: A path through the study which describes what activities the StudySubject or ExperimentalUnit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. For example, a study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.). [BRIDG Release 2.2]</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300003 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300003">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedRepeatActivityUntilRule</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300004 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300004">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedAdministrativeActivity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The planned activity within the context of a given study that is not directly related to the study&#39;s overarching hypothesis evaluation or testing, but is nonetheless essential to the efficient and/or effective coordination and execution of the study.
 
 For example, assignment to a treatment arm, registration to a study, start of on-study period, end of on-study period, obtain informed consent, verify eligibility criteria, enroll, randomize, complete study visits, exit trial, break treatment blind, protocol violation, premature withdrawal, etc. [BRIDG Release 2.2]</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedAdministrativeActivity</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE300011"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="DefinedDeviceProcedure">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE300009"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300010">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedCompositionRelationship</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="composite"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#OCRE300011"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="component"/>
-        </owl:onProperty>
-        <owl:allValuesFrom>
-          <owl:Class rdf:about="#OCRE300011"/>
-        </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300006">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedSpecimenCollection</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE300009"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300014">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedContingentOnRelationship</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300007">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#OCRE400055"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PrescriptionDrugFrequencyCode</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300013">
-    <obo:IAO_0000232 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona: class has many attributes; I assume within OCRe they are found in the IO.</obo:IAO_0000232>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The intended action of applying, dispensing or otherwise giving medications or other substances to ExperimentalUnits.
+    </owl:Class>
+    
 
-For example, a study subject who receives methotrexate as part of chemotherapy. [BRIDG Release 2.2]</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedSubstanceAdministration</rdfs:label>
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE300009"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE300009">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedProcedure</rdfs:label>
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A planned activity whose immediate and primary intention is the alteration of the physical condition of the StudySubject or ExperimentalUnit.
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300006 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300006">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedSpecimenCollection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300007 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007">
+        <rdfs:label rdf:datatype="&xsd;string">PrescriptionDrugFrequencyCode</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&research;OCRE400055"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300008 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300008">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedObservation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The intended action of observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a StudySubject&#39;s or ExperimentalUnit&#39;s physiologic or psychologic state. [BRIDG Release 2.2]</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300009 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedProcedure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A planned activity whose immediate and primary intention is the alteration of the physical condition of the StudySubject or ExperimentalUnit.
 
 For example, procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure) conservative procedures such as reduction of a luxated joint, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu, radiation therapy, etc. [BRIDG Release 2.2]</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE300011"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300008">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedObservation</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE300011"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The intended action of observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a StudySubject's or ExperimentalUnit's physiologic or psychologic state. [BRIDG Release 2.2]</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300003">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedRepeatActivityUntilRule</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE300011">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedActivity</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300012">
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An action plan for a formal investigation to assess the utility, impact, pharmacological, physiological, and psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300010 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300010">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedCompositionRelationship</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#component"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#composite"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300011 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedActivity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300012 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300012">
+        <rdfs:label rdf:datatype="&xsd;string">Study Protocol</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An action plan for a formal investigation to assess the utility, impact, pharmacological, physiological, and psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.
 
 Note: Among other things, the action plan may include the design, statistical considerations and all activities to test a particular hypothesis that is the basis of the study.  The study may be of any type that involves StudySubjects, including prevention, therapeutic, interventional or observational.  Subjects may be biological entities (human, animal, specimen, tissue, organ, etc.) or products. [BRIDG Release 2.2]</obo:IAO_0000115>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >NOTE: The StudyProtocol class encapsulates the semantics of two 'views' of the single concept 'study.'  The name 'StudyProtocol' was chosen to both disambiguate the somewhat overloaded term 'protocol,' as well as to emphasize that the class has two important relationships to the Document class, each of which emphasizes a different aspect of the overall semantics of the StudyProtocol class:
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">NOTE: The StudyProtocol class encapsulates the semantics of two &#39;views&#39; of the single concept &#39;study.&#39;  The name &#39;StudyProtocol&#39; was chosen to both disambiguate the somewhat overloaded term &#39;protocol,&#39; as well as to emphasize that the class has two important relationships to the Document class, each of which emphasizes a different aspect of the overall semantics of the StudyProtocol class:
 1). StudyProtocol is a sub-class of the Document class:
 StudyProtocol is a sub-class of Document and, as such, inherits all of the basic characteristics of its parent.  In particular, an instance can contain all of the definitions, specifications, and content of the various (logical) documents which collectively define a study, including (but not limited to) documents that describe the objective(s), background, and/or plan (including the design, methodology, statistical considerations, organization, or other supplemental materials that describe the required information of a Study.
 2). StudyProtocol is a collector for Document instances:
@@ -150,226 +518,108 @@ NOTE:  A StudyProtocol can be either Primary or Correlative.  A StudyProtocol is
 NOTE: We are assuming that a document is a container, which may be physical or logical, with the six characteristics listed in the definition of the Document class.  This class is the container for the Plan. 
 
 NOTE: StudyProtocol describes the pre-study, study, and post-study portions of the plan. [BRIDG Release 2.2]</obo:IAO_0000116>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Previous definition: An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Study Protocol</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300001">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An arm for which StudySubjects or ExperimentalUnits have not yet been identified (where Arm is defined as: A path through the study which describes what activities the StudySubject or ExperimentalUnit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. For example, a study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.). [BRIDG Release 2.2]</obo:IAO_0000115>
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Arm</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#OCRE400055">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >ConceptDescriptor</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Thing</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300000">
-    <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona</obo:IAO_0000117>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An epoch is one of a set of ordered partitions of an experimental unit's planned time in a study.  
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Previous definition: An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
 
-Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject's movement from one Epoch to another.
 
-For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects' eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300013 -->
 
-NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</obo:IAO_0000116>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An epoch defined for a specific study but for which no StudySubjects or ExperimentalUnits have been identified (where Epoch is defined as: One of a set of ordered partitions of an experimental unit's planned time in a study.). [BRIDG Release 2.2]</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Epoch</rdfs:label>
-    <obo:IAO_0000232 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Simona: this class has been deleted in BRIDG 3. Use Epoch instead?</obo:IAO_0000232>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300016">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The intention to use a defined activity in the design of a study.
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedSubstanceAdministration</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: class has many attributes; I assume within OCRe they are found in the IO.</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The intended action of applying, dispensing or otherwise giving medications or other substances to ExperimentalUnits.
 
-For example, if a Study's design includes the activity of taking blood pressure, the DefinedActivity for blood pressure is linked to the Study via this class.
+For example, a study subject who receives methotrexate as part of chemotherapy. [BRIDG Release 2.2]</obo:IAO_0000115>
+    </owl:Class>
+    
 
-NOTE:  The number of times this activity occurs during the Study and the relative timing for those occurrences is represented by PlannedActivity.</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="associates_a_study_to"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE300011"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >StudyActivity</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE300015">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DefinedSubjectActivityGroup</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A collection of activities performed on a common subject that are intended to occur at approximately the same time.
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300014 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300014">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedContingentOnRelationship</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300015 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300015">
+        <rdfs:label rdf:datatype="&xsd;string">DefinedSubjectActivityGroup</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A collection of activities performed on a common subject that are intended to occur at approximately the same time.
 
 For example, Clinic visit during which a physical exam, a blood test, and a substance administration occur;  Telephone contact during which temperature, blood pressure and adverse events are reported; recording multiple observation results in a diary.</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE300011"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#OCRE400115">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Physical quantity</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#OCRE400057">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Duration</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:ID="associates_an_activity_to">
-    <rdfs:domain rdf:resource="#OCRE300016"/>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    </rdfs:subPropertyOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#associates_a_study_to">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="#OCRE300016"/>
-    <rdfs:range rdf:resource="#OCRE300011"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="is_used_as">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="#OCRE300016"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="pause_quantity">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400057"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="name_code">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400055"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="is_associated_to_a_study_by">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="#OCRE300016"/>
-    <rdfs:domain rdf:resource="#OCRE300011"/>
-    <owl:inverseOf rdf:resource="#associates_a_study_to"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="dose_frequency_code">
-    <rdfs:domain rdf:resource="#OCRE300013"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400055"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#composite">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol#is_divided_into">
-    <rdfs:range>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE300000"/>
-          <owl:Class rdf:about="#OCRE300001"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:range>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol#is_a_division_of"/>
-    </owl:inverseOf>
-    <statistics:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="daily_dose_total">
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400115"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="#OCRE300013"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="dose">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain rdf:resource="#OCRE300013"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400115"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="has_device_code"/>
-  <owl:ObjectProperty rdf:ID="is_a_use_of">
-    <rdfs:range rdf:resource="#OCRE300016"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#component">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="repeat_duration">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400057"/>
-    <rdfs:domain rdf:resource="#OCRE300011"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="route_of_administration">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/net/OCRe/research.owl#OCRE400055"/>
-    <rdfs:domain rdf:resource="#OCRE300013"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="occurs_in">
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="contains"/>
-    </owl:inverseOf>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE300000"/>
-          <owl:Class rdf:about="#OCRE300001"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:range>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="is_associated_to_an_activity_by">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:range rdf:resource="#OCRE300016"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#contains">
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE300000"/>
-          <owl:Class rdf:about="#OCRE300001"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol#is_a_division_of">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-    <rdfs:domain>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE300000"/>
-          <owl:Class rdf:about="#OCRE300001"/>
-        </owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <statistics:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:ID="repeat_quantity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:ID="sequence_number">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#topDataProperty"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000117"/>
-  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
-  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
-  <OCRE300007 rdf:ID="qd"/>
-  <OCRE300007 rdf:ID="bid"/>
-  <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#curator"/>
-  <OCRE300007 rdf:ID="tid"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
-  <owl:AnnotationProperty rdf:ID="develop_comment"/>
-  <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#definition"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000232"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000116"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300016 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300016">
+        <rdfs:label rdf:datatype="&xsd;string">StudyActivity</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#associates_a_study_to"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The intention to use a defined activity in the design of a study.
+
+For example, if a Study&#39;s design includes the activity of taking blood pressure, the DefinedActivity for blood pressure is linked to the Study via this class.
+
+NOTE:  The number of times this activity occurs during the Study and the relative timing for those occurrences is represented by PlannedActivity.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#bid -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/study_protocol.owl#bid">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#qd -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/study_protocol.owl#qd">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#tid -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/study_protocol.owl#tid">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.4.5, Build 599)  http://protege.stanford.edu -->
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+

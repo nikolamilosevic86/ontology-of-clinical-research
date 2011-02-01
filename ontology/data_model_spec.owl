@@ -21,6 +21,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/data_model_spec.owl">
         <owl:imports rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl"/>
+        <OCRe_ext:OCRE529769 rdf:resource="&ocre;OCRE400029"/>
     </owl:Ontology>
     
 
@@ -33,8 +34,18 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE566765">
+        <rdfs:label>has single parent</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE511666">
+        <rdfs:label>has subclass type</rdfs:label>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&OCRe_ext;OCRE520413"/>
+    <owl:AnnotationProperty rdf:about="&OCRe_ext;OCRE529769"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE585583">
+        <rdfs:label>select group</rdfs:label>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000005">
         <rdfs:label>has IRI</rdfs:label>
     </owl:AnnotationProperty>
@@ -153,34 +164,69 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/data_model_spec.owl#OCRE536811 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE536811">
+        <rdfs:label>Subclass type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ocre;OCRE400010"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400010 -->
+
+    <owl:Class rdf:about="&ocre;OCRE400010"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400014 -->
+
+    <owl:Class rdf:about="&ocre;OCRE400014">
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE521226"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_scheme"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400029 -->
 
     <owl:Class rdf:about="&ocre;OCRE400029">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000011"/>
-                <owl:hasValue rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000007"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000011"/>
-                <owl:hasValue rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000003"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000011"/>
-                <owl:hasValue rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE5000006"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <OCRe_ext:OCRE520413 rdf:resource="&OCRe_ext;OCRE5000002"/>
         <OCRe_ext:OCRE520413 rdf:resource="&OCRe_ext;has_IRB"/>
-        <OCRe_ext:OCRE520413 rdf:resource="&OCRe_ext;has_funder"/>
         <OCRe_ext:OCRE520413 rdf:resource="&OCRe_ext;has_recruitment_site"/>
         <OCRe_ext:OCRE520413 rdf:resource="&OCRe_ext;has_sponsor"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;OCRE529106"/>
         <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_contact_for_public_queries"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_identifier"/>
         <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_principal_investigator"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_recruitment_status"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_scientific_title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400039 -->
+
+    <owl:Class rdf:about="&ocre;OCRE400039">
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE400040 -->
+
+    <owl:Class rdf:about="&ocre;OCRE400040">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ocre;OCRE400014"/>
+                    <rdf:Description rdf:about="&ocre;OCRE400039"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <OCRE585583 rdf:resource="&ocre;OCRE400014"/>
+        <OCRE585583 rdf:resource="&ocre;OCRE400039"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address_string"/>
     </owl:Class>
     
 
@@ -353,6 +399,24 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE536811"/>
+        <rdfs:label>restriction</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/data_model_spec.owl#OCRE521226 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/data_model_spec.owl#OCRE521226">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE536811"/>
+        <rdfs:label>extension</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -361,20 +425,63 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="&OCRe_ext;OCRE500000">
+    <rdf:Description rdf:about="&OCRe_ext;OCRE598434">
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE400079"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE571000">
+        <OCRE566765 rdf:resource="&OCRe_ext;OCRE546280"/>
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;has_name">
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_first_name"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_last_name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE400076">
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE400079">
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE521226"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE541581"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_identifier"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE50034">
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;OCRE551318"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE534000">
+        <OCRE566765 rdf:resource="&OCRe_ext;OCRE546280"/>
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE560892">
         <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&OCRe_ext;OCRE598434">
-        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address"/>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE500000">
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE400079"/>
     </rdf:Description>
     <rdf:Description rdf:about="&OCRe_ext;OCRE534515">
-        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address"/>
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE400079"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE546280">
+        <OCRE585583 rdf:resource="&ocre;OCRE400076"/>
+        <OCRE585583 rdf:resource="&ocre;OCRE400079"/>
     </rdf:Description>
     <rdf:Description rdf:about="&OCRe_ext;OCRE511747">
-        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address"/>
+        <OCRE511666 rdf:resource="http://purl.org/net/OCRe/data_model_spec.owl#OCRE517890"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE400079"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&ocre;OCRE400040">
-        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_address_string"/>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE598730">
+        <OCRE585583 rdf:resource="&ocre;OCRE400079"/>
+        <OCRE566765 rdf:resource="&ocre;OCRE541581"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE400001">
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_extension"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_identifier_name"/>
+        <OCRe_ext:OCRE520413 rdf:resource="&ocre;has_root"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE400043">
+        <OCRE566765 rdf:resource="&OCRe_ext;OCRE598730"/>
     </rdf:Description>
 </rdf:RDF>
 

@@ -297,6 +297,12 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE557377 -->
+
+    <owl:ObjectProperty rdf:about="&ocre;OCRE557377"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#OCRE562807 -->
 
     <owl:ObjectProperty rdf:about="&ocre;OCRE562807"/>
@@ -436,6 +442,27 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534515">
         <rdfs:label>Oversight Committee</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ocre;OCRE400079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ocre;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&ocre;OCRE535847"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&ocre;OCRE557377"/>
+                                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <rdfs:subClassOf rdf:resource="&ocre;OCRE400079"/>
         <rdfs:comment>data safety monitoring committee, protocol review and monitoring committee</rdfs:comment>
@@ -515,6 +542,27 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598434">
         <rdfs:label>Laboratory site</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ocre;OCRE400079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ocre;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&ocre;OCRE591890"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000003"/>
+                                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <rdfs:subClassOf rdf:resource="&ocre;OCRE400079"/>
     </owl:Class>
@@ -621,11 +669,16 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE535847 -->
+
+    <owl:Class rdf:about="&ocre;OCRE535847"/>
+    
+
+
     <!-- http://purl.org/net/OCRe/research.owl#OCRE541581 -->
 
     <owl:Class rdf:about="&ocre;OCRE541581">
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892"/>
-        <OCRE520413 rdf:resource="&ocre;has_address"/>
     </owl:Class>
     
 
@@ -645,6 +698,12 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE590011 -->
 
     <owl:Class rdf:about="&ocre;OCRE590011"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE591890 -->
+
+    <owl:Class rdf:about="&ocre;OCRE591890"/>
     
 
 

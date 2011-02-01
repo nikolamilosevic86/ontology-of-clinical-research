@@ -1389,14 +1389,14 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE200107"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE200107"/>
             </owl:Restriction>
         </rdf:type>
         <rdfs:label>Knorr 1998 Secondary outcome analysis specification (Daytime astham symptoms1)</rdfs:label>
@@ -1878,12 +1878,6 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_group"/>
                 <owl:someValuesFrom>
                     <owl:Class>
@@ -1907,6 +1901,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_method"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
             </owl:Restriction>
         </rdf:type>
         <research:description rdf:datatype="&xsd;string">StrokeDeathMIStudyTreatmentReceivedAnalysis</research:description>
@@ -2173,13 +2173,13 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE400030"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE400053"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;research.owl#study_characteristic"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE400053"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;research.owl#OCRE400030"/>
             </owl:Restriction>
         </rdf:type>
         <research:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</research:date_of_first_enrollment>

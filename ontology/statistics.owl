@@ -1,1944 +1,2062 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-    xmlns:research="http://purl.org/net/OCRe/research.owl#"
-    xmlns:obo="http://purl.obolibrary.org/obo/"
-    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-    xmlns="http://purl.org/net/OCRe/statistics.owl#"
-    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xml:base="http://purl.org/net/OCRe/statistics.owl">
-  <owl:Ontology rdf:about="">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An ontology of objects and relationships in statistics that are useful for describing statistical analysis used in human studies. It is part of the Ontology for Clinical Research (OCRe).</rdfs:comment>
-  </owl:Ontology>
-  <owl:Class rdf:ID="OCRE200037">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The lambda co-efficient of an exponential distribution</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Lambda</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200080"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200007">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200093"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Range</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The largest minus the smallest of a set of variate values. The range is of itself an elementary measure of dispersion but, in terms of the mean range in repeated sampling, it may afford a reasonable estimate of the population standard deviation. (http://stats.oecd.org/glossary/detail.asp?ID=3824)</obo:IAO_0000115>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="OCRE200055"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200096">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200087"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Continuous uniform distribution</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200063">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Gamma distribution</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200023">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Poisson distribution</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200082">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200097"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:ID="dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200103"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:ID="measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for multi-variate analysis with survival-data dependent variable  and multivariate variable</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dep var survival data multivariate indVar</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200027"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200057">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mean</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >When unqualified, the mean usually refers to the expectation of a variate, or to the arithmetic mean of a sample used as an estimate of the expectation. (http://stats.oecd.org/glossary/detail.asp?ID=3762)</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200024"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_quantitative">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar nominalGT2 indVar quantitative</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200032"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:ID="independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200049"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is polychotomous and independent variable is quantitative</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200066"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_dichotomous">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200081"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar ordinal indVar dichotomous</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is ordinal and independent variable is dichotomous</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200060"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200001"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200012">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Exact test</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200051"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200078">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Normal distribution</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200002">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dimensions about how data can be ordered</obo:IAO_0000116>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200072"/>
-    </rdfs:subClassOf>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200026"/>
-          <owl:Class rdf:ID="OCRE200036"/>
-        </owl:unionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A typology of scales measure</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Measurement dimension</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200042">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A rate is a quantity per unit of time.</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Rate</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200028"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000232 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</obo:IAO_0000232>
-    <obo:IAO_0000232 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our definition of proportion.</obo:IAO_0000232>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200038">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Ties are exact</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Discrete</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200085"/>
-    </rdfs:subClassOf>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="OCRE200062"/>
-    </owl:disjointWith>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_nominalGT2">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar nominalGT2 indVar nominalGT2</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200032"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200084"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is polychotomous and independent variable is polychotomous</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200004"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200044">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200051"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Polychotomous regression</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200062">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200085"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Continuous</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >(How measurements of "equal value," can be differentiated), increase precision</obo:IAO_0000115>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Ties are not exact</obo:IAO_0000116>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_ordinal">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar ordinal indVar ordinal</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200060"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:ID="OCRE200015"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is ordinal and independent variable is ordinal</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200097">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Multivariate non-ordinal indVar analysis</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200053"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class>
-                    <owl:complementOf>
-                      <owl:Class rdf:about="#OCRE200015"/>
-                    </owl:complementOf>
-                  </owl:Class>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >2</owl:minCardinality>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for statistical analysis where there are more than one independent variable some of which are not of the ordinal scalle</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200008">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[x, )</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200034"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >RightOpen</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200024">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200003"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Central tendency</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A metric measuring the "middle" or "expected" value of a distribution or of a random variable</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200010">
-    <synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >recall</synonym>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Sensitivity</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200100"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200076">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Number of possible outcomes</obo:IAO_0000115>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Describe background of data, how to present data when you plot it</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Granularity</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200058">
-    <rdfs:subClassOf rdf:resource="#OCRE200024"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The mode was originally conceived of as that value of the variate which is possessed by the greatest number of members of the population. (http://stats.oecd.org/glossary/detail.asp?ID=3720)</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mode</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200083">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Discrete uniform distribution</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200019">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Robust regression</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200011">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200028"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Ratio</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200077">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plot of the sensitivity of a discriminant test against one minus its specificity</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >ROC curve</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200100"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_dichotomous">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar nominalGT2 indVar dichotomous</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200032"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200001"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is polychotomous and independent variable is dichotomous</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200004"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200001">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dichotomous</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Measurements whose values are in one of two possible states, these often being labeled 0 and 1 (adapted from Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#OCRE200084"/>
-    </owl:disjointWith>
-    <rdfs:subClassOf rdf:resource="#OCRE200076"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200043">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Log-normal distribution</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200035">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Sum</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200026"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Variables derived from taking the sum of two other variables</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200065">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Binomial distribution</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200087"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200045">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is dichotomous and independent variable is dichotomous</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200079"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200004"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200029"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar dichotomous indVar dichotomous</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200094">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >More is better, more is worse</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Polarity</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200055">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200093"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The variate distance between the upper and lower quartiles. This range contains one half of the total frequency and provides a simple measure of dispersion which is useful in descriptive statistics (http://stats.oecd.org/glossary/index.htm)</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Interquartile range</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200075">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200093"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The variance is the mean square deviation of the variable around the average value. It reflects the dispersion of the empirical values around its mean. (http://stats.oecd.org/glossary/detail.asp?ID=5160)</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Variance</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200025">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Ranges from 0 to 1. One way to summarize  count data.</obo:IAO_0000116>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200028"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A measure of the frequency of some phenomenon of interest within an average population</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Proportion</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200009">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Poisson regression</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200084">
-    <rdfs:subClassOf rdf:resource="#OCRE200076"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Polychotomous</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Categorical variables with more than two categories</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200014">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200097"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200049"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200071"/>
-        </owl:someValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for multi-variate analysis with quantitative dependent variable and nominal independent variable</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dep var quantitative multivariate indVar</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200054">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >2</owl:minCardinality>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#independent_variable"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200095"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Cox regression</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200000">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Variables whose values are one or more labels for predefined categories that enumerate possble states of some characteristic (e.g., blood types A, B, AB, or O). AKA "categorical data"</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200036"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Nominal scale level</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200066">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200051"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Spearmans rank correlation coefficient</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200095">
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200061"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Actuarial method</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200064">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[x, y], x unknown</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >LeftCensored</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="OCRE200088"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200036">
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Variables whose values are unitary measurements that cannot be defined from other variables</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Scale level</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200046">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dep var nominal cardinalityGT2 multivariate indVar</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for multi-variate analysis with norminal dependent variable and nominal independent variable</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200097"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Class>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY research "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/OCRe/statistics.owl#"
+     xml:base="http://purl.org/net/OCRe/statistics.owl"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:research="http://purl.org/net/OCRe/research.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://purl.org/net/OCRe/statistics.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">An ontology of objects and relationships in statistics that are useful for describing statistical analysis used in human studies. It is part of the Ontology for Clinical Research (OCRe).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#synonym"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#definition">
+        <rdfs:label rdf:datatype="&xsd;string">deprecated:definition</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable_of">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#distribution -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#distribution">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <definition rdf:datatype="&xsd;string">The probability distribution of a variable in a plan for statistical analysis</definition>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable">
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable_of"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable_of">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#measurement_dimension -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#measurement_dimension">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <definition rdf:datatype="&xsd;string">The data type of a variable in a plan for statistical analysis</definition>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method">
+        <definition rdf:datatype="&xsd;string">A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method_of"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method_of">
+        <definition rdf:datatype="&xsd;string">A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#statistics_property -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#statistics_property">
+        <definition rdf:datatype="&xsd;string">A property of a statistical concept</definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_dichotomous">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar nominalGT2 indVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                  <owl:Restriction>
-                    <owl:onProperty>
-                      <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                    </owl:onProperty>
-                    <owl:someValuesFrom rdf:resource="#OCRE200000"/>
-                  </owl:Restriction>
-                  <owl:Restriction>
-                    <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-                    <owl:onProperty>
-                      <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                    </owl:onProperty>
-                  </owl:Restriction>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
                 </owl:intersectionOf>
-              </owl:Class>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200044"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200026">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >E.g., population-level variables</obo:IAO_0000116>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Method for deriving a variable by scoring from multiple observations or aggregating from multiple events in a subject or from multiple subjects</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Scoring or aggregation method</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200072"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200056">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Quantile regression</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200085">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Tie-breaking distinction</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >How measurements of "equal value," can be differentiated</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200074">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Analysis of covariance</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200013">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >the Kruskal-Wallis one-way analysis of variance by ranks (named after William Kruskal and W. Allen Wallis) is a non-parametric method for testing equality of population medians among groups. It is identical to a one-way analysis of variance with the data replaced by their ranks. It is an extension of the Mann-Whitney U test to 3 or more groups. (http://en.wikipedia.org/wiki/Wallis_statistic)</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Kruskal Wallis method</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200051"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200032">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is polychotomous nominal</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200092"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Class>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous and independent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_nominalGT2">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar nominalGT2 indVar nominalGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                  <owl:Restriction>
-                    <owl:onProperty>
-                      <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                    </owl:onProperty>
-                    <owl:someValuesFrom rdf:resource="#OCRE200000"/>
-                  </owl:Restriction>
-                  <owl:Restriction>
-                    <owl:onProperty>
-                      <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                    </owl:onProperty>
-                    <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-                  </owl:Restriction>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
                 </owl:intersectionOf>
-              </owl:Class>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar nominal cardinalityGT2</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_dichotomous">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200106"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is survival and independent variable is dichotomous</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar survival data indVar dichotomous</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200073"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200081"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200027">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Logistic regression</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200101">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Infinite countable</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200084"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200088">
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Censoring type</rdfs:label>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Censoring need at least ordinal, polychotomous</obo:IAO_0000116>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200092">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for statistical analysis where there is only one independent variable</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200053"/>
-          <owl:Restriction>
-            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-            >1</owl:cardinality>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Univariate analysis</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200068">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Odds</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200028"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200072">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Object and values that related to the description of statistical analysis</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Statistical concept</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200006">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Linear regression</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_nominalGT2">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is quantitative and independent variable is polychotomous</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200098"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar quantitative indVar nominalGT2</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:ID="OCRE200033"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200087">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >For a discrete random variable, a mathematical formula that gives the probability of each value of the variable. For a continuous random variable, a curve described by a mathematical formula which specifies, by way of areas under the curve, the probability that the variable falls within a particular interval. (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Probability distribution</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200052">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >( )</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Open</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200034"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200047">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Categorical method</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200061"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200016">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200092"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200000"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >IndVar nominal</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis wehre the independent variable is nominal</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200033">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Analysis of variance</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200106">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar survival data</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis wehre the dependent variable is survival data</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200092"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200103"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_quantitative">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is ordinal and independent variable is quantitative</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200060"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200049"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar ordinal indVar quantitative</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200028">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Quotient</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200100">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An index of performance of a discrimiant test with binary outcome</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Classification analysis metric</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200093">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A metric measuring the variability of a distribution or of a random variable</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dispersion</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200003"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_ordinal">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200054"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200106"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200015"/>
-                </owl:someValuesFrom>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar survival data indVar ordinal</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is survival and independent variable is ordinal</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200067">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >General estimating equation</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Thing</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_quantitative">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200006"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is quantitative and independent variable is quantitative</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200098"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom>
-                  <owl:Class rdf:about="#OCRE200049"/>
-                </owl:someValuesFrom>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar quantitative indVar quantitative</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200073">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Log rank test</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#dependent_variable"/>
-        </owl:onProperty>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#OCRE200095"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200005">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Mixed linear model</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200086">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F measure</rdfs:label>
-    <synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >F1 score</synonym>
-    <rdfs:subClassOf rdf:resource="#OCRE200100"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A measure of a test's accuracy defined as the harmonic mean of sensitivity and specificity F= 2*(specificity * sensitivity)/(specificity + sensitivity)</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200015">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE200036"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Ordinal scale level</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200053">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Statistical analysis type</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Meta data characterizing the plan to analyze a set of data</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200048">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >(  ]</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200034"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >LeftOpen</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200034">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >CensoringBoundedType</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200002"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200029">
-    <rdfs:subClassOf rdf:resource="#OCRE200047"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Z-test</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200090">
-    <rdfs:subClassOf rdf:resource="#OCRE200100"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >An index of performance of a discrimiant test calculated as the percentage of negatives in all true negatives</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Specificity</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_ordinal">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is quantitative and independent variable is ordinal</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar quantitative indVar ordinal</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200098"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200080">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Exponential distribution metric</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200003"/>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A distribution metric of the exponential distribution</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_ordinal">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar nominalGT2 indVar ordinal</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is polychotomous and independent variable is ordinal</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200066"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200032"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200105">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[x, y], y unknown</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >RightCensored</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200088"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200103">
-    <synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Survival data</synonym>
-    <rdfs:subClassOf rdf:resource="#OCRE200026"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Time to event</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Data representing the times of the occurrances of events of interest</obo:IAO_0000115>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >On scale of time. Often censored. A difference in time.
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous and independent variable is polychotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_ordinal">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar nominalGT2 indVar ordinal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous and independent variable is ordinal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_quantitative">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar nominalGT2 indVar quantitative</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous and independent variable is quantitative</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_dichotomous">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar ordinal indVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is ordinal and independent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_nominalGT2">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar ordinal indVar nominalGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200013"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is ordinal and independent variable is polychotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_ordinal">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar ordinal indVar ordinal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is ordinal and independent variable is ordinal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_quantitative">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar ordinal indVar quantitative</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is ordinal and independent variable is quantitative</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_nominalGT2 -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_nominalGT2">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar quantitative indVar nominalGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200033"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is quantitative and independent variable is polychotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_ordinal">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar quantitative indVar ordinal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is quantitative and independent variable is ordinal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_quantitative -->
+
+    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_quantitative">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar quantitative indVar quantitative</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200006"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is quantitative and independent variable is quantitative</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_dichotomous -->
+
+    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_dichotomous">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar survival data indVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200106"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is survival and independent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_ordinal -->
+
+    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_ordinal">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar survival data indVar ordinal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200106"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200054"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is survival and independent variable is ordinal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE200107 -->
+
+    <owl:Class rdf:about="&research;OCRE200107">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar quantitative indVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is quantitative and independent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200000 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200000">
+        <rdfs:label rdf:datatype="&xsd;string">Nominal scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200036"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Variables whose values are one or more labels for predefined categories that enumerate possble states of some characteristic (e.g., blood types A, B, AB, or O). AKA &quot;categorical data&quot;</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200001 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200001">
+        <rdfs:label rdf:datatype="&xsd;string">Dichotomous</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200076"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measurements whose values are in one of two possible states, these often being labeled 0 and 1 (adapted from Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200002 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200002">
+        <rdfs:label rdf:datatype="&xsd;string">Measurement dimension</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200026"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200036"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A typology of scales measure</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Dimensions about how data can be ordered</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200003 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200003">
+        <rdfs:label rdf:datatype="&xsd;string">Distributional metric</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A numeric characteristic of a distribution or a random variable</obo:IAO_0000115>
+        <synonym rdf:datatype="&xsd;string">Descriptive statistics</synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200004 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200004">
+        <rdfs:label rdf:datatype="&xsd;string">Chi-Squared</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200047"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200005 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200005">
+        <rdfs:label rdf:datatype="&xsd;string">Mixed linear model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200006 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200006">
+        <rdfs:label rdf:datatype="&xsd;string">Linear regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200007 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200007">
+        <rdfs:label rdf:datatype="&xsd;string">Range</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200093"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200055"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The largest minus the smallest of a set of variate values. The range is of itself an elementary measure of dispersion but, in terms of the mean range in repeated sampling, it may afford a reasonable estimate of the population standard deviation. (http://stats.oecd.org/glossary/detail.asp?ID=3824)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200008 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200008">
+        <rdfs:label rdf:datatype="&xsd;string">RightOpen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, )</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200009 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200009">
+        <rdfs:label rdf:datatype="&xsd;string">Poisson regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200010 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200010">
+        <rdfs:label rdf:datatype="&xsd;string">Sensitivity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</obo:IAO_0000115>
+        <synonym rdf:datatype="&xsd;string">recall</synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200011 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200011">
+        <rdfs:label rdf:datatype="&xsd;string">Ratio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200012 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200012">
+        <rdfs:label rdf:datatype="&xsd;string">Exact test</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200013 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200013">
+        <rdfs:label rdf:datatype="&xsd;string">Kruskal Wallis method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">the Kruskal-Wallis one-way analysis of variance by ranks (named after William Kruskal and W. Allen Wallis) is a non-parametric method for testing equality of population medians among groups. It is identical to a one-way analysis of variance with the data replaced by their ranks. It is an extension of the Mann-Whitney U test to 3 or more groups. (http://en.wikipedia.org/wiki/Wallis_statistic)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200014 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200014">
+        <rdfs:label rdf:datatype="&xsd;string">Dep var quantitative multivariate indVar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for multi-variate analysis with quantitative dependent variable and nominal independent variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200015 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200015">
+        <rdfs:label rdf:datatype="&xsd;string">Ordinal scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200036"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A measurement that allows a sample of individuals to be ranked with respect to some characteristics but where differences at different points of the scale are not necessarily equivalent. (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200016 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200016">
+        <rdfs:label rdf:datatype="&xsd;string">IndVar nominal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis wehre the independent variable is nominal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200017 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200017">
+        <rdfs:label rdf:datatype="&xsd;string">Interval scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Cannot meaningfully compute ratios</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has an arbitrary zero point.&quot;</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200018 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200018">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar dichotomous indVar quantitative</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#distribution"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200078"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable is quantitative</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200019 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200019">
+        <rdfs:label rdf:datatype="&xsd;string">Robust regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200020 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200020">
+        <rdfs:label rdf:datatype="&xsd;string">PointObervation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x=y</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200021 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200021">
+        <rdfs:label rdf:datatype="&xsd;string">IntervalCensored</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x~=y</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200022 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200022">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar dichotomous indVar nominalGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable polychotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200023 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200023">
+        <rdfs:label rdf:datatype="&xsd;string">Poisson distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200024 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200024">
+        <rdfs:label rdf:datatype="&xsd;string">Central tendency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200003"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A metric measuring the &quot;middle&quot; or &quot;expected&quot; value of a distribution or of a random variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200025 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200025">
+        <rdfs:label rdf:datatype="&xsd;string">Proportion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A measure of the frequency of some phenomenon of interest within an average population</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Ranges from 0 to 1. One way to summarize  count data.</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200026 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200026">
+        <rdfs:label rdf:datatype="&xsd;string">Scoring or aggregation method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">E.g., population-level variables</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for deriving a variable by scoring from multiple observations or aggregating from multiple events in a subject or from multiple subjects</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200027 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200027">
+        <rdfs:label rdf:datatype="&xsd;string">Logistic regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200028 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200028">
+        <rdfs:label rdf:datatype="&xsd;string">Quotient</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200029 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200029">
+        <rdfs:label rdf:datatype="&xsd;string">Z-test</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200047"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200030 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200030">
+        <rdfs:label rdf:datatype="&xsd;string">Infinite non-countable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200031 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200031">
+        <rdfs:label rdf:datatype="&xsd;string">Closed</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[ ]</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">xx, yy, xy</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200032 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar nominal cardinalityGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous nominal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200033 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200033">
+        <rdfs:label rdf:datatype="&xsd;string">Analysis of variance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200034 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200034">
+        <rdfs:label rdf:datatype="&xsd;string">CensoringBoundedType</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200035 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200035">
+        <rdfs:label rdf:datatype="&xsd;string">Sum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200026"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Variables derived from taking the sum of two other variables</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200036 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200036">
+        <rdfs:label rdf:datatype="&xsd;string">Scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Variables whose values are unitary measurements that cannot be defined from other variables</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200037 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200037">
+        <rdfs:label rdf:datatype="&xsd;string">Lambda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200080"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">The lambda co-efficient of an exponential distribution</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200038 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200038">
+        <rdfs:label rdf:datatype="&xsd;string">Discrete</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200062"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Ties are exact</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200039 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200039">
+        <rdfs:label rdf:datatype="&xsd;string">Median</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200058"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The median is that value of the variate which divides the total frequency into two halves. (http://stats.oecd.org/glossary/detail.asp?ID=3717)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200040 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200040">
+        <rdfs:label rdf:datatype="&xsd;string">Difference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200026"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Variables derived from taking the difference of two other variables. For example, the first difference of a time series {yt} is defined as Dyt = yt - yt-1</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200041 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200041">
+        <rdfs:label rdf:datatype="&xsd;string">Exponential distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">A class of probability distribution with probability density function (pdf) of f(x;lambda) = 1 - exp(-lambda*x) for x &gt;-0 ; 0 otherwise</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200042 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200042">
+        <rdfs:label rdf:datatype="&xsd;string">Rate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A rate is a quantity per unit of time.</obo:IAO_0000115>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our definition of proportion.</obo:IAO_0000232>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200043 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200043">
+        <rdfs:label rdf:datatype="&xsd;string">Log-normal distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200044 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200044">
+        <rdfs:label rdf:datatype="&xsd;string">Polychotomous regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200045 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200045">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar dichotomous indVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200046 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200046">
+        <rdfs:label rdf:datatype="&xsd;string">Dep var nominal cardinalityGT2 multivariate indVar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200044"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for multi-variate analysis with norminal dependent variable and nominal independent variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200047 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200047">
+        <rdfs:label rdf:datatype="&xsd;string">Categorical method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200048 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200048">
+        <rdfs:label rdf:datatype="&xsd;string">LeftOpen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">(  ]</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200049 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200049">
+        <rdfs:label rdf:datatype="&xsd;string">Quantitative scale level</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200017"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200089"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200036"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200050 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200050">
+        <rdfs:label rdf:datatype="&xsd;string">Chi distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200051 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200051">
+        <rdfs:label rdf:datatype="&xsd;string">Non-linear model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200052 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200052">
+        <rdfs:label rdf:datatype="&xsd;string">Open</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">( )</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200053 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200053">
+        <rdfs:label rdf:datatype="&xsd;string">Statistical analysis type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Meta data characterizing the plan to analyze a set of data</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200054 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200054">
+        <rdfs:label rdf:datatype="&xsd;string">Cox regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200095"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200055 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200055">
+        <rdfs:label rdf:datatype="&xsd;string">Interquartile range</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200093"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The variate distance between the upper and lower quartiles. This range contains one half of the total frequency and provides a simple measure of dispersion which is useful in descriptive statistics (http://stats.oecd.org/glossary/index.htm)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200056 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200056">
+        <rdfs:label rdf:datatype="&xsd;string">Quantile regression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200057 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200057">
+        <rdfs:label rdf:datatype="&xsd;string">Mean</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">When unqualified, the mean usually refers to the expectation of a variate, or to the arithmetic mean of a sample used as an estimate of the expectation. (http://stats.oecd.org/glossary/detail.asp?ID=3762)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200058 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200058">
+        <rdfs:label rdf:datatype="&xsd;string">Mode</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The mode was originally conceived of as that value of the variate which is possessed by the greatest number of members of the population. (http://stats.oecd.org/glossary/detail.asp?ID=3720)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200059 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200059">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar dichotomous indVar ordinal cardGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable is ordinal with cardinality greater than 2</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200060 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar ordinal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is ordinal</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200061 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200061">
+        <rdfs:label rdf:datatype="&xsd;string">Statistical method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A procedure for performing statistica inference</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Note that we are excluding descriptive statistical method</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200062 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200062">
+        <rdfs:label rdf:datatype="&xsd;string">Continuous</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">(How measurements of &quot;equal value,&quot; can be differentiated), increase precision</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Ties are not exact</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200063 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200063">
+        <rdfs:label rdf:datatype="&xsd;string">Gamma distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200064 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200064">
+        <rdfs:label rdf:datatype="&xsd;string">LeftCensored</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], x unknown</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200065 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200065">
+        <rdfs:label rdf:datatype="&xsd;string">Binomial distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200066 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200066">
+        <rdfs:label rdf:datatype="&xsd;string">Spearmans rank correlation coefficient</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200067 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200067">
+        <rdfs:label rdf:datatype="&xsd;string">General estimating equation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200068 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200068">
+        <rdfs:label rdf:datatype="&xsd;string">Odds</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200069 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200069">
+        <rdfs:label rdf:datatype="&xsd;string">Dep var ordinal multivariate indVar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200044"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for multi-variate analysis with ordinal dependent variable and multivariate independent variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200070 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200070">
+        <rdfs:label rdf:datatype="&xsd;string">Students t test</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200071 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200071">
+        <rdfs:label rdf:datatype="&xsd;string">Generalized linear model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200072 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200072">
+        <rdfs:label rdf:datatype="&xsd;string">Statistical concept</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Object and values that related to the description of statistical analysis</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200073 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200073">
+        <rdfs:label rdf:datatype="&xsd;string">Log rank test</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200095"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200074 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200074">
+        <rdfs:label rdf:datatype="&xsd;string">Analysis of covariance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200075 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200075">
+        <rdfs:label rdf:datatype="&xsd;string">Variance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200093"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The variance is the mean square deviation of the variable around the average value. It reflects the dispersion of the empirical values around its mean. (http://stats.oecd.org/glossary/detail.asp?ID=5160)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200076 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200076">
+        <rdfs:label rdf:datatype="&xsd;string">Granularity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Describe background of data, how to present data when you plot it</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Number of possible outcomes</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200077 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200077">
+        <rdfs:label rdf:datatype="&xsd;string">ROC curve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plot of the sensitivity of a discriminant test against one minus its specificity</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200078 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200078">
+        <rdfs:label rdf:datatype="&xsd;string">Normal distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200079 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar dichotomous</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200080 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200080">
+        <rdfs:label rdf:datatype="&xsd;string">Exponential distribution metric</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200003"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A distribution metric of the exponential distribution</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200081 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200081">
+        <rdfs:label rdf:datatype="&xsd;string">Wilcoxon rank sum test</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200082 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200082">
+        <rdfs:label rdf:datatype="&xsd;string">Dep var survival data multivariate indVar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200103"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for multi-variate analysis with survival-data dependent variable  and multivariate variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200083 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200083">
+        <rdfs:label rdf:datatype="&xsd;string">Discrete uniform distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200084 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200084">
+        <rdfs:label rdf:datatype="&xsd;string">Polychotomous</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200076"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Categorical variables with more than two categories</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200085 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200085">
+        <rdfs:label rdf:datatype="&xsd;string">Tie-breaking distinction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">How measurements of &quot;equal value,&quot; can be differentiated</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200086 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200086">
+        <rdfs:label rdf:datatype="&xsd;string">F measure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A measure of a test&#39;s accuracy defined as the harmonic mean of sensitivity and specificity F= 2*(specificity * sensitivity)/(specificity + sensitivity)</obo:IAO_0000115>
+        <synonym rdf:datatype="&xsd;string">F1 score</synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200087 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200087">
+        <rdfs:label rdf:datatype="&xsd;string">Probability distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">For a discrete random variable, a mathematical formula that gives the probability of each value of the variable. For a continuous random variable, a curve described by a mathematical formula which specifies, by way of areas under the curve, the probability that the variable falls within a particular interval. (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200088 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200088">
+        <rdfs:label rdf:datatype="&xsd;string">Censoring type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Censoring need at least ordinal, polychotomous</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200089 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200089">
+        <rdfs:label rdf:datatype="&xsd;string">Absolute scale level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Can compute ratios</obo:IAO_0000116>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot; (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000232>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200090 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200090">
+        <rdfs:label rdf:datatype="&xsd;string">Specificity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test calculated as the percentage of negatives in all true negatives</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200091 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200091">
+        <rdfs:label rdf:datatype="&xsd;string">Polychotomous finite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200092 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092">
+        <rdfs:label rdf:datatype="&xsd;string">Univariate analysis</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for statistical analysis where there is only one independent variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200093 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200093">
+        <rdfs:label rdf:datatype="&xsd;string">Dispersion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200003"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A metric measuring the variability of a distribution or of a random variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200094 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200094">
+        <rdfs:label rdf:datatype="&xsd;string">Polarity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">More is better, more is worse</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200095 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200095">
+        <rdfs:label rdf:datatype="&xsd;string">Actuarial method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200096 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200096">
+        <rdfs:label rdf:datatype="&xsd;string">Continuous uniform distribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200097 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097">
+        <rdfs:label rdf:datatype="&xsd;string">Multivariate non-ordinal indVar analysis</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:complementOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for statistical analysis where there are more than one independent variable some of which are not of the ordinal scalle</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200098 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098">
+        <rdfs:label rdf:datatype="&xsd;string">Dependent variable quantitative scale</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis wehre the dependent variable is interval/absolute scale level</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200099 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200099">
+        <rdfs:label rdf:datatype="&xsd;string">Dep var dichotomous multivariate indVar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A plan for multi-variate analysis with some non-ordinal independent variable and dichotomous dependent variable</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200100 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200100">
+        <rdfs:label rdf:datatype="&xsd;string">Classification analysis metric</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test with binary outcome</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200101 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200101">
+        <rdfs:label rdf:datatype="&xsd;string">Infinite countable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200102 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200102">
+        <rdfs:label rdf:datatype="&xsd;string">Linear mixed effect model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200103 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200103">
+        <rdfs:label rdf:datatype="&xsd;string">Time to event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200026"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data representing the times of the occurrances of events of interest</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">On scale of time. Often censored. A difference in time.
 Also whether an event occurs (lowerbound of time to event) Measurement can be one number or an interval. 3 categories: same L &amp; Ul,  right censoring (know lowerbound), an interval</obo:IAO_0000116>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200030">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Infinite non-countable</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200084"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200020">
-    <rdfs:subClassOf rdf:resource="#OCRE200088"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[x, y] x=y</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >PointObervation</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200039">
-    <owl:disjointWith rdf:resource="#OCRE200058"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The median is that value of the variate which divides the total frequency into two halves. (http://stats.oecd.org/glossary/detail.asp?ID=3717)</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE200024"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Median</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200040">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Difference</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200026"/>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Variables derived from taking the difference of two other variables. For example, the first difference of a time series {yt} is defined as Dyt = yt - yt-1</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200004">
-    <rdfs:subClassOf rdf:resource="#OCRE200047"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Chi-Squared</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200059">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200079"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar dichotomous indVar ordinal cardGT2</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is dichotomous and independent variable is ordinal with cardinality greater than 2</obo:IAO_0000115>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom>
-          <owl:Class rdf:about="#OCRE200081"/>
-        </owl:someValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200070">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Students t test</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200060">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200092"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is ordinal</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar ordinal</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200050">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Chi distribution</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200087"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200049">
-    <rdfs:subClassOf rdf:resource="#OCRE200036"/>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:ID="OCRE200017"/>
-          <owl:Class rdf:ID="OCRE200089"/>
-        </owl:unionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Quantitative scale level</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#OCRE200107">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200070"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200098"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is quantitative and independent variable is dichotomous</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar quantitative indVar dichotomous</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200018">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200027"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar dichotomous indVar quantitative</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is dichotomous and independent variable is quantitative</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200079"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200078"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:ID="distribution"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200049"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200099">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dep var dichotomous multivariate indVar</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200027"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for multi-variate analysis with some non-ordinal independent variable and dichotomous dependent variable</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200097"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200081">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Wilcoxon rank sum test</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200051"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200102">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Linear mixed effect model</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200071"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200031">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Closed</rdfs:label>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >xx, yy, xy</obo:IAO_0000116>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[ ]</obo:IAO_0000115>
-    <rdfs:subClassOf rdf:resource="#OCRE200034"/>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200104">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Non linear mixed effect model</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200051"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_nominalGT2">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar ordinal indVar nominalGT2</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200060"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200013"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is ordinal and independent variable is polychotomous</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200021">
-    <rdfs:subClassOf rdf:resource="#OCRE200088"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >IntervalCensored</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >[x, y] x~=y</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200089">
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Can compute ratios</obo:IAO_0000116>
-    <rdfs:subClassOf rdf:resource="#OCRE200049"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Absolute scale level</rdfs:label>
-    <obo:IAO_0000232 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >In S. Steven's typology of measurement scale, a ratio variable is "a continuous variable that has a fixed rather than an arbitrary zero point." (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000232>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200091">
-    <rdfs:subClassOf rdf:resource="#OCRE200084"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Polychotomous finite</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200041">
-    <rdfs:subClassOf rdf:resource="#OCRE200087"/>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A class of probability distribution with probability density function (pdf) of f(x;lambda) = 1 - exp(-lambda*x) for x &gt;-0 ; 0 otherwise</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Exponential distribution</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200069">
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200044"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dep var ordinal multivariate indVar</rdfs:label>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A plan for multi-variate analysis with ordinal dependent variable and multivariate independent variable</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200097"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200015"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200003">
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-    <synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Descriptive statistics</synonym>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A numeric characteristic of a distribution or a random variable</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Distributional metric</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:ID="OCRE200022">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200079"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#independent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200084"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is dichotomous and independent variable polychotomous</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar dichotomous indVar nominalGT2</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#OCRE200012"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:someValuesFrom rdf:resource="#OCRE200004"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#permissible_method"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200071">
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#OCRE200061"/>
-    </rdfs:subClassOf>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Generalized linear model</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200079">
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200092"/>
-          <owl:Restriction>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200001"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis where the dependent variable is dichotomous</obo:IAO_0000115>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >DepVar dichotomous</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200061">
-    <rdfs:subClassOf rdf:resource="#OCRE200072"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Statistical method</rdfs:label>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Note that we are excluding descriptive statistical method</obo:IAO_0000116>
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A procedure for performing statistica inference</obo:IAO_0000115>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200017">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >In S. Steven's typology of measurement scale, a  variable is "a continuous variable that has an arbitrary zero point."</obo:IAO_0000115>
-    <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Cannot meaningfully compute ratios</obo:IAO_0000116>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Interval scale level</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200049"/>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200098">
-    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A univariate analysis wehre the dependent variable is interval/absolute scale level</obo:IAO_0000115>
-    <owl:equivalentClass>
-      <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-          <owl:Class rdf:about="#OCRE200092"/>
-          <owl:Restriction>
-            <owl:someValuesFrom>
-              <owl:Restriction>
-                <owl:onProperty>
-                  <owl:ObjectProperty rdf:about="#measurement_dimension"/>
-                </owl:onProperty>
-                <owl:someValuesFrom rdf:resource="#OCRE200049"/>
-              </owl:Restriction>
-            </owl:someValuesFrom>
-            <owl:onProperty>
-              <owl:ObjectProperty rdf:about="#dependent_variable"/>
-            </owl:onProperty>
-          </owl:Restriction>
-        </owl:intersectionOf>
-      </owl:Class>
-    </owl:equivalentClass>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Dependent variable quantitative scale</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="#OCRE200051">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Non-linear model</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#OCRE200061"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:ID="dependent_variable_of">
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:ID="statistics_property"/>
-    </rdfs:subPropertyOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#permissible_method">
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="permissible_method_of"/>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="#OCRE200053"/>
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="#statistics_property"/>
-    </rdfs:subPropertyOf>
-    <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
-    <rdfs:range rdf:resource="#OCRE200061"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#statistics_property">
-    <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A property of a statistical concept</definition>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#permissible_method_of">
-    <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-    <rdfs:domain rdf:resource="#OCRE200061"/>
-    <rdfs:range rdf:resource="#OCRE200053"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#independent_variable">
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:ID="independent_variable_of"/>
-    </owl:inverseOf>
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#distribution">
-    <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The probability distribution of a variable in a plan for statistical analysis</definition>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#independent_variable_of">
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#dependent_variable">
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#measurement_dimension">
-    <rdfs:subPropertyOf rdf:resource="#statistics_property"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <definition rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >The data type of a variable in a plan for statistical analysis</definition>
-  </owl:ObjectProperty>
-  <owl:AnnotationProperty rdf:ID="synonym"/>
-  <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#develop_comment"/>
-  <owl:AnnotationProperty rdf:ID="definition">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >deprecated:definition</rdfs:label>
-  </owl:AnnotationProperty>
-  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
-  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000232"/>
-  <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000116"/>
+        <synonym rdf:datatype="&xsd;string">Survival data</synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200104 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200104">
+        <rdfs:label rdf:datatype="&xsd;string">Non linear mixed effect model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200105 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200105">
+        <rdfs:label rdf:datatype="&xsd;string">RightCensored</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], y unknown</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200106 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200106">
+        <rdfs:label rdf:datatype="&xsd;string">DepVar survival data</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200103"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis wehre the dependent variable is survival data</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
+    </owl:Class>
 </rdf:RDF>
 
-<!-- Created with Protege (with OWL Plugin 3.4.5, Build 599)  http://protege.stanford.edu -->
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+
