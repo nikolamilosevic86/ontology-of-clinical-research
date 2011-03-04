@@ -61,11 +61,23 @@
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
     <owl:AnnotationProperty rdf:about="&statistics;definition"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
     
 
 
@@ -118,8 +130,14 @@ Examples:
 - Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
 - On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
 - Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
-        <rdfs:comment rdf:datatype="&xsd;string">Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</rdfs:comment>
-        <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used ot be a class</study_protocol:develop_comment>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation).
+
+Examples:
+- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
+- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
+- Sequentially numbered, opaque, sealed envelopes.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -179,7 +197,7 @@ Examples:
     <owl:Class rdf:about="&study_design;OCRE100000">
         <rdfs:label rdf:datatype="&xsd;string">Measure of case frequency</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Case definition uses incidence or prevalence</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measure of case frequency is incidence or prevalence</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -191,6 +209,7 @@ Examples:
         <rdfs:label rdf:datatype="&xsd;string">Case and control in same person</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100088"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Each case serves as its own control</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -267,9 +286,10 @@ Examples:
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&study_design;OCRE100055"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interventional study is a quantitative study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. [adapted from: WHO, available at: http://www.who.int/ictrp/en/]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interventional study is a quantitative study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">WHO Available at: http://www.who.int/ictrp/en/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -330,7 +350,8 @@ Examples:
         <rdfs:label rdf:datatype="&xsd;string">Incidence</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100000"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100017"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -357,7 +378,8 @@ When the aim of the study is to show that an experimental (E) treatment is super
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100072"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100076"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Equivalence is a type of comparative intent. 
-An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -370,6 +392,7 @@ An equivalence trial is designed to determine whether the response to two or mor
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100079"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the exposure status.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -380,6 +403,7 @@ An equivalence trial is designed to determine whether the response to two or mor
         <rdfs:label rdf:datatype="&xsd;string">Outcome assessor blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The outcome assessor does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -406,8 +430,9 @@ An equivalence trial is designed to determine whether the response to two or mor
         <owl:disjointWith rdf:resource="&study_design;OCRE100018"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100039"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100078"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case-crossover study is an observational study that aims to answer the question, ‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂‚Äö√†¬¥Was this event triggered by something unusual that happened just before?‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂≈ì√Ñ The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
-The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time [Annu Rev Public Health. 2000;21:193-221.]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case-crossover study is an observational study that aims to answer the question, &quot;Was this event triggered by something unusual that happened just before?&quot; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Annu Rev Public Health. 2000;21:193-221.</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -434,7 +459,8 @@ The simplest case-crossover design is closely analogous to a traditional matched
     <owl:Class rdf:about="&study_design;OCRE100017">
         <rdfs:label rdf:datatype="&xsd;string">Prevalence</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100000"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Prevalence is the proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Prevalence is the proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -601,8 +627,9 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <owl:Class rdf:about="&study_design;OCRE100025">
         <rdfs:label rdf:datatype="&xsd;string">Stratified randomization</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100030"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Stratified randomization is restricted randomization used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Stratified randomization is restricted randomization used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -678,9 +705,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
 Different types of restricted randomization are as follows:
 - Blocking: Blocking is used to ensure close balance of the numbers in each group at any time during the study. After every block the number of participants in each group would be equal. Of course blocking tends to reduce the unpredictability of randomization. Therefore it is recommended to use random block sizes when using block randomization.
 - Stratification: Stratification ensures that the numbers of participants receiving each intervention are closely balanced within each stratum. Stratified randomization is achieved by performing a separate randomization procedure within each of two or more subsets of participants
-- Minimization: Minimization is not a method of randomization. Indeed it is the only non-random method which is an acceptable alternative to randomization. Minimization ensures balance between intervention groups for several patient factors. Randomization lists are not set up in advance. The first patient is truly randomly allocated; for each subsequent patient, the treatment allocation is identified, which minimizes the imbalance between groups at that time. [Source: http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html ]</obo:IAO_0000115>
+- Minimization: Minimization is not a method of randomization. Indeed it is the only non-random method which is an acceptable alternative to randomization. Minimization ensures balance between intervention groups for several patient factors. Randomization lists are not set up in advance. The first patient is truly randomly allocated; for each subsequent patient, the treatment allocation is identified, which minimizes the imbalance between groups at that time. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: should we put the 3 schemes elsewhere?</obo:IAO_0000232>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -691,8 +719,9 @@ Different types of restricted randomization are as follows:
         <rdfs:label rdf:datatype="&xsd;string">Quantitative inquiry mode</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100028"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100057"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quantitative research method is a deductive research process that uses statistical techniques to test a specific claim or statement about a phenomenon (a hypothesis) by collecting and analyzing data to decide whether the claim is true (i.e., accept or reject the null or alternative hypothesis). [Source: http://www.utexas.edu/academic/diia/assessment/iar/glossary.php#q ]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quantitative research method is a deductive research process that uses statistical techniques to test a specific claim or statement about a phenomenon (a hypothesis) by collecting and analyzing data to decide whether the claim is true (i.e., accept or reject the null or alternative hypothesis).</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://www.utexas.edu/academic/ctl/assessment/iar/research/plan/types.php</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -704,7 +733,8 @@ Different types of restricted randomization are as follows:
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100021"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100033"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100077"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Quasi-random allocation is an allocation scheme that is not random, but is intended to produce similar groups when used to allocate participants. Quasi-random methods include: allocation by the person&#39;s date of birth, by the day of the week or month of the year, by a person&#39;s medical record number, or just allocating every alternate person. In practice, these methods of allocation are relatively easy to manipulate, introducing selection bias. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Quasi-random allocation is an allocation scheme that is not random, but is intended to produce similar groups when used to allocate participants. Quasi-random methods include: allocation by the person&#39;s date of birth, by the day of the week or month of the year, by a person&#39;s medical record number, or just allocating every alternate person. In practice, these methods of allocation are relatively easy to manipulate, introducing selection bias.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -716,8 +746,9 @@ Different types of restricted randomization are as follows:
         <rdfs:label rdf:datatype="&xsd;string">Random allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100021"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100077"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Random allocation is an allocation scheme that uses the play of chance to assign participants to comparison groups in a trial, e.g. by using a random numbers table or a computer-generated random sequence. Random allocation implies that each individual or unit being entered into a trial has the same chance of receiving each of the possible interventions. It also implies that the probability that an individual will receive a particular intervention is independent of the probability that any other individual will receive the same intervention. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000116>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Random allocation is an allocation scheme that uses the play of chance to assign participants to comparison groups in a trial, e.g. by using a random numbers table or a computer-generated random sequence. Random allocation implies that each individual or unit being entered into a trial has the same chance of receiving each of the possible interventions. It also implies that the probability that an individual will receive a particular intervention is independent of the probability that any other individual will receive the same intervention. </obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). </obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -753,6 +784,7 @@ Different types of restricted randomization are as follows:
         <rdfs:label rdf:datatype="&xsd;string">Caregiver blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The caregiver does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -806,7 +838,8 @@ The concept of phase is not applicable to trials studying certain interventions 
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&study_design;OCRE100078"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.) [adapted from: Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at: http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -817,7 +850,8 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100040">
         <rdfs:label rdf:datatype="&xsd;string">Block randomization</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100030"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Block randomization (or Random permuted blocks) is a restricted randomisation that ensures that, at any point in a trial, roughly equal numbers of participants have been allocated to all the comparison groups. Permuted blocks should be used in trials using stratified randomisation. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Block randomization (or Random permuted blocks) is a restricted randomisation that ensures that, at any point in a trial, roughly equal numbers of participants have been allocated to all the comparison groups. Permuted blocks should be used in trials using stratified randomisation.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -828,8 +862,9 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100041">
         <rdfs:label rdf:datatype="&xsd;string">Unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person, but in a cluster randomised trial, groups of people will be assigned together to one or the other of the  regimens of interventions. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person, but in a cluster randomised trial, groups of people will be assigned together to one or the other of the  regimens of interventions. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions. </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -852,8 +887,9 @@ The concept of phase is not applicable to trials studying certain interventions 
         <rdfs:label rdf:datatype="&xsd;string">Cluster as unit of allocation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100041"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100071"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -885,8 +921,9 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100045">
         <rdfs:label rdf:datatype="&xsd;string">Blinding type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a controlled trial:] Blinding is the process of preventing those involved in a trial from knowing to which comparison group a particular participant belongs. The risk of bias is minimised when as few people as possible know who is receiving the experimental intervention and who the control intervention. Participants, caregivers, outcome assessors, and analysts are all candidates for being blinded. Blinding of certain groups is not always possible, for example surgeons in surgical trials. The terms single blind, double blind and triple blind are in common use, but are not used consistently and so are ambiguous unless the specific people who are blinded are listed. (Also called masking.) [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a controlled trial:] Blinding is the process of preventing those involved in a trial from knowing to which comparison group a particular participant belongs. The risk of bias is minimised when as few people as possible know who is receiving the experimental intervention and who the control intervention. Participants, caregivers, outcome assessors, and analysts are all candidates for being blinded. Blinding of certain groups is not always possible, for example surgeons in surgical trials. The terms single blind, double blind and triple blind are in common use, but are not used consistently and so are ambiguous unless the specific people who are blinded are listed. (Also called masking)</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -896,7 +933,9 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100046">
         <rdfs:label rdf:datatype="&xsd;string">Data analysis within participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed. see version 18 of study design slide</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether data is analyzed within a single study participant or within multiple participants.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -927,7 +966,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100048">
         <rdfs:label rdf:datatype="&xsd;string">Assignment characteristics</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Characteristics of the assignment of subjects to a regimen of interventions</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Characteristics of the assignment of subjects or experimental units to a regimen of interventions</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -951,6 +990,7 @@ The concept of phase is not applicable to trials studying certain interventions 
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100051"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100054"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115>In a cohort study, the study outcome is measured after the measurement of predictors</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -961,6 +1001,7 @@ The concept of phase is not applicable to trials studying certain interventions 
         <rdfs:label rdf:datatype="&xsd;string">Timing of outcome measurement</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether outcome is measured after or at the same time as predictors.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -995,6 +1036,7 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:label rdf:datatype="&xsd;string">Care provider blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The care provider does not know to which treatment group a particular participant belongs</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1005,6 +1047,7 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:label rdf:datatype="&xsd;string">Outcome measured at the same time as predictors</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100051"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115>In a cross-sectional study, the study outcome is measured at the same time as predictors</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1024,7 +1067,8 @@ A study in which an individual acts has his/her own comparison does not fall int
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An observational study is a quantitative study in which the investigators do not seek to intervene, and simply observe the course of events. [adapted from: Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An observational study is a quantitative study in which the investigators do not seek to intervene, and simply observe the course of events.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1045,8 +1089,10 @@ A study in which an individual acts has his/her own comparison does not fall int
     <owl:Class rdf:about="&study_design;OCRE100057">
         <rdfs:label rdf:datatype="&xsd;string">Qualitative inquiry mode</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100028"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A qualitative research method is an inductive research process that involves the collection and analysis of qualitative (i.e., non-numerical) data to search for patterns, themes, and holistic features. [Source: http://www.utexas.edu/academic/diia/assessment/iar/glossary.php#q ] (See http://www.google.com/search?hl=en&amp;client=safari&amp;rls=en&amp;defl=en&amp;q=define:Qualitative+research for other definitions)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A qualitative research method is an inductive research process that involves the collection and analysis of qualitative (i.e., non-numerical) data to search for patterns, themes, and holistic features. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://www.utexas.edu/academic/ctl/assessment/iar/research/plan/types.php
+For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&amp;rls=en&amp;defl=en&amp;q=define:Qualitative+research </obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1067,6 +1113,7 @@ A study in which an individual acts has his/her own comparison does not fall int
     <owl:Class rdf:about="&study_design;OCRE100059">
         <rdfs:label rdf:datatype="&xsd;string">Main control group definition</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main control group may be defined by case status or by exposure status.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1121,6 +1168,8 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:label rdf:datatype="&xsd;string">Data analyzed within multiple participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100046"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100085"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within multiple study participants.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1131,6 +1180,7 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:label rdf:datatype="&xsd;string">Subject blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The subject (or individual participant) does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">or Individual participant blinded</obo:IAO_0000115>
     </owl:Class>
     
@@ -1151,7 +1201,8 @@ A study in which an individual acts has his/her own comparison does not fall int
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&study_design;OCRE100089"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a single-factor design, an intervention is compared with one or more alternatives, or a placebo. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a single-factor design, an intervention is compared with one or more alternatives, or a placebo.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1250,8 +1301,8 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100074">
         <rdfs:label rdf:datatype="&xsd;string">Minimization</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100030"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A method of allocation used to provide comparison groups that are closely similar for several variables.
-The next participant is assessed with regard to several characteristics, and assigned to the treatment group that has so far had fewer such people assigned to it. It can be done with a component of randomisation, where the chance of allocation to the group with fewer similar participants is less than one. Minimisation is best performed centrally with the aid of a computer program to ensure concealment of allocation. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A method of allocation used to provide comparison groups that are closely similar for several variables. The next participant is assessed with regard to several characteristics, and assigned to the treatment group that has so far had fewer such people assigned to it. It can be done with a component of randomisation, where the chance of allocation to the group with fewer similar participants is less than one. Minimisation is best performed centrally with the aid of a computer program to ensure concealment of allocation.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1333,6 +1384,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <rdfs:label rdf:datatype="&xsd;string">Main control group defined by case status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the case status.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1343,6 +1395,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <rdfs:label rdf:datatype="&xsd;string">Statistician blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The statistician does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1373,7 +1426,8 @@ The next participant is assessed with regard to several characteristics, and ass
         <rdfs:label rdf:datatype="&xsd;string">Simple randomization</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100033"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Simple randomization is a random allocation scheme that has no restriction, i.e. a single sequence of random assignment. When the sample size is relatively large, simple randomization is expected to produce equal sized treatment groups. [source: http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html ]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Simple randomization is a random allocation scheme that has no restriction, i.e. a single sequence of random assignment. When the sample size is relatively large, simple randomization is expected to produce equal sized treatment groups.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1384,6 +1438,7 @@ The next participant is assessed with regard to several characteristics, and ass
         <rdfs:label rdf:datatype="&xsd;string">Investigator blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1393,6 +1448,8 @@ The next participant is assessed with regard to several characteristics, and ass
     <owl:Class rdf:about="&study_design;OCRE100085">
         <rdfs:label rdf:datatype="&xsd;string">Data analyzed within single participant</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100046"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within a single study participant.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1442,6 +1499,7 @@ The next participant is assessed with regard to several characteristics, and ass
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Case and control are not the same person</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1452,9 +1510,10 @@ The next participant is assessed with regard to several characteristics, and ass
     <owl:Class rdf:about="&study_design;OCRE100089">
         <rdfs:label rdf:datatype="&xsd;string">Factorial</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100003"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Factorial design is a trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. [Glossary of Terms in The Cochrane Collaboration]
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Factorial design is a trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. 
 
 Example: in a factorial-design study where regimens of interventions A and B are tested, the 4 possible combinations are: A, B, A and B, neither  A nor B (placebo).</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1469,5 +1528,5 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
 
 
-<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
 
