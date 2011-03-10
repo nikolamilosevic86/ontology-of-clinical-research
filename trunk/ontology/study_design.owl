@@ -160,8 +160,10 @@ Examples:
 
     <owl:DatatypeProperty rdf:about="&study_design;matching">
         <rdfs:label rdf:datatype="&xsd;string">matching</rdfs:label>
-        <statistics:curator rdf:datatype="&xsd;string">Simona</statistics:curator>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class. Does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.</obo:IAO_0000115>
         <statistics:definition rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
         <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -173,7 +175,9 @@ Examples:
 
     <owl:DatatypeProperty rdf:about="&study_design;pooled_data">
         <rdfs:label rdf:datatype="&xsd;string">pooled data</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</obo:IAO_0000115>
         <statistics:definition rdf:datatype="&xsd;string">In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</statistics:definition>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class.</study_protocol:develop_comment>
         <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -220,7 +224,7 @@ Examples:
     <owl:Class rdf:about="&study_design;OCRE100002">
         <rdfs:label rdf:datatype="&xsd;string">Allocation group cardinality</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100048"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed. see version 18 of study design slide</obo:IAO_0000232>
     </owl:Class>
@@ -264,7 +268,8 @@ Examples:
         <rdfs:label rdf:datatype="&xsd;string">Probability sampling</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100049"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100019"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Probability sampling is an exclusively random process to guarantee that each participant or population has specified chance of selection, such as simple random sampling, systematic sampling, stratified random sampling, cluster sampling, and consecutive patient sampling [http://prsinfo.clinicaltrials.gov/definitions.html]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Probability sampling is an exclusively random process to guarantee that each participant or population has specified chance of selection, such as simple random sampling, systematic sampling, stratified random sampling, cluster sampling, and consecutive patient sampling</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -317,7 +322,8 @@ Examples:
         <owl:disjointWith rdf:resource="&study_design;OCRE100064"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100080"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100084"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded). [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded)</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -364,9 +370,10 @@ Examples:
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100072"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100012"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100076"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Bull NYU Hosp Jt Dis. 2008;66(2):150-4.</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Superiority is a type of comparative intent. 
-When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C. [Bull NYU Hosp Jt Dis. 2008;66(2):150-4.]</obo:IAO_0000115>
+When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -507,7 +514,8 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer [http://prsinfo.clinicaltrials.gov/definitions.html]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -580,7 +588,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
         <rdfs:label rdf:datatype="&xsd;string">Prospective</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100060"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100087"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In evaluations of the effects of healthcare interventions, a study in which people are identified according to current risk status or exposure, and followed forwards through time to observe outcome. Randomised controlled trials are always prospective studies. Cohort studies are commonly either prospective or retrospective, whereas case-control studies are usually retrospective. In Epidemiology, &#39;prospective study‚Äö√Ñ√∂‚àö√ë‚àö‚àÇ‚Äö√†√∂‚àö√´‚Äö√†√∂¬¨‚Ä¢ is sometimes misused as a synonym for cohort study. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which not all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -689,7 +697,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
         <rdfs:label rdf:datatype="&xsd;string">Multiple participant allocation group</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100002"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100075"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Investigator assigns regimen of interventions to an allocation group made up of more than one participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of more than one participant.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -805,6 +813,7 @@ Different types of restricted randomization are as follows:
     <owl:Class rdf:about="&study_design;OCRE100038">
         <rdfs:label rdf:datatype="&xsd;string">Phase</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Phase describes the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
 - Phase I trials assess toxic effects on humans (not many people participate in them, and usually without controls); 
 - Phase ll trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
@@ -977,7 +986,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100049">
         <rdfs:label rdf:datatype="&xsd;string">Sampling method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">For observational studies only</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Method of sampling in observational studies.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1136,7 +1145,9 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
         <rdfs:label rdf:datatype="&xsd;string">Main comparison across participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100073"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100081"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is across study participants.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1180,7 +1191,7 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
         <rdfs:label rdf:datatype="&xsd;string">Subject blinded</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The subject (or individual participant) does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The subject or individual participant does not know to which treatment group s/he (or each experimental unit of him/her) belongs.</obo:IAO_0000115>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">or Individual participant blinded</obo:IAO_0000115>
     </owl:Class>
     
@@ -1213,7 +1224,8 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <owl:Class rdf:about="&study_design;OCRE100066">
         <rdfs:label rdf:datatype="&xsd;string">Phase 4</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100038"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase IV study monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 4 study monitors FDA-approved drug to delineate additional information including the drug&#39;s risks, benefits, and optimal use. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1224,7 +1236,8 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <owl:Class rdf:about="&study_design;OCRE100067">
         <rdfs:label rdf:datatype="&xsd;string">Phase 1</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100038"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase I trial assesses toxic effects on humans (not many people participate, and usually without controls) [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 1 trial includes initial studies to determine the metabolism and pharmacologic actions of drugs in humans, the side effects associated with increasing doses, and to gain early evidence of effectiveness; may include healthy participants and/or patients.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1235,7 +1248,8 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <owl:Class rdf:about="&study_design;OCRE100068">
         <rdfs:label rdf:datatype="&xsd;string">Phase 0</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100038"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 0 trial is an exploratory trial involving very limited human exposure, with no therapeutic or diagnostic intent (e.g., screening study, microdose study). [http://prsinfo.clinicaltrials.gov/definitions.html]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 0 trial is an exploratory trial involving very limited human exposure, with no therapeutic or diagnostic intent (e.g., screening study, microdose study).</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1246,8 +1260,8 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <owl:Class rdf:about="&study_design;OCRE100069">
         <rdfs:label rdf:datatype="&xsd;string">Phase 3</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100038"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase III trial compares the new treatment against standard (or placebo) treatment (usually a full
-randomised controlled trial). At this point, a drug can be approved for community use. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 3 trial includes expanded controlled and uncontrolled trials after preliminary evidence suggesting effectiveness of the drug has been obtained, and are intended to gather additional information to evaluate the overall benefit-risk relationship of the drug and provide an adequate basis for physician labeling.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1258,7 +1272,8 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100070">
         <rdfs:label rdf:datatype="&xsd;string">Phase 2</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100038"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase ll trial assesses therapeutic benefit (usually involving a few hundred people, usually with controls, but not always) [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 2 trial includes controlled clinical studies conducted to evaluate the effectiveness of the drug for a particular indication or indications in patients with the disease or condition under study and to determine the common short-term side effects and risks.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1291,7 +1306,9 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100073">
         <rdfs:label rdf:datatype="&xsd;string">Main comparison and participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: see version 18 of study design slide</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether the main comparison is across or within study participants</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1313,7 +1330,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100075">
         <rdfs:label rdf:datatype="&xsd;string">Single participant allocation group</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100002"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Investigator assigns regimen of interventions to an allocation group made up of a single participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of a single participant.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1325,6 +1342,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
         <rdfs:label rdf:datatype="&xsd;string">Non-inferiority</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100072"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-inferiority trial is designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1405,7 +1423,9 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100081">
         <rdfs:label rdf:datatype="&xsd;string">Main comparison within participants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100073"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is within study participants.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1415,6 +1435,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100082">
         <rdfs:label rdf:datatype="&xsd;string">Relation between cases and non-cases</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Relation between cases and non-cases</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1479,7 +1500,7 @@ randomised controlled trial). At this point, a drug can be approved for communit
     <owl:Class rdf:about="&study_design;OCRE100087">
         <rdfs:label rdf:datatype="&xsd;string">Historical</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100060"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study in which the outcomes have occurred to the participants before the study commenced. Case control studies are usually retrospective, cohort studies sometimes are, randomised controlled trials never are. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
