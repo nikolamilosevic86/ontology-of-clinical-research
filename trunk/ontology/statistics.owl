@@ -52,9 +52,22 @@
         <rdfs:label rdf:datatype="&xsd;string">deprecated:definition</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
     
 
 
@@ -664,8 +677,11 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200004 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200004">
-        <rdfs:label rdf:datatype="&xsd;string">Chi-Squared</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Chi-square test</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200047"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A chi-square test (also chi squared test or χ2 test) is any statistical hypothesis test in which the sampling distribution of the test statistic is a chi-square distribution when the null hypothesis is true, or any in which this is asymptotically true, meaning that the sampling distribution (if the null hypothesis is true) can be made to approximate a chi-square distribution as closely as desired by making the sample size large enough.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Chi-square test. Available at http://en.wikipedia.org/wiki/Chi-square_test</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -866,13 +882,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable is quantitative</obo:IAO_0000115>
@@ -932,13 +948,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable polychotomous</obo:IAO_0000115>
@@ -961,6 +977,7 @@
         <rdfs:label rdf:datatype="&xsd;string">Central tendency</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200003"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A metric measuring the &quot;middle&quot; or &quot;expected&quot; value of a distribution or of a random variable</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1072,6 +1089,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200033">
         <rdfs:label rdf:datatype="&xsd;string">Analysis of variance</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">OECD Glossary of Statistical Terms entry for Variance Analysis. Available at http://stats.oecd.org/glossary/detail.asp?ID=3885</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The analysis of variance is a collection of statistical models, and their associated procedures, in which the observed variance is partitioned into components due to different explanatory variables. [source: Wikipedia] The total variation displayed by a set of observations, as measured by the sums of squares of deviations from the mean, may in certain circumstances be separated into components associated with defined sources of variation used as criteria of classification for the observations. Such an analysis is called an analysis of variance, although in the strict sense it is an analysis of sums of squares. </obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1079,7 +1099,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200034 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200034">
-        <rdfs:label rdf:datatype="&xsd;string">CensoringBoundedType</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Censoring-bounded type</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
     </owl:Class>
     
@@ -1274,6 +1294,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200047">
         <rdfs:label rdf:datatype="&xsd;string">Categorical method</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A categorical method is a statistical technique that uses categorical (nominal) data.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1308,8 +1330,11 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200050 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200050">
-        <rdfs:label rdf:datatype="&xsd;string">Chi distribution</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Chi-square distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the chi-square distribution (also chi-squared or χ²-distribution) with k degrees of freedom is the distribution of a sum of the squares of k independent standard normal random variables.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Chi-square distribution. Available at http://en.wikipedia.org/wiki/Chi-square_distribution</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1499,6 +1524,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200065">
         <rdfs:label rdf:datatype="&xsd;string">Binomial distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the binomial distribution is the discrete probability distribution of the number of successes in a sequence of n independent yes/no experiments, each of which yields success with probability p. Such a success/failure experiment is also called a Bernoulli experiment or Bernoulli trial.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Binomial distribution. Available at http://en.wikipedia.org/wiki/Binomial_distribution</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1608,6 +1636,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200074">
         <rdfs:label rdf:datatype="&xsd;string">Analysis of covariance</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The analysis of covariance (ANCOVA) is a general linear model with one continuous outcome variable (quantitative) and one or more factor variables (qualitative). ANCOVA is a merger of ANOVA and regression for continuous variables. ANCOVA tests whether certain factors have an effect on the outcome variable after removing the variance for which quantitative predictors (covariates) account. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Analysis of covariance. Available at: http://en.wikipedia.org/wiki/Analysis_of_covariance</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1860,8 +1891,10 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200095 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200095">
-        <rdfs:label rdf:datatype="&xsd;string">Actuarial method</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Time-to-failure method</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An time-to-failure method is a statistical technique relating to preparation of mortality and other analytical tables. It uses data from the past to predict the future.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1979,6 +2012,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200101">
         <rdfs:label rdf:datatype="&xsd;string">Infinite countable</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In mathematics, a countable set is a set with the same cardinality  (number of elements) as some subset of the set of natural numbers.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Countable set. Available at http://en.wikipedia.org/wiki/Countable_set</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -2058,5 +2094,5 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
 
 
 
-<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
 
