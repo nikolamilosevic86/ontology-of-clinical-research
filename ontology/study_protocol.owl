@@ -44,7 +44,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/study_protocol.owl">
-        <rdfs:comment rdf:datatype="&xsd;string">Concept imported from BRIDG that related to the planned activities and schedules of a study protocol.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Concept imported from BRIDG that related to the defined activities and schedules of a study protocol.</rdfs:comment>
     </owl:Ontology>
     
 
@@ -389,6 +389,7 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#DefinedDeviceProcedure">
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: I cannot find this class in BRIDG and it is not clear what it describes</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -397,7 +398,6 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000">
         <rdfs:label rdf:datatype="&xsd;string">Epoch</rdfs:label>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An epoch defined for a specific study but for which no StudySubjects or ExperimentalUnits have been identified (where Epoch is defined as: One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.). [BRIDG Release 2.2]</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">An epoch is one of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
 
 Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
@@ -405,6 +405,21 @@ Each Epoch serves a purpose in the trial as a whole, typically exposing the subj
 For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
 
 NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</obo:IAO_0000116>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+One of a set of ordered partitions of an experimental unit&#39;s participation in a study. An Epoch represents a state within a study such that subjects in separate arms within that state are comparable.
+
+Each epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Activities and activity results control the subject&#39;s movement from one epoch to another.
+
+EXAMPLE(S):
+A study designed to assess the effects of treatments might have 3 epochs.
+A Screening Epoch in which subjects&#39; eligibility is determined and baseline measurements are made.
+A Treatment Epoch during which treatments are given and effects of treatment are assessed.
+A Follow-up Epoch during which post-treatment assessments are conducted.  
+
+NOTE(S):
+A subject moves from one epoch to another and can only be in one epoch at a time. The subject can only move to an epoch with a greater sequenceNumber. Activities in the same epoch but a different arm need not be similar in time and pattern. Subjects in different arms will not necessarily pass through the same epochs.
+</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -414,7 +429,15 @@ NOTE: A subject moves from one Epoch to another and can only be in one epoch at 
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
         <rdfs:label rdf:datatype="&xsd;string">Arm</rdfs:label>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An arm for which StudySubjects or ExperimentalUnits have not yet been identified (where Arm is defined as: A path through the study which describes what activities the StudySubject or ExperimentalUnit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. For example, a study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.). [BRIDG Release 2.2]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+A path through the study which describes what activities the study subject or experimental unit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. Generally, each subject is assigned to an arm, and the design of the study is reflected in the number and composition of the individual arms. This intended path through which the subject progresses in a trial is composed of time point events (study cell) for each epoch of the study. Each time point event, in turn, has a pattern of child time points through which the subject would pass. This planned path thus describes how subjects assigned to the arm will be treated. 
+
+EXAMPLE(S):
+A study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.
+
+OTHER NAME(S):
+Group (CTRR Observational Studies)</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -424,6 +447,22 @@ NOTE: A subject moves from one Epoch to another and can only be in one epoch at 
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300003">
         <rdfs:label rdf:datatype="&xsd;string">DefinedRepeatActivityUntilRule</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+A relationship between a defined repeating activity and one of the following that may trigger the repeating activity to stop, where all items are part of a global library:
+- another defined activity where the repeating activity stops if this other activity occurs
+- a defined observation result where the repeating activity stops if this observation result occurs
+- a defined criteria group where the repeating activity stops if this group logically evaluates to true based on its components
+
+EXAMPLE(S):
+Continue repeating kidney dialysis until kidney transplant surgery.
+
+Continue performing a certain lab test weekly until the three-month checkup occurs. (target = another activity)
+
+Continue substance administration of drug X until the blood pressure is over some minimum threshold number. (target = observation result from another activity that is an observation)
+
+Continue substance administration of drug Y until the blood pressure is over some minimum threshold number and either the result of a certain lab test is positive or the subjects temperature is elevated, i.e. &quot;(A and (B or C))&quot;.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -433,10 +472,14 @@ NOTE: A subject moves from one Epoch to another and can only be in one epoch at 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300004">
         <rdfs:label rdf:datatype="&xsd;string">DefinedAdministrativeActivity</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The planned activity within the context of a given study that is not directly related to the study&#39;s overarching hypothesis evaluation or testing, but is nonetheless essential to the efficient and/or effective coordination and execution of the study.
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+An activity defined at a global library level that is not directly related to hypothesis evaluation or testing, but is typically essential to the efficient and/or effective coordination and execution of a study.
 
-For example, assignment to a treatment arm, registration to a study, start of on-study period, end of on-study period, obtain informed consent, verify eligibility criteria, enroll, randomize, complete study visits, exit trial, break treatment blind, protocol violation, premature withdrawal, etc. [BRIDG Release 2.2]</obo:IAO_0000115>
+EXAMPLE(S):
+assignment to a treatment arm, registration to a study, start of on-study period, end of on-study period, obtain informed consent, verify eligibility criteria, enroll, randomize, complete study visits, exit trial, break treatment blind, protocol violation, premature withdrawal
+</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -446,6 +489,7 @@ For example, assignment to a treatment arm, registration to a study, start of on
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300006">
         <rdfs:label rdf:datatype="&xsd;string">DefinedSpecimenCollection</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -464,8 +508,13 @@ For example, assignment to a treatment arm, registration to a study, start of on
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300008">
         <rdfs:label rdf:datatype="&xsd;string">DefinedObservation</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+An activity defined at a global library level whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a study subject&#39;s or experimental unit&#39;s physiologic or psychologic state.
+
+EXAMPLE(S):
+blood chemistry panel, body mass index calculation, blood pressure measurement</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The intended action of observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a StudySubject&#39;s or ExperimentalUnit&#39;s physiologic or psychologic state. [BRIDG Release 2.2]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -475,9 +524,14 @@ For example, assignment to a treatment arm, registration to a study, start of on
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009">
         <rdfs:label rdf:datatype="&xsd;string">DefinedProcedure</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A planned activity whose immediate and primary intention is the alteration of the physical condition of the StudySubject or ExperimentalUnit.
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+An activity defined at a global library level that is an action whose immediate and primary intention is the alteration of the physical condition of the study subject or experimental unit.
 
-For example, procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure) conservative procedures such as reduction of a luxated joint, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu, radiation therapy, etc. [BRIDG Release 2.2]</obo:IAO_0000115>
+EXAMPLE(S):
+Procedures may involve the disruption of some body surface (e.g. an incision in a surgical procedure).
+
+Conservative procedures such as reduction of a luxated joint, including physiotherapy such as chiropractic treatment, massage, balneotherapy, acupuncture, shiatsu.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -489,16 +543,17 @@ For example, procedures may involve the disruption of some body surface (e.g. an
         <rdfs:label rdf:datatype="&xsd;string">DefinedCompositionRelationship</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#composite"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#component"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#component"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#composite"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -507,6 +562,15 @@ For example, procedures may involve the disruption of some body surface (e.g. an
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011">
         <rdfs:label rdf:datatype="&xsd;string">DefinedActivity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An activity that frequently occurs in studies (e.g. more than one time in more than one arm) and therefore is called out as a reusable template in a global library of activities outside the context of any particular study, and may be used in the composition of a defined study subject activity group. A defined activity is a &quot;kind of&quot; activity rather than an &quot;instance of&quot; an activity. 
+
+EXAMPLE(S):
+Standard blood chemistries are frequently included in studies - also activities that are study-specific and recur more than one time in more than one arm may be defined, such as a substance administration activity involving X amount of drug Y.
+
+NOTE(S):
+A defined activity is represented here as a subtype of Activity, but could also be thought of as an activity at a particular stage in the business process in which the activities occur, i.e., in the &quot;defined&quot; stage rather than the &quot;planned&quot; stage, the &quot;scheduled&quot; stage or the &quot;performed&quot; stage.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -514,10 +578,19 @@ For example, procedures may involve the disruption of some body surface (e.g. an
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300012 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300012">
-        <rdfs:label rdf:datatype="&xsd;string">Study Protocol</rdfs:label>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An action plan for a formal investigation to assess the utility, impact, pharmacological, physiological, and psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.
+        <rdfs:label rdf:datatype="&xsd;string">StudyProtocol</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+A discrete, structured plan (that persists over time) of a formal investigation to assess the utility, impact, pharmacological, physiological, and/or psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic. 
 
-Note: Among other things, the action plan may include the design, statistical considerations and all activities to test a particular hypothesis that is the basis of the study.  The study may be of any type that involves StudySubjects, including prevention, therapeutic, interventional or observational.  Subjects may be biological entities (human, animal, specimen, tissue, organ, etc.) or products. [BRIDG Release 2.2]</obo:IAO_0000115>
+NOTE(S):
+The term &quot;protocol&quot; is somewhat overloaded and must be qualified to provide semantic context.  Therefore the term &quot;study protocol&quot; was chosen to disambiguate it from other protocols. 
+
+In previous versions of BRIDG, there was one class for StudyProtocol.  However this too represented multiple distinct aspects of the semantics of study protocol, each of which have now been split into separate classes:
+- The StudyProtocol class represents the content of the study protocol and can exist even before the information is put into document form. 
+- The details of the structured plan for the study protocol are represented by the StudyProtocolVersion, so named because any aspect of the definition can change from version to version.  These details include, but are not limited to, the characteristics, specifications, objective(s), background, the pre-study/study/post-study portions of the plan (including the design, methodology, statistical considerations, organization).
+- The protocol and its versions can each be represented in document form, respectively StudyProtocolDocument and StudyProtocolDocumentVersion.  A StudyProtocolDocument groups the various document versions (StudyProtocolDocumentVersions).
+- The conduct of a study based on a study protocol definition is represented by the StudyExecution class.</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">NOTE: The StudyProtocol class encapsulates the semantics of two &#39;views&#39; of the single concept &#39;study.&#39;  The name &#39;StudyProtocol&#39; was chosen to both disambiguate the somewhat overloaded term &#39;protocol,&#39; as well as to emphasize that the class has two important relationships to the Document class, each of which emphasizes a different aspect of the overall semantics of the StudyProtocol class:
 1). StudyProtocol is a sub-class of the Document class:
 StudyProtocol is a sub-class of Document and, as such, inherits all of the basic characteristics of its parent.  In particular, an instance can contain all of the definitions, specifications, and content of the various (logical) documents which collectively define a study, including (but not limited to) documents that describe the objective(s), background, and/or plan (including the design, methodology, statistical considerations, organization, or other supplemental materials that describe the required information of a Study.
@@ -529,7 +602,10 @@ NOTE:  A StudyProtocol can be either Primary or Correlative.  A StudyProtocol is
 NOTE: We are assuming that a document is a container, which may be physical or logical, with the six characteristics listed in the definition of the Document class.  This class is the container for the Plan. 
 
 NOTE: StudyProtocol describes the pre-study, study, and post-study portions of the plan. [BRIDG Release 2.2]</obo:IAO_0000116>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">Previous definition: An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.</obo:IAO_0000116>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Previous definition: An action plan for a pre-clinical or clinical study which defines all activities planned to achieve the objectives of the study. The plan specifies, for example, the design of the study, including  the subject to be included, the outcome to be studied,  data to be collected, and method of analysis. A study protocol is an informational entity that is ontologically distinct from events that occur as part of the study.
+
+BRIDG Release 2.2 definition: An action plan for a formal investigation to assess the utility, impact, pharmacological, physiological, and psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.
+Note: Among other things, the action plan may include the design, statistical considerations and all activities to test a particular hypothesis that is the basis of the study.  The study may be of any type that involves StudySubjects, including prevention, therapeutic, interventional or observational.  Subjects may be biological entities (human, animal, specimen, tissue, organ, etc.) or products.</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -540,11 +616,13 @@ NOTE: StudyProtocol describes the pre-study, study, and post-study portions of t
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300013">
         <rdfs:label rdf:datatype="&xsd;string">DefinedSubstanceAdministration</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: class has many attributes; I assume within OCRe they are found in the IO.</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The intended action of applying, dispensing or otherwise giving medications or other substances to ExperimentalUnits.
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+An activity defined at a global library level that is an action of applying, dispensing or otherwise giving medications or other substances.
 
-For example, a study subject who receives methotrexate as part of chemotherapy. [BRIDG Release 2.2]</obo:IAO_0000115>
+EXAMPLE(S):
+Administration of methotrexate as part of chemotherapy.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -553,6 +631,7 @@ For example, a study subject who receives methotrexate as part of chemotherapy. 
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300014">
         <rdfs:label rdf:datatype="&xsd;string">DefinedContingentOnRelationship</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -565,6 +644,7 @@ For example, a study subject who receives methotrexate as part of chemotherapy. 
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A collection of activities performed on a common subject that are intended to occur at approximately the same time.
 
 For example, Clinic visit during which a physical exam, a blood test, and a substance administration occur;  Telephone contact during which temperature, blood pressure and adverse events are reported; recording multiple observation results in a diary.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -579,6 +659,8 @@ For example, Clinic visit during which a physical exam, a blood test, and a subs
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The intention to use a defined activity in the design of a study.
 
 For example, if a Study&#39;s design includes the activity of taking blood pressure, the DefinedActivity for blood pressure is linked to the Study via this class.
