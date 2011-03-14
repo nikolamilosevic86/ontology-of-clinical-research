@@ -200,13 +200,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is polychotomous and independent variable is dichotomous</obo:IAO_0000115>
@@ -639,7 +639,9 @@
         <rdfs:label rdf:datatype="&xsd;string">Dichotomous</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200076"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measurements whose values are in one of two possible states, these often being labeled 0 and 1 (adapted from Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measurements whose values are in one of two possible states, these often being labeled 0 and 1.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">adapted from Cambridge Dictionary of Statistics 3rd edition</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -668,8 +670,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200003">
         <rdfs:label rdf:datatype="&xsd;string">Distributional metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A numeric characteristic of a distribution or a random variable</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A numeric characteristic of a distribution or of a random variable</obo:IAO_0000115>
         <synonym rdf:datatype="&xsd;string">Descriptive statistics</synonym>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -739,7 +742,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200010">
         <rdfs:label rdf:datatype="&xsd;string">Sensitivity</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test calculated as the percentage of correct positives in all true postives</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discriminant test calculated as the percentage of correct positives in all true postives</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
         <synonym rdf:datatype="&xsd;string">recall</synonym>
     </owl:Class>
     
@@ -768,7 +772,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200013">
         <rdfs:label rdf:datatype="&xsd;string">Kruskal Wallis method</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">the Kruskal-Wallis one-way analysis of variance by ranks (named after William Kruskal and W. Allen Wallis) is a non-parametric method for testing equality of population medians among groups. It is identical to a one-way analysis of variance with the data replaced by their ranks. It is an extension of the Mann-Whitney U test to 3 or more groups. (http://en.wikipedia.org/wiki/Wallis_statistic)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The Kruskal-Wallis one-way analysis of variance by ranks (named after William Kruskal and W. Allen Wallis) is a non-parametric method for testing equality of population medians among groups. It is identical to a one-way analysis of variance with the data replaced by their ranks. It is an extension of the Mann-Whitney U test to 3 or more groups. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Kruskal–Wallis one-way analysis of variance. Available at http://en.wikipedia.org/wiki/Wallis_statistic</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -844,6 +850,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200017">
         <rdfs:label rdf:datatype="&xsd;string">Interval scale level</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Cambridge Dictionary of Statistics 3rd edition</obo:IAO_0000119>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Cannot meaningfully compute ratios</obo:IAO_0000116>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has an arbitrary zero point.&quot;</obo:IAO_0000115>
     </owl:Class>
@@ -908,7 +915,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200020 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200020">
-        <rdfs:label rdf:datatype="&xsd;string">PointObervation</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Point observation</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x=y</obo:IAO_0000115>
     </owl:Class>
@@ -918,7 +925,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200021 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200021">
-        <rdfs:label rdf:datatype="&xsd;string">IntervalCensored</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Interval censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x~=y</obo:IAO_0000115>
     </owl:Class>
@@ -1173,6 +1180,9 @@
         <rdfs:label rdf:datatype="&xsd;string">Exponential distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">A class of probability distribution with probability density function (pdf) of f(x;lambda) = 1 - exp(-lambda*x) for x &gt;-0 ; 0 otherwise</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the exponential distribution (a.k.a. negative exponential distribution) is a family of continuous probability distributions. It describes the time between events in a Poisson process, i.e. a process in which events occur continuously and independently at a constant average rate.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Exponential distribution. Available at http://en.wikipedia.org/wiki/Exponential_distribution</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1194,6 +1204,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200043">
         <rdfs:label rdf:datatype="&xsd;string">Log-normal distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory, a log-normal distribution is a probability distribution of a random variable whose logarithm is normally distributed. If X is a random variable with a normal distribution, then Y = exp(X) has a log-normal distribution; likewise, if Y is log-normally distributed, then X = log(Y) is normally distributed. (This is true regardless of the base of the logarithmic function: if loga(Y) is normally distributed, then so is logb(Y), for any two positive numbers a, b ≠ 1.)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Log-normal distribution. Available at http://en.wikipedia.org/wiki/Log-normal_distribution</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1230,12 +1243,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1243,6 +1250,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is dichotomous and independent variable is dichotomous</obo:IAO_0000115>
@@ -1388,7 +1401,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200055">
         <rdfs:label rdf:datatype="&xsd;string">Interquartile range</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200093"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The variate distance between the upper and lower quartiles. This range contains one half of the total frequency and provides a simple measure of dispersion which is useful in descriptive statistics (http://stats.oecd.org/glossary/index.htm)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string"> OECD glossary of Statistical Terms entry for Interquartile range. Available at http://stats.oecd.org/glossary/detail.asp?ID=3761</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The variate distance between the upper and lower quartiles. This range contains one half of the total frequency and provides a simple measure of dispersion which is useful in descriptive statistics</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1505,6 +1519,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200063">
         <rdfs:label rdf:datatype="&xsd;string">Gamma distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the gamma distribution is a two-parameter family of continuous probability distributions. It has a scale parameter θ and a shape parameter k. If k is an integer, then the distribution represents an Erlang distribution, i.e., the sum of k independent exponentially distributed random variables, each of which has a mean of θ (which is equivalent to a rate parameter of θ −1) .
+The gamma distribution is frequently a probability model for waiting times; for instance, in life testing, the waiting time until death is a random variable that is frequently modeled with a gamma distribution.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Gamma distribution. Available at http://en.wikipedia.org/wiki/Gamma_distribution</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1512,7 +1530,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200064 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200064">
-        <rdfs:label rdf:datatype="&xsd;string">LeftCensored</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Left censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], x unknown</obo:IAO_0000115>
     </owl:Class>
@@ -1619,7 +1637,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200073 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200073">
-        <rdfs:label rdf:datatype="&xsd;string">Log rank test</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Product limit estimation</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200095"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1627,6 +1645,8 @@
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Logrank test</obo:IAO_0000116>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: changed label to &#39;Product limit estimation&#39;, which can be tested with a logrank test and the result is the Kaplan-Meier curve. The logrank test allows to compare two or more KM curves </obo:IAO_0000232>
     </owl:Class>
     
 
@@ -1763,6 +1783,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200083">
         <rdfs:label rdf:datatype="&xsd;string">Discrete uniform distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the discrete uniform distribution is a probability distribution whereby a finite number of equally spaced values are equally likely to be observed; every one of n values has equal probability 1/n. Another way of saying &quot;discrete uniform distribution&quot; would be &quot;a known, finite number of equally spaced outcomes equally likely to happen.&quot;
+If a random variable has any of n possible values  that are equally spaced and equally probable, then it has a discrete uniform distribution. The probability of any outcome ki  is 1 / n. A simple example of the discrete uniform distribution is throwing a fair die. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Uniform distribution (discrete). Available at http://en.wikipedia.org/wiki/Uniform_distribution_(discrete)</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -1823,8 +1847,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200089">
         <rdfs:label rdf:datatype="&xsd;string">Absolute scale level</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Cambridge Dictionary of Statistics 3rd edition</obo:IAO_0000119>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Can compute ratios</obo:IAO_0000116>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot; (Cambridge Dictionary of Statistics 3nd ed.)</obo:IAO_0000232>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot;</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -1834,7 +1859,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200090">
         <rdfs:label rdf:datatype="&xsd;string">Specificity</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200100"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test calculated as the percentage of negatives in all true negatives</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discriminant test calculated as the percentage of negatives in all true negatives</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1904,6 +1930,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200096">
         <rdfs:label rdf:datatype="&xsd;string">Continuous uniform distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In probability theory and statistics, the continuous uniform distribution or rectangular distribution is a family of probability distributions such that for each member of the family, all intervals of the same length on the distribution&#39;s support are equally probable. The support is defined by the two parameters, a and b, which are its minimum and maximum values. The distribution is often abbreviated U(a,b).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: Wikipedia entry &quot;does not cite any references or sources&quot; Confirmation needed</obo:IAO_0000232>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Uniform distribution (continuous). Available at http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -2002,7 +2032,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200100">
         <rdfs:label rdf:datatype="&xsd;string">Classification analysis metric</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discrimiant test with binary outcome</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An index of performance of a discriminant test with binary outcome</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2012,7 +2043,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200101">
         <rdfs:label rdf:datatype="&xsd;string">Infinite countable</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In mathematics, a countable set is a set with the same cardinality  (number of elements) as some subset of the set of natural numbers.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In mathematics, a countable set is a set with the same cardinality (number of elements) as some subset of the set of natural numbers.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Wikipedia entry for Countable set. Available at http://en.wikipedia.org/wiki/Countable_set</obo:IAO_0000119>
     </owl:Class>
@@ -2053,7 +2084,7 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200105 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200105">
-        <rdfs:label rdf:datatype="&xsd;string">RightCensored</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Right censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], y unknown</obo:IAO_0000115>
     </owl:Class>
