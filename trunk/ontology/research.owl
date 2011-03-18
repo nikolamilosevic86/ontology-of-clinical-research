@@ -1055,14 +1055,6 @@
         <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;research.owl#part_of"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1071,6 +1063,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1873,6 +1873,8 @@
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400007"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400053"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400077"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in the planning stage: protocol is being developed and has not yet been submitted for regulatory approval (if applicable).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1901,6 +1903,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400003">
         <rdfs:label rdf:datatype="&xsd;string">Recruitment status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400074"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The recruitment status describes the overall accrual activity for the study.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1919,6 +1923,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400005">
         <rdfs:label rdf:datatype="&xsd;string">Telecommunication scheme</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The scheme used to describe the telecommunication address (e.g., ftp, http, etc.)</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1935,6 +1941,9 @@
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1946,6 +1955,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400074"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400053"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400077"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which participants are no longer being enrolled or treated, but only followed-up (i.e., last patient in has happened, while last patient&#39;s last visit has not yet occurred).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1991,6 +2002,8 @@
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400010">
         <rdfs:label rdf:datatype="&xsd;string">Value set</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Classes that define sets of permissible values.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2012,7 +2025,7 @@
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400115"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A time point defined as a duration before or after another time point</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A relative time point is a time point defined as a duration before or after another time point</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2022,6 +2035,7 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400013">
         <rdfs:label rdf:datatype="&xsd;string">Biospecimen availability</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
+        <obo:IAO_0000115>Whether biospecimens are available for this study</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2031,6 +2045,9 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400014">
         <rdfs:label rdf:datatype="&xsd;string">Telecommunication address</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400040"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A telecommunications address specified according to Internet standard RFC 2396 [http://www.ietf.org/rfc/rfc2396.txt]. The URI specifies the protocol and the contact point defined by that protocol for the resource. Notable uses of the telecommunication address data type are for telephone and telefax numbers, e-mail addresses, Hypertext references, FTP references, etc. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2040,7 +2057,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400015">
         <rdfs:label rdf:datatype="&xsd;string">Physical entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400032"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">&quot;An identifiable physical entity involved in a clinical activity. Examples could include a person, animal or biological sample. (An object)&quot;^^string</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical entity is an entity that has physical existence. An entity is that which is perceived or known or inferred to have its own distinct existence (living or nonliving)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2056,6 +2074,9 @@
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are currently being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2196,6 +2217,8 @@
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that has concluded recruitment (i.e., last patient in has occurred)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2234,8 +2257,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A population is a collection of organisms.
-Population is also used to refer to a set of potential measurements or values, including not only cases actually observed but those that are potentially observable. [source: Wikipedia entry for statistical population]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A population is a collection of organisms.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2286,8 +2309,9 @@ Population is also used to refer to a set of potential measurements or values, i
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Merriam-Webster&#39;s Dictionary entry for phenomenon. Available at http://www.merriam-webster.com/dictionary/phenomenon</obo:IAO_0000119>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: made Study_phenomenon a subclass of Role as per 12/1 email</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">a fact or event of interest susceptible to scientific description and explanation (Merriam-Webster, 2nd edition)</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">an out_phenomenon that is represented by one or more variables at least one of which is intended to be used as a stand-alone dependent variable or as a source for deriving a dependent variable in at least one specified analysis in the study</obo:IAO_0000116>
     </owl:Class>
     
@@ -2320,6 +2344,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400039">
         <rdfs:label rdf:datatype="&xsd;string">Postal address</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400040"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A postal address is a mailing and home or office address. A sequence of address parts, such as street or post office Box, city, postal code, country, etc.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2329,6 +2356,8 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400040">
         <rdfs:label rdf:datatype="&xsd;string">Address</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400031"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An address includes the particulars of where a person or organization has the mail delivered (postal address) or can be reached with means other than mail (telecommunication address).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2338,6 +2367,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400041">
         <rdfs:label rdf:datatype="&xsd;string">Study phenomenon</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400027"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Merriam-Webster&#39;s Dictionary entry for phenomenon. Available at http://www.merriam-webster.com/dictionary/phenomenon</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2370,6 +2402,9 @@ Population is also used to refer to a set of potential measurements or values, i
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that is ongoing (i.e., patients are being treated or examined), but participants are not currently being recruited or enrolled.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2444,7 +2479,7 @@ Population is also used to refer to a set of potential measurements or values, i
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome such as questionnaire or laboratory test.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome, such as a questionnaire or laboratory test.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2462,17 +2497,18 @@ Population is also used to refer to a set of potential measurements or values, i
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_method"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2553,6 +2589,8 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:label rdf:datatype="&xsd;string">Completed</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400074"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400077"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which all data has been collected and the analysis performed. Results may or may not have been published.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2571,6 +2609,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400055">
         <rdfs:label rdf:datatype="&xsd;string">ConceptDescriptor</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400031"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A concept descriptor represents any kind of concept usually by giving a code defined in a code system. A concept descriptor can contain the original text or phrase that served as the basis of the coding and one or more translations into different coding systems. A concept descriptor can also contain qualifiers to describe, e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. In cases of an exceptional value, the concept descriptor need not contain a code but only the original text describing that concept.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2606,6 +2647,17 @@ Population is also used to refer to a set of potential measurements or values, i
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
                     <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400073"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
+                    <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;research.owl#recruited_in_the_past"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
                     </owl:Restriction>
@@ -2616,17 +2668,6 @@ Population is also used to refer to a set of potential measurements or values, i
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;research.owl#will_recruit_in_the_future"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400073"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2664,9 +2705,11 @@ Population is also used to refer to a set of potential measurements or values, i
     <!-- http://purl.org/net/OCRe/research.owl#OCRE400061 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400061">
-        <rdfs:label rdf:datatype="&xsd;string">StudyPopulation</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study population</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400033"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">&quot;A set of individuals who are subjects of a defined set of events to form a population or sub-population of a study.&quot;^^string</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In research:] The group of people being studied, usually by taking samples from that population. Populations may be defined by any characteristics e.g. geography, age group, certain diseases.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2679,6 +2722,9 @@ Population is also used to refer to a set of potential measurements or values, i
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are being (or will be) selected from a predetermined population</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2700,6 +2746,7 @@ Population is also used to refer to a set of potential measurements or values, i
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Speficication of a characteristic of the study population evaluated in the course of the study</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2749,6 +2796,9 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2832,6 +2882,18 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#dependent_variable"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
             </owl:Restriction>
@@ -2848,18 +2910,6 @@ Population is also used to refer to a set of potential measurements or values, i
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
     </owl:Class>
     
@@ -2871,6 +2921,9 @@ Population is also used to refer to a set of potential measurements or values, i
         <rdfs:label rdf:datatype="&xsd;string">Not yet recruiting</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;research.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are not yet being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2880,7 +2933,8 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400074">
         <rdfs:label rdf:datatype="&xsd;string">Study status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400047"/>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">no definition</obo:IAO_0000232>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The status describes where the study is in its life-cycle.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2890,6 +2944,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400075">
         <rdfs:label rdf:datatype="&xsd;string">Suspended recruiting</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400003"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2928,7 +2985,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400079">
         <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE541581"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. (from BRIDG 1.1.1)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2947,7 +3006,9 @@ Population is also used to refer to a set of potential measurements or values, i
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400115">
         <rdfs:label rdf:datatype="&xsd;string">Physical quantity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400023"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quantity counted or measured in some unit</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical quantity is a dimensioned quantity expressing the result of measuring.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -3389,6 +3450,8 @@ Note that this type of analysis can also be applied to outcomes in a human study
 
     <owl:Class rdf:about="&ontologies;study_design.owl#OCRE100005">
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400047"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A meta-level characterization of the design of a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -3699,8 +3762,26 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <swrl:Variable rdf:about="&ontologies;research.owl#recruitmentStatus"/>
     <swrl:Variable rdf:about="&ontologies;research.owl#study"/>
     <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:DatavaluedPropertyAtom>
+                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
+                        <swrl:propertyPredicate rdf:resource="&ontologies;research.owl#recruiting_in_the_present"/>
+                        <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
+                    </swrl:DatavaluedPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
         <swrl:body>
             <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400016"/>
+                        <swrl:argument1 rdf:resource="&ontologies;research.owl#recruitmentStatus"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
                 <rdf:rest>
                     <swrl:AtomList>
                         <rdf:rest>
@@ -3723,30 +3804,12 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
                         </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400016"/>
-                        <swrl:argument1 rdf:resource="&ontologies;research.owl#recruitmentStatus"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
             </swrl:AtomList>
         </swrl:body>
-        <swrl:head>
-            <swrl:AtomList>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <swrl:DatavaluedPropertyAtom>
-                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
-                        <swrl:propertyPredicate rdf:resource="&ontologies;research.owl#recruiting_in_the_present"/>
-                        <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
-                    </swrl:DatavaluedPropertyAtom>
-                </rdf:first>
-            </swrl:AtomList>
-        </swrl:head>
     </swrl:Imp>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
 
