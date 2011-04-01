@@ -200,13 +200,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -237,13 +237,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -713,7 +713,9 @@
         <rdfs:label rdf:datatype="&xsd;string">Range</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200093"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200055"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The largest minus the smallest of a set of variate values. The range is of itself an elementary measure of dispersion but, in terms of the mean range in repeated sampling, it may afford a reasonable estimate of the population standard deviation. (http://stats.oecd.org/glossary/detail.asp?ID=3824)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Range. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C38013</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The range is the difference between the lowest and highest numerical values; the limits or scale of variation.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -754,6 +756,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200011">
         <rdfs:label rdf:datatype="&xsd;string">Ratio</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A ratio is a quotient of quantities of the same kind for different components within the same system.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Ratio. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C44256</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -890,13 +895,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is quantitative and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1026,6 +1031,8 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200028">
         <rdfs:label rdf:datatype="&xsd;string">Quotient</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quotient is the result obtained by dividing one quantity by another</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1160,7 +1167,8 @@
         <rdfs:label rdf:datatype="&xsd;string">Median</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200058"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The median is that value of the variate which divides the total frequency into two halves. (http://stats.oecd.org/glossary/detail.asp?ID=3717)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The median is the middle value in a data set: i.e., the value which has an equal number of values greater and less than it.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1244,13 +1252,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1423,7 +1431,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200057">
         <rdfs:label rdf:datatype="&xsd;string">Mean</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">When unqualified, the mean usually refers to the expectation of a variate, or to the arithmetic mean of a sample used as an estimate of the expectation. (http://stats.oecd.org/glossary/detail.asp?ID=3762)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI thesaurus entry for Mean Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C53319</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <synonym rdf:datatype="&xsd;string">Statistical mean</synonym>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The mean is the sum of a set of values divided by the number of values in the set.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1433,7 +1444,9 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200058">
         <rdfs:label rdf:datatype="&xsd;string">Mode</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200024"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The mode was originally conceived of as that value of the variate which is possessed by the greatest number of members of the population. (http://stats.oecd.org/glossary/detail.asp?ID=3720)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI thesaurus entry for Mode. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C53320</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The mode is the value which occurs most often in a set of values. If no value is repeated, there is no mode. If more than one value occurs with the same greatest frequency, each value is a mode.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1574,6 +1587,8 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200068">
         <rdfs:label rdf:datatype="&xsd;string">Odds</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Odds is a quotient in which the relative likelihood that an event will occur is divided by the the relative likelihood that it won&#39;t. In probability theory and statistics, where the variable &quot;p&quot; is the probability in favor of the event, and the probability against the event is 1-p, &quot;the odds&quot; of the event are the quotient of the two, or p / (1-p)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 

@@ -1055,14 +1055,6 @@
         <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;research.owl#part_of"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1071,6 +1063,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1998,7 +1998,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;suspended recruiting study&quot; is a study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2022,14 +2022,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400024"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#anchor_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#duration"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400115"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#duration"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400115"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#anchor_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A relative time point is a time point defined as a duration before or after another time point</obo:IAO_0000115>
@@ -2042,7 +2042,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400013">
         <rdfs:label rdf:datatype="&xsd;string">Biospecimen availability</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether biospecimens are available for this study</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Biospecimen availability describes whether biospecimens are available for a study.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2093,7 +2094,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400018">
         <rdfs:label rdf:datatype="&xsd;string">OCT media</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Fresh specimen frozen onto a sectioning planchet using OCT (Optimum Cutting Temperatur) and then stored frozen</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">OTC media is a biospecimen preservation method whereby a fresh specimen is frozen onto a sectioning planchet using OCT (Optimum Cutting Temperature) and then stored frozen</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2103,7 +2105,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400019">
         <rdfs:label rdf:datatype="&xsd;string">Fast freeze</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Specimen placed into typically Liquid Nitrogen or Dry Ice so the specimen is frozen in seconds then stored colder than (-160° C) ; </obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Fast freeze is a biospecimen preservation method whereby the specimen is placed into typically liquid nitrogen or dry ice so the specimen is frozen in seconds then stored colder than (-160° C)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2113,7 +2116,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400020">
         <rdfs:label rdf:datatype="&xsd;string">Biospecimen preservation method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Specimen placed into typically Liquid Nitrogen or Dry Ice so the specimen is frozen in seconds then stored colder than (-160° C)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Biospecimen preservation method describes the method used to preserve a biospecimen.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2135,7 +2139,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400022">
         <rdfs:label rdf:datatype="&xsd;string">Formalin fixation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Typically fixed overnight in buffered formalin and then embedded in parrafin and stored at room temp</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Formalin fixation is a biospecimen preservation method whereby the specimen is typically fixed overnight in buffered formalin and then embedded in paraffin and stored at room temperature</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2165,6 +2170,9 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400025">
         <rdfs:label rdf:datatype="&xsd;string">Tissue</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400080"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI thesaurus entry for Tissue. Available at  http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C12801</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2275,6 +2283,9 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400034">
         <rdfs:label rdf:datatype="&xsd;string">Blood</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400080"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A tissue with red blood cells, white blood cells, platelets, and other substances suspended in fluid called plasma. Blood takes oxygen and nutrients to the tissues, and carries away wastes.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2284,6 +2295,9 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400035">
         <rdfs:label rdf:datatype="&xsd;string">Cells</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400080"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Cell. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C12508</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">One or more of the smallest units of living structure capable of independent existence, composed of a membrane-enclosed mass of protoplasm and containing a nucleus or nucleoid.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2306,14 +2320,14 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400041"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_term_code"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#is_study_phenomenon_of"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#is_study_phenomenon_of"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_term_code"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
@@ -2468,7 +2482,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;withdrawn study&quot; is a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2504,8 +2518,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_variable_expression"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2516,8 +2530,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400049"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_variable_expression"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;research.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
@@ -2555,7 +2569,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study that is ongoing (i.e., patients are being treated or examined), but in which participants are not currently being recruited or enrolled.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An &quot;active, not recruiting study&quot; is a study that is ongoing (i.e., patients are being treated or examined), but in which participants are not currently being recruited or enrolled.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2595,7 +2609,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;terminated study&quot; is a study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2619,6 +2633,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400054">
         <rdfs:label rdf:datatype="&xsd;string">Bodily fluid</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400080"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Any fluid in the body including blood, urine, saliva, sputum, tears, semen, milk, or vaginal secretions</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2666,17 +2682,6 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400073"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;research.owl#recruited_in_the_past"/>
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
                     </owl:Restriction>
@@ -2691,7 +2696,18 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study for which participants are not yet being recruited. </obo:IAO_0000115>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;research.owl#OCRE400029"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;research.owl#study_characteristic"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400073"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;not yet recruiting study&quot; is a study for which participants are not yet being recruited. </obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2802,7 +2818,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400066">
         <rdfs:label rdf:datatype="&xsd;string">Slow freeze</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">specimen placed into environment (&gt;or= -80° C) and allowed to freeze over minutes</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Slow freeze is a biospecimen preservation method whereby a specimen placed into environment (&gt;or= -80° C) and allowed to freeze over minutes</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2812,7 +2829,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400067">
         <rdfs:label rdf:datatype="&xsd;string">Para-formaldehyde fixation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400020"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string"> Typically Fixed in Para-Formaldehyde for hours to days and then embedded in plastic and stored at room temp</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Para-formaldehyde fixation is a biospecimen preservation method whereby a specimen is typically fixed in para-formaldehyde for hours to days and then embedded in plastic and stored at room temperature</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2852,7 +2870,7 @@
                 <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study for which participants are currently being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;recruiting study&quot; is a study for which participants are currently being recruited. </obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -2902,7 +2920,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study that has concluded recruitment (i.e., last patient in has occurred).</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;completed recruiting study&quot; is a study that has concluded recruitment (i.e., last patient in has occurred).</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -2915,14 +2933,8 @@
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_method"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2933,14 +2945,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_type"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#independent_variable"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_assessment_time"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400012"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_analysis_method"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical metohd. It includes the specification of the relevant outcome and predicter variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
@@ -3030,6 +3048,9 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE400080">
         <rdfs:label rdf:datatype="&xsd;string">Biospecimen type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400010"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Biospecimen type. Available at: http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C70713</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The type of a material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -3049,7 +3070,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE50034 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE50034">
-        <rdfs:label>Funding</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Funding</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE50048"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3064,6 +3085,12 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Fiscal support for research from industry, government, or non-commercial, non-governmental organizations.
+
+EXAMPLE(S):
+Funding from pharmaceutical, device or biotechnology companies, the US NIH or the Gates Foundation.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -3127,6 +3154,8 @@
     <owl:Class rdf:about="&ontologies;research.owl#OCRE568687">
         <rdfs:label rdf:datatype="&xsd;string">Ethics approval process</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE50048"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The ethics approval process is a study administrative relation whereby a study is submitted to a committee that is formally designated to approve, monitor, and review biomedical and behavioral research involving humans with the aim to protect the rights and welfare of the research subjects.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -3134,8 +3163,10 @@
     <!-- http://purl.org/net/OCRe/research.owl#OCRE581634 -->
 
     <owl:Class rdf:about="&ontologies;research.owl#OCRE581634">
-        <rdfs:label>Sponsoring</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Sponsoring</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE50048"/>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Sponsoring is a study administrative relation whereby a person or organization takes responsibility for the initiation, management, and/or financing of a clinical trial.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -3491,7 +3522,7 @@ Note that this type of analysis can also be applied to outcomes in a human study
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&ontologies;study_design.owl#Organismal_study"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-organismal study is a study in which neither the entity observed, not the entity recruited or selected, nor the entity subject to intervention or exposure is an organism, a population of organisms, or a part of an organism. </obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-organismal study is a study in which neither the entity observed, nor the entity recruited or selected, nor the entity subject to intervention or exposure is an organism, a population of organisms, or a part of an organism. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -3663,14 +3694,14 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#has_primary_outcome"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400063"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#factor_specification"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400060"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;research.owl#factor_specification"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400060"/>
+                <owl:onProperty rdf:resource="&ontologies;research.owl#has_primary_outcome"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;research.owl#OCRE400063"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -3698,6 +3729,9 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <owl:Class rdf:about="&fma3;Material_anatomical_entity">
         <rdfs:label rdf:datatype="&xsd;string">Material anatomical entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;research.owl#OCRE400002"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A material anatomical entity is a physical anatomical entity which has mass. Examples: hemoglobin molecule, mitochondrion, hepatocyte, erythrocyte, heart, head, blood, urine.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Foundational Model of Anatomy (FMA) class definition of Material anatomical entity. Available at http://bioportal.bioontology.org/visualize/44507</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -3829,12 +3863,6 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
             <swrl:AtomList>
                 <rdf:rest>
                     <swrl:AtomList>
-                        <rdf:first>
-                            <swrl:ClassAtom>
-                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
-                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
-                            </swrl:ClassAtom>
-                        </rdf:first>
                         <rdf:rest>
                             <swrl:AtomList>
                                 <rdf:rest rdf:resource="&rdf;nil"/>
@@ -3847,6 +3875,12 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
                                 </rdf:first>
                             </swrl:AtomList>
                         </rdf:rest>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&ontologies;research.owl#OCRE400029"/>
+                                <swrl:argument1 rdf:resource="&ontologies;research.owl#study"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
                     </swrl:AtomList>
                 </rdf:rest>
                 <rdf:first>

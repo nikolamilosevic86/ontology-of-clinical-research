@@ -9,6 +9,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY ocre "http://purl.org/net/OCRe/research.owl#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
@@ -17,12 +18,13 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/OCRe_ext.owl#"
      xml:base="http://purl.org/net/OCRe/OCRe_ext.owl"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
      xmlns:ocre="http://purl.org/net/OCRe/research.owl#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
@@ -397,6 +399,11 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A specially constituted independent review body comprised of medical, scientific and non-scientific members established and designated by an entity to ensure the protection of the rights, safety and well-being of human subjects recruited to participate in biomedical or behavioral research according to the requirements outlined in Title 38, part 16 (same as Title 45, part 46 and Title 21, part 56) of the U.S. Code of Federal Regulations. IRB responsibility include but not limited to the reviewing, approving, and providing continuing review of trial protocol and amendments and of the methods and material(s) to be used in obtaining and documenting informed consent of the trial. Other equivalent committees with the same or similar functions are also considered to be IRBs.</obo:IAO_0000115>
+        <statistics:synonym rdf:datatype="&xsd;string">ERB</statistics:synonym>
+        <statistics:synonym rdf:datatype="&xsd;string">IEC</statistics:synonym>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Institutional Review Board. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C16741</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -487,7 +494,13 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <rdfs:subClassOf rdf:resource="&ocre;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An organization that approves, monitors and reviews biomedical research to protect the rights, safety and welfare of the study subjects. This committee performs critical oversight functions for research conducted on human study subjects that are scientific, ethical, and regulatory.
+
+EXAMPLE(S):
+Institutional Review Board (IRB), ethics committee, research ethics board, etc.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <rdfs:comment rdf:datatype="&xsd;string">Data safety monitoring committee, protocol review and monitoring committee (or board)</rdfs:comment>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
