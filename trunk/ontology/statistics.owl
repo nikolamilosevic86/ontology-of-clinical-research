@@ -85,6 +85,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable">
+        <rdfs:label rdf:datatype="&xsd;string">has dependent variable</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -93,6 +94,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable_of -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable_of">
+        <rdfs:label rdf:datatype="&xsd;string">is dependent variable of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -102,6 +104,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#distribution">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has distribution</rdfs:label>
         <definition rdf:datatype="&xsd;string">The probability distribution of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
@@ -111,6 +114,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable">
+        <rdfs:label rdf:datatype="&xsd;string">has independent variable</rdfs:label>
         <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable_of"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
@@ -120,6 +124,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable_of -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable_of">
+        <rdfs:label rdf:datatype="&xsd;string">is independent variable of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
     
@@ -129,6 +134,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#measurement_dimension">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has measurement dimension</rdfs:label>
         <definition rdf:datatype="&xsd;string">The data type of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
     </owl:ObjectProperty>
@@ -138,6 +144,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method">
+        <rdfs:label rdf:datatype="&xsd;string">has permissible method</rdfs:label>
         <definition rdf:datatype="&xsd;string">A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
         <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
@@ -150,6 +157,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method_of -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method_of">
+        <rdfs:label rdf:datatype="&xsd;string">is permissible method of</rdfs:label>
         <definition rdf:datatype="&xsd;string">A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
         <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
@@ -200,13 +208,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -237,13 +245,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -547,13 +555,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is survival</obo:IAO_0000115>
@@ -895,13 +903,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is quantitative and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -961,13 +969,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is nominal with cardinality greater than 2 and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1258,13 +1266,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1717,6 +1725,9 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200078">
         <rdfs:label rdf:datatype="&xsd;string">Normal distribution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200087"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Normal distribution. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C53215</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The normal distribution is a family of probability density functions whose mean, median and mode are identical. The function generates a symmetrical curve, whose position and shape is determined by its location and scale parameters, the mean and standard deviation respectively. The standard normal distribution has a location parameter of 0 and a scale parameter of 1.</obo:IAO_0000115>
     </owl:Class>
     
 

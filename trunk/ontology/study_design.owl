@@ -95,7 +95,7 @@
     <!-- http://purl.org/net/OCRe/research.owl#study_characteristic -->
 
     <owl:ObjectProperty rdf:about="&research;study_characteristic">
-        <rdfs:label>study characteristic</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has study characteristic</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -123,7 +123,7 @@
     <!-- http://purl.org/net/OCRe/study_design.owl#allocation_concealment_method -->
 
     <owl:DatatypeProperty rdf:about="&study_design;allocation_concealment_method">
-        <rdfs:label rdf:datatype="&xsd;string">allocation concealment method</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has allocation concealment method</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
 
 Examples:
@@ -258,6 +258,8 @@ Examples:
 
     <owl:Class rdf:about="&study_design;OCRE100005">
         <rdfs:label rdf:datatype="&xsd;string">Study design characteristic</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A meta-level characterization of the design of a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
