@@ -357,9 +357,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#principal_investigator_of -->
+    <!-- http://purl.org/net/OCRe/research.owl#is_principal_investigator_of -->
 
-    <owl:ObjectProperty rdf:about="&ocre;principal_investigator_of"/>
+    <owl:ObjectProperty rdf:about="&ocre;is_principal_investigator_of"/>
     
 
 
@@ -434,6 +434,8 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment site is a study site where finding and enrolling appropriate study subjects (those selected on the basis of the protocol&#39;s inclusion/exclusion criteria) into a study occurs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -508,7 +510,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
-        <rdfs:label>Person or Organization</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Person or Organization</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -518,6 +520,8 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A human being OR A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -525,7 +529,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE560892">
-        <rdfs:label>Person or social institution</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Person or Social institution</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -569,6 +573,9 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Code of Federal Regulations, Title 21, Volume 1, Revised as of April 1, 2010: 21CFR50.3. Available at http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?fr=50.3</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Sponsor means a person who initiates a clinical investigation, but who does not actually conduct the investigation, i.e., the test article is administered or dispensed to or used involving, a subject under the immediate direction of another individual. A person other than an individual (e.g., corporation or agency) that uses one or more of its own employees to conduct a clinical investigation it has initiated is considered to be a sponsor (not a sponsor-investigator), and the employees are considered to be investigators.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -576,7 +583,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598434 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598434">
-        <rdfs:label>Laboratory site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Laboratory site</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -607,7 +614,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730">
-        <rdfs:label>Participating site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Participating site</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -629,6 +636,8 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A participating site is a social institution where study activities are conducted</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -671,11 +680,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A facility in which study activities are conducted. 
-
-EXAMPLE(S):
-The site where the study subject encounter occurs, or the site of the Investigator.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study site is a participating site in which study subject assessments or interventions are conducted. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
