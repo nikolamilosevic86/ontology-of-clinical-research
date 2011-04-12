@@ -1,7 +1,7 @@
-; Mon Nov 02 17:03:33 PST 2009
+; Mon Apr 11 13:51:54 PDT 2011
 ; 
-;+ (version "3.4.1")
-;+ (build "Build 536")
+;+ (version "3.4.5")
+;+ (build "Build 585")
 
 ([effective_time] of  Clinical_Statement_Attribute
 )
@@ -270,6 +270,98 @@
 		"Added \"annotation\" property to simple clinical statement, comparison statement, and compound statement")
 	(version_number "1.07"))
 
+([ERGO_Class60000] of  Intervention_Statement
+
+	(effective_time [ERGO_Class60003])
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(noun_phrase [ERGO_Class60024])
+	(original_text "Chronic administration of systemic high dose immunosuppressant drugs (duration > 14 days and during a period starting from 6 months before the administration of vaccine to study conclousion."))
+
+([ERGO_Class60001] of  Intervention_Statement
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(original_text "Study"))
+
+([ERGO_Class60002] of  Intervention_Statement
+
+	(mood [Eligibility_Frame_IdeasSWT_Instance_12])
+	(original_text "Administration of vaccine"))
+
+([ERGO_Class60003] of  TimeInterval_Compound_Constraint
+
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33])
+	(timeinterval_constraints
+		[ERGO_Class60004]
+		[ERGO_Class60008]))
+
+([ERGO_Class60004] of  Duration_Constraint
+
+	(duration [ERGO_Class60005])
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_30016]))
+
+([ERGO_Class60005] of  Duration
+
+	(numeric_value [ERGO_Class60007])
+	(unit [ERGO_Class60006]))
+
+([ERGO_Class60006] of  Unit
+
+	(preferred_name "Day"))
+
+([ERGO_Class60007] of  Integer
+
+	(integer_value 14))
+
+([ERGO_Class60008] of  TimeInterval_Comparison_Constraint
+
+	(interval [ERGO_Class60009])
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_64]))
+
+([ERGO_Class60009] of  Time_Interval
+
+	(start_time [ERGO_Class60019])
+	(stop_time [ERGO_Class60010]))
+
+([ERGO_Class60010] of  Subject_Query
+
+	(clinical_statement_template [ERGO_Class60001])
+	(selected_attribute [stop_time]))
+
+([ERGO_Class60016] of  PlusMinus_Operator
+
+	(preferred_name "-"))
+
+([ERGO_Class60017] of  PlusMinus_Operator
+
+	(preferred_name "+"))
+
+([ERGO_Class60019] of  Time_Point_Offset
+
+	(anchor [ERGO_Class60020])
+	(direction [ERGO_Class60016])
+	(duration [ERGO_Class60021]))
+
+([ERGO_Class60020] of  Subject_Query
+
+	(clinical_statement_template [ERGO_Class60002])
+	(selected_attribute [start_time]))
+
+([ERGO_Class60021] of  Duration
+
+	(numeric_value [ERGO_Class60023])
+	(unit [ERGO_Class60022]))
+
+([ERGO_Class60022] of  Unit
+
+	(preferred_name "month"))
+
+([ERGO_Class60023] of  Integer
+
+	(integer_value 6))
+
+([ERGO_Class60024] of  Modified_Noun_Phrase
+)
+
 ([ERGO_Instance_0] of  %3APAL-CONSTRAINT
 
 	(%3APAL-NAME "negation code")
@@ -289,6 +381,12 @@
 	(preferred_name "first"))
 
 ([noun_phrase] of  Clinical_Statement_Attribute
+)
+
+([start_time] of  Clinical_Statement_Attribute
+)
+
+([stop_time] of  Clinical_Statement_Attribute
 )
 
 ([value] of  Clinical_Statement_Attribute
