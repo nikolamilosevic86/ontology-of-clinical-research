@@ -12,9 +12,9 @@
     <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY dctype "http://purl.org/dc/dcmitype/Image" >
+    <!ENTITY OCRe2 "http://purl.org/net/OCRe/OCRe.owl#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY OCRe "http://purl.org/net/OCRe/OCRe.owl#" >
     <!ENTITY study_protocol2 "http://purl.org/net/OCRe/study_protocol#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY snomed_interface2 "http://purl.org/net/OCRe/snomed_interface#" >
@@ -45,6 +45,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:OCRe2="&OCRe;OCRe.owl#"
      xmlns:OCRe="http://purl.org/net/OCRe/"
      xmlns:study_protocol2="&OCRe;study_protocol#"
      xmlns:muo="http://purl.oclc.org/NET/muo/muo#"
@@ -71,9 +72,37 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900001"/>
     <owl:AnnotationProperty rdf:about="&OCRe;statistics.owl#definition"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900103"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900104"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900094"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900095"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900096"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900090"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900107"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900091"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900098"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;procedes_in_plan"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;contact_for_scientific_queries"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900113"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900112"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900086"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;principal_investigator"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900047"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;has_allowed_coexposure"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900082"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;has_subject_variable"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900118"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900068"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900065"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900040"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;has_study_intervention_or_exposure"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900089"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900069"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRe900088"/>
     
 
 
@@ -814,7 +843,6 @@
     <owl:Thing rdf:about="&OCRe;Knorr_1998_FEV1_outcome">
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400063"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998: FEV1 outcome</OCRe:OCRe900223>
         <OCRe:OCRe900068 rdf:resource="&OCRe;study_examples.owl#Outcome_analysis_specification_4"/>
         <OCRe:OCRe900098 rdf:resource="&OCRe;study_examples.owl#Variable_specification_3"/>
     </owl:Thing>
@@ -979,8 +1007,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#Asthma">
         <rdf:type rdf:resource="&OCRe;snomed_interface#SNOMEDCT_code"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Asthma disorder</OCRe:OCRe900223>
-        <OCRe:preferred_name rdf:datatype="&xsd;string">Asthma disorder</OCRe:preferred_name>
     </owl:Thing>
     
 
@@ -999,8 +1025,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#AversanoThomas">
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400076"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:last_name rdf:datatype="&xsd;string">Aversano</OCRe:last_name>
-        <OCRe:first_name rdf:datatype="&xsd;string">Thomas</OCRe:first_name>
     </owl:Thing>
     
 
@@ -1052,7 +1076,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400042"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Patients were also requiredtohave a minimum biweekly daytime asthma symptom score of 21</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Patients were also requiredtohave a minimum biweekly daytime asthma symptom score of 21</OCRe:OCRe900223>
         <OCRe:OCRe900113 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1064,7 +1087,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400042"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label rdf:datatype="&xsd;string">children with forced expiratory volume in 1 second (FEV1) between 50% to 85% of the predicted value,</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">FEV1 between 50% to 85% of the predicted value and an increase in FEV1 of 15% or greater 20 to 30 minutes after inhalation of b-agonist at least twice during the prestudy visit and placebo run-in period.</OCRe:OCRe900223>
         <OCRe:OCRe900113 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1076,7 +1098,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400042"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>history of intermittent or persistent asthma symptoms</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">history of intermittent or persistent asthma symptoms</OCRe:OCRe900223>
         <OCRe:OCRe900113 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1088,7 +1109,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400042"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>have used, on average, at least 1 puff of albuterol per day during the 2-week run-in period.</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">have used, on average, at least 1 puff of albuterol per day during the 2-week run-in period.</OCRe:OCRe900223>
         <OCRe:OCRe900113 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1100,7 +1120,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400042"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>aged 6 to 14 years</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">aged 6 to 14 years</OCRe:OCRe900223>
         <OCRe:OCRe900113 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1133,7 +1152,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400057"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>2 week</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">2 week</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1144,7 +1162,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400057"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>4 weeks</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">4 weeks</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1155,7 +1172,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400057"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>6 weeks</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">6 weeks</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1268,7 +1284,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#Knorr_1998_secondary_outcomes">
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400063"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998 secondary outcome</OCRe:OCRe900223>
         <OCRe:OCRe900068 rdf:resource="&OCRe;study_examples.owl#Outcome_analysis_specification_7"/>
         <OCRe:OCRe900098 rdf:resource="&OCRe;study_examples.owl#Variable_specification_10"/>
         <OCRe:OCRe900098 rdf:resource="&OCRe;study_examples.owl#Variable_specification_12"/>
@@ -1361,18 +1376,17 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900079"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900080"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;OCRe.owl#OCRE200107"/>
             </owl:Restriction>
         </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900079"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200033"/>
+            </owl:Restriction>
+        </rdf:type>
         <rdfs:label>Knorr 1998 Primary outcome analysis specification (FEV1)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998 Primary outcome analysis specification (FEV1)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;Knorr_1998_FEV1_outcome"/>
         <statistics:OCRE900010 rdf:resource="&OCRe;study_examples.owl#Knorr_1998_FEVI_percentage_changae"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_20"/>
@@ -1399,7 +1413,6 @@
             </owl:Restriction>
         </rdf:type>
         <rdfs:label>Knorr 1998 Secondary outcome analysis specification (Daytime astham symptoms1)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998 secondary outcome analysis specification: daytime astham symptoms</OCRe:OCRe900223>
         <statistics:OCRE900010 rdf:resource="&OCRe;study_examples.owl#Knorr_1998_QOL_score_symptoms_change_since_baseline"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_20"/>
         <statistics:OCRE900011 rdf:resource="&OCRe;study_examples.owl#Variable_specification_19"/>
@@ -1413,7 +1426,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400063"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Stroke/Death/MI composite outcome</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Stroke/Death/MI composite outcome</OCRe:OCRe900223>
         <OCRe:OCRe900098 rdf:resource="&OCRe;study_examples.owl#FirstOccurenceOfStrokeDeathMI"/>
         <OCRe:OCRe900098 rdf:resource="&OCRe;study_examples.owl#IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <OCRe:OCRe900068 rdf:resource="&OCRe;study_examples.owl#StrokeDeathMIStudyIntentToTreatAnalysis"/>
@@ -1489,8 +1501,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#Person_2">
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400076"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:first_name rdf:datatype="&xsd;string">Michael</OCRe:first_name>
-        <OCRe:last_name rdf:datatype="&xsd;string">Weitzman</OCRe:last_name>
     </owl:Thing>
     
 
@@ -1515,7 +1525,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#PlannedArm_6">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Montelukast treatment arm</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Montelukast treatment arm</OCRe:OCRe900223>
         <study_protocol:is_a_division_of rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1526,7 +1535,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#PlannedArm_7">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Placebo treatment arm</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Placebo treatment arm</OCRe:OCRe900223>
         <study_protocol:is_a_division_of rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1670,7 +1678,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#PlannedStudyCell_3">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Placebo treatment</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Placebo treatment</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1680,7 +1687,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#PlannedStudyCell_4">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Montelukast treatment</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Montelukast treatment</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1690,7 +1696,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#PlannedStudyCell_5">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>2-week placebo run-in</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">2-week placebo run-in</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1741,7 +1746,6 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#Recurrent_MI_phenomenon">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <statistics:definition rdf:datatype="&xsd;string">Recurrent MI required recurrent symptoms of myocardial ischemia associated with recurrent ST-segment elevation in at least 2 contiguous leads lasting at least 30 minutes. After 18 hours, recurrent MI was defined as appearance of new Q waves, new left bundle-branch block, or enzyme evidence of MI</statistics:definition>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Recurrent MI was defined as in the Assessment of the Safety and Efficacy of a New Thrombolytic (ASSENT) 2 trial [11]. Within the first 18 hours after index MI, recurrent MI required recurrent symptoms of myocardial ischemia associated with recurrent ST-segment elevation in at least 2 contiguous leads lasting at least 30 minutes. After 18 hours, recurrent MI was defined as appearance of new Q waves, new left bundle-branch block, or enzyme evidence of MI. This included either an abnormal creatine kinase (CK) MB fraction that was also at least 50% greater than the immediately prior value. If only total CK measurement was available, it was required to be elevated to more than 2 times the upper limit of normal and at least 25% greater than the immediately previous value; if total CK level was not 2 times the upper limit of normal, then it had to be at least 50% greater than the upper limit of normal and at least 2 times the immediately previous value. Periprocedural recurrent MIs required, following PCI, a CK-MB fraction or total CK level 2 times the upper limit of normal and at least 50% greater than the immediately previous value and, following CABG surgery, a CK-MB fraction or total CK level at least 5 times the upper limit of normal and at least 50% greater than the immediately previous value. Alternatively or additionally, periprocedural recurrent MI was defined as appearance of new Q waves in 2 or more contiguous leads.</OCRe:OCRe900223>
         <OCRe:OCRe900090 rdf:resource="&OCRe;snomed_interface#acute_myocardial_infarction_code"/>
         <OCRe:OCRe900094 rdf:resource="&OCRe;study_examples.owl#time_of_recurrentMI_spec"/>
     </owl:Thing>
@@ -1754,7 +1758,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>2 weeks after baseline</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">2 weeks after baseline</OCRe:OCRe900223>
         <OCRe:OCRe900065 rdf:resource="&OCRe;study_examples.owl#Duration_2"/>
         <OCRe:OCRe900040 rdf:resource="&OCRe;study_examples.owl#Time_point_21"/>
     </owl:Thing>
@@ -1767,7 +1770,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>8 weeks after baseline</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">8 weeks after baseline</OCRe:OCRe900223>
         <OCRe:OCRe900065 rdf:resource="&OCRe;study_examples.owl#EightWeeks"/>
         <OCRe:OCRe900040 rdf:resource="&OCRe;study_examples.owl#Time_point_21"/>
     </owl:Thing>
@@ -1780,7 +1782,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>4 weeks after baseline</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">4 weeks after baseline</OCRe:OCRe900223>
         <OCRe:OCRe900065 rdf:resource="&OCRe;study_examples.owl#Duration_4"/>
         <OCRe:OCRe900040 rdf:resource="&OCRe;study_examples.owl#Time_point_21"/>
     </owl:Thing>
@@ -1793,7 +1794,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>6 weeks after baseline</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">6 weeks after baseline</OCRe:OCRe900223>
         <OCRe:OCRe900065 rdf:resource="&OCRe;study_examples.owl#Duration_6"/>
         <OCRe:OCRe900040 rdf:resource="&OCRe;study_examples.owl#Time_point_21"/>
     </owl:Thing>
@@ -1806,7 +1806,6 @@
         <rdf:type rdf:resource="&OCRe;snomed_interface#SNOMEDCT_code"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>montelukast (5-mg chewable tablet once daily at bedtime for 8 weeks</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">montelukast (5-mg chewable tablet once daily at bedtime for 8 weeks</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1817,7 +1816,6 @@
         <rdf:type rdf:resource="&OCRe;snomed_interface#SNOMEDCT_code"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Placebo chewable tablet once daily at bedtime for 8 weeks</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Placebo chewable tablet once daily at bedtime for 8 weeks</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -1849,17 +1847,16 @@
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900079"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
-            </owl:Restriction>
-        </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900080"/>
                 <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
             </owl:Restriction>
         </rdf:type>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">StrokeDeathMIStudyIntentToTreatAnalysis</OCRe:OCRe900223>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900079"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
+            </owl:Restriction>
+        </rdf:type>
         <statistics:OCRE900010 rdf:resource="&OCRe;study_examples.owl#IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Outcome_specification_1"/>
         <statistics:OCRE900011 rdf:resource="&OCRe;study_examples.owl#PCTorThrombolytic_TherapyVariable"/>
@@ -1875,6 +1872,12 @@
     <owl:Thing rdf:about="&OCRe;study_examples.owl#StrokeDeathMIStudyTreatmentReceivedAnalysis">
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400072"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900080"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
+            </owl:Restriction>
+        </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900085"/>
@@ -1902,12 +1905,6 @@
                 <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdf:type>
-        <rdf:type>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;statistics.owl#OCRE200045"/>
-            </owl:Restriction>
-        </rdf:type>
         <statistics:OCRE900010 rdf:resource="&OCRe;study_examples.owl#IncidenceOfFirstOccurenceOfStrokeDeathMI"/>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Outcome_specification_1"/>
         <statistics:OCRE900011 rdf:resource="&OCRe;study_examples.owl#PCTorThrombolytic_TherapyVariable"/>
@@ -1924,7 +1921,6 @@
         <rdf:type rdf:resource="&OCRe;study_protocol.owl#OCRE300012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label rdf:datatype="&xsd;string">Montelukast for Chronic Asthma Study Protocol</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Montelukast for Chronic Asthma Study Protocol</OCRe:OCRe900223>
         <OCRe:OCRe900104 rdf:resource="&OCRe;Knorr_1998_FEV1_outcome"/>
         <OCRe:OCRe900086 rdf:resource="&OCRe;study_examples.owl#Asthma"/>
         <OCRe:OCRe900112 rdf:resource="&OCRe;study_examples.owl#Criterion_4"/>
@@ -1951,7 +1947,6 @@
         <rdf:type rdf:resource="&OCRe;study_design.owl#OCRE100027"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label rdf:datatype="&xsd;string">Montelukas for Chronic Asthma in 6- to 14-Year-Old Children</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Montelukas for Chronic Asthma in 6- to 14-Year-Old Children</OCRe:OCRe900223>
         <OCRe:OCRe900089 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
     </owl:Thing>
     
@@ -1963,7 +1958,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400028"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Asthma data collection</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Asthma data collection</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#StudyProtocol_4"/>
         <OCRe:OCRe900068 rdf:resource="&OCRe;study_examples.owl#Variable_specification_10"/>
         <OCRe:OCRe900068 rdf:resource="&OCRe;study_examples.owl#Variable_specification_11"/>
@@ -2062,7 +2056,6 @@
 
     <owl:Thing rdf:about="&OCRe;study_examples.owl#TGN1412">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <OCRe:preferred_name rdf:datatype="&xsd;string">TGN11412</OCRe:preferred_name>
     </owl:Thing>
     
 
@@ -2149,8 +2142,6 @@
         <rdf:type rdf:resource="&OCRe;study_protocol.owl#OCRE300012"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <statistics:definition rdf:datatype="&xsd;string">The study protocol of the Thrombolytic Therapy versus PCI trial</statistics:definition>
-        <OCRe:scientific_title rdf:datatype="&xsd;string">Thrombolytic Therapy versus Primary Percutaneous Intervention</OCRe:scientific_title>
-        <OCRe:public_title rdf:datatype="&xsd;string">Thrombolytic Therapy versus Primary Percutaneous Intervention</OCRe:public_title>
         <OCRe:OCRe900086 rdf:resource="&OCRe;snomed_interface#acute_myocardial_infarction_code"/>
         <OCRe:OCRe900112 rdf:resource="&OCRe;study_examples.owl#CreatinineLessThanOrEqual1.5mgPerdL"/>
         <OCRe:OCRe900104 rdf:resource="&OCRe;study_examples.owl#Outcome_specification_1"/>
@@ -2171,17 +2162,15 @@
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900001"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;OCRe.owl#OCRE400030"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;OCRe.owl#OCRE400053"/>
             </owl:Restriction>
         </rdf:type>
         <rdf:type>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&OCRe;OCRe.owl#OCRE900001"/>
-                <owl:someValuesFrom rdf:resource="&OCRe;OCRe.owl#OCRE400053"/>
+                <owl:someValuesFrom rdf:resource="&OCRe;OCRe.owl#OCRE400030"/>
             </owl:Restriction>
         </rdf:type>
-        <OCRe:date_of_first_enrollment rdf:datatype="&xsd;date">1996-07-29</OCRe:date_of_first_enrollment>
-        <OCRe:date_of_last_enrollment rdf:datatype="&xsd;date">1999-06-17</OCRe:date_of_last_enrollment>
         <OCRe:OCRe900001 rdf:resource="&OCRe;study_design.owl#Investigator_not_blinded"/>
         <OCRe:OCRe900001 rdf:resource="&OCRe;study_design.owl#Subject_not_blinded"/>
         <OCRe:principal_investigator rdf:resource="&OCRe;study_examples.owl#AversanoStudy_PI_Role"/>
@@ -2207,7 +2196,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400024"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Baseline</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Baseline</OCRe:OCRe900223>
     </owl:Thing>
     
 
@@ -2218,7 +2206,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:QOL Score: symptoms</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:QOL Score: symptoms</OCRe:OCRe900223>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_1"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_20"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_3"/>
@@ -2236,7 +2223,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:QOL Score: Activities</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:QOL Score: Activities</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2249,7 +2235,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:QOL Score: Emotions</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:QOL Score: Emotions</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2262,7 +2247,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:peripheral blood eosinophil counts</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:peripheral blood eosinophil counts</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2275,7 +2259,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:School loss</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:School loss</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2288,7 +2271,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:Episodes of severe worsening asthma (percentage of days and percentage of patients with anasthma exacerbation),</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:Episodes of severe worsening asthma (percentage of days and percentage of patients with anasthma exacerbation),</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2301,7 +2283,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:use of rescue oral corticosteroids (percentage of patients)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:use of rescue oral corticosteroids (percentage of patients)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2314,7 +2295,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:discontinuations because of worsening asthma (determined by whether additional asthma medications were required)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:discontinuations because of worsening asthma (determined by whether additional asthma medications were required)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2327,7 +2307,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:asthma-control days</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:asthma-control days</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2340,7 +2319,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998 Treatment/Placebo variable</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998 Treatment/Placebo variable</OCRe:OCRe900223>
         <statistics:OCRE900023 rdf:resource="&OCRe;study_examples.owl#Outcome_analysis_specification_4"/>
         <statistics:OCRE900023 rdf:resource="&OCRe;study_examples.owl#Outcome_analysis_specification_7"/>
     </owl:Thing>
@@ -2353,7 +2331,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998: FEV1</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998: FEV1</OCRe:OCRe900223>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_1"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_20"/>
         <OCRe:OCRe900082 rdf:resource="&OCRe;study_examples.owl#Relative_time_point_3"/>
@@ -2372,7 +2349,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998: Day time asthma symptoms, score</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998: Day time asthma symptoms, score</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2385,7 +2361,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998: Clinic-measured AM peak expiratory flow rates (PEFs);</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998: Clinic-measured AM peak expiratory flow rates (PEFs);</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2398,7 +2373,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:Patient-reported AM peak expiratory flow rates (PEFs)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:Patient-reported AM peak expiratory flow rates (PEFs)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2411,7 +2385,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:Patient-reported PM peak expiratory flow rates (PEFs)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:Patient-reported PM peak expiratory flow rates (PEFs)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2424,7 +2397,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:daily use of inhaled, shortacting, as-needed b-agonist</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:daily use of inhaled, shortacting, as-needed b-agonist</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
@@ -2437,7 +2409,6 @@
         <rdf:type rdf:resource="&OCRe;OCRe.owl#OCRE400050"/>
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
         <rdfs:label>Knorr 1998:nocturnalawakenings (nights/week)</rdfs:label>
-        <OCRe:OCRe900223 rdf:datatype="&xsd;string">Knorr 1998:nocturnal awakenings (nights/week)</OCRe:OCRe900223>
         <OCRe:OCRe900069 rdf:resource="&OCRe;study_examples.owl#Study_data_specification_3"/>
         <OCRe:OCRe900088 rdf:resource="&OCRe;study_examples.owl#Study_phenomenon_4"/>
     </owl:Thing>
