@@ -82,94 +82,87 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900007 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable">
-        <rdfs:label rdf:datatype="&xsd;string">has dependent variable</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900007">
+        <rdfs:label>statistics property</rdfs:label>
+        <definition rdf:datatype="&xsd;string">A property of a statistical concept</definition>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#dependent_variable_of -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900009 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#dependent_variable_of">
-        <rdfs:label rdf:datatype="&xsd;string">is dependent variable of</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#distribution -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#distribution">
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900009">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has distribution</rdfs:label>
         <definition rdf:datatype="&xsd;string">The probability distribution of a variable in a plan for statistical analysis</definition>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900010 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable">
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900010">
+        <rdfs:label rdf:datatype="&xsd;string">has dependent variable</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900011 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900011">
         <rdfs:label rdf:datatype="&xsd;string">has independent variable</rdfs:label>
-        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable_of"/>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900023"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#independent_variable_of -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900022 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#independent_variable_of">
-        <rdfs:label rdf:datatype="&xsd;string">is independent variable of</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#measurement_dimension -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#measurement_dimension">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">has measurement dimension</rdfs:label>
-        <definition rdf:datatype="&xsd;string">The data type of a variable in a plan for statistical analysis</definition>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method">
-        <rdfs:label rdf:datatype="&xsd;string">has permissible method</rdfs:label>
-        <definition rdf:datatype="&xsd;string">A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
-        <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
-        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method_of"/>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/statistics.owl#permissible_method_of -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#permissible_method_of">
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900022">
         <rdfs:label rdf:datatype="&xsd;string">is permissible method of</rdfs:label>
         <definition rdf:datatype="&xsd;string">A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
         <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#statistics_property"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/statistics.owl#statistics_property -->
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900023 -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#statistics_property">
-        <definition rdf:datatype="&xsd;string">A property of a statistical concept</definition>
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900023">
+        <rdfs:label rdf:datatype="&xsd;string">is independent variable of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900025 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900025">
+        <rdfs:label rdf:datatype="&xsd;string">has permissible method</rdfs:label>
+        <definition rdf:datatype="&xsd;string">A permissible statistical method of a statistical analysis, given the data types of the variables involved</definition>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
+        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900022"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE900026 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900026">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has measurement dimension</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">is dependent variable of</rdfs:label>
+        <definition rdf:datatype="&xsd;string">The data type of a variable in a plan for statistical analysis</definition>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
 
@@ -185,19 +178,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_dichotomous -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE200107 -->
 
-    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_dichotomous">
-        <rdfs:label rdf:datatype="&xsd;string">I dichotomous D nominalGT2</rdfs:label>
+    <owl:Class rdf:about="&research;OCRE200107">
+        <rdfs:label rdf:datatype="&xsd;string">I dichotomous D quantitative</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -207,13 +200,44 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is quantitative</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900300 -->
+
+    <owl:Class rdf:about="&research;OCRE900300">
+        <rdfs:label rdf:datatype="&xsd;string">I dichotomous D nominalGT2</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -222,19 +246,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_nominalGT2 -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900301 -->
 
-    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_nominalGT2">
+    <owl:Class rdf:about="&research;OCRE900301">
         <rdfs:label rdf:datatype="&xsd;string">I nominalGT2 D nominalGT2</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -244,14 +268,14 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -259,19 +283,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_ordinal -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900302 -->
 
-    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_ordinal">
+    <owl:Class rdf:about="&research;OCRE900302">
         <rdfs:label rdf:datatype="&xsd;string">I ordinal D nominalGT2</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -281,7 +305,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -290,19 +314,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_nominalGT2_indVar_quantitative -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900303 -->
 
-    <owl:Class rdf:about="&research;DepVar_nominalGT2_indVar_quantitative">
+    <owl:Class rdf:about="&research;OCRE900303">
         <rdfs:label rdf:datatype="&xsd;string">I quantitative D nominalGT2</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200032"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -312,7 +336,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -321,19 +345,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_dichotomous -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900304 -->
 
-    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_dichotomous">
+    <owl:Class rdf:about="&research;OCRE900304">
         <rdfs:label rdf:datatype="&xsd;string">I dichotomous D ordinal</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -343,7 +367,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -352,19 +376,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_nominalGT2 -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900305 -->
 
-    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_nominalGT2">
+    <owl:Class rdf:about="&research;OCRE900305">
         <rdfs:label rdf:datatype="&xsd;string">I  nominalGT2 D ordinal</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -374,7 +398,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200013"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -383,19 +407,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_ordinal -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900306 -->
 
-    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_ordinal">
+    <owl:Class rdf:about="&research;OCRE900306">
         <rdfs:label rdf:datatype="&xsd;string">I ordinal D ordinal</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -408,19 +432,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_ordinal_indVar_quantitative -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900307 -->
 
-    <owl:Class rdf:about="&research;DepVar_ordinal_indVar_quantitative">
+    <owl:Class rdf:about="&research;OCRE900307">
         <rdfs:label rdf:datatype="&xsd;string">I quantitative D ordinal</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200060"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -430,7 +454,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -439,19 +463,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_nominalGT2 -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900308 -->
 
-    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_nominalGT2">
+    <owl:Class rdf:about="&research;OCRE900308">
         <rdfs:label rdf:datatype="&xsd;string">I  nominalGT2 D quantitative</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -461,7 +485,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200033"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -470,19 +494,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_ordinal -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900309 -->
 
-    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_ordinal">
+    <owl:Class rdf:about="&research;OCRE900309">
         <rdfs:label rdf:datatype="&xsd;string">I ordinal D quantitative</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -492,7 +516,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200066"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -501,19 +525,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_quantitative_indVar_quantitative -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900310 -->
 
-    <owl:Class rdf:about="&research;DepVar_quantitative_indVar_quantitative">
+    <owl:Class rdf:about="&research;OCRE900310">
         <rdfs:label rdf:datatype="&xsd;string">I quantitative D quantitative</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -523,7 +547,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200006"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -532,19 +556,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_dichotomous -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900311 -->
 
-    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_dichotomous">
+    <owl:Class rdf:about="&research;OCRE900311">
         <rdfs:label rdf:datatype="&xsd;string">I dichotomous D survival data</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200106"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -554,13 +578,13 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -569,19 +593,19 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#DepVar_survival_data_indVar_ordinal -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900312 -->
 
-    <owl:Class rdf:about="&research;DepVar_survival_data_indVar_ordinal">
+    <owl:Class rdf:about="&research;OCRE900312">
         <rdfs:label rdf:datatype="&xsd;string">I ordinal D survival data</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200106"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -591,42 +615,11 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200054"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is ordinal and the dependent variable is survival</obo:IAO_0000115>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/research.owl#OCRE200107 -->
-
-    <owl:Class rdf:about="&research;OCRE200107">
-        <rdfs:label rdf:datatype="&xsd;string">I dichotomous D quantitative</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200098"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
-                        <owl:someValuesFrom>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
-                            </owl:Restriction>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200070"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is quantitative</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -801,10 +794,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -814,7 +807,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -843,10 +836,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -880,19 +873,19 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#distribution"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900009"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200078"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -902,14 +895,14 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is quantitative and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -955,10 +948,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -968,13 +961,13 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1086,16 +1079,16 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
                                     </owl:Restriction>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -1249,10 +1242,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1262,19 +1255,19 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1292,16 +1285,16 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Class>
                                 <owl:intersectionOf rdf:parseType="Collection">
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200000"/>
                                     </owl:Restriction>
                                     <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                         <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200084"/>
                                     </owl:Restriction>
                                 </owl:intersectionOf>
@@ -1313,7 +1306,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200044"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1409,7 +1402,7 @@
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200095"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1471,10 +1464,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200079"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1484,7 +1477,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1502,10 +1495,10 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1613,10 +1606,10 @@ The gamma distribution is frequently a probability model for waiting times; for 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1626,7 +1619,7 @@ The gamma distribution is frequently a probability model for waiting times; for 
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200044"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1670,7 +1663,7 @@ The gamma distribution is frequently a probability model for waiting times; for 
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200095"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1744,10 +1737,10 @@ The gamma distribution is frequently a probability model for waiting times; for 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1788,10 +1781,10 @@ The gamma distribution is frequently a probability model for waiting times; for 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200103"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -1801,7 +1794,7 @@ The gamma distribution is frequently a probability model for waiting times; for 
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1917,7 +1910,7 @@ If a random variable has any of n possible values  that are equally spaced and e
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1981,10 +1974,10 @@ If a random variable has any of n possible values  that are equally spaced and e
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
                                         <owl:complementOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200015"/>
@@ -1994,7 +1987,7 @@ If a random variable has any of n possible values  that are equally spaced and e
                         </owl:someValuesFrom>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#independent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900011"/>
                         <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -2014,10 +2007,10 @@ If a random variable has any of n possible values  that are equally spaced and e
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -2039,10 +2032,10 @@ If a random variable has any of n possible values  that are equally spaced and e
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200097"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200001"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -2052,7 +2045,7 @@ If a random variable has any of n possible values  that are equally spaced and e
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#permissible_method"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2135,10 +2128,10 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200092"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#dependent_variable"/>
+                        <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900010"/>
                         <owl:someValuesFrom>
                             <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#measurement_dimension"/>
+                                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900026"/>
                                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200103"/>
                             </owl:Restriction>
                         </owl:someValuesFrom>
@@ -2160,5 +2153,5 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
 
