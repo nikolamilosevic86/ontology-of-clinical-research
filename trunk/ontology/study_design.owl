@@ -92,9 +92,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#study_characteristic -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900001 -->
 
-    <owl:ObjectProperty rdf:about="&research;study_characteristic">
+    <owl:ObjectProperty rdf:about="&research;OCRE900001">
         <rdfs:label rdf:datatype="&xsd;string">has study characteristic</rdfs:label>
     </owl:ObjectProperty>
     
@@ -111,18 +111,18 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/research.owl#study_design_data_property -->
+    <!-- http://purl.org/net/OCRe/research.owl#OCRE900002 -->
 
-    <owl:DatatypeProperty rdf:about="&research;study_design_data_property">
+    <owl:DatatypeProperty rdf:about="&research;OCRE900002">
         <rdfs:label rdf:datatype="&xsd;string">study_design_data_property</rdfs:label>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#allocation_concealment_method -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900003 -->
 
-    <owl:DatatypeProperty rdf:about="&study_design;allocation_concealment_method">
+    <owl:DatatypeProperty rdf:about="&study_design;OCRE900003">
         <rdfs:label rdf:datatype="&xsd;string">has allocation concealment method</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
 
@@ -138,48 +138,47 @@ Examples:
 - On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
 - Sequentially numbered, opaque, sealed envelopes.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:subPropertyOf rdf:resource="&research;OCRE900002"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#analysis_of_cost -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900004 -->
 
-    <owl:DatatypeProperty rdf:about="&study_design;analysis_of_cost">
+    <owl:DatatypeProperty rdf:about="&study_design;OCRE900004">
         <rdfs:label rdf:datatype="&xsd;string">has analysis of cost</rdfs:label>
         <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used ot be a class</study_protocol:develop_comment>
         <statistics:definition rdf:datatype="&xsd;string">Study includes an analysis of cost.</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:subPropertyOf rdf:resource="&research;OCRE900002"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#matching -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900005 -->
 
-    <owl:DatatypeProperty rdf:about="&study_design;matching">
+    <owl:DatatypeProperty rdf:about="&study_design;OCRE900005">
         <rdfs:label rdf:datatype="&xsd;string">has matching</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class. Does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.</obo:IAO_0000115>
         <statistics:definition rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
-        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:subPropertyOf rdf:resource="&research;OCRE900002"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#pooled_data -->
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900006 -->
 
-    <owl:DatatypeProperty rdf:about="&study_design;pooled_data">
+    <owl:DatatypeProperty rdf:about="&study_design;OCRE900006">
         <rdfs:label rdf:datatype="&xsd;string">has pooled data</rdfs:label>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</obo:IAO_0000115>
-        <statistics:definition rdf:datatype="&xsd;string">In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</statistics:definition>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class.</study_protocol:develop_comment>
-        <rdfs:subPropertyOf rdf:resource="&research;study_design_data_property"/>
+        <rdfs:subPropertyOf rdf:resource="&research;OCRE900002"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -286,7 +285,7 @@ Examples:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100044"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100026"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -426,11 +425,11 @@ An equivalence trial is designed to determine whether the response to two or mor
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100055"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100001"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100079"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -484,11 +483,11 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100055"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100079"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100088"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -532,19 +531,19 @@ The simplest case-crossover design is closely analogous to a traditional matched
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100007"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100029"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100035"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100063"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100081"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -605,19 +604,19 @@ Regimens are assigned to and data are analyzed within more than one participant 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100007"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100035"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100075"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100081"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100085"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -664,11 +663,11 @@ Regimens are assigned to and data are analyzed within more than one participant 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100007"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100035"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100061"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -838,11 +837,11 @@ The concept of phase is not applicable to trials studying certain interventions 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100055"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100013"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100054"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -914,7 +913,7 @@ The concept of phase is not applicable to trials studying certain interventions 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100056"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100031"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -960,7 +959,7 @@ The concept of phase is not applicable to trials studying certain interventions 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100056"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100057"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1026,7 +1025,7 @@ The concept of phase is not applicable to trials studying certain interventions 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100007"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100037"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1072,7 +1071,7 @@ A study in which an individual acts has his/her own comparison does not fall int
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100044"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100009"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1382,11 +1381,11 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&study_design;OCRE100055"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100013"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="&research;study_characteristic"/>
+                        <owl:onProperty rdf:resource="&research;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100050"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -1552,5 +1551,5 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
 
