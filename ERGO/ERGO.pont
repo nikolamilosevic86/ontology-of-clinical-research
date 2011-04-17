@@ -1,4 +1,4 @@
-; Mon Apr 11 13:51:54 PDT 2011
+; Sun Apr 17 13:44:45 PDT 2011
 ; 
 ;+ (version "3.4.5")
 ;+ (build "Build 585")
@@ -17,13 +17,18 @@
 ;+		(allowed-classes Logical_Statement_Connector)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot integer_value
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot direction
 		(type INSTANCE)
 ;+		(allowed-classes PlusMinus_Operator)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot integer_value
-		(type INTEGER)
+	(single-slot frequency
+		(type INSTANCE)
+;+		(allowed-classes Frequency)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot statements
@@ -139,13 +144,13 @@
 ;+		(allowed-classes Clinical_Statement_Template)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(multislot version_note
-		(type STRING)
-		(create-accessor read-write))
 	(single-slot status
 		(type INSTANCE)
 ;+		(allowed-classes Intervention_Status_Code)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot version_note
+		(type STRING)
 		(create-accessor read-write))
 	(single-slot modifier_term
 		(type INSTANCE)
@@ -218,18 +223,18 @@
 ;+		(allowed-classes Time_Point Variable Constraint Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot context_modifier
+	(single-slot numeric_value
 		(type INSTANCE)
-;+		(allowed-classes Relational_Modifier_Term)
+;+		(allowed-classes Real Integer)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot variable_name
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot numeric_value
+	(single-slot context_modifier
 		(type INSTANCE)
-;+		(allowed-classes Real Integer)
+;+		(allowed-classes Relational_Modifier_Term)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot ERGO_Class50009
@@ -286,15 +291,15 @@
 		(allowed-values UMLS SNOMEDCT LOINC RxNORM ERGO_keyword HL7)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot augmented_noun_phrase
-		(type INSTANCE)
-;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot variables
 ;+		(comment "Variables used in a functional expression")
 		(type INSTANCE)
 ;+		(allowed-classes Variable)
+		(create-accessor read-write))
+	(single-slot augmented_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot logical_connector
 		(type INSTANCE)
@@ -386,6 +391,30 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
+(defclass Comparison_Statement "comparing two Expressions via comparators such as <,>, ="
+	(is-a Deprecated_Class)
+	(role concrete)
+	(single-slot annotation
+		(type INSTANCE)
+;+		(allowed-classes Comparison_Statement_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot first_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
 (defclass ERGO_Class "A navigation class that group ERGO-specific classes together"
 	(is-a USER)
 	(role abstract))
@@ -450,6 +479,20 @@
 		(type INSTANCE)
 ;+		(allowed-classes Duration Variable)
 ;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Frequency_Constraint "Frequency constraint applies to an interval with periodic subevents."
+	(is-a TimeInterval_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot frequency
+		(type INSTANCE)
+;+		(allowed-classes Frequency)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass Modifier "A modifier restricts the meaning of a noun phrase through explicit or implict property value (e.g., severe asthma exacerbated by exercise)"
@@ -549,6 +592,15 @@
 	(is-a Physical_Quantity)
 	(role concrete))
 
+(defclass Frequency
+	(is-a Physical_Quantity)
+	(role concrete)
+	(single-slot unit
+		(type INSTANCE)
+;+		(allowed-classes Denominator_of_Time)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
 (defclass Integer
 	(is-a Quantity)
 	(role concrete)
@@ -594,14 +646,14 @@
 (defclass Relative_Time_Interval
 	(is-a Time_Interval)
 	(role concrete)
-	(single-slot duration
-		(type INSTANCE)
-;+		(allowed-classes Duration Variable)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot reference_time
 		(type INSTANCE)
 ;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Duration Variable)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -647,6 +699,10 @@
 
 (defclass Unit
 	(is-a Term_Code)
+	(role concrete))
+
+(defclass Denominator_of_Time
+	(is-a Unit)
 	(role concrete))
 
 (defclass Act-Act-Relationship "Relationships that connect two clinical statements."
@@ -867,6 +923,11 @@
 		(type INSTANCE)
 ;+		(allowed-classes Comparison_Statement_Annotation Simple_Statement_Annotation)
 		(create-accessor read-write))
+	(single-slot effective_time
+		(type INSTANCE)
+;+		(allowed-classes Expression Constraint)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot statement_connector
 		(type INSTANCE)
 ;+		(allowed-classes Logical_Connector)
@@ -915,30 +976,6 @@
 	(single-slot first_statement
 		(type INSTANCE)
 ;+		(allowed-classes Clinical_Statement_Template)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Comparison_Statement "comparing two Expressions via comparators such as <,>, ="
-	(is-a Clinical_Statement_Template)
-	(role concrete)
-	(single-slot annotation
-		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot expression_comparison
-		(type INSTANCE)
-;+		(allowed-classes Expression_Comparator)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot first_expression
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot second_expression
-		(type INSTANCE)
-;+		(allowed-classes Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
