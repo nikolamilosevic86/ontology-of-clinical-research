@@ -85,8 +85,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -1956,6 +1956,15 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE001000 -->
+
+    <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE001000">
+        <rdfs:label>Active</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400000 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400000">
@@ -2007,7 +2016,12 @@
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400004">
         <rdfs:label rdf:datatype="&xsd;string">Event</rdfs:label>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An occurence that happens at a specific time.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An event is a processual entity [span:ProcessualEntity] that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities.
+
+Examples: the life of an organism, the process of sleeping, the process of cell-division</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BFO</obo:IAO_0000119>
+        <statistics:synonym rdf:datatype="&xsd;string">Process</statistics:synonym>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2046,7 +2060,7 @@
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400007">
         <rdfs:label rdf:datatype="&xsd;string">Follow-up</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400053"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400077"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which participants are no longer being enrolled or treated, but only followed-up (i.e., last patient in has happened, while last patient&#39;s last visit has not yet occurred).</obo:IAO_0000115>
@@ -2436,13 +2450,13 @@
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400031"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2529,7 +2543,11 @@
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400046">
         <rdfs:label rdf:datatype="&xsd;string">Observation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400070"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A clinical situation in which a measurement or qualitative clinical assessment is made.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An observation is an activity whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a study subject&#39;s or experimental unit&#39;s physiologic or psychologic state. 
+
+Examples: blood chemistry panel, body mass index calculation, blood pressure measurement.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 definition of DefinedObservation. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2977,7 +2995,8 @@
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400070">
         <rdfs:label rdf:datatype="&xsd;string">Clinical event</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400004"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recorded or inferred clinical event (for example assessment, intervention or onset of symptoms) involving a patient or volunteer subject and an attending or recording clinician. (An occurrent)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A clinical event is an event during which an assessment of, or intervention on a study subject occurs.</obo:IAO_0000115>
+        <statistics:curator rdf:datatype="&xsd;string">Simona</statistics:curator>
     </owl:Class>
     
 
@@ -3021,44 +3040,44 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400072 -->
+	<!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400072 -->
 
-    <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400072">
-        <rdfs:label rdf:datatype="&xsd;string">Outcome analysis specification</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical methods. It includes the specification of the relevant outcome and predictor variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
-    </owl:Class>
+	<owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400072">
+	    <rdfs:label rdf:datatype="&xsd;string">Outcome analysis specification</rdfs:label>
+	    <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
+	    <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
+	            <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+	        </owl:Restriction>
+	    </rdfs:subClassOf>
+	    <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
+	            <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
+	        </owl:Restriction>
+	    </rdfs:subClassOf>
+	    <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
+	            <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+	        </owl:Restriction>
+	    </rdfs:subClassOf>
+	    <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
+	            <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
+	        </owl:Restriction>
+	    </rdfs:subClassOf>
+	    <rdfs:subClassOf>
+	        <owl:Restriction>
+	            <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
+	            <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+	        </owl:Restriction>
+	    </rdfs:subClassOf>
+	    <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+	    <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical methods. It includes the specification of the relevant outcome and predictor variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
+	</owl:Class>
     
 
 
@@ -3112,7 +3131,7 @@
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400077">
         <rdfs:label rdf:datatype="&xsd;string">Hold</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
     </owl:Class>
     
 
@@ -3715,27 +3734,6 @@ Note that this type of analysis can also be applied to outcomes in a human study
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900038 -->
-
-    <owl:Class rdf:about="&ontologies;study_design.owl#OCRE900038">
-        <rdfs:label rdf:datatype="&xsd;string">Animal study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;study_design.owl#OCRE900037"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An animal study is a non-human organism study. It uses or collects measurements or assessments about animals other than humans.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900039 -->
-
-    <owl:Class rdf:about="&ontologies;study_design.owl#OCRE900039">
-        <rdfs:label rdf:datatype="&xsd;string">Laboratory study</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;study_design.owl#OCRE900037"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A laboratory study is a non-human organism study that uses or collects measurements or assessments about a non-human biological entity.</obo:IAO_0000115>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900040 -->
 
     <owl:Class rdf:about="&ontologies;study_design.owl#OCRE900040">
@@ -3949,6 +3947,18 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <swrl:Variable rdf:about="&ontologies;OCRe.owl#recruitmentStatus"/>
     <swrl:Variable rdf:about="&ontologies;OCRe.owl#study"/>
     <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:DatavaluedPropertyAtom>
+                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
+                        <swrl:propertyPredicate rdf:resource="&ontologies;OCRe.owl#OCRE900216"/>
+                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
+                    </swrl:DatavaluedPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
         <swrl:body>
             <swrl:AtomList>
                 <rdf:first>
@@ -3981,18 +3991,6 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
                 </rdf:rest>
             </swrl:AtomList>
         </swrl:body>
-        <swrl:head>
-            <swrl:AtomList>
-                <rdf:rest rdf:resource="&rdf;nil"/>
-                <rdf:first>
-                    <swrl:DatavaluedPropertyAtom>
-                        <swrl:argument2 rdf:datatype="&xsd;boolean">true</swrl:argument2>
-                        <swrl:propertyPredicate rdf:resource="&ontologies;OCRe.owl#OCRE900216"/>
-                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
-                    </swrl:DatavaluedPropertyAtom>
-                </rdf:first>
-            </swrl:AtomList>
-        </swrl:head>
     </swrl:Imp>
 </rdf:RDF>
 
