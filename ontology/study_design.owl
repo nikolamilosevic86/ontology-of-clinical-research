@@ -11,9 +11,9 @@
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY dctype "http://purl.org/dc/dcmitype/Image" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY OCRe "http://purl.org/net/OCRe/OCRe.owl#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY OCRe "http://purl.org/net/OCRe/OCRe.owl#" >
     <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY study_design "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
@@ -161,10 +161,11 @@ Examples:
     <owl:DatatypeProperty rdf:about="&study_design;OCRE900005">
         <rdfs:label rdf:datatype="&xsd;string">has matching</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Note: this descriptor does not apply to Case-crossover studies.</study_protocol:develop_comment>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class. Does this definition apply also to x-sectional and cohort studies?</study_protocol:develop_comment>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.</obo:IAO_0000115>
-        <statistics:definition rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex. [Glossary of Terms in The Cochrane Collaboration]</statistics:definition>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.
+
+In cohort and cross-sectional studies, matching is done for analysis.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900002"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
@@ -209,7 +210,7 @@ Examples:
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100001 -->
 
     <owl:Class rdf:about="&study_design;OCRE100001">
-        <rdfs:label rdf:datatype="&xsd;string">Case and control in same person</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Case and control in same experimental unit</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100088"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Each case serves as its own control</obo:IAO_0000115>
@@ -223,9 +224,8 @@ Examples:
     <owl:Class rdf:about="&study_design;OCRE100002">
         <rdfs:label rdf:datatype="&xsd;string">Allocation group cardinality</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100048"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed. see version 18 of study design slide</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -292,7 +292,7 @@ Examples:
             </owl:Class>
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&study_design;OCRE100055"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interventional study is a quantitative study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. </obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interventional study is a quantitative study that prospectively assigns experimental units (human participants or groups of humans or part of human participants) to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">WHO Available at: http://www.who.int/ictrp/en/</obo:IAO_0000119>
@@ -346,7 +346,7 @@ Examples:
         </owl:equivalentClass>
         <owl:disjointWith rdf:resource="&study_design;OCRE100026"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator does not actively assign study participants to regimens of interventions.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator does not actively assign study experimental units to regimens of interventions.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -438,8 +438,8 @@ An equivalence trial is designed to determine whether the response to two or mor
         <owl:disjointWith rdf:resource="&study_design;OCRE100018"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100039"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100078"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case-crossover study is an observational study that aims to answer the question, &quot;Was this event triggered by something unusual that happened just before?&quot; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when a patient starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the patient was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
-The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different person at a similar time. In the matched-pair case-crossover design, the control is the same person at a different time.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case-crossover study is an observational study that aims to answer the question, &quot;Was this event triggered by something unusual that happened just before?&quot; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when an experimental unit starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the experimental unit  was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different experimental unit  at a similar time. In the matched-pair case-crossover design, the control is the same experimental unit at a different time.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Annu Rev Public Health. 2000;21:193-221.</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -552,10 +552,9 @@ The simplest case-crossover design is closely analogous to a traditional matched
         <owl:disjointWith rdf:resource="&study_design;OCRE100024"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100027"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100052"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A crossover study is an interventional study where the population is a more than a single human subject, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, participants are switched to the other. For example, for a comparison of regimens A and B, the participants are randomly allocated to receive them in either the order A, B or the order B, A. 
-Regimens are assigned to and data are analyzed within more than one participant at a time.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A crossover study is an interventional study where the population is a more than a single experimental unit, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, experimental units are switched to the other. For example, for a comparison of regimens A and B, the experimental units are randomly allocated to receive them in either the order A, B or the order B, A. 
+Regimens are assigned to and data are analyzed within more than one experimental unit at a time.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -565,7 +564,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <owl:Class rdf:about="&study_design;OCRE100021">
         <rdfs:label rdf:datatype="&xsd;string">Allocation scheme</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Allocation scheme describes the way in which each participant in an interventional trial is allocated to a treatment group.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Allocation scheme describes the way in which each experimental unit in an interventional trial is allocated to a treatment group.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -649,7 +648,7 @@ Regimens are assigned to and data are analyzed within more than one participant 
         <rdfs:label rdf:datatype="&xsd;string">Investigator assigns intervention</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100058"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator actively assigns the study participants to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator actively assigns the study experimental units to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -695,10 +694,10 @@ Regimens are assigned to and data are analyzed within more than one participant 
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100029 -->
 
     <owl:Class rdf:about="&study_design;OCRE100029">
-        <rdfs:label rdf:datatype="&xsd;string">Multiple participant allocation group</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Multiple experimental unit allocation group</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100002"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100075"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of more than one participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of more than one experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -817,11 +816,11 @@ Different types of restricted randomization are as follows:
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Phase describes the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
 - Phase I trials assess toxic effects on humans (not many people participate in them, and usually without controls); 
-- Phase ll trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
-- Phase III trials compare the new treatment against standard (or placebo) treatment (usually a full randomised controlled trial). At this point, a drug can be approved for community use. 
-- Phase IV monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]
+- Phase 2 trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
+- Phase 3 trials compare the new treatment against standard (or placebo) treatment (usually a full randomised controlled trial). At this point, a drug can be approved for community use. 
+- Phase 4 monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]
 
-A trial can be of a combination phase (e.g., I/II).
+A trial can be of a combination phase (e.g., 1/2).
 The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -899,7 +898,7 @@ The concept of phase is not applicable to trials studying certain interventions 
         <owl:disjointWith rdf:resource="&study_design;OCRE100071"/>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of experimental units will be assigned together to one or the other of the regimens of interventions.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -941,11 +940,10 @@ The concept of phase is not applicable to trials studying certain interventions 
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100046 -->
 
     <owl:Class rdf:about="&study_design;OCRE100046">
-        <rdfs:label rdf:datatype="&xsd;string">Data analysis within participants</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Data analysis within experimental units</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, whether data is analyzed within a single study experimental unit or within multiple experimental units.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed. see version 18 of study design slide</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether data is analyzed within a single study participant or within multiple participants.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -976,7 +974,7 @@ The concept of phase is not applicable to trials studying certain interventions 
     <owl:Class rdf:about="&study_design;OCRE100048">
         <rdfs:label rdf:datatype="&xsd;string">Assignment characteristics</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Characteristics of the assignment of subjects or experimental units to a regimen of interventions</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Characteristics of the assignment experimental units (e.g., participant, eye) to a regimen of interventions</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1113,7 +1111,7 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
         <rdfs:label rdf:datatype="&xsd;string">Investigator assignment role</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100048"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The role the investigator plays in the assignment of study participants to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The role the investigator plays in the assignment of study experimental units to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1143,12 +1141,11 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100061 -->
 
     <owl:Class rdf:about="&study_design;OCRE100061">
-        <rdfs:label rdf:datatype="&xsd;string">Main comparison across participants</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison across experimental units</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100073"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100081"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is across study participants.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is across study experimental units.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1177,10 +1174,10 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100063 -->
 
     <owl:Class rdf:about="&study_design;OCRE100063">
-        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within multiple participants</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within multiple experimental units</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100046"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100085"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within multiple study participants.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within multiple study experimental units.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1305,11 +1302,10 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100073 -->
 
     <owl:Class rdf:about="&study_design;OCRE100073">
-        <rdfs:label rdf:datatype="&xsd;string">Main comparison and participants</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison and experimental units</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: see version 18 of study design slide</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether the main comparison is across or within study participants</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether the main comparison is across or within study experimental units</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1329,9 +1325,9 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100075 -->
 
     <owl:Class rdf:about="&study_design;OCRE100075">
-        <rdfs:label rdf:datatype="&xsd;string">Single participant allocation group</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Single experimental unit allocation group</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100002"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within participants, investigator assigns regimen of interventions to an allocation group made up of a single participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of a single experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1423,11 +1419,10 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100081 -->
 
     <owl:Class rdf:about="&study_design;OCRE100081">
-        <rdfs:label rdf:datatype="&xsd;string">Main comparison within participants</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison within experimental units</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100073"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is within study participants.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is within study experimental units.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1469,9 +1464,9 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100085 -->
 
     <owl:Class rdf:about="&study_design;OCRE100085">
-        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within single participant</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within single experimental unit</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100046"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within a single study participant.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within a single study experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1511,7 +1506,7 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100088 -->
 
     <owl:Class rdf:about="&study_design;OCRE100088">
-        <rdfs:label rdf:datatype="&xsd;string">Case and control not in same person</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Case and control not in same experimental unit</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1522,7 +1517,7 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Case and control are not the same person</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case does not serve as its own control</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1551,5 +1546,5 @@ Example: in a factorial-design study where regimens of interventions A and B are
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
 
