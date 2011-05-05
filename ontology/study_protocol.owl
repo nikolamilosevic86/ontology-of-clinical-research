@@ -60,12 +60,12 @@
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
     <owl:AnnotationProperty rdf:about="&statistics;definition"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#develop_comment"/>
     
 
@@ -253,14 +253,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE854129 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE854129">
-        <rdfs:label rdf:datatype="&xsd;string">has_device_code</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE859340 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340">
@@ -333,7 +325,7 @@
     <!-- http://www.w3.org/2002/07/owl#OCRE802488 -->
 
     <owl:ObjectProperty rdf:about="&owl;OCRE802488">
-        <rdfs:label rdf:datatype="&xsd;string">topObjectProperty</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">top study protocol object property</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -383,7 +375,20 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400055 -->
 
     <owl:Class rdf:about="&OCRe;OCRE400055">
-        <rdfs:label rdf:datatype="&xsd;string">ConceptDescriptor</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">CD</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &lt;i&gt;CD&lt;/i&gt; is a reference to a concept defined in an external code system, terminology, or ontology. A &lt;i&gt;CD&lt;/i&gt; may contain a simple code - that is, a reference to a concept defined directly by the referenced code system, or it may contain an expression in some syntax defined by the referenced code system that can be meaningfully evaluated. e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. 
+
+A CD may also contain an original text or phrase that served as the basis of the coding. This is preserved to allow for validation of the representation of the concept in various fashions. 
+
+A CD can contain one or more translations into multiple coding systems. The translations are all representations of the same concept in various code systems. There is only one concept, and only the first CD may contain an original text. It is possible to represent the translation chain - which CD was translated from which - if desired. Each CD may also carry a rationale to indicate why it is represented.
+
+A CD with no nullFlavor attribute SHALL have a code attribute or nonNull originalText attribute. A CD that has a code, codeSystem or originalText attribute but does not meet external constraints of the applicable value set SHALL have a nullFlavor attribute with a value of &quot;OTH&quot;.
+
+Attributes with type CD are generally bound by externally specified constraints which constrain the coded concepts to which a CD may refer. These constraints may be qualified as &quot;extensible&quot; (CWE) or &quot;not extensible&quot; (CNE). If the constraint is not extensible (CNE), then a the CD that does not have a nullFlavor SHALL contain a code that conforms to the constraint. If the constraint is extensible (CWE) then a CD that does not have a nullFlavor SHALL contain either a code that exists in the domain with which the attribute is associated, a code from a locally defined code system, or just some originalText that describes the concept. If the code is taken from a locally defined code system, then the codeSystem property SHALL specify the local code system.
+For both CNE and CWE constraint types, the translations may contain nonNull codes from any source unless otherwise specified by the constraining model. 
+
+For code systems that define expression syntaxes, CNE constraints may be used, providing that the code system definitions define the appropriate support to enable value sets to make useful statements about how to control the expression syntax, and that the value set machinery used also has the appropriate support</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -392,6 +397,7 @@
 
     <owl:Class rdf:about="&OCRe;OCRE400057">
         <rdfs:label rdf:datatype="&xsd;string">Duration</rdfs:label>
+        <statistics:definition>A physical quantity of time. </statistics:definition>
     </owl:Class>
     
 
@@ -511,16 +517,6 @@ An activity defined at a global library level that is an action of gathering sam
 EXAMPLE(S):
 blood draw</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE300007 -->
-
-    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300007">
-        <rdfs:label rdf:datatype="&xsd;string">PrescriptionDrugFrequencyCode</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400055"/>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: does this value set come from a specific reference source?</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -710,7 +706,7 @@ NOTE:  The number of times this activity occurs during the Study and the relativ
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE307000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE307000">
-        <rdfs:label>ExperimentalUnit</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">ExperimentalUnit</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
 A physical entity which is the primary unit of interest in a specific research objective. In an interventional study, the experimental unit is assigned to an intervention. The experimental unit is also the unit of primary statistical analysis. Commonly the individual study subject (animal, person or product) is the experimental unit. Different experimental units must be capable of receiving different experimental interventions. 
@@ -725,16 +721,6 @@ OTHER NAME(S):
 NOTE(S):
 Depending on the research objectives, a single study may have multiple levels of experimental units, such as whole people and patches of skin.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE885477 -->
-
-    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE885477">
-        <rdfs:label rdf:datatype="&xsd;string">DefinedDeviceProcedure</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: I cannot find this class in BRIDG and it is not clear what it describes</obo:IAO_0000232>
     </owl:Class>
     
 
