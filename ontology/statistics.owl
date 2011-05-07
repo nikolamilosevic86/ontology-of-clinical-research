@@ -232,13 +232,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -704,6 +704,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200006">
         <rdfs:label rdf:datatype="&xsd;string">Linear regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -736,6 +737,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200009">
         <rdfs:label rdf:datatype="&xsd;string">Poisson regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -915,6 +917,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200019">
         <rdfs:label rdf:datatype="&xsd;string">Robust regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1005,7 +1008,7 @@
         <rdfs:label rdf:datatype="&xsd;string">Proportion</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A measure of the frequency of some phenomenon of interest within an average population</obo:IAO_0000115>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">Ranges from 0 to 1. One way to summarize  count data.</obo:IAO_0000116>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Ranges from 0 to 1. One way to summarize count data.</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -1026,6 +1029,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200027">
         <rdfs:label rdf:datatype="&xsd;string">Logistic regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1046,6 +1050,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200029">
         <rdfs:label rdf:datatype="&xsd;string">Z-test</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200047"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1229,6 +1234,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200044">
         <rdfs:label rdf:datatype="&xsd;string">Polychotomous regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1406,6 +1412,7 @@
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1426,6 +1433,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200056">
         <rdfs:label rdf:datatype="&xsd;string">Quantile regression</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1573,6 +1581,7 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200066">
         <rdfs:label rdf:datatype="&xsd;string">Spearmans rank correlation coefficient</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1632,8 +1641,9 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200070 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200070">
-        <rdfs:label rdf:datatype="&xsd;string">Students t test</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Student&#39;s t-test</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200071"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1768,6 +1778,7 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200081">
         <rdfs:label rdf:datatype="&xsd;string">Wilcoxon rank sum test</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200051"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[see standard reference]</obo:IAO_0000115>
     </owl:Class>
     
 
