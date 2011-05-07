@@ -85,8 +85,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -588,14 +588,6 @@
         <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">If C an C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relatinship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE900069"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -604,6 +596,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -2169,8 +2169,9 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400015">
         <rdfs:label rdf:datatype="&xsd;string">Physical entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400032"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical entity is an entity that has physical existence. An entity is that which is perceived or known or inferred to have its own distinct existence (living or nonliving)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical entity is an entity that has existence in time and space. An entity is that which is perceived or known or inferred to have its own distinct existence (living or nonliving)</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <statistics:synonym rdf:datatype="&xsd;string">bfo:material entity</statistics:synonym>
     </owl:Class>
     
 
@@ -2605,14 +2606,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome, such as a questionnaire or laboratory test.</obo:IAO_0000115>
@@ -2628,8 +2629,8 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2640,8 +2641,8 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
@@ -2886,14 +2887,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900098"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900096"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900096"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900098"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
@@ -3047,20 +3048,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3071,8 +3066,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
@@ -3740,7 +3741,9 @@ Note that this type of analysis can also be applied to outcomes in a human study
         <rdfs:label rdf:datatype="&xsd;string">Systematic review</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A systematic review is a meta study (i.e., a study in which observations are acquired from journal articles, abstracts, etc. reporting on other studies).
-It uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies.
+
+A systematic review uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies.
+
 Meta-analysis is the use of statistical techniques in a systematic review to integrate the summary results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. </obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
