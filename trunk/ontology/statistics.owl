@@ -232,13 +232,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -269,13 +269,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -650,7 +650,7 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200002 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200002">
-        <rdfs:label rdf:datatype="&xsd;string">Measurement dimension</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Variable dimension</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -725,9 +725,12 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200008 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200008">
-        <rdfs:label rdf:datatype="&xsd;string">RightOpen</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Right open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, )</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The right boundary is not included in the interval
+
+[x, )</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -898,13 +901,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200027"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is quantitative and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -927,7 +930,13 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200020">
         <rdfs:label rdf:datatype="&xsd;string">Point observation</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x=y</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In point observation, the width of the censoring interval is 0. 
+The frequency of measurements prevents one from being more accurate in time, or one of the possible states cannot be observed.
+
+Example: we are all biallelic, but sometimes we cannot observe both allels
+
+[x, y] x=y</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -937,7 +946,12 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200021">
         <rdfs:label rdf:datatype="&xsd;string">Interval censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y] x~=y</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The event occurred within an interval, but it is not known exactly when. 
+
+Example: the last measurement day one person was HIV negative and the first measurement day the person was positive are known, but when the seroconversion happened within that interval is not known
+
+[x, y] x~=y</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -965,13 +979,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is nominal with cardinality greater than 2 and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1007,7 +1021,7 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200025">
         <rdfs:label rdf:datatype="&xsd;string">Proportion</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A measure of the frequency of some phenomenon of interest within an average population</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A proportion is a measure of the frequency of some phenomenon of interest within an average population</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Ranges from 0 to 1. One way to summarize count data.</obo:IAO_0000116>
     </owl:Class>
     
@@ -1069,7 +1083,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200031">
         <rdfs:label rdf:datatype="&xsd;string">Closed</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[ ]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Both boundaries are included in the interval
+
+[ ]</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">xx, yy, xy</obo:IAO_0000116>
     </owl:Class>
     
@@ -1123,8 +1140,11 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200034 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200034">
-        <rdfs:label rdf:datatype="&xsd;string">Censoring-bounded type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
+        <rdfs:label rdf:datatype="&xsd;string">Interval data tie-breaking distinction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">How measurements of &quot;equal value&quot; of interval data can be differentiated
+Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1163,7 +1183,7 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200038">
         <rdfs:label rdf:datatype="&xsd;string">Discrete</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE693000"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200062"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Ties are exact</obo:IAO_0000115>
     </owl:Class>
@@ -1262,13 +1282,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1336,9 +1356,12 @@
     <!-- http://purl.org/net/OCRe/statistics.owl#OCRE200048 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200048">
-        <rdfs:label rdf:datatype="&xsd;string">LeftOpen</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Left open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">(  ]</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The left boundary is not included in the interval
+
+(  ]</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1386,7 +1409,10 @@
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200052">
         <rdfs:label rdf:datatype="&xsd;string">Open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">( )</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Neither boundary is included in the interval
+
+( )</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1534,7 +1560,7 @@
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200062">
         <rdfs:label rdf:datatype="&xsd;string">Continuous</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE693000"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">(How measurements of &quot;equal value,&quot; can be differentiated), increase precision</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Ties are not exact</obo:IAO_0000116>
     </owl:Class>
@@ -1559,7 +1585,12 @@ The gamma distribution is frequently a probability model for waiting times; for 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200064">
         <rdfs:label rdf:datatype="&xsd;string">Left censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], x unknown</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The event occurred some time before the last measurement, but it is not known exactly when. 
+
+Example: one person tests HIV positive, but there is no negative test result, so it is not possible to estalish a time interval for seroconversion
+
+[x, y], x unknown</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1843,7 +1874,8 @@ If a random variable has any of n possible values  that are equally spaced and e
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200085">
         <rdfs:label rdf:datatype="&xsd;string">Tie-breaking distinction</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">How measurements of &quot;equal value,&quot; can be differentiated</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">How measurements of &quot;equal value&quot; can be differentiated</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1874,8 +1906,11 @@ If a random variable has any of n possible values  that are equally spaced and e
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200088">
         <rdfs:label rdf:datatype="&xsd;string">Censoring type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">Censoring need at least ordinal, polychotomous</obo:IAO_0000116>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200072"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Censoring type is a particular type of interval creation. 
+Censoring means that one event prevents another event from being observed (e.g., end of study prevents possible evidence of success or failure from being observed).
+Though usually employed in the context of time-to-failure, this is not only about time, but it can be about any dimension of interest (e.g., if the measurement is above the maximum value in the scale used, then the measurement is right censored; if it is lower than the minimum detectable, then it is left censored).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2125,7 +2160,12 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200105">
         <rdfs:label rdf:datatype="&xsd;string">Right censored</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200088"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">[x, y], y unknown</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The event my have occurred some time after the last measurement, but it is not known exactly whether it has, because there are no further observations. 
+
+Example: one person tests HIV negative at some point, but there are no further observations (e.g., the individual moved, or died), so it is not known whether the person has seroconverted or not
+
+[x, y], x unknown</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2151,6 +2191,17 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the dependent variable is survival data</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE693000 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE693000">
+        <rdfs:label rdf:datatype="&xsd;string">Point data tie-breaking distinction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200085"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">How measurements of &quot;equal value&quot; of point data can be differentiated</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
