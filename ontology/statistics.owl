@@ -269,13 +269,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -728,9 +728,8 @@
         <rdfs:label rdf:datatype="&xsd;string">Right open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The right boundary is not included in the interval
-
-[x, )</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The right boundary is not included in the interval</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[ )</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -864,7 +863,7 @@
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Cambridge Dictionary of Statistics 3rd edition</obo:IAO_0000119>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Cannot meaningfully compute ratios</obo:IAO_0000116>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a  variable is &quot;a continuous variable that has an arbitrary zero point.&quot;</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a variable is &quot;a continuous variable that has an arbitrary zero point.&quot;</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -933,10 +932,9 @@
         <obo:IAO_0000115 rdf:datatype="&xsd;string">In point observation, the width of the censoring interval is 0. 
 The frequency of measurements prevents one from being more accurate in time, or one of the possible states cannot be observed.
 
-Example: we are all biallelic, but sometimes we cannot observe both allels
-
-[x, y] x=y</obo:IAO_0000115>
+Example: we are all biallelic, but sometimes we cannot observe both allels</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[x, y] x=y</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -949,9 +947,8 @@ Example: we are all biallelic, but sometimes we cannot observe both allels
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The event occurred within an interval, but it is not known exactly when. 
 
-Example: the last measurement day one person was HIV negative and the first measurement day the person was positive are known, but when the seroconversion happened within that interval is not known
-
-[x, y] x~=y</obo:IAO_0000115>
+Example: the last measurement day one person was HIV negative and the first measurement day the person was positive are known, but when the seroconversion happened within that interval is not known</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[x, y] x~=y</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -979,13 +976,13 @@ Example: the last measurement day one person was HIV negative and the first meas
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is nominal with cardinality greater than 2 and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1083,11 +1080,9 @@ Example: the last measurement day one person was HIV negative and the first meas
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200031">
         <rdfs:label rdf:datatype="&xsd;string">Closed</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Both boundaries are included in the interval
-
-[ ]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Both boundaries are included in the interval</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">xx, yy, xy</obo:IAO_0000116>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[ ]</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -1185,7 +1180,7 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Discrete</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE693000"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200062"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Ties are exact</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Ties are exact</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -1230,9 +1225,10 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200042">
         <rdfs:label rdf:datatype="&xsd;string">Rate</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200028"/>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.</obo:IAO_0000232>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">(Cambridge Dictionary of Statistics 3nd ed.) A measure of the frequency of some phenomenon of interest given by rate: number of events in specified period / average population during the period.
+
+The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our definition of proportion.</obo:IAO_0000116>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A rate is a quantity per unit of time.</obo:IAO_0000115>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our definition of proportion.</obo:IAO_0000232>
     </owl:Class>
     
 
@@ -1288,13 +1284,13 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -1358,10 +1354,9 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200048">
         <rdfs:label rdf:datatype="&xsd;string">Left open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">(  ]</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The left boundary is not included in the interval
-
-(  ]</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The left boundary is not included in the interval</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1409,9 +1404,8 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200052">
         <rdfs:label rdf:datatype="&xsd;string">Open</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200034"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Neither boundary is included in the interval
-
-( )</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">( )</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Neither boundary is included in the interval</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1561,7 +1555,6 @@ Whether 0, 1 or both interval boundaries are included.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200062">
         <rdfs:label rdf:datatype="&xsd;string">Continuous</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE693000"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">(How measurements of &quot;equal value,&quot; can be differentiated), increase precision</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Ties are not exact</obo:IAO_0000116>
     </owl:Class>
     
@@ -1588,9 +1581,8 @@ The gamma distribution is frequently a probability model for waiting times; for 
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The event occurred some time before the last measurement, but it is not known exactly when. 
 
-Example: one person tests HIV positive, but there is no negative test result, so it is not possible to estalish a time interval for seroconversion
-
-[x, y], x unknown</obo:IAO_0000115>
+Example: one person tests HIV positive, but there is no negative test result, so it is not possible to estalish a time interval for seroconversion</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[x, y], x unknown</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -1922,7 +1914,9 @@ Though usually employed in the context of time-to-failure, this is not only abou
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200049"/>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Cambridge Dictionary of Statistics 3rd edition</obo:IAO_0000119>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">Can compute ratios</obo:IAO_0000116>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot;</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In S. Steven&#39;s typology of measurement scale, a ratio variable is &quot;a continuous variable that has a fixed rather than an arbitrary zero point.&quot;
+
+Examples: weight, height, temperature measured in degrees Kelvin</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1982,7 +1976,6 @@ Though usually employed in the context of time-to-failure, this is not only abou
     <owl:Class rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE200094">
         <rdfs:label rdf:datatype="&xsd;string">Polarity</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200002"/>
-        <obo:IAO_0000116 rdf:datatype="&xsd;string">More is better, more is worse</obo:IAO_0000116>
     </owl:Class>
     
 
@@ -2163,9 +2156,8 @@ Also whether an event occurs (lowerbound of time to event) Measurement can be on
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The event my have occurred some time after the last measurement, but it is not known exactly whether it has, because there are no further observations. 
 
-Example: one person tests HIV negative at some point, but there are no further observations (e.g., the individual moved, or died), so it is not known whether the person has seroconverted or not
-
-[x, y], x unknown</obo:IAO_0000115>
+Example: one person tests HIV negative at some point, but there are no further observations (e.g., the individual moved, or died), so it is not known whether the person has seroconverted or not</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">[x, y], x unknown</obo:IAO_0000116>
     </owl:Class>
     
 
