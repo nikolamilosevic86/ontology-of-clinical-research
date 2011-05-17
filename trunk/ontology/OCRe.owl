@@ -370,10 +370,27 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE886736 -->
+
+    <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE886736">
+        <rdfs:label>has study design characteristic</rdfs:label>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
+        <rdfs:range rdf:resource="&ontologies;study_design.owl#OCRE100005"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE820850"/>
+            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE900001"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900001 -->
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900001">
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
+        <rdfs:range rdf:resource="&ontologies;study_design.owl#OCRE100005"/>
+        <rdfs:domain rdf:resource="&ontologies;study_design.owl#OCRE100056"/>
     </owl:ObjectProperty>
     
 
@@ -901,9 +918,11 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900093 -->
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900093">
-        <rdfs:label>is_study_characteristic_of</rdfs:label>
+        <rdfs:label>is design characteristic of</rdfs:label>
         <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE900001"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
+        <rdfs:domain rdf:resource="&ontologies;study_design.owl#OCRE100005"/>
+        <rdfs:range rdf:resource="&ontologies;study_design.owl#OCRE100056"/>
     </owl:ObjectProperty>
     
 
@@ -3881,38 +3900,6 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     <swrl:Variable rdf:about="&ontologies;OCRe.owl#recruitmentStatus"/>
     <swrl:Variable rdf:about="&ontologies;OCRe.owl#study"/>
     <swrl:Imp>
-        <swrl:body>
-            <swrl:AtomList>
-                <rdf:rest>
-                    <swrl:AtomList>
-                        <rdf:rest>
-                            <swrl:AtomList>
-                                <rdf:rest rdf:resource="&rdf;nil"/>
-                                <rdf:first>
-                                    <swrl:IndividualPropertyAtom>
-                                        <swrl:propertyPredicate rdf:resource="&ontologies;OCRe.owl#OCRE900001"/>
-                                        <swrl:argument2 rdf:resource="&ontologies;OCRe.owl#recruitmentStatus"/>
-                                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
-                                    </swrl:IndividualPropertyAtom>
-                                </rdf:first>
-                            </swrl:AtomList>
-                        </rdf:rest>
-                        <rdf:first>
-                            <swrl:ClassAtom>
-                                <swrl:classPredicate rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
-                                <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
-                            </swrl:ClassAtom>
-                        </rdf:first>
-                    </swrl:AtomList>
-                </rdf:rest>
-                <rdf:first>
-                    <swrl:ClassAtom>
-                        <swrl:classPredicate rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
-                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#recruitmentStatus"/>
-                    </swrl:ClassAtom>
-                </rdf:first>
-            </swrl:AtomList>
-        </swrl:body>
         <swrl:head>
             <swrl:AtomList>
                 <rdf:rest rdf:resource="&rdf;nil"/>
@@ -3925,6 +3912,38 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
                 </rdf:first>
             </swrl:AtomList>
         </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
+                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#recruitmentStatus"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
+                                <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="&ontologies;OCRe.owl#OCRE900001"/>
+                                        <swrl:argument2 rdf:resource="&ontologies;OCRe.owl#recruitmentStatus"/>
+                                        <swrl:argument1 rdf:resource="&ontologies;OCRe.owl#study"/>
+                                    </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                    </swrl:AtomList>
+                </rdf:rest>
+            </swrl:AtomList>
+        </swrl:body>
     </swrl:Imp>
 </rdf:RDF>
 
