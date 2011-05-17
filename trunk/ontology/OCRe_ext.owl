@@ -30,7 +30,7 @@
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl">
-        <owl:versionInfo>Revision 162</owl:versionInfo>
+        <owl:versionInfo>Revision 179</owl:versionInfo>
         <owl:imports rdf:resource="http://purl.org/net/OCRe/OCRe.owl"/>
     </owl:Ontology>
     
@@ -387,38 +387,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400043 -->
-
-    <owl:Class rdf:about="&ocre;OCRE400043">
-        <rdfs:label rdf:datatype="&xsd;string">Study site</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ocre;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&ocre;OCRE590011"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&ocre;OCRE518308"/>
-                                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study site is a participating site in which study subject assessments or interventions are conducted. </obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400076 -->
 
     <owl:Class rdf:about="&ocre;OCRE400076">
@@ -499,6 +467,38 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE400043 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE400043">
+        <rdfs:label rdf:datatype="&xsd;string">Study site</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ocre;OCRE585289"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&ocre;OCRE590011"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&ocre;OCRE518308"/>
+                                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400029"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study site is a participating site in which study subject assessments or interventions are conducted. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000">
@@ -540,8 +540,8 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ocre;OCRE400043"/>
                     <rdf:Description rdf:about="&ocre;OCRE400079"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE400043"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ocre;OCRE585289"/>
                         <owl:someValuesFrom>
