@@ -85,8 +85,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -347,6 +347,17 @@
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE500006"/>
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE50048"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE819000 -->
+
+    <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE819000">
+        <rdfs:label>has outcome phenomenon</rdfs:label>
+        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400037"/>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400063"/>
+        <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900095"/>
     </owl:ObjectProperty>
     
 
@@ -653,14 +664,6 @@
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900069">
         <rdfs:label rdf:datatype="&xsd;string">part of</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -669,6 +672,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -780,7 +791,6 @@
         <statistics:definition rdf:datatype="&xsd;string">An outcome is_analyzied_using some statistical method</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
-        <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE900094"/>
         <rdfs:range rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
     </owl:ObjectProperty>
     
@@ -899,6 +909,7 @@
         <rdfs:label rdf:datatype="&xsd;string">has term code</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">The phenomenon associated with an outcome may be a clinical phenotype some other phenomenon of interest</statistics:definition>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400041"/>
+        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
     </owl:ObjectProperty>
     
@@ -943,8 +954,7 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900094 -->
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900094">
-        <rdfs:label>is_used_to_analyze</rdfs:label>
-        <rdfs:label>is_study_phenomenon_of</rdfs:label>
+        <rdfs:label>is study phenomenon of</rdfs:label>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400041"/>
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
@@ -989,8 +999,8 @@
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900098">
         <rdfs:label rdf:datatype="&xsd;string">has outcome variable</rdfs:label>
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400063"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900095"/>
-        <rdfs:domain rdf:resource="&ontologies;study_protocol.owl#OCRE300012"/>
     </owl:ObjectProperty>
     
 
@@ -1721,6 +1731,7 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has code</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">The unique code of a term in a controlled vocabulary</statistics:definition>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1733,6 +1744,7 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has coding system name</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">The name of a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1745,6 +1757,7 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has coding system version</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">The version of a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1757,6 +1770,7 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has preferred name</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">The preferred name of a term in a coding system</statistics:definition>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -2471,14 +2485,14 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400041"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900094"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900090"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900090"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900094"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
@@ -2496,13 +2510,13 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400031"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2655,14 +2669,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome, such as a questionnaire or laboratory test.</obo:IAO_0000115>
@@ -2678,8 +2692,8 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
-                <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2690,8 +2704,8 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
+                <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
@@ -3098,7 +3112,19 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -3112,18 +3138,6 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
@@ -3864,14 +3878,14 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900078"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400060"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900104"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400063"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900104"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400063"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900078"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400060"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
