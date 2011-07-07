@@ -170,14 +170,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE901006 -->
-
-    <rdf:Description rdf:about="&ocre;OCRE901006">
-        <rdfs:range rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE831739"/>
-    </rdf:Description>
-    
-
-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE901011 -->
 
     <owl:ObjectProperty rdf:about="&ocre;OCRE901011"/>
@@ -787,29 +779,6 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
         </owl:equivalentClass>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A participating site is a social institution where study activities are conducted</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE831739 -->
-
-    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE831739">
-        <rdfs:label>Principal Investigator</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ocre;OCRE400076"/>
-                    <owl:Restriction>
-                        <owl:onProperty>
-                            <rdf:Description>
-                                <owl:inverseOf rdf:resource="&ocre;OCRE901006"/>
-                            </rdf:Description>
-                        </owl:onProperty>
-                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400029"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
     </owl:Class>
 </rdf:RDF>
 
