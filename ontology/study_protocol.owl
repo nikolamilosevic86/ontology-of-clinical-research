@@ -374,22 +374,7 @@
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400055 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE400055">
-        <rdfs:label rdf:datatype="&xsd;string">CD</rdfs:label>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &lt;i&gt;CD&lt;/i&gt; is a reference to a concept defined in an external code system, terminology, or ontology. A &lt;i&gt;CD&lt;/i&gt; may contain a simple code - that is, a reference to a concept defined directly by the referenced code system, or it may contain an expression in some syntax defined by the referenced code system that can be meaningfully evaluated. e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. 
-
-A CD may also contain an original text or phrase that served as the basis of the coding. This is preserved to allow for validation of the representation of the concept in various fashions. 
-
-A CD can contain one or more translations into multiple coding systems. The translations are all representations of the same concept in various code systems. There is only one concept, and only the first CD may contain an original text. It is possible to represent the translation chain - which CD was translated from which - if desired. Each CD may also carry a rationale to indicate why it is represented.
-
-A CD with no nullFlavor attribute SHALL have a code attribute or nonNull originalText attribute. A CD that has a code, codeSystem or originalText attribute but does not meet external constraints of the applicable value set SHALL have a nullFlavor attribute with a value of &quot;OTH&quot;.
-
-Attributes with type CD are generally bound by externally specified constraints which constrain the coded concepts to which a CD may refer. These constraints may be qualified as &quot;extensible&quot; (CWE) or &quot;not extensible&quot; (CNE). If the constraint is not extensible (CNE), then a the CD that does not have a nullFlavor SHALL contain a code that conforms to the constraint. If the constraint is extensible (CWE) then a CD that does not have a nullFlavor SHALL contain either a code that exists in the domain with which the attribute is associated, a code from a locally defined code system, or just some originalText that describes the concept. If the code is taken from a locally defined code system, then the codeSystem property SHALL specify the local code system.
-For both CNE and CWE constraint types, the translations may contain nonNull codes from any source unless otherwise specified by the constraining model. 
-
-For code systems that define expression syntaxes, CNE constraints may be used, providing that the code system definitions define the appropriate support to enable value sets to make useful statements about how to control the expression syntax, and that the value set machinery used also has the appropriate support</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
-    </owl:Class>
+    <owl:Class rdf:about="&OCRe;OCRE400055"/>
     
 
 
@@ -562,13 +547,13 @@ Conservative procedures such as reduction of a luxated joint, including physioth
         <rdfs:label rdf:datatype="&xsd;string">DefinedCompositionRelationship</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>

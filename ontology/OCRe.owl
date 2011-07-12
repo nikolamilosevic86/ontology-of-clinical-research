@@ -85,8 +85,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -1508,12 +1508,42 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE205000 -->
+
+    <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE205000">
+        <rdfs:label rdf:datatype="&xsd;string">has value</rdfs:label>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400115"/>
+        <rdfs:range rdf:resource="&owl;real"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE744000 -->
+
+    <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE744000">
+        <rdfs:label rdf:datatype="&xsd;string">has country</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900209"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE850077 -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE850077">
         <rdfs:label>has serial number</rdfs:label>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE50034"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900208"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE885000 -->
+
+    <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE885000">
+        <rdfs:label rdf:datatype="&xsd;string">has zip</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A postal code designating a region defined by the postal service.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900209"/>
     </owl:DatatypeProperty>
     
 
@@ -1662,7 +1692,7 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900212 -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900212">
-        <rdfs:label>has_public_title</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has public title</rdfs:label>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900208"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1719,7 +1749,7 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900218 -->
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900218">
-        <rdfs:label rdf:datatype="&xsd;string">coded value property</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">concept descriptor property</rdfs:label>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1730,7 +1760,11 @@
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900219">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has code</rdfs:label>
-        <statistics:definition rdf:datatype="&xsd;string">The unique code of a term in a controlled vocabulary</statistics:definition>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept.
+
+The unique code of a term in a controlled vocabulary.</obo:IAO_0000115>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1742,8 +1776,12 @@
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900220">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">has coding system name</rdfs:label>
-        <statistics:definition rdf:datatype="&xsd;string">The name of a coding system</statistics:definition>
+        <rdfs:label rdf:datatype="&xsd;string">has code system name</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The common name of the coding system.
+The code system name has no computational value. 
+Note: The purpose of a code system name is to assist an unaided human interpreter of a code value to interpret code system.</obo:IAO_0000115>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1755,8 +1793,10 @@
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900221">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">has coding system version</rdfs:label>
-        <statistics:definition rdf:datatype="&xsd;string">The version of a coding system</statistics:definition>
+        <rdfs:label rdf:datatype="&xsd;string">has code system version</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">If applicable, a version descriptor defined specifically for the given code system.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1768,8 +1808,13 @@
 
     <owl:DatatypeProperty rdf:about="&ontologies;OCRe.owl#OCRE900222">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">has preferred name</rdfs:label>
-        <statistics:definition rdf:datatype="&xsd;string">The preferred name of a term in a coding system</statistics:definition>
+        <rdfs:label rdf:datatype="&xsd;string">has display name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A name, title, or representation for the code or expression as it exists in the code system.
+
+The preferred name of a term in a coding system</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Was: has preferred name</obo:IAO_0000116>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400055"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900218"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -2185,14 +2230,14 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900047"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400115"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900040"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900040"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900047"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400115"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A relative time point is a time point defined as a duration before or after another time point</obo:IAO_0000115>
@@ -2497,7 +2542,6 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Merriam-Webster&#39;s Dictionary entry for phenomenon. Available at http://www.merriam-webster.com/dictionary/phenomenon</obo:IAO_0000119>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: made Study_phenomenon a subclass of Role as per 12/1 email</obo:IAO_0000232>
         <obo:IAO_0000116 rdf:datatype="&xsd;string">an out_phenomenon that is represented by one or more variables at least one of which is intended to be used as a stand-alone dependent variable or as a source for deriving a dependent variable in at least one specified analysis in the study</obo:IAO_0000116>
     </owl:Class>
     
@@ -2510,13 +2554,13 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400031"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900074"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900073"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400024"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2669,14 +2713,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome, such as a questionnaire or laboratory test.</obo:IAO_0000115>
@@ -2692,12 +2736,6 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
                 <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
             </owl:Restriction>
@@ -2706,6 +2744,12 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
                 <owl:allValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
@@ -2817,11 +2861,13 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400055 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400055">
-        <rdfs:label rdf:datatype="&xsd;string">ConceptDescriptor</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">CD</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400031"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A concept descriptor represents any kind of concept usually by giving a code defined in a code system. A concept descriptor can contain the original text or phrase that served as the basis of the coding and one or more translations into different coding systems. A concept descriptor can also contain qualifiers to describe, e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. In cases of an exceptional value, the concept descriptor need not contain a code but only the original text describing that concept.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A CD (concept descriptor) represents any kind of concept usually by giving a code defined in a code system. A concept descriptor can contain the original text or phrase that served as the basis of the coding and one or more translations into different coding systems. A concept descriptor can also contain qualifiers to describe, e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. In cases of an exceptional value, the concept descriptor need not contain a code but only the original text describing that concept.</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">CD (concept descriptor) is a more general form of Coded value (CV). 
+In HL7 datatype specification CV constrains CE so that there can be neither qualifiers not translations, and only a single concept is allowed.</obo:IAO_0000116>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -2950,14 +2996,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900096"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900098"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900098"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900096"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
@@ -3112,8 +3158,8 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3124,20 +3170,20 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900082"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400012"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
