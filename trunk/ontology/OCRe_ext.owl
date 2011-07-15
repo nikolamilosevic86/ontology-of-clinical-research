@@ -170,6 +170,14 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE747000 -->
+
+    <rdf:Description rdf:about="&ocre;OCRE747000">
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000"/>
+    </rdf:Description>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE901011 -->
 
     <owl:ObjectProperty rdf:about="&ocre;OCRE901011"/>
@@ -251,16 +259,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE853000 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE853000">
-        <rdfs:label rdf:datatype="&xsd;string">is secondary sponsor of</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE250000"/>
-        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900316"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874184 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874184">
@@ -268,16 +266,6 @@
         <rdfs:domain rdf:resource="&ocre;OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900313 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900313">
-        <rdfs:label rdf:datatype="&xsd;string">is primary sponsor of</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE250000"/>
-        <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900315"/>
     </owl:ObjectProperty>
     
 
@@ -294,24 +282,6 @@
             <rdf:Description rdf:about="&ocre;OCRE564154"/>
             <rdf:Description rdf:about="&ocre;OCRE551318"/>
         </owl:propertyChainAxiom>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900315 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900315">
-        <rdfs:label rdf:datatype="&xsd;string">has primary sponsor</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900317"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900316 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900316">
-        <rdfs:label rdf:datatype="&xsd;string">has secondary sponsor</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900317"/>
     </owl:ObjectProperty>
     
 
