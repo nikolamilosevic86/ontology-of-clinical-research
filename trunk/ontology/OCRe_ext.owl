@@ -3,8 +3,8 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY ocre "http://purl.org/net/OCRe/OCRe.owl#" >
@@ -18,16 +18,16 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/OCRe_ext.owl#"
      xml:base="http://purl.org/net/OCRe/OCRe_ext.owl"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
-     xmlns:ocre="http://purl.org/net/OCRe/OCRe.owl#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:ocre="http://purl.org/net/OCRe/OCRe.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl">
         <owl:versionInfo rdf:datatype="&xsd;string">Revision 191</owl:versionInfo>
@@ -44,15 +44,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE520413">
-        <rdfs:label>data element</rdfs:label>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE529769">
-        <rdfs:label>xsd root</rdfs:label>
-    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     
 
 
@@ -750,6 +744,57 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A participating site is a social institution where study activities are conducted</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE820798 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE820798">
+        <rdfs:label>Leaf subclass</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE827797 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE827797">
+        <rdfs:label>Subclass including root</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874148 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874148">
+        <rdfs:label>External query</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE877903 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE877903">
+        <rdfs:label>Individual</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE893499 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE893499">
+        <rdfs:label>Subclass excluding root</rdfs:label>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
