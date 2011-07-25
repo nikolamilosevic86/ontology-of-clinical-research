@@ -3,22 +3,30 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY OCRe "http://purl.org/net/OCRe/OCRe.owl#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY OCRe_ext "http://purl.org/net/OCRe/OCRe_ext.owl#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY study_design "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
 ]>
 
 
 <rdf:RDF xmlns="http://www.purl.org/OCRe/HSDB_OWL_OCRe.owl#"
      xml:base="http://www.purl.org/OCRe/HSDB_OWL_OCRe.owl"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:study_design="http://purl.org/net/OCRe/study_design.owl#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
      xmlns:OCRe_ext="http://purl.org/net/OCRe/OCRe_ext.owl#"
-     xmlns:OCRe="http://purl.org/net/OCRe/OCRe.owl#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:OCRe="http://purl.org/net/OCRe/OCRe.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
     <owl:Ontology rdf:about="http://www.purl.org/OCRe/HSDB_OWL_OCRe.owl"/>
     
 
@@ -31,6 +39,72 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900222">
+        <rdfs:label rdf:datatype="&xsd;string">has display name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A name, title, or representation for the code or expression as it exists in the code system.
+
+The preferred name of a term in a coding system</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Was: has preferred name</obo:IAO_0000116>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400055"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900221">
+        <rdfs:label rdf:datatype="&xsd;string">has code system version</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">If applicable, a version descriptor defined specifically for the given code system.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400055"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="&statistics;synonym"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900220">
+        <rdfs:label rdf:datatype="&xsd;string">has code system name</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The common name of the coding system.
+The code system name has no computational value. 
+Note: The purpose of a code system name is to assist an unaided human interpreter of a code value to interpret code system.</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400055"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900242">
+        <rdfs:label>instance identifier property</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400001"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&statistics;curator"/>
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900219">
+        <rdfs:label rdf:datatype="&xsd;string">has code</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept.
+
+The unique code of a term in a controlled vocabulary.</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400055"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE744000">
+        <rdfs:label rdf:datatype="&xsd;string">has country</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400039"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE900209">
+        <rdfs:label>has address string</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400040"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE885000">
+        <rdfs:label rdf:datatype="&xsd;string">has zip</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A postal code designating a region defined by the postal service.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400039"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&OCRe;OCRE205000">
+        <rdfs:label rdf:datatype="&xsd;string">has value</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400115"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
     
 
 
@@ -58,61 +132,80 @@
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE518308 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE518308"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE518308">
+        <rdfs:label>is study assessment/intervention agreement of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE533511 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE533511"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE533511">
+        <rdfs:label>is IRB process of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE547004 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE547004"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE547004">
+        <rdfs:label>is sponsoring relation of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE549929 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE549929"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE549929">
+        <rdfs:label>is recruitment agreement of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE557377 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE557377"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE557377">
+        <rdfs:label>is oversight agreement of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE576287 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE576287"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE576287">
+        <rdfs:label>is funding relation of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE583480 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE583480"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE583480">
+        <rdfs:label>is study performance agreement of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE585289 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE585289"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE585289">
+        <rdfs:label>is an actor of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE901006 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe;OCRE901006"/>
+    <owl:ObjectProperty rdf:about="&OCRe;OCRE901006">
+        <rdfs:label rdf:datatype="&xsd;string">has principal investigator</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000002 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE5000002">
+        <rdfs:label>has laboratory site</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
     
@@ -120,13 +213,16 @@
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000003 -->
 
-    <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE5000003"/>
+    <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE5000003">
+        <rdfs:label>is laboratory site of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874184 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE874184">
+        <rdfs:label>has performance site</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
     
@@ -135,6 +231,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900314 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE900314">
+        <rdfs:label rdf:datatype="&xsd;string">has IRB</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
     
@@ -143,6 +240,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900317 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE900317">
+        <rdfs:label rdf:datatype="&xsd;string">has sponsor</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
     
@@ -151,6 +249,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900318 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE900318">
+        <rdfs:label rdf:datatype="&xsd;string">has funder</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
     
@@ -159,8 +258,299 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE900319 -->
 
     <owl:ObjectProperty rdf:about="&OCRe_ext;OCRE900319">
+        <rdfs:label rdf:datatype="&xsd;string">has recruitment site</rdfs:label>
         <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE205000 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE205000">
+        <rdfs:label rdf:datatype="&xsd;string">has value</rdfs:label>
+        <rdfs:range rdf:resource="&owl;real"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE744000 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE744000">
+        <rdfs:label rdf:datatype="&xsd;string">has country</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900208"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE885000 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE885000">
+        <rdfs:label rdf:datatype="&xsd;string">has zip</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A postal code designating a region defined by the postal service.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900208"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900002 -->
+
+    <rdf:Description rdf:about="&OCRe;OCRE900002">
+        <rdfs:label rdf:datatype="&xsd;string">study design data property</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900203 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900203">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has planned sample size</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900002"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900208 -->
+
+    <rdf:Description rdf:about="&OCRe;OCRE900208">
+        <rdfs:label>administrative data property</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900209 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900209">
+        <rdfs:label>has address string</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900208"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900212 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900212">
+        <rdfs:label rdf:datatype="&xsd;string">has public title</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900208"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900213 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900213">
+        <rdfs:label>has scientific title</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900208"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900218 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900218">
+        <rdfs:label rdf:datatype="&xsd;string">concept descriptor property</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900219 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900219">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has code</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The plain code symbol defined by the code system, or an expression in a syntax defined by the code system which describes the concept.
+
+The unique code of a term in a controlled vocabulary.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900218"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900220 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900220">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has code system name</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The common name of the coding system.
+The code system name has no computational value. 
+Note: The purpose of a code system name is to assist an unaided human interpreter of a code value to interpret code system.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900218"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900221 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900221">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has code system version</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">If applicable, a version descriptor defined specifically for the given code system.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900218"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900222 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900222">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has display name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A name, title, or representation for the code or expression as it exists in the code system.
+
+The preferred name of a term in a coding system</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Was: has preferred name</obo:IAO_0000116>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900218"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900223 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900223">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>has description</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Textual description</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900224 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900224">
+        <rdfs:label>has name</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&OCRe;OCRE400076"/>
+                    <rdf:Description rdf:about="&OCRe;OCRE400079"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900225 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900225">
+        <rdfs:label rdf:datatype="&xsd;string">has first name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">first name of a person</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400076"/>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900224"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900226 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900226">
+        <rdfs:label rdf:datatype="&xsd;string">has last name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">last name of a person</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400076"/>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900224"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900239 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900239">
+        <rdfs:label>has root</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A unique identifier that guarantees the global uniqueness of the instance identifier. The root alone may be the entire instance identifier.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900242"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900240 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900240">
+        <rdfs:label>has extension</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A character string as a unique identifier within the scope of the identifier root.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900242"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900241 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900241">
+        <rdfs:label>has identifier name</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">This is a human-readable name for the namespace represented in the root. It is a descriptive name for the actual namespace. e.g. &quot;California, U.S. Driver&#39;s License Number, 1970-&quot;.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&OCRe;OCRE900242"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE900242 -->
+
+    <owl:DatatypeProperty rdf:about="&OCRe;OCRE900242">
+        <rdfs:label>instance identifier property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE900003 -->
+
+    <owl:DatatypeProperty rdf:about="&study_design;OCRE900003">
+        <rdfs:label rdf:datatype="&xsd;string">has allocation concealment method</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">Allocation concealment method describes the process used to ensure that the person deciding to enter a participant into a randomised controlled trial does not know the comparison group into which that individual will be allocated. This is distinct from blinding, and is aimed at preventing selection bias. Some attempts at concealing allocation are more prone to manipulation than others, and the method of allocation concealment is used as an assessment of the quality of a trial. [Glossary of Terms in The Cochrane Collaboration]
+
+Examples:
+- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
+- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
+- Sequentially numbered, opaque, sealed envelopes.</statistics:definition>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Randomization is the process of randomly allocating participants into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation).
+
+Examples:
+- Centralized (e.g., allocation by a central office unaware of subject characteristics) or pharmacy-controlled.
+- On-site computer system holding a locked unreadable computer file that can be accessed only after the characteristics of an enrolled participant have been entered.
+- Sequentially numbered, opaque, sealed envelopes.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&OCRe;OCRE400029"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -177,100 +567,69 @@
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400029 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE400029"/>
+    <owl:Class rdf:about="&OCRe;OCRE400029">
+        <rdfs:label rdf:datatype="&xsd;string">Study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study is a program of data collection and of analysis of the data collected to answer a particular question, to reach conclusions about subject(s) or situation(s).</obo:IAO_0000115>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400076 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE400076"/>
+    <owl:Class rdf:about="&OCRe;OCRE400076">
+        <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe_ext;OCRE546280"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A human being</obo:IAO_0000115>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400079 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE400079"/>
+    <owl:Class rdf:about="&OCRe;OCRE400079">
+        <rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE541581"/>
+        <rdfs:subClassOf rdf:resource="&OCRe_ext;OCRE546280"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE50034 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE50034"/>
-    
+    <owl:Class rdf:about="&OCRe;OCRE50034">
+        <rdfs:label rdf:datatype="&xsd;string">Funding</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+Fiscal support for research from industry, government, or non-commercial, non-governmental organizations.
 
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE513134 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE513134"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE535847 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE535847"/>
+EXAMPLE(S):
+Funding from pharmaceutical, device or biotechnology companies, the US NIH or the Gates Foundation.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE541581 -->
 
-    <owl:Class rdf:about="&OCRe;OCRE541581"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE568687 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE568687"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE581634 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE581634"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE590011 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE590011"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE591890 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE591890"/>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE595405 -->
-
-    <owl:Class rdf:about="&OCRe;OCRE595405"/>
+    <owl:Class rdf:about="&OCRe;OCRE541581">
+        <rdfs:label rdf:datatype="&xsd;string">Social institution</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An established society, corporation, foundation or other organization founded and united for a specific purpose, e.g. for health-related research.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Institution. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C41206</obo:IAO_0000119>
+        <statistics:curator rdf:datatype="&xsd;string">Simona</statistics:curator>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE400043 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE400043">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe_ext;OCRE598730"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE590011"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE518308"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Study site</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study site is a participating site in which study subject assessments or interventions are conducted. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -278,27 +637,13 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE500000">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe;OCRE400079"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE568687"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE533511"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">IRB</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An IRB [Institutiona Review Board] is a specially constituted independent review body comprised of medical, scientific and non-scientific members established and designated by an entity to ensure the protection of the rights, safety and well-being of human subjects recruited to participate in biomedical or behavioral research according to the requirements outlined in Title 38, part 16 (same as Title 45, part 46 and Title 21, part 56) of the U.S. Code of Federal Regulations. IRB responsibility include but not limited to the reviewing, approving, and providing continuing review of trial protocol and amendments and of the methods and material(s) to be used in obtaining and documenting informed consent of the trial. Other equivalent committees with the same or similar functions are also considered to be IRBs.</obo:IAO_0000115>
+        <statistics:synonym rdf:datatype="&xsd;string">ERB</statistics:synonym>
+        <statistics:synonym rdf:datatype="&xsd;string">IEC</statistics:synonym>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Institutional Review Board. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C16741</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -306,28 +651,10 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE511747">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe;OCRE400079"/>
-                    <rdf:Description rdf:about="&OCRe_ext;OCRE400043"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE595405"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE549929"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label>Recruitment site</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment site is a study site where finding and enrolling appropriate study subjects (those selected on the basis of the protocol&#39;s inclusion/exclusion criteria) into a study occurs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -335,6 +662,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534000 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE534000">
+        <rdfs:label rdf:datatype="&xsd;string">Funder</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -356,6 +684,9 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An organization or a person that underwrites financial support for projects of a particular type. Typically, they process applications and award funds to the chosen qualified applicants.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Funding Agency. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C39409</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -363,66 +694,37 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE534515 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE534515">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe;OCRE400079"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE535847"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE557377"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Oversight committee</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An organization that approves, monitors and reviews biomedical research to protect the rights, safety and welfare of the study subjects. This committee performs critical oversight functions for research conducted on human study subjects that are scientific, ethical, and regulatory.
+
+EXAMPLE(S):
+Institutional Review Board (IRB), ethics committee, research ethics board, etc.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Data safety monitoring committee, protocol review and monitoring committee (or board)</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280 -->
 
-    <owl:Class rdf:about="&OCRe_ext;OCRE546280"/>
+    <owl:Class rdf:about="&OCRe_ext;OCRE546280">
+        <rdfs:label rdf:datatype="&xsd;string">Person or Organization</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A human being OR A formalized group of persons or other organizations collected together for a common purpose (such as administrative, legal, political) and the infrastructure to carry out that purpose. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
     
 
 
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE571000">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&OCRe;OCRE400076"/>
-                            <rdf:Description rdf:about="&OCRe;OCRE400079"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE581634"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE547004"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Sponsor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe_ext;OCRE546280"/>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Code of Federal Regulations, Title 21, Volume 1, Revised as of April 1, 2010: 21CFR50.3. Available at http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?fr=50.3</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Sponsor means a person who initiates a clinical investigation, but who does not actually conduct the investigation, i.e., the test article is administered or dispensed to or used involving, a subject under the immediate direction of another individual. A person other than an individual (e.g., corporation or agency) that uses one or more of its own employees to conduct a clinical investigation it has initiated is considered to be a sponsor (not a sponsor-investigator), and the employees are considered to be investigators.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -430,27 +732,10 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598434 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE598434">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe;OCRE400079"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE591890"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe_ext;OCRE5000003"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Laboratory site</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A laboratory site is an organization where some laboratory processing for the study occurs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -458,27 +743,10 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730 -->
 
     <owl:Class rdf:about="&OCRe_ext;OCRE598730">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&OCRe;OCRE541581"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE585289"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="&OCRe;OCRE513134"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&OCRe;OCRE583480"/>
-                                        <owl:someValuesFrom rdf:resource="&OCRe;OCRE400029"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+        <rdfs:label rdf:datatype="&xsd;string">Participating site</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OCRe;OCRE400079"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A participating site is a social institution where study activities are conducted</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -503,9 +771,1568 @@
             </owl:Class>
         </owl:equivalentClass>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&study_design;OCRE100029">
+        <rdfs:label rdf:datatype="&xsd;string">Multiple experimental unit allocation group</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of more than one experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900214">
+        <rdfs:label>has version date</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100082">
+        <rdfs:label rdf:datatype="&xsd;string">Relation between cases and non-cases</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Relation between cases and non-cases</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900005">
+        <rdfs:label rdf:datatype="&xsd;string">has matching</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Note: this descriptor does not apply to Case-crossover studies.</study_protocol:develop_comment>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.
+
+In cohort and cross-sectional studies, matching is done for analysis.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900075">
+        <rdfs:label rdf:datatype="&xsd;string">study design object property</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900059">
+        <rdfs:label>includes situation</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A single research event (a clinical situation itself) has multiple clinical situations as part of its definition.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900097">
+        <rdfs:label rdf:datatype="&xsd;string">has outcome code</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The property chain &quot;outcome phenomenon o term code =&gt; outcome code, causes Pellet to complain about subproperty chain being unsupported feature.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400033">
+        <rdfs:label rdf:datatype="&xsd;string">Population</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A population is a collection of organisms.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400027">
+        <rdfs:label rdf:datatype="&xsd;string">Role</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The function played by entity in some process. When applied to person it implies a set of behavior, rights, and obligations.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100061">
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison across experimental units</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is across study experimental units.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900098">
+        <rdfs:label rdf:datatype="&xsd;string">has outcome variable</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100054">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome measured at the same time as predictors</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115>In a cross-sectional study, the study outcome is measured at the same time as predictors</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE364000">
+        <rdfs:label rdf:datatype="&xsd;string">Priority</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900028">
+        <rdfs:label rdf:datatype="&xsd;string">Human study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A human study is a study in which the entity observed, recruited or selected, or subject to intervention or exposure is a person, a population of persons, or a part of a person. </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100080">
+        <rdfs:label rdf:datatype="&xsd;string">Statistician blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The statistician does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400035">
+        <rdfs:label rdf:datatype="&xsd;string">Cells</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Cell. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C12508</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">One or more of the smallest units of living structure capable of independent existence, composed of a membrane-enclosed mass of protoplasm and containing a nucleus or nucleoid.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400115">
+        <rdfs:label rdf:datatype="&xsd;string">Physical quantity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical quantity is a dimensioned quantity expressing the result of measuring.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100004">
+        <rdfs:label rdf:datatype="&xsd;string">Nested</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900073">
+        <rdfs:label rdf:datatype="&xsd;string">has start time</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The start time (lower bound) of a time interval</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400122">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen not available</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100026">
+        <rdfs:label rdf:datatype="&xsd;string">Investigator assigns intervention</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator actively assigns the study experimental units to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100042">
+        <rdfs:label rdf:datatype="&xsd;string">Regimen cardinality</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The number of regimens of interventions in a study. Each regimen includes one or more individual interventions (treatments) or no intervention.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE877903">
+        <rdfs:label>Individual</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400036">
+        <rdfs:label rdf:datatype="&xsd;string">Factor phenomenon</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The planned intervention, exposure, or demographic condition that is specified as independent factor in a study</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">a study_phenomenon that is represented by one or more variables at least one of which is intended to be used as a stand-alone independent variable or as a source for deriving an independent variable in at least one specified analysis in the study</obo:IAO_0000116>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100002">
+        <rdfs:label rdf:datatype="&xsd;string">Allocation group cardinality</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of one (single) or of more than one (multiple) experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400037">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome phenomenon</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Merriam-Webster&#39;s Dictionary entry for phenomenon. Available at http://www.merriam-webster.com/dictionary/phenomenon</obo:IAO_0000119>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">an out_phenomenon that is represented by one or more variables at least one of which is intended to be used as a stand-alone dependent variable or as a source for deriving a dependent variable in at least one specified analysis in the study</obo:IAO_0000116>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100040">
+        <rdfs:label rdf:datatype="&xsd;string">Block randomization</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Block randomization (or Random permuted blocks) is a restricted randomisation that ensures that, at any point in a trial, roughly equal numbers of participants have been allocated to all the comparison groups. Permuted blocks should be used in trials using stratified randomisation.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100003">
+        <rdfs:label rdf:datatype="&xsd;string">Assignment to interventions</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The scheme used to assign regimens of interventions: single factor or factorial.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900055">
+        <rdfs:label rdf:datatype="&xsd;string">has element</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">&quot;elements&quot; denotes members in the sense of a collection (i.e., object aggregate) containing its elements. It is distinguished from &quot;members&quot; in the sense of social relationship between an organization and its members.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900072">
+        <rdfs:label rdf:datatype="&xsd;string">has semantic constraint</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">has_semantic_constraint links syntactic criterion (e.g., eligibility criteria) to a class expression involving other entities and events that describes the things that satisfy the meaning of the criterion</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900099">
+        <rdfs:label rdf:datatype="&xsd;string">is outcome analysis of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400031">
+        <rdfs:label rdf:datatype="&xsd;string">Data value</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An abstract data type that is the generalization of all concrete data types</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE747000">
+        <rdfs:label rdf:datatype="&xsd;string">has priority</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900029">
+        <rdfs:label rdf:datatype="&xsd;string">Non-organismal study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-organismal study is a study in which neither the entity observed, nor the entity recruited or selected, nor the entity subject to intervention or exposure is an organism, a population of organisms, or a part of an organism. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE556349">
+        <rdfs:label>is recruitment site of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100081">
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison within experimental units</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main comparison is within study experimental units.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900096">
+        <rdfs:label rdf:datatype="&xsd;string">has outcome analysis</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400032">
+        <rdfs:label rdf:datatype="&xsd;string">Entity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical thing, group of physical things, an organization or information content that can exist in multiple forms.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900004">
+        <rdfs:label rdf:datatype="&xsd;string">has analysis of cost</rdfs:label>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used ot be a class</study_protocol:develop_comment>
+        <statistics:definition rdf:datatype="&xsd;string">Study includes an analysis of cost.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100027">
+        <rdfs:label rdf:datatype="&xsd;string">Parallel group study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A parallel group study is an interventional study that compares across at least two allocation groups concurrently, each receiving a regimen of interventions (which can be &quot;no intervention&quot;).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed.</obo:IAO_0000232>
+    </rdf:Description>
+    <rdf:Description rdf:about="&statistics;OCRE200002">
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100007">
+        <rdfs:label rdf:datatype="&xsd;string">Interventional study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interventional study is a quantitative study that prospectively assigns experimental units (human participants or groups of humans or part of human participants) to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioural treatments, process-of-care changes, preventive care, etc. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">WHO Available at: http://www.who.int/ictrp/en/</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900116">
+        <rdfs:label>has subjstance administered</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The substrance administered in a Substance Administration event</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400120">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen availability NA</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE641000">
+        <rdfs:label rdf:datatype="&xsd;string">primary</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400060">
+        <rdfs:label rdf:datatype="&xsd;string">Factor specification</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Description of the details of the planned intervention, exposure, or demographic condition that is specified as independent factor in a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900076">
+        <rdfs:label>immediately_precedes</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The first event is the last event occuring immediately before the second event in time.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100060">
+        <rdfs:label rdf:datatype="&xsd;string">Assessment completed before or after study start</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Were all assessment of case status and predictors completed before the start of the study? (yes [historical], no [prospective]). Applies only to cohort studies.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100078">
+        <rdfs:label rdf:datatype="&xsd;string">Cohort study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at: http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900056">
+        <rdfs:label>has factor variable</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100032">
+        <rdfs:label rdf:datatype="&xsd;string">Quasi-random allocation</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Quasi-random allocation is an allocation scheme that is not random, but is intended to produce similar groups when used to allocate experimental units. Quasi-random methods include: allocation by the person&#39;s date of birth, by the day of the week or month of the year, by a person&#39;s medical record number, or just allocating every alternate person. In practice, these methods of allocation are relatively easy to manipulate, introducing selection bias.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900118">
+        <rdfs:label>has unit</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The unit component of a Quantity</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900040">
+        <rdfs:label rdf:datatype="&xsd;string">Systematic review</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A systematic review is a meta study (i.e., a study in which observations are acquired from journal articles, abstracts, etc. reporting on other studies).
+
+A systematic review uses systematic and explicit methods to identify, select, and critically appraise relevant research, and to collect and analyse data from the studies that are included in the review. Statistical methods (meta-analysis) may or may not be used to analyse and summarise the results of the included studies.
+
+Meta-analysis is the use of statistical techniques in a systematic review to integrate the summary results of included studies. Sometimes misused as a synonym for systematic reviews, where the review includes a meta-analysis. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100077">
+        <rdfs:label rdf:datatype="&xsd;string">Non-random allocation</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-random (or Deterministic) allocation is an allocation scheme that follows a non-random rule (e.g., sequential allocation).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900095">
+        <rdfs:label rdf:datatype="&xsd;string">outcome related property</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900082">
+        <rdfs:label rdf:datatype="&xsd;string">has assessment time</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE9000031">
+        <rdfs:label rdf:datatype="&xsd;string">Individual-human study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An individual-human study is a human study in which the entity observed, recruited or selected, or subject to intervention or exposure is a person, or a part of a person. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100031">
+        <rdfs:label rdf:datatype="&xsd;string">Quantitative inquiry mode</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quantitative research method is a deductive research process that uses statistical techniques to test a specific claim or statement about a phenomenon (a hypothesis) by collecting and analyzing data to decide whether the claim is true (i.e., accept or reject the null or alternative hypothesis).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://www.utexas.edu/academic/ctl/assessment/iar/research/plan/types.php</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900057">
+        <rdfs:label rdf:datatype="&xsd;string">has member</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The population is composed of the indicated study subjects.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100041">
+        <rdfs:label rdf:datatype="&xsd;string">Unit of allocation</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person, but in a cluster randomised trial, groups of people will be assigned together to one or the other of the regimens of interventions. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions. </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100066">
+        <rdfs:label rdf:datatype="&xsd;string">Phase 4</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 4 study monitors FDA-approved drug to delineate additional information including the drug&#39;s risks, benefits, and optimal use. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900217">
+        <rdfs:label>has recruitment in the future</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100085">
+        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within single experimental unit</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within a single study experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100009">
+        <rdfs:label rdf:datatype="&xsd;string">Investigator assigns no intervention</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator does not actively assign study experimental units to regimens of interventions.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE801000">
+        <rdfs:label rdf:datatype="&xsd;string">is study hypothesis of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400002">
+        <rdfs:label rdf:datatype="&xsd;string">Domain term</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A term imported from some external standard terminology</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400001">
+        <rdfs:label rdf:datatype="&xsd;string">Instance identifier</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An instance identifier is an identifier that uniquely identifies a thing or object. Examples are object identifier for HL7 RIM objects, medical record number, order id, service catalog item id, Vehicle Identification Number (VIN), etc. Instance identifiers are defined based on ISO object identifiers.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900054">
+        <rdfs:label rdf:datatype="&xsd;string">finest-grained entity available for analysis</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900235">
+        <rdfs:label>has completed population number</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who successfully completed the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE529106">
+        <rdfs:label>has funding relation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100079">
+        <rdfs:label rdf:datatype="&xsd;string">Main control group defined by case status</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the case status.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900080">
+        <rdfs:label rdf:datatype="&xsd;string">has analysis type</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900032">
+        <rdfs:label rdf:datatype="&xsd;string">Decision analysis</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A decision analysis is a non-organismal study technique that formally identifies the options in a decision-making process, quantifies the probable outcomes (and costs) of each (and the uncertainty around them), determines the option that best meets the objectives of the decision-maker and assesses the robustness of this conclusion.
+Cost-benefit analysis, cost-effectiveness analysis and cost-utility analysis are special cases of decision analysis.
+Note that this type of analysis can also be applied to outcomes in a human study.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900113">
+        <rdfs:label rdf:datatype="&xsd;string">is eligibility criterion of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400000">
+        <rdfs:label rdf:datatype="&xsd;string">Planned</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in the planning stage: protocol is being developed and has not yet been submitted for regulatory approval (if applicable).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE50048">
+        <rdfs:label rdf:datatype="&xsd;string">Study administrative relation</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Study administrative relation is a kind of relationship that an entity enters into in the design, conduct, and analysis of a study. The relationship starts when the organization agrees to undertake the activity entailed by the relationship. &quot;Agreement to perform study activity&quot;doesn&#39;t mean performance of a specific study activity (e.g., administration of a drug) itself, but agreement to do so. An organization becomes a &quot;participating site&quot; once it agrees to perform activities specified in the study protocol. It doesn&#39;t have to perform any of activities yet.  </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400042">
+        <rdfs:label rdf:datatype="&xsd;string">Criterion</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Criterion is a placeholder class that represent a Boolean expression (e.g., an eligibility criterion)</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900052">
+        <rdfs:label rdf:datatype="&xsd;string">entity subject to intervention or exposure</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100000">
+        <rdfs:label rdf:datatype="&xsd;string">Measure of case frequency</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measure of case frequency is incidence or prevalence</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100005">
+        <rdfs:label rdf:datatype="&xsd;string">Study design characteristic</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A meta-level characterization of the design of a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900216">
+        <rdfs:label>has recruitment in the present</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900114">
+        <rdfs:label rdf:datatype="&xsd;string">has gender restriction</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400003">
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment status</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The recruitment status describes the overall accrual activity for the study.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400016">
+        <rdfs:label rdf:datatype="&xsd;string">Recruiting</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are currently being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900119">
+        <rdfs:label rdf:datatype="&xsd;string">is subject of</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The identified clinical subject is the sole or primary subject of the identified clinical situation.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100048">
+        <rdfs:label rdf:datatype="&xsd;string">Assignment characteristics</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Characteristics of the assignment experimental units (e.g., participant, eye) to a regimen of interventions</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100006">
+        <rdfs:label rdf:datatype="&xsd;string">Probability sampling</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Probability sampling is an exclusively random process to guarantee that each participant or population has specified chance of selection, such as simple random sampling, systematic sampling, stratified random sampling, cluster sampling, and consecutive patient sampling</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE855955">
+        <rdfs:label>has target subject</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900033">
+        <rdfs:label rdf:datatype="&xsd;string">Policy analysis</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A policy analysis is a non-organismal study that can be defined as determining which of various alternative policies will most achieve a given set of goals in light of the relations between the policies and the goals. Policy analysis emphasizes systematic analytic methods that can be quantitative or qualitative.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Nagel, Stuart S. (Ed.), 1999, Policy Analysis Methods. New Science Publishers, Inc., pages 3 and 4</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400121">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen available</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100045">
+        <rdfs:label rdf:datatype="&xsd;string">Blinding type</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a controlled trial:] Blinding is the process of preventing those involved in a trial from knowing to which comparison group a particular participant belongs. The risk of bias is minimised when as few people as possible know who is receiving the experimental intervention and who the control intervention. Participants, caregivers, outcome assessors, and analysts are all candidates for being blinded. Blinding of certain groups is not always possible, for example surgeons in surgical trials. The terms single blind, double blind and triple blind are in common use, but are not used consistently and so are ambiguous unless the specific people who are blinded are listed. (Also called masking)</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE551759">
+        <rdfs:label>has study</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100067">
+        <rdfs:label rdf:datatype="&xsd;string">Phase 1</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 1 trial includes initial studies to determine the metabolism and pharmacologic actions of drugs in humans, the side effects associated with increasing doses, and to gain early evidence of effectiveness; may include healthy participants and/or patients.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900200">
+        <rdfs:label rdf:datatype="&xsd;string">has actual sample size</rdfs:label>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: it does not seem right tha actual sample size is a sub-property of study design data property. </study_protocol:develop_comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400048">
+        <rdfs:label rdf:datatype="&xsd;string">WithdrawnStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;withdrawn study&quot; is a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE001000">
+        <rdfs:label>Active</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study that has been approved by the relevant regulatory agency (if applicable) and for which protocol-dictated activities are occurring.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100068">
+        <rdfs:label rdf:datatype="&xsd;string">Phase 0</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 0 trial is an exploratory trial involving very limited human exposure, with no therapeutic or diagnostic intent (e.g., screening study, microdose study).</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100089">
+        <rdfs:label rdf:datatype="&xsd;string">Factorial</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Factorial design is a trial design used to assess the individual contribution of treatments given in combination, as well as any interactive effect they may have... In a trial using a 2x2 factorial design, participants are allocated to one of four possible combinations... This type of study is usually carried out in circumstances where no interaction is likely. 
+
+Example: in a factorial-design study where regimens of interventions A and B are tested, the 4 possible combinations are: A, B, A and B, neither  A nor B (placebo).</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900041">
+        <rdfs:label>annotation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900051">
+        <rdfs:label rdf:datatype="&xsd;string">entity recruited or selected</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE850077">
+        <rdfs:label>has serial number</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400005">
+        <rdfs:label rdf:datatype="&xsd;string">Telecommunication scheme</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The scheme used to describe the telecommunication address (e.g., ftp, http, etc.)</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100023">
+        <rdfs:label rdf:datatype="&xsd;string">Prospective</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which not all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100086">
+        <rdfs:label rdf:datatype="&xsd;string">Genetically unrelated non-cases</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-cases were not selected based on genetic relation</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100001">
+        <rdfs:label rdf:datatype="&xsd;string">Case and control in same experimental unit</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Each case serves as its own control</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE058000">
+        <rdfs:label rdf:datatype="&xsd;string">has study objective</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An  encompassing statement of what the investigator&#39;s objectives are. The main objective o a study may be  to compare drug A and B, and other objectives may be to evaluate the compliance to treatment and the side effects.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE827797">
+        <rdfs:label>Subclass including root</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900236">
+        <rdfs:label>has considered population number</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who started the process, procedure or assessment specified. N(considered) = N(completed) + N(lost)</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400066">
+        <rdfs:label rdf:datatype="&xsd;string">Slow freeze</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Slow freeze is a biospecimen preservation method whereby a specimen placed into environment (&gt;or= -80° C) and allowed to freeze over minutes</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900106">
+        <rdfs:label rdf:datatype="&xsd;string">has study event</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The study has the identified events.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400119">
+        <rdfs:label rdf:datatype="&xsd;string">x-text-fax</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100025">
+        <rdfs:label rdf:datatype="&xsd;string">Stratified randomization</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Stratified randomization is restricted randomization used to ensure that equal numbers of participants with a characteristic thought to affect prognosis or response to the intervention will be allocated to each comparison group. For example, in a trial of women with breast cancer, it may be important to have similar numbers of pre-menopausal and postmenopausal women in each comparison group. Stratified randomisation could be used to allocate equal numbers of pre- and post-menopausal women to each treatment group. Stratified randomisation is performed by performing separate randomisation (often using random permuted blocks) for each strata.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900040">
+        <rdfs:label rdf:datatype="&xsd;string">has anchor time</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The reference time point against which a relative time is defined (e.g., the &quot;enrollment&quot; time in &quot;3 weeks after enrollment&quot;).</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900112">
+        <rdfs:label rdf:datatype="&xsd;string">has eligibility criterion</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100084">
+        <rdfs:label rdf:datatype="&xsd;string">Investigator blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The investigator does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900204">
+        <rdfs:label rdf:datatype="&xsd;string">has power calculation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400067">
+        <rdfs:label rdf:datatype="&xsd;string">Para-formaldehyde fixation</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Para-formaldehyde fixation is a biospecimen preservation method whereby a specimen is typically fixed in para-formaldehyde for hours to days and then embedded in plastic and stored at room temperature</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900094">
+        <rdfs:label>is study phenomenon of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900201">
+        <rdfs:label rdf:datatype="&xsd;string">has case definition</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE528412">
+        <rdfs:label>is laboratory agreement of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400061">
+        <rdfs:label rdf:datatype="&xsd;string">Study population</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">[In OCRe:] The group of people being studied, usually by taking samples from that population. Populations may be defined by any characteristics e.g. geography, age group, certain diseases.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100022">
+        <rdfs:label rdf:datatype="&xsd;string">Control group type</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: need to review hierarchy</obo:IAO_0000232>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400118">
+        <rdfs:label rdf:datatype="&xsd;string">tel</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900077">
+        <rdfs:label>derives</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100021">
+        <rdfs:label rdf:datatype="&xsd;string">Allocation scheme</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Allocation scheme describes the way in which each experimental unit in an interventional trial is allocated to a treatment group.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE250000">
+        <rdfs:label rdf:datatype="&xsd;string">is sponsor of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900237">
+        <rdfs:label>has study population number</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE893499">
+        <rdfs:label>Subclass excluding root</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100059">
+        <rdfs:label rdf:datatype="&xsd;string">Main control group definition</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main control group may be defined by case status or by exposure status.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900042">
+        <rdfs:label rdf:datatype="&xsd;string">has biospecimen availability</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400063">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome specification</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Specification of a characteristic of the study population evaluated in the course of the study</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900060">
+        <rdfs:label>has variable expression</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100083">
+        <rdfs:label rdf:datatype="&xsd;string">Simple randomization</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Simple randomization is a random allocation scheme that has no restriction, i.e. a single sequence of random assignment. When the sample size is relatively large, simple randomization is expected to produce equal sized treatment groups.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400041">
+        <rdfs:label rdf:datatype="&xsd;string">Study phenomenon</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Merriam-Webster&#39;s Dictionary entry for phenomenon. Available at http://www.merriam-webster.com/dictionary/phenomenon</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE886736">
+        <rdfs:label>has study design characteristic</rdfs:label>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">&quot;has study design characteristics&quot; is a superproperty of &quot;has study design&quot; and &quot;has study characteristics&quot;. Therefore, if a study has design X, and X has design characteristics Y, then the study has study design characteristics Y.</study_protocol:develop_comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400062">
+        <rdfs:label rdf:datatype="&xsd;string">Enrolling by invitation</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are being (or will be) selected from a predetermined population</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE820798">
+        <rdfs:label>Leaf subclass</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100046">
+        <rdfs:label rdf:datatype="&xsd;string">Data analysis within experimental units</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, whether data is analyzed within a single study experimental unit or within multiple experimental units.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900081">
+        <rdfs:label rdf:datatype="&xsd;string">has assessment method</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900205">
+        <rdfs:label>has recruitment</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">Source of participants and method of recruitment</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant">
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A continuant [snap:Continuant] that is dependent on one or other independent continuant [snap:IndependentContinuant] bearers. For every instance of A requires some instance of (an independent continuant [snap:IndependentContinuant] type) B but which instance of B serves can change from time to time.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://biomedgt.nci.nih.gov/wiki/index.php/Category:BFO_generically_dependent_continuant(GenericallyDependentContinuant)</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400046">
+        <rdfs:label rdf:datatype="&xsd;string">Observation</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An observation is an activity whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a study subject&#39;s or experimental unit&#39;s physiologic or psychologic state. 
+
+Examples: blood chemistry panel, body mass index calculation, blood pressure measurement.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 definition of DefinedObservation. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100064">
+        <rdfs:label rdf:datatype="&xsd;string">Subject blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The subject or individual participant does not know to which treatment group he or she or each experimental unit on him/her belongs.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">or Individual participant blinded</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100047">
+        <rdfs:label rdf:datatype="&xsd;string">Qualitative study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A qualitative study is an individual-human study whose primary mode of inquiry is qualitative.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100020">
+        <rdfs:label rdf:datatype="&xsd;string">Crossover study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A crossover study is an interventional study where the population is a more than a single experimental unit, in which at least two regimens of interventions are given alternatingly. Upon completion of one regimen, experimental units are switched to the other. For example, for a comparison of regimens A and B, the experimental units are randomly allocated to receive them in either the order A, B or the order B, A. 
+Regimens are assigned to and data are analyzed within more than one experimental unit at a time.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100063">
+        <rdfs:label rdf:datatype="&xsd;string">Data analyzed within multiple experimental units</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Data is analyzed within multiple study experimental units.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE557116">
+        <rdfs:label>Home</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A person&#39;s permanent place of residence.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Home. Available at: http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C18002</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100044">
+        <rdfs:label rdf:datatype="&xsd;string">Quantitative study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A quantitative study is an individual-human study whose primary mode of inquiry is quantitative.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900078">
+        <rdfs:label rdf:datatype="&xsd;string">has factor specification</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100024">
+        <rdfs:label rdf:datatype="&xsd;string">N-of-1 crossover study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An N-of-1 crossover study is an interventional study where the population is a single human subject and in which at least two regimens of interventions are given alternatingly. Regimens are assigned to and data are analyzed within one participant at a time.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100030">
+        <rdfs:label rdf:datatype="&xsd;string">Restricted randomization</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Restricted randomization is a random allocation scheme used to control the randomization to achieve balance between groups in size (or other characteristics). 
+Different types of restricted randomization are as follows:
+- Blocking: Blocking is used to ensure close balance of the numbers in each group at any time during the study. After every block the number of participants in each group would be equal. Of course blocking tends to reduce the unpredictability of randomization. Therefore it is recommended to use random block sizes when using block randomization.
+- Stratification: Stratification ensures that the numbers of participants receiving each intervention are closely balanced within each stratum. Stratified randomization is achieved by performing a separate randomization procedure within each of two or more subsets of participants
+- Minimization: Minimization is not a method of randomization. Indeed it is the only non-random method which is an acceptable alternative to randomization. Minimization ensures balance between intervention groups for several patient factors. Randomization lists are not set up in advance. The first patient is truly randomly allocated; for each subsequent patient, the treatment allocation is identified, which minimizes the imbalance between groups at that time. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: should we put the 3 schemes elsewhere?</obo:IAO_0000232>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://mahmoodsaghaei.tripod.com/Softwares/randalloc.html</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900079">
+        <rdfs:label rdf:datatype="&xsd;string">has analysis method</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">An outcome is_analyzied_using some statistical method</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400018">
+        <rdfs:label rdf:datatype="&xsd;string">OCT media</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">OTC media is a biospecimen preservation method whereby a fresh specimen is frozen onto a sectioning planchet using OCT (Optimum Cutting Temperature) and then stored frozen</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100062">
+        <rdfs:label rdf:datatype="&xsd;string">Non-nested</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Cases and controls (or exposed and unexposed) are not drawn from the same cohort/sample.
+ [aka double cohort for cohort studies]</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE500004">
+        <rdfs:label>has_participant</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400117">
+        <rdfs:label rdf:datatype="&xsd;string">mailto</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400034">
+        <rdfs:label rdf:datatype="&xsd;string">Blood</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A tissue with red blood cells, white blood cells, platelets, and other substances suspended in fluid called plasma. Blood takes oxygen and nutrients to the tissues, and carries away wastes.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400019">
+        <rdfs:label rdf:datatype="&xsd;string">Fast freeze</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Fast freeze is a biospecimen preservation method whereby the specimen is placed into typically liquid nitrogen or dry ice so the specimen is frozen in seconds then stored colder than (-160° C)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900058">
+        <rdfs:label>has variable characteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400040">
+        <rdfs:label rdf:datatype="&xsd;string">Address</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An address includes the particulars of where a person or organization has the mail delivered (postal address) or can be reached with means other than mail (telecommunication address).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE525938">
+        <rdfs:label>has study performance agreement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400047">
+        <rdfs:label rdf:datatype="&xsd;string">Study characteristic</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A meta-level characterization of a study</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100028">
+        <rdfs:label rdf:datatype="&xsd;string">Mode of inquiry</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Mode of inquiry refers to the research method used in a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900074">
+        <rdfs:label rdf:datatype="&xsd;string">has stop time</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The stop time (upper bound) of a time interval</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900048">
+        <rdfs:label rdf:datatype="&xsd;string">entity conclusions are about</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400026">
+        <rdfs:label rdf:datatype="&xsd;string">Variable</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A variable is a placeholder for one or a set of data values</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100035">
+        <rdfs:label rdf:datatype="&xsd;string">Multiple regimen</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Multiple regimens of intervention, each including one or more individual interventions (treatments) or no treatment, each assigned to one allocation group. This means the study has at least one contemporaneous comparison group.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900102">
+        <rdfs:label rdf:datatype="&xsd;string">is adverse event of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901004">
+        <rdfs:label rdf:datatype="&xsd;string">has contact for public queries</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400038">
+        <rdfs:label rdf:datatype="&xsd;string">Time interval</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An interval on the time axis of a coordinate system</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE882000">
+        <rdfs:label rdf:datatype="&xsd;string">Hypothesis</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100043">
+        <rdfs:label rdf:datatype="&xsd;string">Cluster as unit of allocation</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. In a cluster randomised trial, groups of experimental units will be assigned together to one or the other of the regimens of interventions.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100050">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome measured after measurement of predictors</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115>In a cohort study, the study outcome is measured after the measurement of predictors</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901005">
+        <rdfs:label rdf:datatype="&xsd;string">has identifier</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900232">
+        <rdfs:label>has number lost because of refusal</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who failed to complete the process, procedure or assessment specified because the subject chose not to complete.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE793000">
+        <rdfs:label rdf:datatype="&xsd;string">Objective</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901003">
+        <rdfs:label rdf:datatype="&xsd;string">has address</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400024">
+        <rdfs:label rdf:datatype="&xsd;string">Time point</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A point on the time axis of a coordinate system.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900063">
+        <rdfs:label>is element of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400068">
+        <rdfs:label rdf:datatype="&xsd;string">Terminated</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900104">
+        <rdfs:label rdf:datatype="&xsd;string">has outcome specification</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900084">
+        <rdfs:label rdf:datatype="&xsd;string">has factor phenomenon</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100015">
+        <rdfs:label rdf:datatype="&xsd;string">Case-crossover study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case-crossover study is an observational study that aims to answer the question, &quot;Was this event triggered by something unusual that happened just before?&quot; The key feature of the design is that each case serves as its own control. The method is analogous to a crossover experiment viewed retrospectively, except that the investigator does not control when an experimental unit starts and stops being exposed to the potential trigger. Also, the exposure frequency is typically measured in only a sample of the total time when the experimental unit  was at risk of the injury or disease onset. Thus it usually resembles a case-control study more than a retrospective cohort study. 
+The simplest case-crossover design is closely analogous to a traditional matched-pair case-control design. In both designs, each case has a matched control. In a traditional matched-pair case-control study, the control is a different experimental unit  at a similar time. In the matched-pair case-crossover design, the control is the same experimental unit at a different time.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Annu Rev Public Health. 2000;21:193-221.</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900085">
+        <rdfs:label rdf:datatype="&xsd;string">has group</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A statistical analysis is performed on the outcome variables of designated groups of subjects</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900230">
+        <rdfs:label>has target number</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of subjects expected to be included in the given population, either for statistical power calculations or based on demographic prediction.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900049">
+        <rdfs:label rdf:datatype="&xsd;string">entity directly observed</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400012">
+        <rdfs:label rdf:datatype="&xsd;string">Relative time point</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A relative time point is a time point defined as a duration before or after another time point</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900061">
+        <rdfs:label>is code for</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900233">
+        <rdfs:label>has number lost because of rejection</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who failed to complete the process, procedure or assessment specified because the clinician chose not to complete.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900086">
+        <rdfs:label rdf:datatype="&xsd;string">has health condition studied</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400071">
+        <rdfs:label rdf:datatype="&xsd;string">CompletedRecruitingStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;completed recruiting study&quot; is a study that has concluded recruitment (i.e., last patient in has occurred).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE500006">
+        <rdfs:label>administrative property</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400022">
+        <rdfs:label rdf:datatype="&xsd;string">Formalin fixation</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Formalin fixation is a biospecimen preservation method whereby the specimen is typically fixed overnight in buffered formalin and then embedded in paraffin and stored at room temperature</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Herb</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400070">
+        <rdfs:label rdf:datatype="&xsd;string">Clinical event</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A clinical event is an event during which an assessment of, or intervention on a study subject occurs.</obo:IAO_0000115>
+        <statistics:curator rdf:datatype="&xsd;string">Simona</statistics:curator>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900210">
+        <rdfs:label>has date of first enrollment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400023">
+        <rdfs:label rdf:datatype="&xsd;string">Quantity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The quantity data type is an abstract generalization for all data types (1) whose value set has an order relation (less-or-equal) and (2) where difference is defined in all of the data type&#39;s totally ordered value subsets</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900083">
+        <rdfs:label rdf:datatype="&xsd;string">has biospecimen collected</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://sig.biostr.washington.edu/fma3.0#OCRE9000027">
+        <rdfs:label rdf:datatype="&xsd;string">Material anatomical entity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A material anatomical entity is a physical anatomical entity which has mass. Examples: hemoglobin molecule, mitochondrion, hepatocyte, erythrocyte, heart, head, blood, urine.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Foundational Model of Anatomy (FMA) class definition of Material anatomical entity. Available at http://bioportal.bioontology.org/visualize/44507</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE560892">
+        <rdfs:label rdf:datatype="&xsd;string">Person or Social institution</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400010">
+        <rdfs:label rdf:datatype="&xsd;string">Value set</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Classes that define sets of permissible values.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100012">
+        <rdfs:label rdf:datatype="&xsd;string">Equivalence</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Equivalence is a type of comparative intent. 
+An equivalence trial is designed to determine whether the response to two or more treatments differs by an amount that is clinically unimportant. This is usually demonstrated by showing that the true treatment difference is likely to lie between a lower and an upper equivalence level of clinically acceptable differences. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900111">
+        <rdfs:label rdf:datatype="&xsd;string">has age restriction</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE509666">
+        <rdfs:label>has laboratory agreement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400028">
+        <rdfs:label rdf:datatype="&xsd;string">Study data specification</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variables whose data are collected in the study.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE562807">
+        <rdfs:label>has recruitment agreement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900036">
+        <rdfs:label rdf:datatype="&xsd;string">Organismal study</rdfs:label>
+        <obo:IAO_0000115>An organismal study is a study in which the entity observed, recruited or selected, or subject to intervention or exposure is an organism, a population of organisms, or a part of an organism. </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900043">
+        <rdfs:label rdf:datatype="&xsd;string">has biospecimen preservation method</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100076">
+        <rdfs:label rdf:datatype="&xsd;string">Non-inferiority</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-inferiority trial is designed to determine whether the effect of a new treatment is not worse than a standard treatment by more than a pre-specified amount. A one-sided version of an equivalence trial. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400052">
+        <rdfs:label rdf:datatype="&xsd;string">TerminatedStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;terminated study&quot; is a study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400030">
+        <rdfs:label rdf:datatype="&xsd;string">Completed recruiting</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that has concluded recruitment (i.e., last patient in has occurred)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE688000">
+        <rdfs:label rdf:datatype="&xsd;string">has study hypothesis</rdfs:label>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Old definition to be updated: The hypothesis of a study pertains the result of primary outcome (also used to calculate sample size)</study_protocol:develop_comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900050">
+        <rdfs:label>entity randomized</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&statistics;OCRE900011">
+        <statistics:definition rdf:datatype="&xsd;string">Specifies that a Variable specification is an independent variable of an Outcome analysis specification</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900044">
+        <rdfs:label rdf:datatype="&xsd;string">has biospecimen tissue source</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900107">
+        <rdfs:label rdf:datatype="&xsd;string">has study population</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The study has the identified populations.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900034">
+        <rdfs:label rdf:datatype="&xsd;string">Technology study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A technology study is a non-organismal study that uses or collects measurements or assessments about a man-made object (e.g., a device) in terms of its technical/physical performance.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE820850">
+        <rdfs:label>has study design</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400009">
+        <rdfs:label rdf:datatype="&xsd;string">SuspendedRecruitingStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;suspended recruiting study&quot; is a study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100088">
+        <rdfs:label rdf:datatype="&xsd;string">Case and control not in same experimental unit</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case does not serve as its own control</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100053">
+        <rdfs:label rdf:datatype="&xsd;string">Care provider blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The care provider does not know to which treatment group a particular participant belongs</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900231">
+        <rdfs:label>has number lost because of death</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who failed to complete the process, procedure or assessment specified because the subject died during the events.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400014">
+        <rdfs:label rdf:datatype="&xsd;string">Telecommunication address</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A telecommunications address specified according to Internet standard RFC 2396 [http://www.ietf.org/rfc/rfc2396.txt]. The URI specifies the protocol and the contact point defined by that protocol for the resource. Notable uses of the telecommunication address data type are for telephone and telefax numbers, e-mail addresses, Hypertext references, FTP references, etc. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100070">
+        <rdfs:label rdf:datatype="&xsd;string">Phase 2</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 2 trial includes controlled clinical studies conducted to evaluate the effectiveness of the drug for a particular indication or indications in patients with the disease or condition under study and to determine the common short-term side effects and risks.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100038">
+        <rdfs:label rdf:datatype="&xsd;string">Phase</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Phase describes the level of a trial required of drugs before (and after) they are routinely used in clinical practice: 
+- Phase 1 trials assess toxic effects on humans (not many people participate in them, and usually without controls); 
+- Phase 2 trials assess therapeutic benefit (usually involving a few hundred people, usually with controls, but not always); 
+- Phase 3 trials compare the new treatment against standard (or placebo) treatment (usually a full randomised controlled trial). At this point, a drug can be approved for community use. 
+- Phase 4 monitors a new treatment in the community, often to evaluate longterm safety and effectiveness. [Glossary of Terms in The Cochrane Collaboration]
+
+A trial can be of a combination phase (e.g., 1/2).
+The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE595693">
+        <rdfs:label rdf:datatype="&xsd;string">Study classified by status</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Classification of a study based on its life-cycle status.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900093">
+        <rdfs:label>is design characteristic of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE733000">
+        <rdfs:label rdf:datatype="&xsd;string">is funder of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;Thing">
+        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400021">
+        <rdfs:label rdf:datatype="&xsd;string">Material</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical substance. For example, drug, device, specimen</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100055">
+        <rdfs:label rdf:datatype="&xsd;string">Observational study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An observational study is a quantitative study in which the investigators do not seek to intervene, and simply observe the course of events.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900037">
+        <rdfs:label rdf:datatype="&xsd;string">Non-human organism study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A non-human organism study is a study in which the entity observed, recruited or selected, and subject to intervention or exposure is non-human organism, a population of non-human organisms, or a part of a non-human organism. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400065">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Biospecimen. Available at http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C70699</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100016">
+        <rdfs:label rdf:datatype="&xsd;string">Phase not applicable</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400013">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen availability</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Biospecimen availability describes whether, for a study, biospecimens are available.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE900320">
+        <rdfs:label rdf:datatype="&xsd;string">is IRB of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900001">
+        <rdfs:label rdf:datatype="&xsd;string">has design characteristic</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400044">
+        <rdfs:label rdf:datatype="&xsd;string">Collection</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A collection is a group of things or people.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">New Oxford American Dictionary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100049">
+        <rdfs:label rdf:datatype="&xsd;string">Sampling method</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Method of sampling in observational studies.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900110">
+        <rdfs:label rdf:datatype="&xsd;string">has subject</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The identified clinical situation has the identified clinical subject as its sole or primary subject.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400007">
+        <rdfs:label rdf:datatype="&xsd;string">Follow-up</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which participants are no longer being enrolled or treated, but only followed-up (i.e., last patient in has happened, while last patient&#39;s last visit has not yet occurred).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100057">
+        <rdfs:label rdf:datatype="&xsd;string">Qualitative inquiry mode</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A qualitative research method is an inductive research process that involves the collection and analysis of qualitative (i.e., non-numerical) data to search for patterns, themes, and holistic features. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">http://www.utexas.edu/academic/ctl/assessment/iar/research/plan/types.php
+For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&amp;rls=en&amp;defl=en&amp;q=define:Qualitative+research </obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE819000">
+        <rdfs:label>has outcome phenomenon</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900069">
+        <rdfs:label rdf:datatype="&xsd;string">part of</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400045">
+        <rdfs:label rdf:datatype="&xsd;string">Active not recruiting</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that is ongoing (i.e., patients are being treated or examined), but in which participants are not currently being recruited or enrolled.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900211">
+        <rdfs:label>has date of last enrollment</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900103">
+        <rdfs:label rdf:datatype="&xsd;string">has baseline characteristic</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">Baseline characteristics of a StudyProtocol. The range of the property is expected to be Outcome.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400015">
+        <rdfs:label rdf:datatype="&xsd;string">Physical entity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A physical entity is an entity that has existence in time and space. An entity is that which is perceived or known or inferred to have its own distinct existence (living or nonliving)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <statistics:synonym rdf:datatype="&xsd;string">bfo:material entity</statistics:synonym>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900045">
+        <rdfs:label rdf:datatype="&xsd;string">has biospecimen type</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900234">
+        <rdfs:label>has number lost</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The number of individuals who failed to completed the process, procedure or assessment specified for whatever reason. N(considered) = N(completed) + N(lost)</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100058">
+        <rdfs:label rdf:datatype="&xsd;string">Investigator assignment role</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The role the investigator plays in the assignment of study experimental units to one or more regimens of interventions (each including one or more interventions, or no intervention).</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400020">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen preservation method</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Biospecimen preservation method describes the method used to preserve a biospecimen.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400064">
+        <rdfs:label rdf:datatype="&xsd;string">Organism</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 definition of BiologicEntity. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
+Any individual living (or previously living) being.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900108">
+        <rdfs:label rdf:datatype="&xsd;string">study population property</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400069">
+        <rdfs:label rdf:datatype="&xsd;string">RecruitingStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;recruiting study&quot; is a study for which participants are currently being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100039">
+        <rdfs:label rdf:datatype="&xsd;string">Cross-sectional study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cross-sectional study is an observational study measuring the distribution of some characteristic(s) in a population at a particular point in time. (Also called survey.)</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at: http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900109">
+        <rdfs:label rdf:datatype="&xsd;string">has study subject</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The study has the identified subjects.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400055">
+        <rdfs:label rdf:datatype="&xsd;string">CD</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A CD (concept descriptor) represents any kind of concept usually by giving a code defined in a code system. A concept descriptor can contain the original text or phrase that served as the basis of the coding and one or more translations into different coding systems. A concept descriptor can also contain qualifiers to describe, e.g., the concept of a &quot;left foot&quot; as a postcoordinated term built from the primary code &quot;FOOT&quot; and the qualifier &quot;LEFT&quot;. In cases of an exceptional value, the concept descriptor need not contain a code but only the original text describing that concept.</obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">CD (concept descriptor) is a more general form of Coded value (CV). 
+In HL7 datatype specification CV constrains CE so that there can be neither qualifiers not translations, and only a single concept is allowed.</obo:IAO_0000116>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Abstract Data Type specification Release 2</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100087">
+        <rdfs:label rdf:datatype="&xsd;string">Historical</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900065">
+        <rdfs:label rdf:datatype="&xsd;string">has offset</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900070">
+        <rdfs:label>precedes</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The first event occurs before the second event in time.</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100019">
+        <rdfs:label rdf:datatype="&xsd;string">Non-probability sampling</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-probability sampling is any one of a variety of non random sampling processes, such as convenience sampling or invitation to volunteer</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400077">
+        <rdfs:label rdf:datatype="&xsd;string">Hold</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A status applied to a study for which protocol-dictated activities have halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900090">
+        <rdfs:label rdf:datatype="&xsd;string">has term code</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The phenomenon associated with an outcome may be a clinical phenotype some other phenomenon of interest</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE890531">
+        <rdfs:label>has study status</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900066">
+        <rdfs:label>operationalize</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A performed activity operationalize a planned activity</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900092">
+        <rdfs:label rdf:datatype="&xsd;string">is studied in trial</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRE500036">
+        <rdfs:label>is administrative relation of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400004">
+        <rdfs:label rdf:datatype="&xsd;string">Event</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An event is a processual entity [span:ProcessualEntity] that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities.
+
+Examples: the life of an organism, the process of sleeping, the process of cell-division</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">BFO</obo:IAO_0000119>
+        <statistics:synonym rdf:datatype="&xsd;string">Process</statistics:synonym>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400116">
+        <rdfs:label rdf:datatype="&xsd;string">http</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100037">
+        <rdfs:label rdf:datatype="&xsd;string">Single regimen</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A single regimen of intervention, which includes one or more individual interventions (treatments), is assigned to one allocation group. This means the study has no contemporaneous comparison group.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901000">
+        <rdfs:label>executed at</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900091">
+        <rdfs:label rdf:datatype="&xsd;string">is derived from</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A relationship between instances Variable specification signifying that the domain variable specification is derived from the range variable specification through some function involving the range variable specification</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100010">
+        <rdfs:label rdf:datatype="&xsd;string">Incidence</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100069">
+        <rdfs:label rdf:datatype="&xsd;string">Phase 3</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A Phase 3 trial includes expanded controlled and uncontrolled trials after preliminary evidence suggesting effectiveness of the drug has been obtained, and are intended to gather additional information to evaluate the overall benefit-risk relationship of the drug and provide an adequate basis for physician labeling.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions (DRAFT). Available at  http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100075">
+        <rdfs:label rdf:datatype="&xsd;string">Single experimental unit allocation group</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In the context of a study where the main comparison is within experimental units, investigator assigns regimen of interventions to an allocation group made up of a single experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400050">
+        <rdfs:label rdf:datatype="&xsd;string">Variable specification</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900046">
+        <rdfs:label>code for</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A code is the terminology code of a concept</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE898003">
+        <rdfs:label>has recruitment in the past</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900068">
+        <rdfs:label rdf:datatype="&xsd;string">has part</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">If C and C&#39; are entities or events, C has_part C&#39; if C&#39; is in &quot;part of&quot; relationship with C</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100008">
+        <rdfs:label rdf:datatype="&xsd;string">Open label</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Open label indicates that no blinding is in effect: the investigator and participant are aware which intervention is being used for which participant (i.e. not blinded)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE582000">
+        <rdfs:label rdf:datatype="&xsd;string">is study objective of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901009">
+        <rdfs:label rdf:datatype="&xsd;string">is address of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400080">
+        <rdfs:label rdf:datatype="&xsd;string">Biospecimen type</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI Thesaurus entry for Biospecimen type. Available at: http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C70713</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The type of a material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400056">
+        <rdfs:label rdf:datatype="&xsd;string">Ecologic study</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from: Epidemiology for the Uninitiated. Available at: http://www.bmj.com/epidem/epid.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An ecologic study is a non individual-human study in which the unit of observation is a population or community.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100071">
+        <rdfs:label rdf:datatype="&xsd;string">Individual as unit of allocation</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The unit that is assigned to the alternative regimens of interventions being investigated in a trial. Most commonly, the unit will be an individual person. In some other trials, different parts of a person (such as the left or right eye) might be assigned to receive different regimens of interventions.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE564154">
+        <rdfs:label>has IRB process</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE588776">
+        <rdfs:label>has administrative relation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE535519">
+        <rdfs:label>has sponsoring relation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400006">
+        <rdfs:label rdf:datatype="&xsd;string">Withdrawn</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100011">
+        <rdfs:label rdf:datatype="&xsd;string">Superiority</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Bull NYU Hosp Jt Dis. 2008;66(2):150-4.</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Superiority is a type of comparative intent. 
+When the aim of the study is to show that an experimental (E) treatment is superior to a control (C) treatment, the RCT is called a superiority trial and the associated statistical test is a superiority test. With a significant result, one concludes in a superiority trial that E is different in effect from C, and when the observed result is in favor of E, we conclude that E is statistically, significantly better performing than C.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE908000">
+        <rdfs:label>Stopped</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A status applied to a study for which protocol-dictated activities have halted prematurely and will not resume.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400051">
+        <rdfs:label rdf:datatype="&xsd;string">ActiveNotRecruitingStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An &quot;active, not recruiting study&quot; is a study that is ongoing (i.e., patients are being treated or examined), but in which participants are not currently being recruited or enrolled.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400053">
+        <rdfs:label rdf:datatype="&xsd;string">Completed</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which all data has been collected (last patient&#39;s last visit has occurred) and the analysis performed. Results may or may not have been published.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900101">
+        <rdfs:label rdf:datatype="&xsd;string">planned outcome</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400075">
+        <rdfs:label rdf:datatype="&xsd;string">Suspended recruiting</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900067">
+        <rdfs:label>operationalized_by</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900088">
+        <rdfs:label rdf:datatype="&xsd;string">has study phenomenon</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">ocre:is_derived_from o ocre:has_outcome_phenomenon</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900100">
+        <rdfs:label rdf:datatype="&xsd;string">is outcome of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400054">
+        <rdfs:label rdf:datatype="&xsd;string">Bodily fluid</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Any fluid in the body including blood, urine, saliva, sputum, tears, semen, milk, or vaginal secretions</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900053">
+        <rdfs:label rdf:datatype="&xsd;string">has finding</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The finding associated with a clinical event</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100052">
+        <rdfs:label rdf:datatype="&xsd;string">Single group study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A single group study is an interventional study that has only a single allocation group and no contemporaneuos comparison group.
+
+A study in which an individual acts has his/her own comparison does not fall into this category, since an individual is not a group.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: to be reviewed</obo:IAO_0000232>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100018">
+        <rdfs:label rdf:datatype="&xsd;string">Case-control study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A case control study is an observational study that compares people with a specific disease or outcome of interest (cases) to people from the same population without that disease or outcome (controls), and which seeks to find associations between the outcome and prior exposure to particular risk factors. [Glossary of Terms in The Cochrane Collaboration]</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400074">
+        <rdfs:label rdf:datatype="&xsd;string">Study status</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The study status describes where the study is in its life-cycle.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100056">
+        <rdfs:label rdf:datatype="&xsd;string">Study design</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study design is a common pattern of relationships  (in time and causation) among various study elements (e.g., time of intervention to outcomes assessment in which participants).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901010">
+        <rdfs:label rdf:datatype="&xsd;string">is played by</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A Role is played by some Organization or Entity</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100051">
+        <rdfs:label rdf:datatype="&xsd;string">Timing of outcome measurement</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether outcome is measured after or at the same time as predictors.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100073">
+        <rdfs:label rdf:datatype="&xsd;string">Main comparison and experimental units</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether the main comparison is across or within study experimental units</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE002000">
+        <rdfs:label rdf:datatype="&xsd;string">secondary</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900087">
+        <rdfs:label rdf:datatype="&xsd;string">has popoulation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100072">
+        <rdfs:label rdf:datatype="&xsd;string">Comparative intent</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Comparative intent is an additional descriptor: Intent of comparison made in a study with two or more arms.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100065">
+        <rdfs:label rdf:datatype="&xsd;string">Single-factor</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a single-factor design, an intervention is compared with one or more alternatives, or a placebo.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE900006">
+        <rdfs:label rdf:datatype="&xsd;string">has pooled data</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a pooled data study, the analysis is performed on subject-level results collected in two or more studies, with their own protocol(s). A study can include both original (de novo) data collection and the use of data pooled from one or more other studies. This is different from meta-analysis, where summary results from different studies are combined.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <study_protocol:develop_comment rdf:datatype="&xsd;string">Simona: used to be a class.</study_protocol:develop_comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400072">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome analysis specification</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The specification of how an outcome of the study should be analyzed through the use of statistical methods. It includes the specification of the relevant outcome and predictor variables, the cohort groups, time of outcome assessments, and the statistical method to be used.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400057">
+        <rdfs:label rdf:datatype="&xsd;string">Duration</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The quantity of time as measured in some unit</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900071">
+        <rdfs:label>procedure</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The procedured performed in a Performed procedure clinical event</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400058">
+        <rdfs:label rdf:datatype="&xsd;string">NotYetRecruitingStudy</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A &quot;not yet recruiting study&quot; is a study for which participants are not yet being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100013">
+        <rdfs:label rdf:datatype="&xsd;string">Main control group defined by exposure status</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the exposure status.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901008">
+        <rdfs:label rdf:datatype="&xsd;string">has scheme</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE551318">
+        <rdfs:label>has actor</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe_ext;OCRE874148">
+        <rdfs:label>External query</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100014">
+        <rdfs:label rdf:datatype="&xsd;string">Outcome assessor blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The outcome assessor does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400059">
+        <rdfs:label rdf:datatype="&xsd;string">Information entity</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Information entity is a structure whose purpose is to hold information. The structure itself is not a model of world. For example, a terminology code has properties such as terminology system, the code for a term (e.g.,&quot;heart failure&quot;), but the code is not a representation of thing that the term designate.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901002">
+        <rdfs:label>function as</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A healthcare organization functions as a study site (from BRIDG 1).1.1</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE544646">
+        <rdfs:label>has oversight agreement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901011">
+        <rdfs:label rdf:datatype="&xsd;string">is principal investigator of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400073">
+        <rdfs:label rdf:datatype="&xsd;string">Not yet recruiting</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are not yet being recruited. </obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900047">
+        <rdfs:label>duration</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">The duration of an interval</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE553335">
+        <rdfs:label>has study assessment/intervention agreement</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901001">
+        <rdfs:label>executes</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A StudySite executes some Study Protocol (from BRIDG 1.1.1)</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400078">
+        <rdfs:label rdf:datatype="&xsd;string">Expression</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Expression is an information entity that represent a data value or an entity that can be evaluated to yield a data value.</obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100036">
+        <rdfs:label rdf:datatype="&xsd;string">Caregiver blinded</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The caregiver does not know to which treatment group a particular participant belongs </obo:IAO_0000115>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901012">
+        <rdfs:label>plays</rdfs:label>
+        <statistics:definition rdf:datatype="&xsd;string">A social institution or entity plays some role</statistics:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol#OCRE900062">
+        <rdfs:label>is divided into</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100033">
+        <rdfs:label rdf:datatype="&xsd;string">Random allocation</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Random allocation is an allocation scheme that uses the play of chance to assign participants to comparison groups in a trial, e.g. by using a random numbers table or a computer-generated random sequence. Random allocation implies that each individual or unit being entered into a trial has the same chance of receiving each of the possible interventions. It also implies that the probability that an individual will receive a particular intervention is independent of the probability that any other individual will receive the same intervention. </obo:IAO_0000115>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Randomization is the process of randomly allocating experimental units into one of the arms of a controlled trial. There are two components to randomisation: the generation of a random sequence [allocation scheme], and its implementation [allocation concealment method], ideally in a way so that those entering participants into a study are not aware of the sequence (concealment of allocation). </obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100017">
+        <rdfs:label rdf:datatype="&xsd;string">Prevalence</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Prevalence is the proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400025">
+        <rdfs:label rdf:datatype="&xsd;string">Tissue</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An anatomical structure consisting of similarly specialized cells and intercellular matrix, aggregated according to genetically determined spatial relationships, performing a specific function.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">NCI thesaurus entry for Tissue. Available at  http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI%20Thesaurus&amp;code=C12801</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900089">
+        <rdfs:label rdf:datatype="&xsd;string">has study protocol</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE900064">
+        <rdfs:label rdf:datatype="&xsd;string">is member of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE400039">
+        <rdfs:label rdf:datatype="&xsd;string">Postal address</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A postal address is a mailing and home or office address. A sequence of address parts, such as street or post office Box, city, postal code, country, etc.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">HL7 Data Types Abstract specification. Available at http://healthinfo.med.dal.ca/hl7intro/CDA_R2_NormativeWebEdition/infrastructure/datatypes/datatypes.htm</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE9000030">
+        <rdfs:label rdf:datatype="&xsd;string">Aggregated-human study</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">An aggregated human study is a human study in which the entity observed, recruited or selected, or subject to intervention or exposure is a population that contains persons</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100074">
+        <rdfs:label rdf:datatype="&xsd;string">Minimization</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A method of allocation used to provide comparison groups that are closely similar for several variables. The next participant is assessed with regard to several characteristics, and assigned to the treatment group that has so far had fewer such people assigned to it. It can be done with a component of randomisation, where the chance of allocation to the group with fewer similar participants is less than one. Minimisation is best performed centrally with the aid of a computer program to ensure concealment of allocation.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&study_design;OCRE100034">
+        <rdfs:label rdf:datatype="&xsd;string">Genetically related non-cases</rdfs:label>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Non-cases were selected based on genetic relation</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </rdf:Description>
+    <rdf:Description rdf:about="&OCRe;OCRE901007">
+        <rdfs:label rdf:datatype="&xsd;string">has recruitment status</rdfs:label>
+    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
 
