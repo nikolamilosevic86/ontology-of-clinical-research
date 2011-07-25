@@ -3,8 +3,8 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY OCRe "http://purl.org/net/OCRe/OCRe.owl#" >
@@ -19,17 +19,17 @@
 
 <rdf:RDF xmlns="http://purl.org/net/OCRe/statistics.owl#"
      xml:base="http://purl.org/net/OCRe/statistics.owl"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:OCRe="http://purl.org/net/OCRe/OCRe.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:obo="http://purl.obolibrary.org/obo/"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:OCRe="http://purl.org/net/OCRe/OCRe.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://purl.org/net/OCRe/statistics.owl">
         <rdfs:comment rdf:datatype="&xsd;string">An ontology of objects and relationships in statistics that are useful for describing statistical analysis used in human studies. It is part of the Ontology for Clinical Research (OCRe).</rdfs:comment>
@@ -45,18 +45,18 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#synonym"/>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#definition">
         <rdfs:label rdf:datatype="&xsd;string">deprecated:definition</rdfs:label>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&study_protocol;develop_comment"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#synonym"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
     
 
 
@@ -79,6 +79,15 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#OCRE879613 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE879613">
+        <rdfs:label>is dependent variable of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
+    </owl:ObjectProperty>
     
 
 
@@ -160,7 +169,6 @@
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900026">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has measurement dimension</rdfs:label>
-        <rdfs:label rdf:datatype="&xsd;string">is dependent variable of</rdfs:label>
         <definition rdf:datatype="&xsd;string">The data type of a variable in a plan for statistical analysis</definition>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
@@ -1278,7 +1286,7 @@ The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1290,7 +1298,7 @@ The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is dichotomous</obo:IAO_0000115>
@@ -2207,5 +2215,5 @@ Example: one person tests HIV negative at some point, but there are no further o
 
 
 
-<!-- Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
 
