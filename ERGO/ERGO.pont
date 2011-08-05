@@ -1,7 +1,7 @@
-; Sun Apr 17 13:44:45 PDT 2011
+; Tue Jul 05 17:16:33 PDT 2011
 ; 
-;+ (version "3.4.5")
-;+ (build "Build 585")
+;+ (version "3.4.6")
+;+ (build "Build 613")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
@@ -52,6 +52,15 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(multislot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+		(create-accessor read-write))
+	(single-slot first_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot derivation_expression
 		(type INSTANCE)
 ;+		(allowed-classes Expression)
@@ -92,7 +101,7 @@
 		(create-accessor read-write))
 	(multislot annotation
 		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation Simple_Statement_Annotation %3ATHING)
+;+		(allowed-classes Simple_Value_Constraint_Annotation Simple_Statement_Annotation %3ATHING)
 		(create-accessor read-write))
 	(single-slot code
 		(type STRING)
@@ -105,6 +114,11 @@
 		(create-accessor read-write))
 	(single-slot reference_number
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot timeinterval_constraints
@@ -260,9 +274,17 @@
 ;+		(allowed-classes Relational_Modifier_Term)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot ERGO_Class70003
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot clinical_statement_template
 		(type INSTANCE)
 ;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ERGO_Class70002
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot expression
@@ -396,7 +418,7 @@
 	(role concrete)
 	(single-slot annotation
 		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation)
+;+		(allowed-classes Simple_Value_Constraint_Annotation)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot expression_comparison
@@ -423,7 +445,7 @@
 	(is-a ERGO_Class)
 	(role abstract))
 
-(defclass SingleValue_Constraint "simple value constraints that define minimum and maximum bounds of a slot value"
+(defclass Value_Constraint "value constraints that define minimum and maximum bounds of a slot value"
 	(is-a Constraint)
 	(role concrete)
 	(single-slot upper_bound
@@ -623,9 +645,27 @@
 
 (defclass Time_Point
 	(is-a Time_Entity)
+	(role concrete))
+
+(defclass Time_Literal
+	(is-a Time_Point)
 	(role concrete)
 	(single-slot literal
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Offset
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot anchor
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Duration Variable)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -654,25 +694,6 @@
 	(single-slot duration
 		(type INSTANCE)
 ;+		(allowed-classes Duration Variable)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Time_Point_Offset
-	(is-a Time_Entity)
-	(role concrete)
-	(single-slot anchor
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot duration
-		(type INSTANCE)
-;+		(allowed-classes Duration Variable)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot direction
-		(type INSTANCE)
-;+		(allowed-classes PlusMinus_Operator)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -921,7 +942,7 @@
 		(create-accessor read-write))
 	(multislot annotation
 		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation Simple_Statement_Annotation)
+;+		(allowed-classes Simple_Value_Constraint_Annotation Simple_Statement_Annotation)
 		(create-accessor read-write))
 	(single-slot effective_time
 		(type INSTANCE)
@@ -943,7 +964,7 @@
 		(create-accessor read-write))
 	(multislot annotation
 		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation Simple_Statement_Annotation %3ATHING)
+;+		(allowed-classes Simple_Value_Constraint_Annotation Simple_Statement_Annotation %3ATHING)
 		(create-accessor read-write))
 	(single-slot statement_connector
 		(type INSTANCE)
@@ -961,7 +982,7 @@
 	(role concrete)
 	(multislot annotation
 		(type INSTANCE)
-;+		(allowed-classes Comparison_Statement_Annotation Simple_Statement_Annotation %3ATHING)
+;+		(allowed-classes Simple_Value_Constraint_Annotation Simple_Statement_Annotation %3ATHING)
 		(create-accessor read-write))
 	(single-slot second_statement
 		(type INSTANCE)
@@ -979,12 +1000,30 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass ERGO_Annotation
+(defclass ERGO_Annotation_Entity
 	(is-a USER)
+	(role abstract))
+
+(defclass Context-Dependent_Noun_Phrase "This class is used to encode, in simple way, SNOMED finding with context such as \"clinical finding absent with associated-finding noun_phrase\" or \"family history of noun phrase)"
+	(is-a ERGO_Annotation_Entity)
+	(role concrete)
+	(single-slot noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot context_modifier
+		(type INSTANCE)
+;+		(allowed-classes Relational_Modifier_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Generalized_ERGO_Annotation
+	(is-a ERGO_Annotation_Entity)
 	(role concrete))
 
-(defclass Comparison_Statement_Annotation "An annotation that says \"some aspect\" of noun phrase is in a quantitative relationship to a quantity."
-	(is-a ERGO_Annotation)
+(defclass Simple_Value_Constraint_Annotation "An annotation that says \"some aspect\" of noun phrase is in a quantitative relationship to a quantity."
+	(is-a Generalized_ERGO_Annotation)
 	(role concrete)
 	(single-slot expression_comparison
 		(type INSTANCE)
@@ -1003,7 +1042,7 @@
 		(create-accessor read-write)))
 
 (defclass Simple_Statement_Annotation "Annotation on a simple statement"
-	(is-a ERGO_Annotation)
+	(is-a Generalized_ERGO_Annotation)
 	(role concrete)
 	(single-slot augmented_noun_phrase
 		(type INSTANCE)
@@ -1011,20 +1050,55 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Context-Dependent_Noun_Phrase "This class is used to encode, in simple way, SNOMED finding with context such as \"clinical finding absent with associated-finding noun_phrase\" or \"family history of noun phrase)"
-	(is-a ERGO_Annotation)
+(defclass Complex_Statement_Annotation
+	(is-a Generalized_ERGO_Annotation)
+	(role concrete))
+
+(defclass AND_OR_Annotation
+	(is-a Complex_Statement_Annotation)
+	(role concrete)
+	(multislot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Statement_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Semantically_Connected_Statement_Annotation
+	(is-a Complex_Statement_Annotation)
+	(role concrete)
+	(single-slot first_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot act-act-relationship
+		(type INSTANCE)
+;+		(allowed-classes Act-Act-Relationship)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Simple_Temporal_Constraint_Annotation
+	(is-a Generalized_ERGO_Annotation)
 	(role concrete)
 	(single-slot noun_phrase
 		(type INSTANCE)
 ;+		(allowed-classes Noun_Phrase)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot context_modifier
-		(type INSTANCE)
-;+		(allowed-classes Relational_Modifier_Term)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Complex_Statement_Annotation
-	(is-a ERGO_Annotation)
+(defclass Constraint_Annotation
+	(is-a ERGO_Annotation_Entity)
+	(role concrete))
+
+(defclass Value_Constraint_Annotation
+	(is-a Constraint_Annotation)
 	(role concrete))
