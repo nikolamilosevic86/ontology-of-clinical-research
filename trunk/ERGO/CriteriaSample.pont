@@ -1,0 +1,33 @@
+; Fri Aug 05 16:23:46 GMT 2011
+; 
+;+ (version "3.4.7")
+;+ (build "Build 620")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot criterion-sentence
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot constraint_class
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass EliXR
+	(is-a %3ASTANDARD-CLASS)
+	(role concrete))
+
+(defclass Textual+Temporal+Expression
+	(is-a USER)
+	(role concrete)
+	(single-slot criterion-sentence
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot constraint_class
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))

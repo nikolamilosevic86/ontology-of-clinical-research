@@ -1,0 +1,1098 @@
+; Thu Aug 04 14:07:58 PDT 2011
+; 
+;+ (version "3.4.6")
+;+ (build "Build 613")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot lower_bound
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numerator
+		(type INSTANCE)
+;+		(allowed-classes Quantity)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Statement_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot integer_value
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot direction
+		(type INSTANCE)
+;+		(allowed-classes PlusMinus_Operator)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot frequency
+		(type INSTANCE)
+;+		(allowed-classes Frequency)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot time_interval_comparators
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write))
+	(multislot statements
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot connector_symbol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot selected_attribute
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Attribute)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot comparator_symbol
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot version_number
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+		(create-accessor read-write))
+	(single-slot first_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot derivation_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot relative_interval_direction
+;+		(comment "Part of relative interval specification (duration before|after referenceTime)")
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot date
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iteration_constraint
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot root_concept
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot time_interval_comparator
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write))
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot functional_expression
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot real_value
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot relative_time_point_direction
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot code
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot interval
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot modifier
+		(type INSTANCE)
+;+		(allowed-classes Modifier)
+		(create-accessor read-write))
+	(single-slot reference_time
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot first_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot constraints
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(create-accessor read-write))
+	(multislot constraint_expression
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot value
+		(type INSTANCE)
+;+		(allowed-classes Expression Constraint)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot timepoint_extractor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point_Extractor)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot constrained_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Constrained_Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot title
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot status
+		(type INSTANCE)
+;+		(allowed-classes Intervention_Status_Code)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot version_note
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot modifier_term
+		(type INSTANCE)
+;+		(allowed-classes Logical_Noun_Phrase_Modifier)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot literal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot has_value
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot denominator
+		(type INSTANCE)
+;+		(allowed-classes Quantity)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot effective_time
+		(type INSTANCE)
+;+		(allowed-classes Expression Constraint)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot aggregation_term
+		(type INSTANCE)
+;+		(allowed-classes Aggregation_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot use_cases
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot binary_modifier
+		(type INSTANCE)
+;+		(allowed-classes Modifier)
+		(create-accessor read-write))
+	(single-slot modifier_value
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot upper_bound
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase Constrained_Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot eligibility_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot aggregation
+		(type INSTANCE)
+;+		(allowed-classes Aggregation_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot start_time
+		(type INSTANCE)
+;+		(allowed-classes Time_Point Constraint Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot first_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stop_time
+		(type INSTANCE)
+;+		(allowed-classes Time_Point Constraint Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numeric_value
+		(type INSTANCE)
+;+		(allowed-classes Real Integer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot variable_name
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot context_modifier
+		(type INSTANCE)
+;+		(allowed-classes Context_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot concepts
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+		(create-accessor read-write))
+	(single-slot unit
+		(type INSTANCE)
+;+		(allowed-classes Unit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modifier_attribute
+		(type INSTANCE)
+;+		(allowed-classes Relational_Modifier_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot clinical_statement_template
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot expression
+		(type INSTANCE)
+;+		(allowed-classes Expression Clinical_Statement_Template)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot mood
+		(type INSTANCE)
+;+		(allowed-classes Mood_Code)
+		(default [Eligibility_Frame_IdeasSWT_Instance_12])
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anchor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot second_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot time_point
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot semantic_connector
+		(type INSTANCE)
+;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot code_system
+		(type SYMBOL)
+		(allowed-values UMLS SNOMEDCT LOINC RxNORM ERGO_keyword HL7)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot variables
+;+		(comment "Variables used in a functional expression")
+		(type INSTANCE)
+;+		(allowed-classes)
+		(create-accessor read-write))
+	(single-slot augmented_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot logical_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Connector)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Clinical_Statement_Attribute
+	(is-a %3ASTANDARD-SLOT)
+	(role concrete))
+
+(defclass Protocol "A \"holder\" class to organize eligibility criteria by trials."
+	(is-a USER)
+	(role concrete)
+	(single-slot title
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot eligibility_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write)))
+
+(defclass Version_Note "The version note should be a summary of annotations that explain the changes in the documented version. The use cases should describe the examples that prompted the changes in the vesion."
+	(is-a USER)
+	(role concrete)
+	(single-slot version_number
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot use_cases
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot version_note
+		(type STRING)
+		(create-accessor read-write))
+	(single-slot date
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Deprecated_Class "Classes that should no longer be used. They are in the ontology for the sake of backward compatibility."
+	(is-a USER)
+	(role abstract))
+
+(defclass Unary_modifier "A modifier restricts the meaning of a noun phrase through  implict property value (e.g., severe anemia where implicit property is \"severity\") Its usage is deprecated"
+	(is-a Deprecated_Class)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot code
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Semantic_Connection_Statement
+	(is-a Deprecated_Class)
+	(role concrete)
+	(single-slot semantic_connector
+		(type INSTANCE)
+;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot second_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot first_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Binary_modifier "A binary modifier restricts the meaning of a noun phrase through explicit a property value (e.g., exacerbated-by exercise)"
+	(is-a Deprecated_Class)
+	(role concrete)
+	(single-slot root_concept
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot modifier_term
+		(type INSTANCE)
+;+		(allowed-classes Relational_Modifier_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Comparison_Statement "comparing two Expressions via comparators such as <,>, ="
+	(is-a Deprecated_Class)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot first_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot second_expression
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Value_Set
+	(is-a USER)
+	(role concrete))
+
+(defclass Semantic_Connector "Relationships that connect two clinical statements."
+	(is-a Value_Set)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Assessed_Value
+	(is-a Value_Set)
+	(role concrete))
+
+(defclass Intervention_Status_Code
+	(is-a Value_Set)
+	(role concrete))
+
+(defclass Done%2FNot_Done
+	(is-a Intervention_Status_Code)
+	(role concrete))
+
+(defclass Mood_Code
+	(is-a Value_Set)
+	(role concrete))
+
+(defclass Relational_Modifier_Term "Modifier term that relate one noun phrase to another noun phrase (e.g., exacerbated_by ) Instances of this class should only be used with as modifier_attribute of instances of Modifier"
+	(is-a Value_Set)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Unit
+	(is-a Value_Set)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Denominator_of_Time
+	(is-a Unit)
+	(role concrete))
+
+(defclass ERGO_Keyword "Reserved keywords used to form complex statements, expressions, and noun phrases."
+	(is-a Value_Set)
+	(role abstract)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Logical_Statement_Connector "Connectors that relate explicit statements to explicit statements (e.g., AND, OR, evidence-of, caused-by)"
+	(is-a ERGO_Keyword)
+	(role abstract))
+
+(defclass Logical_Connector "AND, OR, or NOT Boolean statement connector"
+	(is-a Logical_Statement_Connector)
+	(role concrete))
+
+(defclass Not_Logical_Connector
+	(is-a Logical_Connector)
+	(role concrete))
+
+(defclass ANDOR_Logical_Connector
+	(is-a Logical_Connector)
+	(role concrete))
+
+(defclass Non-Exhaustive_Connector "non-exhaustive AND and OR."
+	(is-a Logical_Statement_Connector)
+	(role concrete))
+
+(defclass Expression_Comparator "e.g., \">\", \"==\" Comparison operators between expressions. Result of comparisons are statements."
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Aggregation_Term "e.g., average, first, last, etc. Should be used only with queries that may return one or more objects."
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Logical_Noun_Phrase_Modifier "Terms used to modify noun phrases"
+	(is-a ERGO_Keyword)
+	(role abstract))
+
+(defclass Negation_Term "Complement of a set of terms (represented term and all of its subclasses)"
+	(is-a Logical_Noun_Phrase_Modifier)
+	(role concrete))
+
+(defclass AndOr_Term "Intersection or union of sets of terms"
+	(is-a Logical_Noun_Phrase_Modifier)
+	(role concrete))
+
+(defclass Time_Interval_Comparator "Allen's 13 time interval connectors"
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Allen_Time_Interval_Comparator
+	(is-a Time_Interval_Comparator)
+	(role concrete))
+
+(defclass Combination_Time_Interval_Comparator
+	(is-a Time_Interval_Comparator)
+	(role concrete)
+	(multislot time_interval_comparators
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write)))
+
+(defclass PlusMinus_Operator
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Time_Point_Extractor
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Time_Interval_Extractor
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Boolean_Time_Interval_Comparator_Connector
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Time_Direction
+	(is-a ERGO_Keyword)
+	(role concrete))
+
+(defclass Context_Term
+	(is-a Value_Set)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Generalized_ERGO_Annotation
+	(is-a USER)
+	(role concrete))
+
+(defclass Simple_Statement_Annotation "Annotation on a simple statement"
+	(is-a Generalized_ERGO_Annotation)
+	(role concrete)
+	(single-slot augmented_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot constraints
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(create-accessor read-write)))
+
+(defclass Complex_Statement_Annotation
+	(is-a Generalized_ERGO_Annotation)
+	(role concrete)
+	(multislot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Statement_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Not_Annotation
+	(is-a Complex_Statement_Annotation)
+	(role concrete)
+	(single-slot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Not_Logical_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass AndOr_Annotation
+	(is-a Complex_Statement_Annotation)
+	(role concrete)
+	(multislot statement_annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes ANDOR_Logical_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Clinical_Statement_Template "Templates for criteria that evaluates to TRUE FALSE, or UNKNOWN"
+	(is-a USER)
+	(role abstract))
+
+(defclass Simple_Clinical_Statement "Simple_Clinical_Statements are statements about Assessments made about a person, Interventions done to him, or his Behaviors. All Simple_Clinical_Statements have noun phrases (e.g., LDL_cholesterol) as the core of the statements, an effective time, and a mood. The effective time property specifies the time during which the statement is valid. For example, the effective time of a blood test result may be the time when the sample is taken. Similar to HL7 RIM mood codes, a mood modifies the simple clinical statement to specify whether the statement indicates an event that happened, an intent, or an order."
+	(is-a Clinical_Statement_Template)
+	(role abstract))
+
+(defclass Complex_Clinical_Statement "Complex_Clinical_Statements are constructed from other clinical statements."
+	(is-a Clinical_Statement_Template)
+	(role abstract))
+
+(defclass Compound_Statement "a logical combination (and, or, not) of Clinical_Statements"
+	(is-a Complex_Clinical_Statement)
+	(role concrete)
+	(multislot statements
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Partially_Specified_Statement "(1) if statement_connector is \"non-exhaustive-or\", then if any of statements is true, then the first_statement is true. If all of them are false, then the truth value of first_statement is unknown.\n(2) if statement_connector is \"non-exhaustive-and,\" then if any of the statements is false, then the first_statement is false. If all of them are true, the truth value of the first statement is unknown."
+	(is-a Complex_Clinical_Statement)
+	(role concrete)
+	(multislot statements
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot statement_connector
+		(type INSTANCE)
+;+		(allowed-classes Non-Exhaustive_Connector)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot first_statement
+		(type INSTANCE)
+;+		(allowed-classes Simple_Clinical_Statement)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Semantically_Connected_Statement "two Clinical_Statements are related via some relationship that connect two statements  (e.g., causes, exacerbates)"
+	(is-a Complex_Clinical_Statement)
+	(role concrete)
+	(single-slot semantic_connector
+		(type INSTANCE)
+;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot second_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot first_statement
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Constraint "Constraints are relationships that a slot value must satisfy."
+	(is-a USER)
+	(role abstract))
+
+(defclass Value_Constraint "value constraints that define minimum and maximum bounds of a slot value"
+	(is-a Constraint)
+	(role concrete)
+	(single-slot upper_bound
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot lower_bound
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Aggregate_Value_Constraint
+	(is-a Value_Constraint)
+	(role concrete)
+	(single-slot aggregation
+		(type INSTANCE)
+;+		(allowed-classes Aggregation_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Constraint "Constraint on a time interval (usually the effective time of a query template)"
+	(is-a Constraint)
+	(role abstract))
+
+(defclass Time_Interval_Comparison_Constraint "constrain a time interval to be in some of the Allen interval comparison relations to the specified interval"
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot interval
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot time_interval_comparator
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write)))
+
+(defclass Duration_Constraint "Duration constraint on a time interval"
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Constraint
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot time_point
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot timepoint_extractor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point_Extractor)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Frequency_Constraint "Frequency constraint applies to an interval with periodic subevents."
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot frequency
+		(type INSTANCE)
+;+		(allowed-classes Frequency)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Compound_Constraint "A logical combination (AND, OR, NOT) of time-interval constraints."
+	(is-a Constraint)
+	(role concrete)
+	(multislot constraints
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(create-accessor read-write))
+	(single-slot logical_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Connector)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Relational_Constraint
+	(is-a Constraint)
+	(role concrete)
+	(single-slot semantic_connector
+		(type INSTANCE)
+;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot constrained_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Constrained_Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Expression "Expression can be evaluated to return a non-Boolean value."
+	(is-a USER)
+	(role abstract))
+
+(defclass Noun_Phrase "primitive or post-coordinated terms that should be linked to standard terminologies"
+	(is-a Expression)
+	(role abstract))
+
+(defclass Logical_Combination_Noun_Phrase "noun phrases combined via and/or, or a noun phrase that is negated. A noun phrase is interpreted as a set of terms that are the same or more specific than the named noun phrase (e.g., 'acute MI' is a part of the set of terms denoted by 'MI'). The 'and,' 'or,' and 'not' operators are interpreted as intersection, union, and complement of the corresponding sets."
+	(is-a Noun_Phrase)
+	(role abstract)
+	(single-slot modifier_term
+		(type INSTANCE)
+;+		(allowed-classes AndOr_Term Negation_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Negated_Noun_Phrase
+	(is-a Logical_Combination_Noun_Phrase)
+	(role concrete)
+	(single-slot root_concept
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot modifier_term
+		(type INSTANCE)
+;+		(allowed-classes Negation_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass AndOr_Noun_Phrase
+	(is-a Logical_Combination_Noun_Phrase)
+	(role concrete)
+	(multislot concepts
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+		(create-accessor read-write))
+	(single-slot modifier_term
+		(type INSTANCE)
+;+		(allowed-classes AndOr_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Primitive_Noun_Phrase "noun phrases which represent terms from vocabularies."
+	(is-a Noun_Phrase)
+	(role concrete)
+	(single-slot code_system
+		(type SYMBOL)
+		(allowed-values UMLS SNOMEDCT LOINC RxNORM ERGO_keyword HL7)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot code
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Entity
+	(is-a Expression)
+	(role abstract))
+
+(defclass Time_Point
+	(is-a Time_Entity)
+	(role concrete))
+
+(defclass Time_Literal
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot literal
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Offset
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot anchor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot relative_time_point_direction
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Reference
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot constrained_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Constrained_Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot timepoint_extractor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point_Extractor)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Time_Interval
+	(is-a Time_Entity)
+	(role concrete)
+	(single-slot start_time
+		(type INSTANCE)
+;+		(allowed-classes Time_Point Constraint Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stop_time
+		(type INSTANCE)
+;+		(allowed-classes Time_Point Constraint Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Relative_Time_Interval
+	(is-a Time_Interval)
+	(role concrete)
+	(single-slot reference_time
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot relative_interval_direction
+;+		(comment "Part of relative interval specification (duration before|after referenceTime)")
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Quantity
+	(is-a Expression)
+	(role concrete))
+
+(defclass Physical_Quantity
+	(is-a Quantity)
+	(role concrete)
+	(single-slot unit
+		(type INSTANCE)
+;+		(allowed-classes Unit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numeric_value
+		(type INSTANCE)
+;+		(allowed-classes Real Integer)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Duration
+	(is-a Physical_Quantity)
+	(role concrete))
+
+(defclass Integer
+	(is-a Quantity)
+	(role concrete)
+	(single-slot integer_value
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Real
+	(is-a Quantity)
+	(role concrete)
+	(single-slot real_value
+		(type FLOAT)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Ratio
+	(is-a Quantity)
+	(role concrete)
+	(single-slot denominator
+		(type INSTANCE)
+;+		(allowed-classes Quantity)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot numerator
+		(type INSTANCE)
+;+		(allowed-classes Quantity)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Frequency "[number of occurrence]/time duration  (e.g., 5 times a week)"
+	(is-a Ratio)
+	(role concrete)
+	(single-slot denominator
+		(type INSTANCE)
+;+		(allowed-classes Duration)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Duration_Based_Frequency "[iteration constraint(time duration (e.g., day) in which events being constrained occur)][number of such time durations]/(overall time duration)  Have encounters \"5 days a week\" means that there are   5 of the time units (days) during which encounters occurs. We are not counting the the number of encounters per week, but the number of days per week that have encounters."
+	(is-a Frequency)
+	(role concrete)
+	(single-slot iteration_constraint
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Constrained_Noun_Phrase
+	(is-a Expression)
+	(role concrete)
+	(single-slot augmented_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot constraint_expression
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write)))
+
+(defclass Context-Dependent_Noun_Phrase "This class is used to encode, in simple way, SNOMED finding with context such as \"clinical finding absent with associated-finding noun_phrase\" or \"family history of noun phrase)"
+	(is-a Expression)
+	(role concrete)
+	(single-slot noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase Context-Dependent_Noun_Phrase Constrained_Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot context_modifier
+		(type INSTANCE)
+;+		(allowed-classes Context_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Function "e.g., average, count, ULN(noun phrase), daily_dose(Medication)"
+	(is-a Expression)
+	(role concrete))
+
+(defclass Modifier "A modifier restricts the meaning of a noun phrase through explicit or implict property value (e.g., severe asthma exacerbated by exercise)"
+	(is-a USER)
+	(role concrete)
+	(single-slot modifier_attribute
+		(type INSTANCE)
+;+		(allowed-classes Relational_Modifier_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot modifier_value
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))

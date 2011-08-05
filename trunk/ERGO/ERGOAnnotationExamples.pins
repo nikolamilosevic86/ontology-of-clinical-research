@@ -1,0 +1,509 @@
+; Fri Aug 05 16:10:34 GMT 2011
+; 
+;+ (version "3.4.7")
+;+ (build "Build 620")
+
+([ERGOAnnotationExamples_Class0] of  AndOr_Annotation
+
+	(statement_annotation [ERGOAnnotationExamples_Class1]))
+
+([ERGOAnnotationExamples_Class1] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class2]))
+
+([ERGOAnnotationExamples_Class10] of  Denominator_of_Time
+
+	(preferred_name "per week"))
+
+([ERGOAnnotationExamples_Class10000] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class10001])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class12]))
+
+([ERGOAnnotationExamples_Class10001] of  AndOr_Annotation
+
+	(statement_annotation
+		[ERGOAnnotationExamples_Class20000]
+		[ERGOAnnotationExamples_Class20006])
+	(statement_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class11] of  Frequency_Constraint
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_10013])
+	(frequency [ERGOAnnotationExamples_Class70003]))
+
+([ERGOAnnotationExamples_Class13] of  Integer
+
+	(integer_value 5))
+
+([ERGOAnnotationExamples_Class14] of  Integer
+
+	(integer_value 7))
+
+([ERGOAnnotationExamples_Class15] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class16]
+		[ERGOAnnotationExamples_Class6])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class16] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class17])
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_64]))
+
+([ERGOAnnotationExamples_Class17] of  Relative_Time_Interval
+)
+
+([ERGOAnnotationExamples_Class19] of  Example
+
+	(comment "Fertile patient")
+	(ERGO_annotation [ERGOAnnotationExamples_Class0])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class8]))
+
+([ERGOAnnotationExamples_Class2] of  Primitive_Noun_Phrase
+
+	(preferred_name "Contraception method"))
+
+([ERGOAnnotationExamples_Class20000] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class20001])
+	(constraints [ERGOAnnotationExamples_Class20002]))
+
+([ERGOAnnotationExamples_Class20001] of  Primitive_Noun_Phrase
+
+	(preferred_name "Prostate biopsy"))
+
+([ERGOAnnotationExamples_Class20002] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(time_point [ERGOAnnotationExamples_Class20003])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class20003] of  Time_Point_Offset
+
+	(anchor [ERGOAnnotationExamples_Class30000])
+	(duration [ERGOAnnotationExamples_Class20004])
+	(relative_time_point_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class20004] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class20005])
+	(unit [ERGO_Class60022]))
+
+([ERGOAnnotationExamples_Class20005] of  Integer
+
+	(integer_value 3))
+
+([ERGOAnnotationExamples_Class20006] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class20001])
+	(constraints [ERGOAnnotationExamples_Class40000]))
+
+([ERGOAnnotationExamples_Class3] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class4])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class0]))
+
+([ERGOAnnotationExamples_Class30000] of  Time_Point_Reference
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class30001])
+	(timepoint_extractor [ERGOAnnotation_Class2]))
+
+([ERGOAnnotationExamples_Class30001] of  Primitive_Noun_Phrase
+
+	(preferred_name "Study participation"))
+
+([ERGOAnnotationExamples_Class4] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class5])
+	(constraints [ERGOAnnotationExamples_Class6]))
+
+([ERGOAnnotationExamples_Class40000] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(time_point [ERGOAnnotationExamples_Class40001])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class40001] of  Time_Point_Offset
+
+	(anchor [ERGOAnnotationExamples_Class40003])
+	(duration [ERGOAnnotationExamples_Class40002])
+	(relative_time_point_direction [ERGOAnnotation_Class20013]))
+
+([ERGOAnnotationExamples_Class40002] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class9])
+	(unit [ERGO_Class60022]))
+
+([ERGOAnnotationExamples_Class40003] of  Time_Point_Reference
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class30001])
+	(timepoint_extractor [ERGOAnnotation_Class3]))
+
+([ERGOAnnotationExamples_Class40004] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class40005])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class21]))
+
+([ERGOAnnotationExamples_Class40005] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class40006])
+	(constraints
+		[ERGOAnnotationExamples_Class40007]
+		[ERGOAnnotationExamples_Class40014]))
+
+([ERGOAnnotationExamples_Class40006] of  Primitive_Noun_Phrase
+
+	(preferred_name "Surgery"))
+
+([ERGOAnnotationExamples_Class40007] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class40008]
+		[ERGOAnnotationExamples_Class40014])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class40008] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_30015])
+	(time_point [ERGOAnnotationExamples_Class40009])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class40009] of  Time_Point_Offset
+
+	(anchor [ERGOAnnotationExamples_Class40012])
+	(duration [ERGOAnnotationExamples_Class40010])
+	(relative_time_point_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class40010] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class40011])
+	(unit [ERGO_Class60006]))
+
+([ERGOAnnotationExamples_Class40011] of  Integer
+
+	(integer_value 28))
+
+([ERGOAnnotationExamples_Class40012] of  Time_Point_Reference
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class40013])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class40013] of  Primitive_Noun_Phrase
+
+	(preferred_name "Enrollment"))
+
+([ERGOAnnotationExamples_Class40014] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_30016])
+	(time_point [ERGOAnnotationExamples_Class40015])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class40015] of  Time_Point_Offset
+
+	(anchor [ERGOAnnotationExamples_Class40012])
+	(duration [ERGOAnnotationExamples_Class40016])
+	(relative_time_point_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class40016] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class40017])
+	(unit [ERGO_Class60022]))
+
+([ERGOAnnotationExamples_Class40017] of  Integer
+
+	(integer_value 12))
+
+([ERGOAnnotationExamples_Class40018] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class40019])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class28]))
+
+([ERGOAnnotationExamples_Class40019] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class40020])
+	(constraints [ERGOAnnotationExamples_Class40021]))
+
+([ERGOAnnotationExamples_Class40020] of  Primitive_Noun_Phrase
+
+	(preferred_name "Treatment for chemical dependency"))
+
+([ERGOAnnotationExamples_Class40021] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class40022])
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_64]))
+
+([ERGOAnnotationExamples_Class40022] of  Relative_Time_Interval
+
+	(duration [ERGOAnnotationExamples_Class40023])
+	(reference_time [ERGOAnnotationExamples_Class40024])
+	(relative_interval_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class40023] of  Duration
+
+	(numeric_value [ERGO_Class60023])
+	(unit [ERGOAnnotation_Class10005]))
+
+([ERGOAnnotationExamples_Class40024] of  Time_Literal
+
+	(literal "Now"))
+
+([ERGOAnnotationExamples_Class40025] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class40026])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class85]))
+
+([ERGOAnnotationExamples_Class40026] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class40027])
+	(constraints
+		[ERGOAnnotationExamples_Class40028]
+		[ERGOAnnotationExamples_Class40032]))
+
+([ERGOAnnotationExamples_Class40027] of  Primitive_Noun_Phrase
+
+	(preferred_name "LVEF"))
+
+([ERGOAnnotationExamples_Class40028] of  Value_Constraint
+
+	(upper_bound [ERGOAnnotationExamples_Class40029]))
+
+([ERGOAnnotationExamples_Class40029] of  Physical_Quantity
+
+	(numeric_value [ERGOAnnotationExamples_Class40031])
+	(unit [ERGOAnnotationExamples_Class40030]))
+
+([ERGOAnnotationExamples_Class40030] of  Unit
+
+	(preferred_name "%"))
+
+([ERGOAnnotationExamples_Class40031] of  Integer
+
+	(integer_value 40))
+
+([ERGOAnnotationExamples_Class40032] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_10013])
+	(time_point [ERGOAnnotationExamples_Class40033])
+	(timepoint_extractor [ERGOAnnotation_Class4]))
+
+([ERGOAnnotationExamples_Class40033] of  Time_Point_Offset
+
+	(anchor [ERGOAnnotationExamples_Class40024])
+	(duration [ERGOAnnotationExamples_Class40023])
+	(relative_time_point_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class5] of  Primitive_Noun_Phrase
+
+	(preferred_name "Visit"))
+
+([ERGOAnnotationExamples_Class50000] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class50002])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class74]))
+
+([ERGOAnnotationExamples_Class50001] of  Combination_Time_Interval_Comparator
+
+	(preferred_name "during/finish/start")
+	(time_interval_comparators
+		[Eligibility_Frame_IdeasSWT3_Instance_64]
+		[Eligibility_Frame_IdeasSWT3_Instance_10010]
+		[Eligibility_Frame_IdeasSWT3_Instance_10008]))
+
+([ERGOAnnotationExamples_Class50002] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class50003])
+	(constraints [ERGOAnnotationExamples_Class50004]))
+
+([ERGOAnnotationExamples_Class50003] of  Primitive_Noun_Phrase
+
+	(preferred_name "Heart burn"))
+
+([ERGOAnnotationExamples_Class50004] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class50005]
+		[ERGOAnnotationExamples_Class50008])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class50005] of  Duration_Constraint
+
+	(duration [ERGOAnnotationExamples_Class50006])
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_10013]))
+
+([ERGOAnnotationExamples_Class50006] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class50007])
+	(unit [ERGO_Class60006]))
+
+([ERGOAnnotationExamples_Class50007] of  Integer
+
+	(integer_value 2))
+
+([ERGOAnnotationExamples_Class50008] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class50009])
+	(time_interval_comparator [ERGOAnnotationExamples_Class50001]))
+
+([ERGOAnnotationExamples_Class50009] of  Relative_Time_Interval
+
+	(duration [ERGOAnnotationExamples_Class50010])
+	(reference_time [ERGOAnnotationExamples_Class50011])
+	(relative_interval_direction [ERGOAnnotation_Class20014]))
+
+([ERGOAnnotationExamples_Class50010] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class14])
+	(unit [ERGO_Class60006]))
+
+([ERGOAnnotationExamples_Class50011] of  Primitive_Noun_Phrase
+
+	(preferred_name "Baseline"))
+
+([ERGOAnnotationExamples_Class50012] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class50013])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class31]))
+
+([ERGOAnnotationExamples_Class50013] of  Not_Annotation
+
+	(statement_annotation [ERGOAnnotationExamples_Class50014])
+	(statement_connector [Eligibility_Frame_Ideas_Instance_35]))
+
+([ERGOAnnotationExamples_Class50014] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class50015])
+	(constraints [ERGOAnnotationExamples_Class40021]))
+
+([ERGOAnnotationExamples_Class50015] of  Primitive_Noun_Phrase
+
+	(preferred_name "investigational drug"))
+
+([ERGOAnnotationExamples_Class50016] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class50017])
+	(text_example [EliXR_wMultipleLevels_50criteria_Class147]))
+
+([ERGOAnnotationExamples_Class50017] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class50019]))
+
+([ERGOAnnotationExamples_Class50018] of  Primitive_Noun_Phrase
+)
+
+([ERGOAnnotationExamples_Class50019] of  Context-Dependent_Noun_Phrase
+
+	(context_modifier [ERGOAnnotationExamples_Class90000])
+	(noun_phrase [ERGOAnnotationExamples_Class90003]))
+
+([ERGOAnnotationExamples_Class50020] of  Relational_Modifier_Term
+
+	(preferred_name "consent"))
+
+([ERGOAnnotationExamples_Class50021] of  Frequency_Constraint
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(frequency [ERGOAnnotationExamples_Class50023]))
+
+([ERGOAnnotationExamples_Class50022] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class50021]
+		[ERGOAnnotationExamples_Class50024])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_20001]))
+
+([ERGOAnnotationExamples_Class50023] of  Frequency
+
+	(denominator [ERGOAnnotationExamples_Class40002])
+	(numerator [ERGOAnnotationExamples_Class9]))
+
+([ERGOAnnotationExamples_Class50024] of  Frequency_Constraint
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(frequency [ERGOAnnotationExamples_Class50025]))
+
+([ERGOAnnotationExamples_Class50025] of  Frequency
+
+	(denominator [ERGOAnnotationExamples_Class80000])
+	(numerator [ERGOAnnotationExamples_Class9]))
+
+([ERGOAnnotationExamples_Class50026] of  Denominator_of_Time
+
+	(preferred_name "fortnight"))
+
+([ERGOAnnotationExamples_Class50027] of  Example
+
+	(text_example [EliXR_wMultipleLevels_50criteria_Class186]))
+
+([ERGOAnnotationExamples_Class50029] of  Example
+
+	(text_example [EliXR_wMultipleLevels_50criteria_Class194]))
+
+([ERGOAnnotationExamples_Class6] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class7]
+		[ERGOAnnotationExamples_Class11])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_20001]))
+
+([ERGOAnnotationExamples_Class60000] of  Duration_Based_Frequency
+
+	(denominator [ERGOAnnotationExamples_Class40002])
+	(iteration_constraint [ERGOAnnotationExamples_Class70000])
+	(numerator [ERGOAnnotationExamples_Class14]))
+
+([ERGOAnnotationExamples_Class7] of  Frequency_Constraint
+
+	(expression_comparison [Eligibility_Frame_IdeasSWT3_Instance_36])
+	(frequency [ERGOAnnotationExamples_Class60000]))
+
+([ERGOAnnotationExamples_Class70000] of  Time_Interval
+
+	(start_time [ERGOAnnotationExamples_Class70001])
+	(stop_time [ERGOAnnotationExamples_Class70002]))
+
+([ERGOAnnotationExamples_Class70001] of  Time_Literal
+
+	(literal "0:00"))
+
+([ERGOAnnotationExamples_Class70002] of  Time_Literal
+
+	(literal "24:00"))
+
+([ERGOAnnotationExamples_Class70003] of  Duration_Based_Frequency
+
+	(denominator [ERGOAnnotationExamples_Class40002])
+	(iteration_constraint [ERGOAnnotationExamples_Class70000])
+	(numerator [ERGOAnnotationExamples_Class13]))
+
+([ERGOAnnotationExamples_Class80000] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class50007])
+	(unit [ERGO_Class60022]))
+
+([ERGOAnnotationExamples_Class9] of  Integer
+
+	(integer_value 1))
+
+([ERGOAnnotationExamples_Class90000] of  Context_Term
+
+	(preferred_name "Consent"))
+
+([ERGOAnnotationExamples_Class90001] of  Context-Dependent_Noun_Phrase
+
+	(context_modifier [ERGOAnnotationExamples_Class90002])
+	(noun_phrase [ERGOAnnotationExamples_Class90004]))
+
+([ERGOAnnotationExamples_Class90002] of  Context_Term
+
+	(preferred_name "Photograph"))
+
+([ERGOAnnotationExamples_Class90003] of  Constrained_Noun_Phrase
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class90001])
+	(constraint_expression [ERGOAnnotationExamples_Class50022]))
+
+([ERGOAnnotationExamples_Class90004] of  Primitive_Noun_Phrase
+
+	(preferred_name "hemangioma"))
