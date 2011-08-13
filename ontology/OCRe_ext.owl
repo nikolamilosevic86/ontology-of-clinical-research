@@ -164,14 +164,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE747000 -->
-
-    <rdf:Description rdf:about="&ocre;OCRE747000">
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE571000"/>
-    </rdf:Description>
-    
-
-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE901011 -->
 
     <owl:ObjectProperty rdf:about="&ocre;OCRE901011"/>
@@ -195,7 +187,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000002 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000002">
-        <rdfs:label>has laboratory site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has laboratory site</rdfs:label>
         <rdfs:domain rdf:resource="&ocre;OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
         <owl:inverseOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000003"/>
@@ -211,7 +203,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000003 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE5000003">
-        <rdfs:label>is laboratory site of</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">is laboratory site of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
     </owl:ObjectProperty>
     
@@ -220,7 +212,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE551759 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE551759">
-        <rdfs:label>has study</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has study</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
     </owl:ObjectProperty>
     
@@ -229,7 +221,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE556349 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE556349">
-        <rdfs:label>is recruitment site of</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">is recruitment site of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&ocre;OCRE585289"/>
@@ -256,7 +248,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874184 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874184">
-        <rdfs:label>has performance site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has performance site</rdfs:label>
         <rdfs:domain rdf:resource="&ocre;OCRE400029"/>
         <rdfs:subPropertyOf rdf:resource="&ocre;OCRE500006"/>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
@@ -467,7 +459,6 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study site is a participating site in which study subject assessments or interventions are conducted. </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -511,7 +502,7 @@
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747">
-        <rdfs:label>Recruitment site</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment site</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -597,7 +588,6 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&ocre;OCRE400079"/>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">An organization that approves, monitors and reviews biomedical research to protect the rights, safety and welfare of the study subjects. This committee performs critical oversight functions for research conducted on human study subjects that are scientific, ethical, and regulatory.
 
@@ -708,7 +698,6 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&ocre;OCRE400079"/>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE598730"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A laboratory site is an organization where some laboratory processing for the study occurs.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -761,7 +750,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE820798 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE820798">
-        <rdfs:label>Leaf subclass</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Leaf subclass</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -769,7 +758,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE827797 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE827797">
-        <rdfs:label>Subclass including root</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Subclass including root</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -777,7 +766,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874148 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE874148">
-        <rdfs:label>External query</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">External query</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -785,7 +774,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE877903 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE877903">
-        <rdfs:label>Individual</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Individual</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -793,7 +782,7 @@ Institutional Review Board (IRB), ethics committee, research ethics board, etc.<
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE893499 -->
 
     <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE893499">
-        <rdfs:label>Subclass excluding root</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Subclass excluding root</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
