@@ -1,7 +1,7 @@
-; Thu Aug 04 14:07:58 PDT 2011
+; Fri Aug 19 12:24:09 MST 2011
 ; 
-;+ (version "3.4.6")
-;+ (build "Build 613")
+;+ (version "3.4")
+;+ (build "Build 526")
 
 ([effective_time] of  Clinical_Statement_Attribute
 )
@@ -13,9 +13,6 @@
 ([Eligibility_Frame_Ideas_Instance_10039] of  AndOr_Term
 
 	(preferred_name "and"))
-
-([Eligibility_Frame_Ideas_Instance_13] of  Unit
-)
 
 ([Eligibility_Frame_Ideas_Instance_20001] of  ANDOR_Logical_Connector
 
@@ -111,9 +108,6 @@
 
 	(preferred_name "equal"))
 
-([Eligibility_Frame_IdeasSWT3_Instance_23] of  Unit
-)
-
 ([Eligibility_Frame_IdeasSWT3_Instance_36] of  Expression_Comparator
 
 	(preferred_name "="))
@@ -151,82 +145,6 @@
 
 ([ERGO_Class10004] of  Assessed_Value
 )
-
-([ERGO_Class10005] of  Unit
-)
-
-([ERGO_Class2] of  Version_Note
-
-	(date "2008/06/09")
-	(use_cases "Primary outcome: the proportion of patients who remained on their initially prescribed monotherapy at 1 year, modeled as a ratio of two instances of Aggregate_Subject_Query. The first specifying the count of an expression consisting of a conjunction of three subject-level Clinical_Statement_Template. The semantics of the count is the number of subjects that satisfy the expression.\nSubject-level primary outcome:\n(1) count of first antihypertensive agent = 1\n(2) count antihypertensive agent not the same as that of the first prescription = 0 (Involving a NounPhrase constructed from a NounPhrase and a Variable.\n(3) stop_time of the effective_time of the last anti-hypertensive agent prescription + 30 days < start_tiime of the effective_time of the first anti-hypertensive agent prescription + 1 year")
-	(version_note
-		"Created Version_Note class to document version number and changes."
-		"Added Clinical_Statement_Template to the allowed classes of expression, because we want to count the number of subjects that satisfy some criteria."
-		"Changed Allowed class from NounPhrase and Expression because we want to use query expression for constructing noun phrases.")
-	(version_number "1.01"))
-
-([ERGO_Class20000] of  Version_Note
-
-	(date "2008/08/04")
-	(version_note
-		"Deleted old instaces of Semantic_Connector"
-		"Deleted subclasses: Present/Absent, Suspected and Yes/No and added instances instead. Added also instances Positive and Negative"
-		"Deleted all old instances of Relational modifier term"
-		"Changed UMLS to SNOMED-CT codes for instances of Term Code (except mood_code, which came from HL7)")
-	(version_number "1.02"))
-
-([ERGO_Class30000] of  Version_Note
-
-	(date "2008/08/04")
-	(version_note
-		"Updated Time_Point class, so the value of slot literal is displayed as instance name"
-		"Added class Integer")
-	(version_number "1.03"))
-
-([ERGO_Class40000] of  Version_Note
-
-	(date "2008-08-20")
-	(version_note
-		"Deleted partially specified noun phrases"
-		"Added documentation for toplevel classes")
-	(version_number "1.05"))
-
-([ERGO_Class40003] of  Version_Note
-
-	(date "2008-08-14")
-	(version_note
-		"1. Created ERGO_Class and grouped specifically ERGO classes there"
-		"2. Made Constraint a subclass of ERGO_Class instead of Expression"
-		"3. Renaming: Semantially_Connected_Statement"
-		"4. Made class names consistent"
-		"5. Rename them as modifier_value and modifier_attribute. So \"severity of moderate\" will be modifer_attribute = severity and modifier_value = moderate.")
-	(version_number "1.04"))
-
-([ERGO_Class50000] of  Version_Note
-
-	(date "2008/10/29")
-	(version_note
-		"Changed Comparison Statement to be a subclass of Clinical Statement Template"
-		"Renamed \"Semantic Connector\" class to \"Act-Act-Relationship\""
-		"Renamed \"semantic_connector\" slot to \"act-act-relationship\"")
-	(version_number "1.08"))
-
-([ERGO_Class50001] of  Version_Note
-
-	(date "2008-09-30")
-	(use_cases "Laboratory results, like RBC, WBC, platelets, for which a real value is not appropriate")
-	(version_note
-		"Created numeric_value slot and added it to Physical_Quantity class and to the relevant form."
-		"Changed slot names integervalue to integer_value and realvalue to real_value for consistency.")
-	(version_number "1.06"))
-
-([ERGO_Class50002] of  Version_Note
-
-	(date "2008/10/02")
-	(version_note
-		"Added ERGO_Annotation and its subclasses"
-		"Added \"annotation\" property to simple clinical statement, comparison statement, and compound statement")
-	(version_number "1.07"))
 
 ([ERGO_Class60003] of  Compound_Constraint
 
@@ -307,7 +225,6 @@
 
 ([ERGOAnnotation_Class0] of  Constrained_Noun_Phrase
 
-	(augmented_noun_phrase [ERGOAnnotation_Class1])
 	(constraint_expression [ERGOAnnotation_Class10002]))
 
 ([ERGOAnnotation_Class1] of  Primitive_Noun_Phrase

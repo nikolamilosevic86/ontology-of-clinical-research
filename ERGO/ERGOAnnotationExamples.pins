@@ -1,4 +1,4 @@
-; Fri Aug 05 16:10:34 GMT 2011
+; Mon Aug 22 14:33:30 PDT 2011
 ; 
 ;+ (version "3.4.7")
 ;+ (build "Build 620")
@@ -20,6 +20,11 @@
 	(ERGO_annotation [ERGOAnnotationExamples_Class10001])
 	(text_example [EliXR_wMultipleLevels_50criteria_Class12]))
 
+([ERGOAnnotationExamples_Class100000] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class9])
+	(unit [ERGO_Class60006]))
+
 ([ERGOAnnotationExamples_Class10001] of  AndOr_Annotation
 
 	(statement_annotation
@@ -32,13 +37,260 @@
 	(expression_comparison [Eligibility_Frame_Ideas_Instance_10013])
 	(frequency [ERGOAnnotationExamples_Class70003]))
 
+([ERGOAnnotationExamples_Class110000] of  Textual+Temporal+Expression
+
+	(criterion-sentence "At least 2 weeks of investigational drug"))
+
+([ERGOAnnotationExamples_Class110001] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class110008])
+	(constraints [ERGOAnnotationExamples_Class110002]))
+
+([ERGOAnnotationExamples_Class110002] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class110003]
+		[ERGOAnnotationExamples_Class110009])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class110003] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class110004])
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_10003]))
+
+([ERGOAnnotationExamples_Class110004] of  Relative_Time_Interval
+
+	(duration [ERGOAnnotationExamples_Class110005])
+	(reference_time [ERGOAnnotationExamples_Class110007])
+	(relative_interval_direction [ERGOAnnotation_Class20013]))
+
+([ERGOAnnotationExamples_Class110005] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class110006])
+	(unit [ERGO_Class60006]))
+
+([ERGOAnnotationExamples_Class110006] of  Integer
+
+	(integer_value 28))
+
+([ERGOAnnotationExamples_Class110007] of  Time_Point_Reference
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class110008])
+	(timepoint_extractor [ERGOAnnotation_Class3]))
+
+([ERGOAnnotationExamples_Class110008] of  Primitive_Noun_Phrase
+
+	(preferred_name "treatment"))
+
+([ERGOAnnotationExamples_Class110009] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class110008])
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_10001]))
+
+([ERGOAnnotationExamples_Class110010] of  AndOr_Annotation
+
+	(statement_annotation
+		[ERGOAnnotationExamples_Class110001]
+		[ERGOAnnotationExamples_Class110011])
+	(statement_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class110011] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class110012])
+	(constraints [ERGOAnnotationExamples_Class110014]))
+
+([ERGOAnnotationExamples_Class110012] of  Negated_Noun_Phrase
+
+	(modifier_term [Eligibility_Frame_Ideas_Instance_30007])
+	(noun_phrase [ERGOAnnotationExamples_Class50015]))
+
+([ERGOAnnotationExamples_Class110013] of  Compound_Constraint
+
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class110014] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class110015]))
+
+([ERGOAnnotationExamples_Class110015] of  AndOr_Noun_Phrase
+
+	(modifier_term [Eligibility_Frame_Ideas_Instance_10039])
+	(noun_phrase
+		[ERGOAnnotationExamples_Class110017]
+		[ERGOAnnotationExamples_Class110016]))
+
+([ERGOAnnotationExamples_Class110016] of  Primitive_Noun_Phrase
+
+	(preferred_name "Study followup"))
+
+([ERGOAnnotationExamples_Class110017] of  Primitive_Noun_Phrase
+
+	(preferred_name "Disease free"))
+
+([ERGOAnnotationExamples_Class120000] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class130002])
+	(text_example [ERGOAnnotationExamples_Class130001]))
+
+([ERGOAnnotationExamples_Class120001] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class120003])
+	(text_example [ERGOAnnotationExamples_Class110000]))
+
+([ERGOAnnotationExamples_Class120003] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class50015])
+	(constraints [ERGOAnnotationExamples_Class120005]))
+
+([ERGOAnnotationExamples_Class120004] of  Compound_Constraint
+
+	(constraints
+		[ERGOAnnotationExamples_Class120005]
+		[ERGOAnnotationExamples_Class120007])
+	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class120005] of  Duration_Constraint
+
+	(duration [ERGOAnnotationExamples_Class80000])
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_10013]))
+
+([ERGOAnnotationExamples_Class120006] of  Time_Interval_Comparison_Constraint
+
+	(interval [ERGOAnnotationExamples_Class30001]))
+
+([ERGOAnnotationExamples_Class120007] of  Time_Point_Constraint
+
+	(expression_comparison [Eligibility_Frame_Ideas_Instance_30015])
+	(time_point [ERGOAnnotationExamples_Class30000])
+	(timepoint_extractor [ERGOAnnotation_Class2]))
+
 ([ERGOAnnotationExamples_Class13] of  Integer
 
 	(integer_value 5))
 
+([ERGOAnnotationExamples_Class130000] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class140001])
+	(constraints
+		[ERGOAnnotationExamples_Class140002]
+		[ERGOAnnotationExamples_Class140005]
+		[ERGOAnnotationExamples_Class140008]))
+
+([ERGOAnnotationExamples_Class130001] of  Textual+Temporal+Expression
+
+	(criterion-sentence "Daniel: Chronic Dyspnea and Suspected Pulmonary Origin and any age and positive physical examination"))
+
+([ERGOAnnotationExamples_Class130002] of  AndOr_Annotation
+
+	(statement_annotation
+		[ERGOAnnotationExamples_Class130003]
+		[ERGOAnnotationExamples_Class130000])
+	(statement_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class130003] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class130004])
+	(constraints [ERGOAnnotationExamples_Class130005]))
+
+([ERGOAnnotationExamples_Class130004] of  Primitive_Noun_Phrase
+
+	(preferred_name "Age"))
+
+([ERGOAnnotationExamples_Class130005] of  Numeric_Value_Constraint
+
+	(lower_bound [ERGOAnnotationExamples_Class130006])
+	(lower_bound_closed FALSE)
+	(upper_bound_closed FALSE))
+
+([ERGOAnnotationExamples_Class130006] of  Duration
+
+	(numeric_value [ERGOAnnotationExamples_Class130007])
+	(unit [ERGO_Class60006]))
+
+([ERGOAnnotationExamples_Class130007] of  Integer
+
+	(integer_value 0))
+
 ([ERGOAnnotationExamples_Class14] of  Integer
 
 	(integer_value 7))
+
+([ERGOAnnotationExamples_Class140000] of  Semantic_Connector
+
+	(preferred_name "defined by"))
+
+([ERGOAnnotationExamples_Class140001] of  Primitive_Noun_Phrase
+
+	(preferred_name "Dyspnea"))
+
+([ERGOAnnotationExamples_Class140002] of  Relational_Constraint
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class140004])
+	(semantic_connector [ERGOAnnotationExamples_Class140003]))
+
+([ERGOAnnotationExamples_Class140003] of  Relational_Modifier_Term
+
+	(preferred_name "clinical course"))
+
+([ERGOAnnotationExamples_Class140004] of  Primitive_Noun_Phrase
+
+	(preferred_name "chronic"))
+
+([ERGOAnnotationExamples_Class140005] of  Relational_Constraint
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class140007])
+	(semantic_connector [ERGOAnnotationExamples_Class140006]))
+
+([ERGOAnnotationExamples_Class140006] of  Relational_Modifier_Term
+
+	(preferred_name "suspected origin"))
+
+([ERGOAnnotationExamples_Class140007] of  Primitive_Noun_Phrase
+
+	(preferred_name "pulmonary"))
+
+([ERGOAnnotationExamples_Class140008] of  Relational_Constraint
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class140010])
+	(semantic_connector [ERGOAnnotationExamples_Class140009]))
+
+([ERGOAnnotationExamples_Class140009] of  Semantic_Connector
+
+	(preferred_name "confirmed by"))
+
+([ERGOAnnotationExamples_Class140010] of  Primitive_Noun_Phrase
+
+	(preferred_name "physical examination"))
+
+([ERGOAnnotationExamples_Class140011] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class140013])
+	(text_example [ERGOAnnotationExamples_Class140012]))
+
+([ERGOAnnotationExamples_Class140012] of  Textual+Temporal+Expression
+
+	(criterion-sentence "Strep test is positive"))
+
+([ERGOAnnotationExamples_Class140013] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class140014])
+	(constraints [ERGOAnnotationExamples_Class140015]))
+
+([ERGOAnnotationExamples_Class140014] of  Primitive_Noun_Phrase
+
+	(preferred_name "Strep test"))
+
+([ERGOAnnotationExamples_Class140015] of  Value_Set_Constraint
+
+	(value_set [ERGOAnnotationExamples_Class140019]))
+
+([ERGOAnnotationExamples_Class140019] of  Culture_Result
+
+	(preferred_name "Positive"))
+
+([ERGOAnnotationExamples_Class140020] of  Culture_Result
+
+	(preferred_name "Negative"))
 
 ([ERGOAnnotationExamples_Class15] of  Compound_Constraint
 
@@ -46,6 +298,111 @@
 		[ERGOAnnotationExamples_Class16]
 		[ERGOAnnotationExamples_Class6])
 	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
+
+([ERGOAnnotationExamples_Class150001] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class130004])
+	(constraints [ERGOAnnotationExamples_Class150002]))
+
+([ERGOAnnotationExamples_Class150002] of  Numeric_Value_Constraint
+
+	(lower_bound [ERGOAnnotationExamples_Class150003])
+	(lower_bound_closed TRUE)
+	(upper_bound [ERGOAnnotationExamples_Class150006])
+	(upper_bound_closed TRUE))
+
+([ERGOAnnotationExamples_Class150003] of  Physical_Quantity
+
+	(numeric_value [ERGOAnnotationExamples_Class150004])
+	(unit [ERGOAnnotationExamples_Class150005]))
+
+([ERGOAnnotationExamples_Class150004] of  Integer
+
+	(integer_value 18))
+
+([ERGOAnnotationExamples_Class150005] of  Unit
+
+	(preferred_name "year"))
+
+([ERGOAnnotationExamples_Class150006] of  Physical_Quantity
+
+	(numeric_value [ERGOAnnotationExamples_Class150007])
+	(unit [ERGOAnnotationExamples_Class150005]))
+
+([ERGOAnnotationExamples_Class150007] of  Integer
+
+	(integer_value 75))
+
+([ERGOAnnotationExamples_Class150008] of  Primitive_Noun_Phrase
+
+	(preferred_name "Adult"))
+
+([ERGOAnnotationExamples_Class150009] of  Relational_Constraint
+
+	(constrained_noun_phrase [ERGOAnnotationExamples_Class150010])
+	(semantic_connector [ERGOAnnotationExamples_Class140000]))
+
+([ERGOAnnotationExamples_Class150010] of  Constrained_Noun_Phrase
+
+	(constraint_expression [ERGOAnnotationExamples_Class150002])
+	(noun_phrase [ERGOAnnotationExamples_Class130004]))
+
+([ERGOAnnotationExamples_Class150011] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class150008])
+	(constraints [ERGOAnnotationExamples_Class150009]))
+
+([ERGOAnnotationExamples_Class150012] of  Example
+
+	(comment "Original text: adult patients, 18-75 years of age\nFrom paper criteria set")
+	(ERGO_annotation [ERGOAnnotationExamples_Class150011])
+	(text_example [ERGOAnnotationExamples_Class150013]))
+
+([ERGOAnnotationExamples_Class150013] of  Textual+Temporal+Expression
+
+	(criterion-sentence "(1) adult patients, 18-75 years of age"))
+
+([ERGOAnnotationExamples_Class150014] of  Primitive_Noun_Phrase
+
+	(code "C0010068")
+	(code_system UMLS)
+	(preferred_name "Coronary heart disease"))
+
+([ERGOAnnotationExamples_Class150015] of  Primitive_Noun_Phrase
+
+	(code "C1277690")
+	(code_system UMLS)
+	(preferred_name "Coronary heart disease risk"))
+
+([ERGOAnnotationExamples_Class150017] of  AndOr_Annotation
+
+	(statement_annotation
+		[ERGOAnnotationExamples_Class150018]
+		[ERGOAnnotationExamples_Class150020])
+	(statement_connector [Eligibility_Frame_Ideas_Instance_20001]))
+
+([ERGOAnnotationExamples_Class150018] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class150014]))
+
+([ERGOAnnotationExamples_Class150020] of  Simple_Statement_Annotation
+
+	(augmented_noun_phrase [ERGOAnnotationExamples_Class150015]))
+
+([ERGOAnnotationExamples_Class150021] of  Example
+
+	(ERGO_annotation [ERGOAnnotationExamples_Class150017])
+	(text_example [ERGOAnnotationExamples_Class150022]))
+
+([ERGOAnnotationExamples_Class150022] of  Textual+Temporal+Expression
+
+	(criterion-sentence "(2) CHD, including CHD risk factors"))
+
+([ERGOAnnotationExamples_Class150024] of  Primitive_Noun_Phrase
+
+	(code "C0242339")
+	(code_system UMLS)
+	(preferred_name "Dyslipidemia"))
 
 ([ERGOAnnotationExamples_Class16] of  Time_Interval_Comparison_Constraint
 
@@ -265,9 +622,10 @@
 
 	(preferred_name "LVEF"))
 
-([ERGOAnnotationExamples_Class40028] of  Value_Constraint
+([ERGOAnnotationExamples_Class40028] of  Numeric_Value_Constraint
 
-	(upper_bound [ERGOAnnotationExamples_Class40029]))
+	(upper_bound [ERGOAnnotationExamples_Class40029])
+	(upper_bound_closed FALSE))
 
 ([ERGOAnnotationExamples_Class40029] of  Physical_Quantity
 
@@ -323,8 +681,8 @@
 ([ERGOAnnotationExamples_Class50004] of  Compound_Constraint
 
 	(constraints
-		[ERGOAnnotationExamples_Class50005]
-		[ERGOAnnotationExamples_Class50008])
+		[ERGOAnnotationExamples_Class50008]
+		[ERGOAnnotationExamples_Class50005])
 	(logical_connector [Eligibility_Frame_Ideas_Instance_33]))
 
 ([ERGOAnnotationExamples_Class50005] of  Duration_Constraint
@@ -344,7 +702,7 @@
 ([ERGOAnnotationExamples_Class50008] of  Time_Interval_Comparison_Constraint
 
 	(interval [ERGOAnnotationExamples_Class50009])
-	(time_interval_comparator [ERGOAnnotationExamples_Class50001]))
+	(time_interval_comparator [Eligibility_Frame_IdeasSWT3_Instance_64]))
 
 ([ERGOAnnotationExamples_Class50009] of  Relative_Time_Interval
 
@@ -388,9 +746,6 @@
 ([ERGOAnnotationExamples_Class50017] of  Simple_Statement_Annotation
 
 	(augmented_noun_phrase [ERGOAnnotationExamples_Class50019]))
-
-([ERGOAnnotationExamples_Class50018] of  Primitive_Noun_Phrase
-)
 
 ([ERGOAnnotationExamples_Class50019] of  Context-Dependent_Noun_Phrase
 
@@ -438,6 +793,8 @@
 
 ([ERGOAnnotationExamples_Class50029] of  Example
 
+	(comment "Treatment that is ((More than 28 days since prior treatment) AND whose interval overlaps with another treatment)\nAND no treatment with another investigational drug while the patient is disease-free during study follow-up")
+	(ERGO_annotation [ERGOAnnotationExamples_Class110010])
 	(text_example [EliXR_wMultipleLevels_50criteria_Class194]))
 
 ([ERGOAnnotationExamples_Class6] of  Compound_Constraint
@@ -450,7 +807,7 @@
 ([ERGOAnnotationExamples_Class60000] of  Duration_Based_Frequency
 
 	(denominator [ERGOAnnotationExamples_Class40002])
-	(iteration_constraint [ERGOAnnotationExamples_Class70000])
+	(frequency_duration_unit [ERGOAnnotationExamples_Class100000])
 	(numerator [ERGOAnnotationExamples_Class14]))
 
 ([ERGOAnnotationExamples_Class7] of  Frequency_Constraint
@@ -474,7 +831,7 @@
 ([ERGOAnnotationExamples_Class70003] of  Duration_Based_Frequency
 
 	(denominator [ERGOAnnotationExamples_Class40002])
-	(iteration_constraint [ERGOAnnotationExamples_Class70000])
+	(frequency_duration_unit [ERGOAnnotationExamples_Class100000])
 	(numerator [ERGOAnnotationExamples_Class13]))
 
 ([ERGOAnnotationExamples_Class80000] of  Duration
@@ -501,8 +858,8 @@
 
 ([ERGOAnnotationExamples_Class90003] of  Constrained_Noun_Phrase
 
-	(augmented_noun_phrase [ERGOAnnotationExamples_Class90001])
-	(constraint_expression [ERGOAnnotationExamples_Class50022]))
+	(constraint_expression [ERGOAnnotationExamples_Class50022])
+	(noun_phrase [ERGOAnnotationExamples_Class50019]))
 
 ([ERGOAnnotationExamples_Class90004] of  Primitive_Noun_Phrase
 

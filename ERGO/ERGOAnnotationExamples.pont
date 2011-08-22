@@ -1,4 +1,4 @@
-; Fri Aug 05 16:10:34 GMT 2011
+; Mon Aug 22 14:33:29 PDT 2011
 ; 
 ;+ (version "3.4.7")
 ;+ (build "Build 620")
@@ -7,10 +7,6 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot comment
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot text_example
 		(type INSTANCE)
 ;+		(allowed-classes Textual+Temporal+Expression)
@@ -20,6 +16,21 @@
 		(type INSTANCE)
 ;+		(allowed-classes Generalized_ERGO_Annotation)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot iteration_constraint
+;+		(type ANY)
+		(create-accessor read-write))
+	(single-slot comment
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Culture_Result
+	(is-a Value_Set)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Example
