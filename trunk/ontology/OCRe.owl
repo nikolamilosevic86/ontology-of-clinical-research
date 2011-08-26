@@ -6,20 +6,20 @@
     <!ENTITY ontologies "http://purl.org/net/OCRe/" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
-    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
     <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
-    <!ENTITY dctype "http://purl.org/dc/dcmitype/Image" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY dctype "http://purl.org/dc/dcmitype/Image" >
     <!ENTITY owlapi "http://www.semanticweb.org/owlapi#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY OCRe_ext "http://purl.org/net/OCRe/OCRe_ext.owl#" >
-    <!ENTITY fma3 "http://sig.biostr.washington.edu/fma3.0#" >
-    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
     <!ENTITY study_protocol2 "http://purl.org/net/OCRe/study_protocol#" >
+    <!ENTITY statistics "http://purl.org/net/OCRe/statistics.owl#" >
+    <!ENTITY fma3 "http://sig.biostr.washington.edu/fma3.0#" >
     <!ENTITY study_design "http://purl.org/net/OCRe/study_design.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY study_protocol "http://purl.org/net/OCRe/study_protocol.owl#" >
@@ -31,30 +31,30 @@
 
 <rdf:RDF xmlns="&ontologies;OCRe.owl#"
      xml:base="&ontologies;OCRe.owl"
-     xmlns:study_protocol2="&ontologies;study_protocol#"
      xmlns:OCRe_ext="&ontologies;OCRe_ext.owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:fma3="http://sig.biostr.washington.edu/fma3.0#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:study_design="&ontologies;study_design.owl#"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:owlapi="http://www.semanticweb.org/owlapi#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
-     xmlns:obo="http://purl.obolibrary.org/obo/"
-     xmlns:p1="&obo;iao/dev/ontology-metadata.owl#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
-     xmlns:study_protocol="&ontologies;study_protocol.owl#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:statistics="&ontologies;statistics.owl#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ontologies="http://purl.org/net/OCRe/"
-     xmlns:dctype="http://purl.org/dc/dcmitype/Image">
+     xmlns:p1="&obo;iao/dev/ontology-metadata.owl#"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:statistics="&ontologies;statistics.owl#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:study_protocol="&ontologies;study_protocol.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:fma3="http://sig.biostr.washington.edu/fma3.0#"
+     xmlns:study_protocol2="&ontologies;study_protocol#"
+     xmlns:owlapi="http://www.semanticweb.org/owlapi#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:study_design="&ontologies;study_design.owl#"
+     xmlns:dctype="http://purl.org/dc/dcmitype/Image"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
     <owl:Ontology rdf:about="&ontologies;OCRe.owl">
         <rdfs:comment rdf:datatype="&xsd;string">An ontology for the planning, execution and analysis of clinical research including logitudinal studies and clinical trials. This is designed to be used in conjunction with domain specific models of diseases and measurements which conform to the shared ontology of clinical concepts to provide specific models of studies and trials.</rdfs:comment>
         <owl:versionInfo rdf:datatype="&xsd;string">Revision 197</owl:versionInfo>
@@ -74,17 +74,17 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&ontologies;OCRe.owl#has_code"/>
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#curator"/>
-    <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     
 
 
@@ -140,7 +140,7 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE500004 -->
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE500004">
-        <rdfs:label rdf:datatype="&xsd;string">has_participant</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has participant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -724,14 +724,6 @@
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900069">
         <rdfs:label rdf:datatype="&xsd;string">part of</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">A component of is a &quot;part-whole&quot; relationship with another component. The component can either be an entity or an event.</statistics:definition>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -740,6 +732,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -826,8 +826,8 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE900077">
         <rdfs:label rdf:datatype="&xsd;string">derives</rdfs:label>
-        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE900075"/>
     </owl:ObjectProperty>
     
@@ -1373,7 +1373,6 @@
         <rdfs:label rdf:datatype="&xsd;string">has recruitment status</rdfs:label>
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400029"/>
-        <rdfs:subPropertyOf rdf:resource="&ontologies;OCRe.owl#OCRE890531"/>
     </owl:ObjectProperty>
     
 
@@ -2098,12 +2097,30 @@ The preferred name of a term in a coding system</obo:IAO_0000115>
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE001000 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE001000">
-        <rdfs:label rdf:datatype="&xsd;string">Active</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study active</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400000"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400006"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400053"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE824000"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE908000"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study that has been approved by the relevant regulatory agency (if applicable) and for which protocol-dictated activities are occurring.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE261000 -->
+
+    <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE261000">
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment will not start</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants will not be recruited, because the study is withdrawn.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -2121,11 +2138,11 @@ The preferred name of a term in a coding system</obo:IAO_0000115>
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400000 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400000">
-        <rdfs:label rdf:datatype="&xsd;string">Planned</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study planned</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400007"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400006"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400053"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400077"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE824000"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE908000"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in the planning stage: protocol is being developed and has not yet been submitted for regulatory approval (if applicable).</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -2161,7 +2178,7 @@ The preferred name of a term in a coding system</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Recruitment status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400010"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The recruitment status describes the overall accrual activity for the study.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The recruitment status describes the overall accrual (enrollment) activity for the study.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -2194,17 +2211,12 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400006 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400006">
-        <rdfs:label rdf:datatype="&xsd;string">Withdrawn</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study withdrawn</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400045"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400062"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400053"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE824000"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE908000"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study halted prematurely, prior to enrollment of first participant.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -2214,8 +2226,7 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400007">
         <rdfs:label rdf:datatype="&xsd;string">Follow-up</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400053"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE838035"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400077"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which participants are no longer being enrolled or treated, but only followed-up (i.e., last patient in has happened, while last patient&#39;s last visit has not yet occurred).</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -2333,16 +2344,14 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400016 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400016">
-        <rdfs:label rdf:datatype="&xsd;string">Recruiting</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment active</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400045"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400062"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are currently being recruited. </obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definition for Overall recruitment status Recruiting. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -2462,14 +2471,14 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900068"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900069"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol.owl#OCRE300012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900069"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;study_protocol.owl#OCRE300012"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900068"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variables whose data are collected in the study.</obo:IAO_0000115>
@@ -2491,14 +2500,12 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400030 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400030">
-        <rdfs:label rdf:datatype="&xsd;string">Completed recruiting</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment completed</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400045"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400062"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that has concluded recruitment (i.e., last patient in has occurred)</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that has concluded recruitment as planned (i.e., last patient in has occurred)</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -2586,14 +2593,14 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400041"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900094"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE859291"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900090"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900090"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900094"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE859291"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A phenomenon is a fact or event of interest susceptible to scientific description and explanation</obo:IAO_0000115>
@@ -2686,10 +2693,8 @@ Examples: the life of an organism, the process of sleeping, the process of cell-
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400045">
         <rdfs:label rdf:datatype="&xsd;string">Active not recruiting</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE838035"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400062"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study that is ongoing (i.e., patients are being treated or examined), but in which participants are not currently being recruited or enrolled.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
@@ -2769,14 +2774,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
-                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900041"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400002"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900223"/>
+                <owl:allValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">Method for assessing an outcome, such as a questionnaire or laboratory test.</obo:IAO_0000115>
@@ -2792,14 +2797,14 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900081"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400049"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900060"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400078"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A description of the variable whose values are the quantitative or enumerable data collected in a study</obo:IAO_0000115>
@@ -2887,9 +2892,9 @@ Examples: blood chemistry panel, body mass index calculation, blood pressure mea
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400053 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400053">
-        <rdfs:label rdf:datatype="&xsd;string">Completed</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study completed</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400077"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE824000"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE908000"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A study status applied to a study in which all data has been collected (last patient&#39;s last visit has occurred) and the analysis performed. Results may or may not have been published.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -3028,9 +3033,7 @@ In HL7 datatype specification CV constrains CE so that there can be neither qual
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400062">
         <rdfs:label rdf:datatype="&xsd;string">Enrolling by invitation</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
-        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE838035"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are being (or will be) selected from a predetermined population</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
@@ -3100,12 +3103,12 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400068 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400068">
-        <rdfs:label rdf:datatype="&xsd;string">Terminated</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment terminated</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400073"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely and will not resume; participants are no longer being examined or treated.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely and will not resume.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definition Overall recruitment status Terminated (only the part pertaining enrollment). Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -3196,12 +3199,6 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900010"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
             </owl:Restriction>
@@ -3210,6 +3207,12 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;statistics.owl#OCRE900011"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3227,11 +3230,11 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400073 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400073">
-        <rdfs:label rdf:datatype="&xsd;string">Not yet recruiting</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment not yet started</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE400075"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which participants are not yet being recruited. </obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definition for Overall recruitment status Not yet recruiting. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -3251,10 +3254,10 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400075 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400075">
-        <rdfs:label rdf:datatype="&xsd;string">Suspended recruiting</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment suspended</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400003"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A recruitment status applied to a study for which recruiting or enrolling participants has halted prematurely but potentially will resume.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definitions. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">ClinicalTrials.gov Protocol Data Element Definition for Overall recruitment status Suspended. Available at http://prsinfo.clinicaltrials.gov/definitions.html</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -3274,7 +3277,7 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE400077">
         <rdfs:label rdf:datatype="&xsd;string">Hold</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE838035"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A status applied to a study for which protocol-dictated activities have halted prematurely but potentially will resume.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
@@ -3512,6 +3515,18 @@ Funding from pharmaceutical, device or biotechnology companies, the US NIH or th
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE824000 -->
+
+    <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE824000">
+        <rdfs:label rdf:datatype="&xsd;string">Study suspended</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
+        <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE908000"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A status applied to a study for which protocol-dictated activities have halted prematurely but potentially will resume.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE838035 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE838035">
@@ -3524,7 +3539,7 @@ Funding from pharmaceutical, device or biotechnology companies, the US NIH or th
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE851591">
         <rdfs:label rdf:datatype="&xsd;string">On going</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
+        <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE838035"/>
     </owl:Class>
     
 
@@ -3556,7 +3571,7 @@ Funding from pharmaceutical, device or biotechnology companies, the US NIH or th
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE908000 -->
 
     <owl:Class rdf:about="&ontologies;OCRe.owl#OCRE908000">
-        <rdfs:label rdf:datatype="&xsd;string">Stopped</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Study terminated</rdfs:label>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400074"/>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A status applied to a study for which protocol-dictated activities have halted prematurely and will not resume.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -3567,9 +3582,6 @@ Funding from pharmaceutical, device or biotechnology companies, the US NIH or th
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280 -->
 
     <owl:Class rdf:about="&ontologies;OCRe_ext.owl#OCRE546280"/>
-    
-
-
     
 
 
@@ -4185,16 +4197,16 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="&ontologies;statistics.owl#OCRE200002">
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
-    </rdf:Description>
     <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant">
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A continuant [snap:Continuant] that is dependent on one or other independent continuant [snap:IndependentContinuant] bearers. For every instance of A requires some instance of (an independent continuant [snap:IndependentContinuant] type) B but which instance of B serves can change from time to time.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">http://biomedgt.nci.nih.gov/wiki/index.php/Category:BFO_generically_dependent_continuant(GenericallyDependentContinuant)</obo:IAO_0000119>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ontologies;statistics.owl#OCRE200002">
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
 
