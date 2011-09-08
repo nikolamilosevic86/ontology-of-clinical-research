@@ -183,6 +183,17 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE838502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE838502">
+        <rdfs:label>has planned component relationship</rdfs:label>
+        <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300010"/>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE850272 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE850272">
@@ -254,7 +265,7 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE843670">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">sequence_number</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has sequence number</rdfs:label>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
