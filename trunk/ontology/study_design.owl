@@ -1390,6 +1390,19 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study is an observational study in which a defined group of people (the cohort) is followed over time. The outcomes of people in subsets of this cohort are compared, to examine people who were exposed or not exposed (or exposed at different levels) to a particular intervention or other factor of interest. A prospective cohort study assembles participants and follows them into the future. A retrospective (or historical) cohort study identifies subjects from past records and follows them from the time of those records to the present. </obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at: http://www.cochrane.org/glossary</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <rdfs:comment>The DL definiition of cohort study design says that a cohort study design has the characteristics &quot;Main control group defined by exposure status&quot; and &quot;outcome measured after measurement of predictors.&quot;
+
+A study design involves identification of factor variables and outcome variables. Factor variables are measured before the measurement of outcome variables. 
+
+Let C be a member of the control groups of a study S
+Let SA be the set of statistical analysis of S
+Let F(sa) be the independent variables of a statistical analysis sa in SA
+Let O(sa) be the set of dependent variables of sa
+S has &#39;cohort study design&quot; if and only if
+
+For all sa in SA, 
+There exists times t1 &lt; t2 such that
+there exists f in F(sa) such that for all c in C, f is measured at time t1 and f(c) = constant AND for all o in O(sa), o is measured at t2</rdfs:comment>
     </owl:Class>
     
 
