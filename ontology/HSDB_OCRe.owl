@@ -278,14 +278,6 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400005 -->
-
-    <rdf:Description rdf:about="&ocre;OCRE400005">
-        <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE877903"/>
-    </rdf:Description>
-    
-
-
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400010 -->
 
     <owl:Class rdf:about="&ocre;OCRE400010"/>
@@ -295,17 +287,6 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400014 -->
 
     <owl:Class rdf:about="&ocre;OCRE400014">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ocre;OCRE400040"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ocre;OCRE901008"/>
-                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400005"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <export_annotations_def:OCRE511666 rdf:resource="http://purl.org/net/OCRe/HSDB_OCRe.owl#OCRE521226"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE901008"/>
     </owl:Class>
@@ -315,17 +296,6 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400029 -->
 
     <owl:Class rdf:about="&ocre;OCRE400029">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ocre;OCRE400032"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ocre;OCRE901006"/>
-                        <owl:someValuesFrom rdf:resource="&ocre;OCRE400076"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE529106"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE535519"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE820850"/>
@@ -347,21 +317,6 @@
     <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400039 -->
 
     <owl:Class rdf:about="&ocre;OCRE400039">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ocre;OCRE400040"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ocre;OCRE744000"/>
-                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ocre;OCRE885000"/>
-                        <owl:someValuesFrom rdf:resource="&xsd;string"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <export_annotations_def:OCRE511666 rdf:resource="http://purl.org/net/OCRe/HSDB_OCRe.owl#OCRE521226"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE744000"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE885000"/>
@@ -394,17 +349,6 @@
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900060"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900082"/>
         <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900224"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400076 -->
-
-    <rdf:Description rdf:about="&ocre;OCRE400076">
-        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900225"/>
-        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900226"/>
-        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE901003"/>
-        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE901005"/>
     </rdf:Description>
     
 
@@ -453,6 +397,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description rdf:about="&ocre;OCRE400005">
+        <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE877903"/>
+    </rdf:Description>
     <rdf:Description rdf:about="&OCRe_ext;OCRE534000">
         <export_annotations_def:OCRE511666 rdf:resource="http://purl.org/net/OCRe/HSDB_OCRe.owl#OCRE521226"/>
         <export_annotations_def:OCRE566765 rdf:resource="&OCRe_ext;OCRE546280"/>
@@ -562,10 +509,10 @@
     <rdf:Description rdf:about="&ocre;OCRE364000">
         <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE877903"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&study_design;OCRE100051">
+    <rdf:Description rdf:about="&study_design;OCRE100000">
         <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE893499"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&study_design;OCRE100000">
+    <rdf:Description rdf:about="&study_design;OCRE100051">
         <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE893499"/>
     </rdf:Description>
     <rdf:Description rdf:about="&p2;OCRE300001">
@@ -600,6 +547,12 @@
     <rdf:Description rdf:about="&p2;OCRE300009">
         <OCRE875514 rdf:resource="&ocre;OCRE817858"/>
         <OCRE875514 rdf:resource="&p2;OCRE300006"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&ocre;OCRE400076">
+        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900225"/>
+        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE900226"/>
+        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE901003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="&ocre;OCRE901005"/>
     </rdf:Description>
     <rdf:Description rdf:about="&study_design;OCRE100045">
         <export_annotations_def:OCRE826078 rdf:resource="&OCRe_ext;OCRE893499"/>
