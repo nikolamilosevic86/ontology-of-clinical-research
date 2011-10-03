@@ -96,7 +96,7 @@
 
     <owl:ObjectProperty rdf:about="&study_protocol;OCRE885707">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">is_divided_into</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">is divided into</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
         <owl:inverseOf rdf:resource="&study_protocol;OCRE891072"/>
         <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300012"/>
@@ -117,7 +117,7 @@
 
     <owl:ObjectProperty rdf:about="&study_protocol;OCRE891072">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">is_a_division_of</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">is a division of</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
         <rdfs:range rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300012"/>
         <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
@@ -137,7 +137,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE803152">
         <rdfs:label rdf:datatype="&xsd;string">dose</rdfs:label>
-        <rdfs:range rdf:resource="&OCRe;OCRE817858"/>
+        <rdfs:domain rdf:resource="&OCRe;OCRE817858"/>
         <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
     </owl:ObjectProperty>
     
@@ -155,8 +155,8 @@
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE821578 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821578">
-        <rdfs:label rdf:datatype="&xsd;string">daily_dose_total</rdfs:label>
-        <rdfs:range rdf:resource="&OCRe;OCRE817858"/>
+        <rdfs:label rdf:datatype="&xsd;string">daily dose total</rdfs:label>
+        <rdfs:domain rdf:resource="&OCRe;OCRE817858"/>
         <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
     </owl:ObjectProperty>
     
@@ -165,7 +165,7 @@
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE821724 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821724">
-        <rdfs:label rdf:datatype="&xsd;string">dose_frequency_code</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">dose frequency code</rdfs:label>
         <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
         <rdfs:domain rdf:resource="&OCRe;OCRE817858"/>
         <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
@@ -235,8 +235,9 @@
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE884480 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE884480">
-        <rdfs:label rdf:datatype="&xsd;string">route_of_administration</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">route of administration</rdfs:label>
         <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
+        <rdfs:domain rdf:resource="&OCRe;OCRE817858"/>
         <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
     </owl:ObjectProperty>
     
@@ -266,6 +267,7 @@
     <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE843670">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has sequence number</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300010"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
@@ -275,7 +277,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE892702">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label rdf:datatype="&xsd;string">repeat_quantity</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">repeat quantity</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
         <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
