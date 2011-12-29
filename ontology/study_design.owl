@@ -161,7 +161,6 @@ Examples:
     <owl:DatatypeProperty rdf:about="&study_design;OCRE900005">
         <rdfs:label rdf:datatype="&xsd;string">has matching</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
-        <study_protocol:develop_comment rdf:datatype="&xsd;string">Note: this descriptor does not apply to Case-crossover studies.</study_protocol:develop_comment>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">[In a case-control study:] Choosing one or more controls with particular matching attributes for each case. Researchers match cases and controls according to particular variables that are thought to be important, such as age and sex.
 
@@ -193,17 +192,6 @@ In cohort and cross-sectional studies, matching is done for analysis.</obo:IAO_0
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100000 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100000">
-        <rdfs:label rdf:datatype="&xsd;string">Measure of case frequency</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Measure of case frequency is incidence or prevalence</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
     
 
 
@@ -247,7 +235,7 @@ In cohort and cross-sectional studies, matching is done for analysis.</obo:IAO_0
         <rdfs:label rdf:datatype="&xsd;string">Nested</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100022"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100062"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Cases and controls (or exposed and unexposed) are drawn from the same study cohort/sample.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -351,19 +339,6 @@ In cohort and cross-sectional studies, matching is done for analysis.</obo:IAO_0
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100010 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100010">
-        <rdfs:label rdf:datatype="&xsd;string">Incidence</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100000"/>
-        <owl:disjointWith rdf:resource="&study_design;OCRE100017"/>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Incidence is the number of new occurrences of something in a population over a particular period of time, e.g. the number of cases of a disease in a country over one year. </obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100011 -->
 
     <owl:Class rdf:about="&study_design;OCRE100011">
@@ -396,11 +371,13 @@ An equivalence trial is designed to determine whether the response to two or mor
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100013 -->
 
     <owl:Class rdf:about="&study_design;OCRE100013">
-        <rdfs:label rdf:datatype="&xsd;string">Main control group defined by exposure status</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
+        <rdfs:label rdf:datatype="&xsd;string">Experimental unit selection based on predictor variable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&study_design;OCRE942000"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100079"/>
+        <owl:disjointWith rdf:resource="&study_design;OCRE498000"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main variable on which the selection of experimental units is based is a predictor variable. 
+In this study, prospective inference occurs, i.e., from exposure to outcome.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the exposure status.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -458,18 +435,6 @@ The simplest case-crossover design is closely analogous to a traditional matched
         <owl:disjointWith rdf:resource="&study_design;OCRE100070"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The concept of phase is not applicable to trials studying certain interventions (e.g., device, procedure, behavioral)</obo:IAO_0000115>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100017 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100017">
-        <rdfs:label rdf:datatype="&xsd;string">Prevalence</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100000"/>
-        <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Prevalence is the proportion of a population having a particular condition or characteristic: e.g. the percentage of people in a city with a particular disease, or who smoke.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -576,8 +541,8 @@ Regimens are assigned to and data are analyzed within more than one experimental
         <rdfs:label rdf:datatype="&xsd;string">Control group type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000232 rdf:datatype="&xsd;string">Simona: need to review hierarchy</obo:IAO_0000232>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether cases and controls (or exposed and unexposed) are drawn from the same cohort/sample.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether cases and controls (or exposed and unexposed) are drawn from the same study cohort/sample.
+Not applicable to case-crossover studies.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -588,7 +553,7 @@ Regimens are assigned to and data are analyzed within more than one experimental
         <rdfs:label rdf:datatype="&xsd;string">Prospective</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100060"/>
         <owl:disjointWith rdf:resource="&study_design;OCRE100087"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which not all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which outcomes occurred after the start of the study.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -837,11 +802,7 @@ The concept of phase is not applicable to trials studying certain interventions 
                     <rdf:Description rdf:about="&study_design;OCRE100055"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&OCRe;OCRE900001"/>
-                        <owl:someValuesFrom rdf:resource="&study_design;OCRE100013"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE900001"/>
-                        <owl:someValuesFrom rdf:resource="&study_design;OCRE100054"/>
+                        <owl:someValuesFrom rdf:resource="&study_design;OCRE498000"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -991,29 +952,6 @@ The concept of phase is not applicable to trials studying certain interventions 
     
 
 
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100050 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100050">
-        <rdfs:label rdf:datatype="&xsd;string">Outcome measured after measurement of predictors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100051"/>
-        <owl:disjointWith rdf:resource="&study_design;OCRE100054"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a cohort study, the study outcome is measured after the measurement of predictors</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100051 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100051">
-        <rdfs:label rdf:datatype="&xsd;string">Timing of outcome measurement</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Whether outcome is measured after or at the same time as predictors.</obo:IAO_0000115>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100052 -->
 
     <owl:Class rdf:about="&study_design;OCRE100052">
@@ -1045,17 +983,6 @@ A study in which an individual acts has his/her own comparison does not fall int
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100045"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The care provider does not know to which treatment group a particular participant belongs</obo:IAO_0000115>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100054 -->
-
-    <owl:Class rdf:about="&study_design;OCRE100054">
-        <rdfs:label rdf:datatype="&xsd;string">Outcome measured at the same time as predictors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100051"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a cross-sectional study, the study outcome is measured at the same time as predictors</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
 
@@ -1119,9 +1046,9 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100059 -->
 
     <owl:Class rdf:about="&study_design;OCRE100059">
-        <rdfs:label rdf:datatype="&xsd;string">Main control group definition</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Comparison of experimental units with the main outcome</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main control group may be defined by case status or by exposure status.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In a retrospective observational study (i.e., an observational study where the main variable on which experimental units selection is based is an outcome variable), experimental units with the same outcome (cases) can be compared to themselves or to other experimental units (controls). </obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1130,10 +1057,10 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100060 -->
 
     <owl:Class rdf:about="&study_design;OCRE100060">
-        <rdfs:label rdf:datatype="&xsd;string">Assessment completed before or after study start</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">Outcomes occurred before or after study start</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">Have outcomes occurred before the study start? If yes, the cohort study is historical; if no, the cohort study is prospective.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">Were all assessment of case status and predictors completed before the start of the study? (yes [historical], no [prospective]). Applies only to cohort studies.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1380,10 +1307,6 @@ For other definitions, see http://www.google.com/search?hl=en&amp;client=safari&
                         <owl:onProperty rdf:resource="&OCRe;OCRE900001"/>
                         <owl:someValuesFrom rdf:resource="&study_design;OCRE100013"/>
                     </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&OCRe;OCRE900001"/>
-                        <owl:someValuesFrom rdf:resource="&study_design;OCRE100050"/>
-                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -1410,10 +1333,12 @@ there exists f in F(sa) such that for all c in C, f is measured at time t1 and f
     <!-- http://purl.org/net/OCRe/study_design.owl#OCRE100079 -->
 
     <owl:Class rdf:about="&study_design;OCRE100079">
-        <rdfs:label rdf:datatype="&xsd;string">Main control group defined by case status</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&study_design;OCRE100059"/>
+        <rdfs:label rdf:datatype="&xsd;string">Experimental unit selection based on outcome variable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&study_design;OCRE942000"/>
+        <owl:disjointWith rdf:resource="&study_design;OCRE498000"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main variable on which the selection of experimental units is based is an outcome variable. 
+In this study, retrospectie inference occurs, i.e., from outcome to exposure.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The main control group in an observational study is defined by the case status.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -1510,7 +1435,7 @@ there exists f in F(sa) such that for all c in C, f is measured at time t1 and f
     <owl:Class rdf:about="&study_design;OCRE100087">
         <rdfs:label rdf:datatype="&xsd;string">Historical</rdfs:label>
         <rdfs:subClassOf rdf:resource="&study_design;OCRE100060"/>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which all assessment of case status and predictors are completed before the start of the study.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">A cohort study in which outcomes occurred before the start of the study.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
@@ -1545,6 +1470,44 @@ there exists f in F(sa) such that for all c in C, f is measured at time t1 and f
 
 Example: in a factorial-design study where regimens of interventions A and B are tested, the 4 possible combinations are: A, B, A and B, neither  A nor B (placebo).</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Glossary in The Cochrane Collaboration. Available at http://www.cochrane.org/glossary</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE498000 -->
+
+    <owl:Class rdf:about="&study_design;OCRE498000">
+        <rdfs:label rdf:datatype="&xsd;string">Experimental unit selection based on neither outcome nor predictor variable</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&study_design;OCRE942000"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&study_design;OCRE100013"/>
+                                    <rdf:Description rdf:about="&study_design;OCRE100079"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main varibale on which the selection of experimental units is based is neither an outcome nor an exposure variable. </obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_design.owl#OCRE942000 -->
+
+    <owl:Class rdf:about="&study_design;OCRE942000">
+        <rdfs:label rdf:datatype="&xsd;string">Main variable on which experimental unit selection is based</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&study_design;OCRE100005"/>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">In an observational study, the main variable on which the selection of experimental units is based can be an outcome variable, a predictor variable, or a variable that is neither an outcome nor a predictor one.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
     </owl:Class>
     
