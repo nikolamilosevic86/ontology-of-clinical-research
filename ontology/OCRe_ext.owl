@@ -501,6 +501,25 @@
     
 
 
+    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE441000 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE441000">
+        <rdfs:label rdf:datatype="&xsd;string">Recruitment not active</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ocre;OCRE400003"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&ocre;OCRE400016"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ocre;OCRE400003"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000">
