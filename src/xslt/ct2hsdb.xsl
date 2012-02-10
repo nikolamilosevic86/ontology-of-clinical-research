@@ -366,6 +366,22 @@
     </xsl:template>
     
     <xsl:template name="ocreEmitOutcomeVariables">
+        <!-- @TODO
+        <xsl:for-each select="matches(.,'[primsecond]*ary_outcome')">
+            <xsl:element name="KBOutcomeVariable">
+                <xsl:element name="EffectiveTime">
+                    <xsl:element name="Description">
+                        <xsl:value-of select="time_frame"/>
+                    </xsl:element>
+                </xsl:element>
+                <xsl:element name="Name">
+                    <xsl:value-of select="measure"/>
+                </xsl:element>
+                <xsl:element name="Priority">primary</xsl:element>
+            </xsl:element>
+        </xsl:for-each>
+        -->
+        
         <xsl:for-each select="primary_outcome">
             <xsl:element name="OutcomeVariable">
                 <xsl:element name="EffectiveTime">
@@ -458,7 +474,8 @@
         </xsl:for-each>
     </xsl:template>
     
-    <!-- StudyDesignType="Case-crossover study design"   - when ct.gov study_design has Observational Model: Case-Crossover
+    <!-- StudyDesignType=no StudyDesign emitted          - when study_type is Expanded Access
+                        |"Case-crossover study design"   - when ct.gov study_design has Observational Model: Case-Crossover
                         |"Parallel group study design"   - when ct.gov study_design has Intervention Model: Parallel Assignment
                         |"Parallel group study design"   - when ct.gov study_design has Intervention Model: Factorial Assignment
                         |"Crossover study design"        - when ct.gov study_design has Intervention Model: Crossover Assignment
@@ -471,82 +488,82 @@
                         |"Qualitative study design"      - never from ct.gov clinical_study
                         |"Observational study design"    - when none of above, and ct.gov study_type is Observational
                         |"Interventional study design"   - when none of above, and ct.gov study_type is Interventional
-        
     -->
     <xsl:template name="ocreEmitStudyDesign">
+        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(study_design))"/>
+        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(study_type))"/>
         
-        <xsl:variable name="ctStudyDesign" select="study_design"/>
-        <xsl:variable name="ctStudyType" select="study_type"/>
-        
-        <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not within attribute values. -->
-        <!-- Assume the CT.gov study_design xsd:string will contain only one of {Observational Model, Intervention Model, Time Perspective} -->
-        <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
-        <xsl:element name="StudyDesign">
-            <xsl:choose>
-                <xsl:when test="contains(lower-case($ctStudyDesign),lower-case('Observational Model')) or
-                    contains(lower-case($ctStudyDesign),lower-case('Intervention Model')) or
-                    contains(lower-case($ctStudyDesign),lower-case('Time Perspective'))">
-                    <xsl:for-each select="tokenize($ctStudyDesign,',')">
-                        <xsl:variable name="ctStudyDesignKeyValue" select="tokenize(.,':')"/>
-                        <xsl:variable name="ctStudyDesignKey" select="lower-case(normalize-space($ctStudyDesignKeyValue[1]))"/>
-                        <xsl:variable name="ctStudyDesignValue" select="lower-case(normalize-space($ctStudyDesignKeyValue[2]))"/>
-                        <xsl:choose>
-                            <xsl:when test="$ctStudyDesignKey = lower-case('Observational Model')">
-                                <xsl:choose>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Case-Crossover')">Case-crossover study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Cohort')">Cohort study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Case Control')">Case-control study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or community studies')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Family-based')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('other')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
-                                        <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                        <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                            <xsl:when test="$ctStudyDesignKey = lower-case('Intervention Model')">
-                                <xsl:choose>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Parallel Assignment')">Parallel group study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Factorial Assignment')">Parallel group study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Crossover Assignment')">Crossover study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Single Group Assignment')">Single group study design</xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
-                                        <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                        <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                            <xsl:when test="$ctStudyDesignKey = lower-case('Time Perspective')">
-                                <xsl:choose>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Cross-Sectional')">Cross-sectional study design</xsl:when>
-                                    <xsl:otherwise>
-                                        <!-- Don't put out a warning for values of Time Perspective we recognize from http://prsinfo.clinicaltrials.gov/definitions.html but
-                                             do not choose to map to a distinct HSDB value 
-                                        -->
-                                        <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and
-                                                      $ctStudyDesignValue != lower-case('Retrospective') and
-                                                      $ctStudyDesignValue != lower-case('Other')">
+        <!-- Do not emit the tag for certain recognized values of study_type -->
+        <xsl:if test="$ctStudyType != 'expanded access'">
+            <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not within attribute values. -->
+            <!-- Assume the CT.gov study_design xsd:string will contain only one of {Observational Model, Intervention Model, Time Perspective} -->
+            <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
+            <xsl:element name="StudyDesign">
+                <xsl:choose>
+                    <xsl:when test="contains($ctStudyDesign,lower-case('Observational Model')) or
+                        contains($ctStudyDesign,lower-case('Intervention Model')) or
+                        contains($ctStudyDesign,lower-case('Time Perspective'))">
+                        <xsl:for-each select="tokenize($ctStudyDesign,',')">
+                            <xsl:variable name="ctStudyDesignKeyValue" select="tokenize(.,':')"/>
+                            <xsl:variable name="ctStudyDesignKey" select="normalize-space($ctStudyDesignKeyValue[1])"/>
+                            <xsl:variable name="ctStudyDesignValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
+                            <xsl:choose>
+                                <xsl:when test="$ctStudyDesignKey = lower-case('Observational Model')">
+                                    <xsl:choose>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Case-Crossover')">Case-crossover study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Cohort')">Cohort study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Case Control')">Case-control study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or community studies')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Family-based')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('other')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
+                                        <xsl:otherwise>
                                             <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
                                             <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                        </xsl:if>
-                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                        <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                        </xsl:choose>
-                    </xsl:for-each>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:element>
+                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:when test="$ctStudyDesignKey = lower-case('Intervention Model')">
+                                    <xsl:choose>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Parallel Assignment')">Parallel group study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Factorial Assignment')">Parallel group study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Crossover Assignment')">Crossover study design</xsl:when>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Single Group Assignment')">Single group study design</xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
+                                            <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
+                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:when test="$ctStudyDesignKey = lower-case('Time Perspective')">
+                                    <xsl:choose>
+                                        <xsl:when test="$ctStudyDesignValue = lower-case('Cross-Sectional')">Cross-sectional study design</xsl:when>
+                                        <xsl:otherwise>
+                                            <!-- Don't put out a warning for values of Time Perspective we recognize from http://prsinfo.clinicaltrials.gov/definitions.html but
+                                             do not choose to map to a distinct HSDB value 
+                                        -->
+                                            <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and $ctStudyDesignValue != lower-case('Retrospective') and $ctStudyDesignValue != lower-case('Other')">
+                                                <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
+                                                <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
+                                            </xsl:if>
+                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:when>
+                            </xsl:choose>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:element>
+        </xsl:if>
+            
     </xsl:template>
 
     <xsl:template name="ocreEmitStudyDesignFromStudyType">
@@ -651,45 +668,59 @@
         </xsl:call-template>
     </xsl:template>
     
+    <!-- RecruitmentStatus="Recruitment not yet started" - when ct.gov overall_status is 'not yet recruiting'
+                          |"Recruitment active"          - when ct.gov overall_status is 'recruiting'
+                          |"Recruitment suspended"       - when ct.gov overall_status is 'suspended'
+                          |"Recruitment will not start"  - when ct.gov overall_status is 'withdrawn'
+                          |"Recruitment terminated"      - never from ct.gov clinical_study
+                          |"Recruitment completed"       - never from ct.gov clinical_study
+    -->
     <xsl:template name="ocreEmitRecruitmentStatus">
         <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(overall_status))"/>
+        <!-- Do not emit the tag for certain recognized values of overall_status -->
+        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'completed'">
+            <xsl:element name="RecruitmentStatus">
             <xsl:choose>
-                <xsl:when test="$ctOverallStatus = 'suspended'">
-                    <xsl:element name="RecruitmentStatus">Recruitment suspended</xsl:element>
-                </xsl:when>
-                <xsl:when test="$ctOverallStatus = 'recruiting'">
-                    <xsl:element name="RecruitmentStatus">Recruitment active</xsl:element>
-                </xsl:when>
-                <xsl:when test="$ctOverallStatus = 'withdrawn'">
-                    <xsl:element name="RecruitmentStatus">Recruitment will not start</xsl:element>
-                </xsl:when>
-                <xsl:when test="$ctOverallStatus = 'not yet recruiting'">
-                    <xsl:element name="RecruitmentStatus">Recruitment not yet started</xsl:element>
-                </xsl:when>
-                <xsl:when test="$ctOverallStatus = 'completed'"/><!-- recognize value, but no output node -->
+                <xsl:when test="$ctOverallStatus = 'suspended'">Recruitment suspended</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'recruiting'">Recruitment active</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'withdrawn'">Recruitment will not start</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'not yet recruiting'">Recruitment not yet started</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Recruitment not active</xsl:when>
                 <xsl:otherwise>
                     <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/></xsl:variable>
                     <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
-                    <xsl:element name="RecruitmentStatus"><xsl:value-of select="$errMsg"/></xsl:element>
+                    <xsl:value-of select="$errMsg"/>
                 </xsl:otherwise>
             </xsl:choose>
+            </xsl:element>
+        </xsl:if>
     </xsl:template>
     
+    <!-- StudyStatus="Study completed"  - when ct.gov overall_status is 'completed'
+                    |"Study withdrawn"  - when ct.gov overall_status is 'withdrawn'
+                    |"Study active"     - when ct.gov overall_status is 'recruiting' or 'active, not recruiting'
+                    |"Study suspended"  - never from ct.gov clinical_study
+                    |"Study terminated" - never from ct.gov clinical_study
+                    |"Study planned"    - never from ct.gov clinical_study
+    -->
     <xsl:template name="ocreEmitStudyStatus">
         <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(overall_status))"/>
-        
+        <!-- Do not emit the tag for certain recognized values of overall_status -->
+        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'suspended' and $ctOverallStatus != 'not yet recruiting'">
+            <xsl:element name="StudyStatus">
             <xsl:choose>
-                <xsl:when test="$ctOverallStatus = 'completed'"><xsl:element name="StudyStatus">Study completed</xsl:element></xsl:when>
-                <xsl:when test="$ctOverallStatus = 'recruiting'"><xsl:element name="StudyStatus">Study active</xsl:element></xsl:when>
-                <xsl:when test="$ctOverallStatus = 'suspended'"/><!-- recognize value, but no output -->
-                <xsl:when test="$ctOverallStatus = 'withdrawn'"/><!-- recognize value, but no output -->
-                <xsl:when test="$ctOverallStatus = 'not yet recruiting'"/><!-- recognize value, but no output -->
+                <xsl:when test="$ctOverallStatus = 'completed'">Study completed</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'recruiting'">Study active</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'withdrawn'">Study withdrawn</xsl:when>
+                <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Study active</xsl:when>
                 <xsl:otherwise>
                     <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/></xsl:variable>
                     <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
-                    <xsl:element name="StudyStatus"><xsl:value-of select="$errMsg"/></xsl:element>
+                    <xsl:value-of select="$errMsg"/>
                 </xsl:otherwise>
             </xsl:choose>
+            </xsl:element>
+        </xsl:if>
         
     </xsl:template>
     
