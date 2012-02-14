@@ -75,8 +75,8 @@
      -->
 
     <owl:AnnotationProperty rdf:about="&ontologies;statistics.owl#definition"/>
-    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&owlapi;nodeID"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&ontologies;study_protocol.owl#develop_comment"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -471,7 +471,7 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE837473">
         <rdfs:label>is dependent variable of</rdfs:label>
-        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
@@ -501,6 +501,7 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;OCRe.owl#OCRE859845">
         <rdfs:label>is independent variable of</rdfs:label>
+        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
         <rdfs:subPropertyOf rdf:resource="&ontologies;statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
@@ -769,14 +770,6 @@
         <rdfs:label rdf:datatype="&xsd;string">has part</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">If C and C&apos; are entities or events, C has_part C&apos; if C&apos; is in &quot;part of&quot; relationship with C</statistics:definition>
         <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE900069"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -785,6 +778,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400004"/>
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400032"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1445,7 +1446,6 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#OCRE900010">
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
         <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE837473"/>
     </owl:ObjectProperty>
     
@@ -1456,7 +1456,6 @@
     <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#OCRE900011">
         <statistics:definition rdf:datatype="&xsd;string">Specifies that a Variable specification is an independent variable of an Outcome analysis specification</statistics:definition>
         <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-        <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
         <owl:inverseOf rdf:resource="&ontologies;OCRe.owl#OCRE859845"/>
     </owl:ObjectProperty>
     
@@ -1466,7 +1465,6 @@
 
     <owl:ObjectProperty rdf:about="&ontologies;statistics.owl#OCRE900026">
         <rdfs:domain rdf:resource="&ontologies;OCRe.owl#OCRE400050"/>
-        <rdfs:range rdf:resource="&ontologies;OCRe.owl#OCRE400072"/>
     </owl:ObjectProperty>
     
 
@@ -2203,20 +2201,6 @@ Note: arm population is defined only within the context of an interventional stu
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
-                        <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE898003"/>
@@ -2231,6 +2215,20 @@ Note: arm population is defined only within the context of an interventional stu
                         <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
                     </owl:Restriction>
                 </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
+                        <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400068"/>
+                    </owl:Restriction>
+                </owl:unionOf>
             </owl:Class>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&ontologies;OCRe.owl#OCRE386000"/>
@@ -3224,8 +3222,8 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="&ontologies;OCRe.owl#OCRE400059"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3242,8 +3240,8 @@ Any individual living (or previously living) being.</obo:IAO_0000115>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900079"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200061"/>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900080"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;statistics.owl#OCRE200053"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson</obo:IAO_0000117>
@@ -4394,6 +4392,45 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
      -->
 
     <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900216"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&ontologies;OCRe.owl#OCRE261000"/>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE890531"/>
+                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Class>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -4457,45 +4494,6 @@ Meta-analysis is the use of statistical techniques in a systematic review to int
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
                 <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400030"/>
-            </owl:Restriction>
-        </owl:intersectionOf>
-    </owl:Class>
-    <owl:Class>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE900216"/>
-                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE400016"/>
-            </owl:Restriction>
-        </owl:intersectionOf>
-    </owl:Class>
-    <owl:Class>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE901007"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:complementOf rdf:resource="&ontologies;OCRe.owl#OCRE261000"/>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="&ontologies;OCRe.owl#OCRE400029"/>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&ontologies;OCRe.owl#OCRE890531"/>
-                <owl:someValuesFrom rdf:resource="&ontologies;OCRe.owl#OCRE001000"/>
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
