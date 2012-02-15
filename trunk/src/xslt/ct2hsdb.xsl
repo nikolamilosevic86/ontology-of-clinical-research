@@ -86,12 +86,30 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd"
+    xmlns:hsdb-ct="http://anyOldStringForNowJustSoFunctionsHaveOwnNamespace"
     exclude-result-prefixes="xs"
     version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes" />
 
     <xsl:variable name="globalNctID" select="/clinical_study/id_info/nct_id"/>
 
+    <!-- Generate something for study types which we're not ready to handle yet.
+    -->
+    <xsl:template match="/clinical_study[lower-case(normalize-space(study_type)) = 'expanded access'] |
+                         /clinical_study[lower-case(normalize-space(study_type)) = 'n/a']">
+        <xsl:element name="Root">
+            <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
+            <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
+            <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance">http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd</xsl:attribute>
+            
+            <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: Mapping from CT.gov to HSDB not available for study_type <xsl:value-of select="study_type"/></xsl:variable>
+            <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
+            <xsl:element name="Study">
+                <xsl:comment><xsl:value-of select="$warnMsg"/></xsl:comment>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
     <!--
     Control the generated output using this top-level, imperatively programmed template so the
     output meets the sequence and cardinality specifications of the HSDB schema
@@ -99,7 +117,8 @@
     create valid output, using as much of the input as we have mapped, rather than directly
     transform the input into something else.
     -->
-    <xsl:template match="/clinical_study">
+    <xsl:template match="/clinical_study[lower-case(normalize-space(study_type)) = 'interventional'] |
+                         /clinical_study[lower-case(normalize-space(study_type)) = 'observational']">
         <xsl:element name="Root">
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
@@ -258,18 +277,27 @@
     </xsl:template>    
     
     <xsl:template name="ocreEmitSponsoringRelation">
-        <!--
-            <xsl:element name="SponsoringRelation"/>
-        -->
+        <xsl:for-each select="//clinical_study/sponsors/*">
+            <xsl:element name="SponsoringRelation">
+                <xsl:element name="Actor">
+                    <xsl:element name="Organization">
+                        <xsl:call-template name="ocreEmitOrganization">
+                            <xsl:with-param name="ctName">
+                                <xsl:value-of select="agency"/>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:element>
+                </xsl:element>
+                <xsl:element name="Priority">
+                    <xsl:if test="name(.)='lead_sponsor'">primary</xsl:if>
+                    <xsl:if test="name(.)='collaborator'">secondary</xsl:if>
+                </xsl:element>                    
+            </xsl:element>        
+        </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="ocreEmitDescriptionDate">
-        <xsl:element name="DescriptionDate">
-            <xsl:call-template name="ctDateStandardizer">
-                <xsl:with-param name="ctDateString">
-                    <xsl:value-of select="lastchanged_date"/>
-                </xsl:with-param>
-            </xsl:call-template>
+        <xsl:element name="DescriptionDate"><xsl:value-of select="hsdb-ct:ctDateStandardizer(lastchanged_date)"/>
         </xsl:element>
     </xsl:template>
 
@@ -339,21 +367,31 @@
     </xsl:template>
     
     <xsl:template name="ocreEmitIRB">
-        <!--
+        <!-- @CANNOTDO Cannot create IRB in HSDB using any values in CT.gov
             <xsl:element name="IRB"/>        
         -->
     </xsl:template>
     
     <xsl:template name="ocreEmitComparativeIntent">
-        <!--
+        <!-- @CANNOTDO Cannot create ComparativeIntent in HSDB using any values in CT.gov
             <xsl:element name="ComparativeIntent"/>        
         -->
     </xsl:template>
     
     <xsl:template name="ocreEmitFundingRelation">
-        <!--
-            <xsl:element name="FundingRelation"/>        
-        -->
+        <xsl:for-each select="//clinical_study/sponsors/*/agency">
+            <xsl:element name="FundingRelation">
+                <xsl:element name="Actor">
+                    <xsl:element name="Organization">
+                        <xsl:call-template name="ocreEmitOrganization">
+                            <xsl:with-param name="ctName">
+                                <xsl:value-of select="."/>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:element>
+                </xsl:element>
+            </xsl:element>        
+        </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="ocreEmitStudyProtocol">
@@ -366,23 +404,7 @@
     </xsl:template>
     
     <xsl:template name="ocreEmitOutcomeVariables">
-        <!-- @TODO
-        <xsl:for-each select="matches(.,'[primsecond]*ary_outcome')">
-            <xsl:element name="KBOutcomeVariable">
-                <xsl:element name="EffectiveTime">
-                    <xsl:element name="Description">
-                        <xsl:value-of select="time_frame"/>
-                    </xsl:element>
-                </xsl:element>
-                <xsl:element name="Name">
-                    <xsl:value-of select="measure"/>
-                </xsl:element>
-                <xsl:element name="Priority">primary</xsl:element>
-            </xsl:element>
-        </xsl:for-each>
-        -->
-        
-        <xsl:for-each select="primary_outcome">
+        <xsl:for-each select="primary_outcome | secondary_outcome">
             <xsl:element name="OutcomeVariable">
                 <xsl:element name="EffectiveTime">
                     <xsl:element name="Description">
@@ -392,26 +414,16 @@
                 <xsl:element name="Name">
                     <xsl:value-of select="measure"/>
                 </xsl:element>
-                <xsl:element name="Priority">primary</xsl:element>
-            </xsl:element>
-        </xsl:for-each>
-        <xsl:for-each select="secondary_outcome">
-            <xsl:element name="OutcomeVariable">
-                <xsl:element name="EffectiveTime">
-                    <xsl:element name="Description">
-                        <xsl:value-of select="time_frame"/>
-                    </xsl:element>
+                <xsl:element name="Priority">
+                    <xsl:if test=" matches(name(),'primary_outcome')">primary</xsl:if>
+                    <xsl:if test="matches(name(),'secondary_outcome')">secondary</xsl:if>
                 </xsl:element>
-                <xsl:element name="Name">
-                    <xsl:value-of select="measure"/>
-                </xsl:element>
-                <xsl:element name="Priority">secondary</xsl:element>
             </xsl:element>
         </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="ocreEmitFactorVariables">
-        <!--
+        <!-- @CANNOTDO Cannot create FactorVariable in HSDB using any values in CT.gov
         <xsl:element name="FactorVariable">
         </xsl:element>
         -->
@@ -419,17 +431,18 @@
     
     <xsl:template name="ocreEmitDividedInto">
         <xsl:element name="DividedInto">
-            <!-- @TODO: No mapping for creating EPOCH nodes yet, not sure what criteria will be... -->
+            <!-- since no epoch info mapped from ct.gov, just emit arms -->
+            <xsl:call-template name="ocreEmitArm"/>
+            <!-- @CANNOTDO Cannot create Epoch in HSDB using any values in CT.gov, so no need to choose
             <xsl:choose>
                 <xsl:when test="1 = 1">
                     <xsl:call-template name="ocreEmitArm"/>
                 </xsl:when>
-                <!-- @TODO: eliminate?
-                <xsl:when test="1 = 0">
+                 <xsl:when test="1 = 0">
                     <xsl:call-template name="ocreEmitEpoch"/>
                 </xsl:when>
-                -->
             </xsl:choose>
+            -->
         </xsl:element>
     </xsl:template>
 
@@ -453,20 +466,18 @@
         <xsl:for-each select="../../intervention[arm_group_label=$ctArmGroupLabel]">
             <xsl:element name="Contains">
                 <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">
-                    <xsl:call-template name="ct2HSDBInterventionTypeMap">
-                        <xsl:with-param name="ctInterventionType">
-                            <xsl:value-of select="intervention_type"/>
-                        </xsl:with-param>
-                    </xsl:call-template>
+                    <xsl:value-of select="hsdb-ct:ct2HSDBInterventionTypeMap(intervention_type)"/>
                 </xsl:attribute>
                 <xsl:element name="EffectiveTime">
                     <xsl:element name="Description">
                         <xsl:value-of select="description"/>
                     </xsl:element>
                 </xsl:element>
+                <!-- @CANNOTDO Cannot create Code in HSDB using any values in CT.gov
                 <xsl:element name="Code">
-                    <xsl:comment>@TODO-Description,DisplayName,CodeSystemVersion,CodeSystemName,Code</xsl:comment>
+                    <xsl:comment>children-Description,DisplayName,CodeSystemVersion,CodeSystemName,Code</xsl:comment>
                 </xsl:element>
+                -->
                 <xsl:element name="Name">
                     <xsl:value-of select="intervention_name"/>
                 </xsl:element>
@@ -563,7 +574,6 @@
                 </xsl:choose>
             </xsl:element>
         </xsl:if>
-            
     </xsl:template>
 
     <xsl:template name="ocreEmitStudyDesignFromStudyType">
@@ -615,7 +625,7 @@
                 </xsl:call-template>
             </xsl:element>
         </xsl:if>
-        <!-- @TODO: row 86 SponsoringRelation/Actor/Person, row 165 PrincipalInvestigator
+        <!-- We cannot extract info we want for a SponsoringRelation identifier or a PrincipalInvestigator from ct.gov
             <xsl:element name="Identifier">InstanceIdentifierType</xsl:element>
         -->
         <xsl:if test="$ctFirstName != ''">
@@ -623,8 +633,9 @@
                 <xsl:value-of select="$ctFirstName"/>
             </xsl:element>
         </xsl:if>
-        <!-- @TODO: row 85 SponsoringRelation/Actor/Person, rows 148 to 152 ContactForPublicQueries/Person, rows 187-190 RecruitmentSite
-            <xsl:call-template name="ocreEmitAddress" mode="postal">
+        <!-- We cannot extract info we want for a SponsoringRelation postal address, or a ContactForPublicQueries
+             postal address, from ct.gov
+            <xsl:call-template name="ocreEmitAddress-Postal">
         -->
         <xsl:if test="$ctEmail != ''">
             <xsl:call-template name="ocreEmitAddress-Email">
@@ -653,19 +664,23 @@
     
     <xsl:template name="ocreEmitOrganization">
         <xsl:param name="ctName"/>
-        
+
+        <!-- We cannot extract info we want for an organization identifier from ct.gov
         <xsl:call-template name="ocreEmitIdentifier">
-            <xsl:with-param name="root">@TODO</xsl:with-param>
-            <xsl:with-param name="name">@TODO</xsl:with-param>
+            <xsl:with-param name="root"></xsl:with-param>
+            <xsl:with-param name="name"></xsl:with-param>
         </xsl:call-template>
+        -->
         <xsl:element name="Name"><xsl:value-of select="$ctName"/></xsl:element>
+        <!-- We cannot extract info we want for an organization address from ct.gov
         <xsl:call-template name="ocreEmitAddress-Postal">
-            <xsl:with-param name="ctStreet">@TODO</xsl:with-param>
-            <xsl:with-param name="ctCity">@TODO</xsl:with-param>
-            <xsl:with-param name="ctState">@TODO</xsl:with-param>
-            <xsl:with-param name="ctZip">@TODO</xsl:with-param>
-            <xsl:with-param name="ctCountry">@TODO</xsl:with-param>
+            <xsl:with-param name="ctStreet"></xsl:with-param>
+            <xsl:with-param name="ctCity"></xsl:with-param>
+            <xsl:with-param name="ctState"></xsl:with-param>
+            <xsl:with-param name="ctZip"></xsl:with-param>
+            <xsl:with-param name="ctCountry"></xsl:with-param>
         </xsl:call-template>
+        -->
     </xsl:template>
     
     <!-- RecruitmentStatus="Recruitment not yet started" - when ct.gov overall_status is 'not yet recruiting'
@@ -721,8 +736,7 @@
             </xsl:choose>
             </xsl:element>
         </xsl:if>
-        
-    </xsl:template>
+     </xsl:template>
     
     <xsl:template name="ocreEmitContactForPublicQueries">
         <xsl:for-each select="overall_contact">
@@ -758,55 +772,64 @@
         Assumptions:
             1. When split on white space, will end up with two or three strings
             2. The first token is the month and the last token is the year
-            3. If there are threee tokens, the middle on indicates the day of the month
+            3. If there are three tokens, the middle one indicates the day of the month
             4. The month is represented with the full US English word
             5. Non-alphanumeric characters, such as comma or period, can be removed from strings
             6. There are no two digit representations of the year in CT.gov
     -->
-    <xsl:template name="ctDateStandardizer">
+    <xsl:function name="hsdb-ct:ctDateStandardizer" as="xs:date">
         <xsl:param name="ctDateString"/>
         <xsl:variable name="ctDateTokens" select="tokenize($ctDateString,'\s+')"/>
-        <xsl:if test="count($ctDateTokens) = 3">
-            <xsl:value-of select="$ctDateTokens[3]"/>
-            <xsl:text>-</xsl:text>
-            <xsl:call-template name="enUsMonthNumber">
-                <xsl:with-param name="enUsMonthString">
-                    <xsl:value-of select="$ctDateTokens[1]"/>
-                </xsl:with-param>
-            </xsl:call-template>
-            <xsl:text>-</xsl:text>
-            <xsl:if test="number(replace($ctDateTokens[2],'[,]','')) &lt; 10">0</xsl:if><xsl:value-of select="replace($ctDateTokens[2],'[,]','')"/>
-        </xsl:if>
-        <xsl:if test="count($ctDateTokens) = 2">
-            <xsl:value-of select="$ctDateTokens[2]"/>
-            <xsl:text>-</xsl:text>
-            <xsl:call-template name="enUsMonthNumber">
-                <xsl:with-param name="enUsMonthString">
-                    <xsl:value-of select="$ctDateTokens[1]"/>
-                </xsl:with-param>
-            </xsl:call-template>
-            <!-- When only month and year are specified, use 1st to get a valid xsl:date -->
-            <xsl:text>-01</xsl:text>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="enUsMonthNumber">
-        <xsl:param name="enUsMonthString"/>
-        <xsl:if test="lower-case($enUsMonthString) = 'january'">01</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'february'">02</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'march'">03</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'april'">04</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'may'">05</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'june'">06</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'july'">07</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'august'">08</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'september'">09</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'october'">10</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'november'">11</xsl:if>
-        <xsl:if test="lower-case($enUsMonthString) = 'december'">12</xsl:if>
-    </xsl:template>
+        <xsl:variable name="yearNum">
+            <xsl:if test="count($ctDateTokens) = 2"><xsl:value-of select="$ctDateTokens[2]"/></xsl:if>
+            <xsl:if test="count($ctDateTokens) = 3"><xsl:value-of select="$ctDateTokens[3]"/></xsl:if>
+        </xsl:variable>
+        <xsl:variable name="monthNum">
+            <xsl:value-of select="hsdb-ct:enUsMonthNumber($ctDateTokens[1])"/>
+        </xsl:variable>
+        <xsl:variable name="dayNum">
+            <xsl:if test="count($ctDateTokens) = 2">01</xsl:if>
+            <xsl:if test="count($ctDateTokens) = 3">
+                <!-- remove the comma after the day of month for dates in the form
+                     December 7, 2012, and prepend a zero if day of month is only one digit -->
+                <xsl:if test="number(replace($ctDateTokens[2],'[,]','')) &lt; 10">0</xsl:if>
+                <xsl:value-of select="replace($ctDateTokens[2],'[,]','')"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:value-of select="concat($yearNum,'-',$monthNum,'-',$dayNum)"/>
+    </xsl:function>
 
-    <xsl:template name="ct2HSDBInterventionTypeMap">
+    <!-- Map US English months encountered in CT.gov xsd:string representation of dates to
+         a two digit month which can be a component of an xsd:date in HSDB
+    -->
+    <xsl:function name="hsdb-ct:enUsMonthNumber" as="xs:string">
+        <xsl:param name="enUsMonthString"/>
+        <xsl:choose>
+            <xsl:when test="lower-case($enUsMonthString) = 'january'">01</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'february'">02</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'march'">03</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'april'">04</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'may'">05</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'june'">06</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'july'">07</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'august'">08</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'september'">09</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'october'">10</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'november'">11</xsl:when>
+            <xsl:when test="lower-case($enUsMonthString) = 'december'">12</xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: Unexpected date format for CT.gov string '<xsl:value-of select="$enUsMonthString"/>'</xsl:variable>
+                <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
+                <xsl:value-of select="$errMsg"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+    <!-- Map values encountered in CT.gov xsd:string for intervention_type to
+         the corresponding HSDB PlannedActivityType extension for the type
+         attribute of a Study/StudyProtocol/DividedInto/Arm/Contains element
+    -->
+    <xsl:function name="hsdb-ct:ct2HSDBInterventionTypeMap" as="xs:string">
         <xsl:param name="ctInterventionType"/>
         <xsl:choose>
             <!-- this when/otherwise can be refactored if we truly do not wish to be alerted to new ct.gov intervention_type values -->
@@ -829,6 +852,6 @@
                 <xsl:value-of select="$errMsg"/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:function>
     
 </xsl:stylesheet>
