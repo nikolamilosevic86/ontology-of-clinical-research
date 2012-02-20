@@ -506,7 +506,7 @@
         <xsl:variable name="ctStudyType" select="lower-case(normalize-space(current()))"/>
         <xsl:choose>
             <xsl:when test="$ctStudyType = lower-case('Interventional')">Interventional study design</xsl:when>
-            <xsl:when test="$ctStudyType = lower-case('Observational Model')">Observational study design</xsl:when>
+            <xsl:when test="$ctStudyType = lower-case('Observational')">Observational study design</xsl:when>
             <xsl:otherwise>
                 <xsl:variable name="errMsg">
                     <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov study_type = <xsl:value-of select="$ctStudyType"/>
@@ -557,7 +557,7 @@
                     <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Recruitment not active</xsl:when>
                     <xsl:otherwise>
                         <xsl:variable name="errMsg">
-                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
+                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED RecruitmentStatus for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
                         </xsl:variable>
                         <xsl:message>
                             <xsl:value-of select="$errMsg"/>
@@ -589,7 +589,7 @@
                     <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Study active</xsl:when>
                     <xsl:otherwise>
                         <xsl:variable name="errMsg">
-                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
+                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED StudyStatus for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
                         </xsl:variable>
                         <xsl:message>
                             <xsl:value-of select="$errMsg"/>
