@@ -30,10 +30,6 @@
     http://www.oxygenxml.com/buy.html
     Saxon-EE Pricing at
     http://saxonica.com/shop/shop.html
-    
-    @TODO-refactor for cut & paste re-use, XSLT conventions
-    @TODO-refactor for typical declarative XSLT style once ct.gov to ocre mappings complete
-    @TODO-document each template
 -->
 <!-- The following elements are deliberately not mapped from ct.gov to HSDB
     clinical_study/required_header
@@ -87,9 +83,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd"
     xmlns:hsdb-ct="http://anyOldStringForNowJustSoFunctionsHaveOwnNamespace"
-    exclude-result-prefixes="xs"
-    version="2.0">
-    <xsl:output method="xml" encoding="UTF-8" indent="yes" />
+    exclude-result-prefixes="xs" version="2.0">
+    <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
     <xsl:variable name="globalNctID" select="/clinical_study/id_info/nct_id"/>
 
@@ -101,15 +96,19 @@
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
             <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance">http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd</xsl:attribute>
-            
-            <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: Mapping from CT.gov to HSDB not available for study_type <xsl:value-of select="study_type"/></xsl:variable>
-            <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
+
+            <xsl:variable name="warnMsg">
+                <xsl:value-of select="$globalNctID"/> - WARNING: Mapping from CT.gov to HSDB not available for study_type <xsl:value-of select="study_type"/>
+            </xsl:variable>
+            <xsl:message>
+                <xsl:value-of select="$warnMsg"/>
+            </xsl:message>
             <xsl:element name="Study">
                 <xsl:comment><xsl:value-of select="$warnMsg"/></xsl:comment>
             </xsl:element>
         </xsl:element>
     </xsl:template>
-    
+
     <!--
     Control the generated output using this top-level, imperatively programmed template so the
     output meets the sequence and cardinality specifications of the HSDB schema
@@ -123,200 +122,240 @@
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
             <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance">http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd</xsl:attribute>
-            
+
             <xsl:element name="Study">
+
+                <!-- Emit OCRe RecruitmentSite elements from CT.gov location/facility element data -->
+                <xsl:apply-templates select="/clinical_study/location/facility"/>
+
+                <!-- Emit OCRe FundingRelation elements from CT.gov lead_sponsor and collaborator data elements -->
+                <xsl:apply-templates select="/clinical_study/sponsors/*"/>
+
+                <!-- Emit OCRe PlannedSampleSize elements from CT.gov enrollment/@type attribute -->
+                <xsl:apply-templates select="/clinical_study/enrollment" mode="planned"/>
+
+                <!-- Emit OCRe DescriptionDate elements from CT.gov lastchanged_date data element -->
+                <xsl:apply-templates select="/clinical_study/lastchanged_date"/>
+
+                <!-- Emit OCRe AllocationScheme elements from CT.gov study_design data element -->
+                <xsl:apply-templates select="/clinical_study/study_design" mode="allocation_type"/>
+
+                <!-- Emit OCRe ScientificTitle elements from CT.gov official_title data element (or brief_title, if necessary) -->
+                <xsl:apply-templates select="/clinical_study/official_title"/>
+
+                <!-- Emit OCRe FundingRelation elements from CT.gov agency data elements -->
+                <xsl:apply-templates select="/clinical_study/sponsors/*/agency"/>
+
+                <!-- Emit OCRe ActualSampleSize elements from CT.gov enrollment/@type attribute -->
+                <xsl:apply-templates select="/clinical_study/enrollment" mode="actual"/>
+
+                <!-- Emit OCRe StudyProtocol elements from CT.gov arm_group data elements -->
+                <xsl:element name="StudyProtocol">
+                    <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">InterventionStudyProtocolType</xsl:attribute>
+                    <!-- Emit OCRe OutcomeVariable elements from CT.gov primary_outcome and secondary_outcome data elements -->
+                    <xsl:apply-templates select="/clinical_study/primary_outcome"/>
+                    <xsl:apply-templates select="/clinical_study/secondary_outcome"/>
+                    <xsl:element name="DividedInto">
+                        <xsl:apply-templates select="/clinical_study/arm_group"/>
+                    </xsl:element>
+                </xsl:element>
                 
-                <xsl:call-template name="ocreEmitRecruitmentSites"/>
-                <xsl:call-template name="ocreEmitSponsoringRelation"/>
-                <xsl:call-template name="ocreEmitPlannedSampleSize"/>
-                <xsl:call-template name="ocreEmitDescriptionDate"/>
-                <xsl:call-template name="ocreEmitAllocationType"/>
-                <xsl:call-template name="ocreEmitScientificTitle"/>
-                <xsl:call-template name="ocreEmitIRB"/>
-                <xsl:call-template name="ocreEmitComparativeIntent"/>
-                <xsl:call-template name="ocreEmitFundingRelation"/>
-                <xsl:call-template name="ocreEmitActualSampleSize"/>
-                <xsl:call-template name="ocreEmitStudyProtocol"/>
-                <xsl:call-template name="ocreEmitStudyDesign"/>
-                <xsl:call-template name="ocreEmitPrincipalInvestigator"/>
-                <xsl:call-template name="ocreEmitRecruitmentStatus"/>
-                <xsl:call-template name="ocreEmitContactForPublicQueries"/>
-                <xsl:call-template name="ocreEmitStudyIdentifiers"/>                
-                <xsl:call-template name="ocreEmitStudyStatus"/>
+                <!-- Emit OCRe StudyDesign elements from CT.gov study_design and study_type data elements -->
+                <xsl:apply-templates select="/clinical_study/study_design" mode="study_design"/>
+                
+                <!-- Emit OCRe PrincipalInvestigator elements from CT.gov overall_official data element -->
+                <xsl:apply-templates select="/clinical_study/overall_official"/>
+                
+                <!-- Emit OCRe RecruitmentStatus element from CT.gov overall_status element data -->
+                <xsl:apply-templates select="/clinical_study/overall_status" mode="recruitment_status"/>
+                
+                <!-- Emit OCRe ContactForPublicQueries elements from CT.gov overall_contact data element -->
+                <xsl:apply-templates select="/clinical_study/overall_contact"/>
+                
+                <!-- Emit OCRe Identifier element from CT.gov id_info element data -->
+                <xsl:apply-templates select="/clinical_study/id_info"/>
+
+                <!-- Emit OCRe StudyStatus element from CT.gov overall_status element data -->
+                <xsl:apply-templates select="/clinical_study/overall_status" mode="study_status"/>
                 
             </xsl:element>
         </xsl:element>
     </xsl:template>
 
-    <xsl:template name="ocreEmitStudyIdentifiers">
-        <xsl:call-template name="ocreEmitIdentifier">
-            <xsl:with-param name="root"><xsl:value-of select="id_info/nct_id"/></xsl:with-param>
-            <xsl:with-param name="name">ClinicalTrials.gov</xsl:with-param>
-        </xsl:call-template>  
-        <xsl:call-template name="ocreEmitIdentifier">
-            <xsl:with-param name="root"><xsl:value-of select="id_info/org_study_id"/></xsl:with-param>
-        </xsl:call-template>  
-        <xsl:call-template name="ocreEmitIdentifier">
-            <xsl:with-param name="root"><xsl:value-of select="id_info/secondary_id"/></xsl:with-param>
-        </xsl:call-template>  
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitIdentifier">
-        <xsl:param name="root"/>
-        <xsl:param name="name"/>
-        <xsl:if test="$root != '' or $name != ''">
-            <xsl:element name="Identifier">
-                <xsl:if test="$root != ''">
-                    <xsl:element name="Root">
-                        <xsl:value-of select="$root"/>
-                    </xsl:element>
-                </xsl:if>
-                <xsl:if test="$name != ''">
-                    <xsl:element name="IdentifierName">
-                        <xsl:value-of select="$name"/>
-                    </xsl:element>
-                </xsl:if>
+    <!-- developed as xsl:template name="ocreEmitRecruitmentSites" -->
+    <xsl:template match="location/facility">
+        <xsl:element name="RecruitmentSite">
+            <xsl:element name="Name">
+                <xsl:value-of select="name"/>
             </xsl:element>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitRecruitmentSites">
-        <xsl:for-each select="location/facility">
-            <xsl:element name="RecruitmentSite">
-                <xsl:element name="Name"><xsl:value-of select="name"/></xsl:element>
-                <xsl:call-template name="ocreEmitAddress-Postal">
-                    <xsl:with-param name="ctCity"><xsl:value-of select="address/city"/></xsl:with-param>
-                    <xsl:with-param name="ctState"><xsl:value-of select="address/state"/></xsl:with-param>
-                    <xsl:with-param name="ctZip"><xsl:value-of select="address/zip"/></xsl:with-param>
-                    <xsl:with-param name="ctCountry"><xsl:value-of select="address/country"/></xsl:with-param>
-                </xsl:call-template>
-            </xsl:element>
-        </xsl:for-each>
+            <xsl:apply-templates select="address"/>
+        </xsl:element>
     </xsl:template>
 
-    <!-- @TODO: Once mapping complete and trying declarative structure to this transform, consolidate
-        all the <Address> emitting rules to one using match/mode.
-        (ocreEmitAddress-Postal, ocreEmitAddress-Email, ocreEmitAddress-Telephone)
-    -->
-    <xsl:template name="ocreEmitAddress-Postal">
-        <xsl:param name="ctStreet"/>
-        <xsl:param name="ctCity"/>
-        <xsl:param name="ctState"/>
-        <xsl:param name="ctZip"/>
-        <xsl:param name="ctCountry"/>
-        <xsl:if test="$ctStreet != '' or $ctCity != '' or $ctState != '' or $ctZip != '' or $ctCountry != ''">
+    <!-- developed as xsl:template name="ocreEmitStudyIdentifiers" -->
+    <xsl:template match="id_info/nct_id | id_info/org_study_id | id_info/secondary_id">
+        <xsl:element name="Identifier">
+            <xsl:call-template name="emitOCReInstanceIdentifierType">
+                <xsl:with-param name="root">
+                    <xsl:value-of select="current()"/>
+                </xsl:with-param>
+                <xsl:with-param name="name">
+                    <xsl:if test="name() = 'nct_id'">ClinicalTrials.gov</xsl:if>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:element>
+    </xsl:template>
+    
+    <!-- developed as xsl:template name="ocreEmitAddress-Postal" -->
+    <xsl:template match="address">
+        <xsl:if test="city != '' or state != '' or zip != '' or country != ''">
             <xsl:element name="Address">
                 <xsl:element name="PostalAddress">
-                    <xsl:element name="Zip"><xsl:value-of select="$ctZip"/></xsl:element>
-                    <xsl:element name="Country"><xsl:value-of select="$ctCountry"/></xsl:element>
-                </xsl:element>
-                <xsl:call-template name="ocreEmitAddressString">
-                    <xsl:with-param name="val">
-                        <!-- Concatenate together a US-style address as single argument to be presented as AddressString -->
-                        <xsl:if test="$ctStreet != ''">
-                            <xsl:value-of select="$ctStreet"/><xsl:text> </xsl:text>
-                        </xsl:if>
-                        <xsl:if test="$ctCity != ''">
-                            <xsl:value-of select="$ctCity"/>
-                        </xsl:if>
-                        <xsl:if test="$ctCity != '' and $ctState != ''">
-                            <xsl:text>, </xsl:text>
-                        </xsl:if>
-                        <xsl:if test="$ctState != ''">
-                            <xsl:value-of select="$ctState"/>
-                        </xsl:if>
-                    </xsl:with-param>
-                </xsl:call-template>
-            </xsl:element>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitAddress-Email">
-        <xsl:param name="ctEmail"/>
-        <xsl:if test="$ctEmail != ''">
-            <xsl:element name="Address">
-                <xsl:call-template name="ocreEmitTelecommunicationsAddress">
-                    <xsl:with-param name="schemeType">mailto</xsl:with-param>
-                </xsl:call-template>
-                <xsl:call-template name="ocreEmitAddressString">
-                    <xsl:with-param name="val"><xsl:value-of select="$ctEmail"/></xsl:with-param>
-                </xsl:call-template>
-            </xsl:element>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitAddress-Telephone">
-        <xsl:param name="ctPhone"/>
-        <xsl:param name="ctPhoneExt"/>
-        <xsl:if test="$ctPhone != ''">
-            <xsl:element name="Address">
-                <xsl:call-template name="ocreEmitTelecommunicationsAddress">
-                    <xsl:with-param name="schemeType">tel</xsl:with-param>
-                </xsl:call-template>
-                <xsl:call-template name="ocreEmitAddressString">
-                    <xsl:with-param name="val">
-                        <xsl:value-of select="$ctPhone"/>
-                    </xsl:with-param>
-                </xsl:call-template>
-            </xsl:element>
-        </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitAddressString">
-        <xsl:param name="val"/>
-        <xsl:element name="AddressString"><xsl:value-of select="$val"/></xsl:element>
-    </xsl:template>
-
-    <xsl:template name="ocreEmitTelecommunicationsAddress">
-        <xsl:param name="schemeType"/>
-        <xsl:element name="TelecommunicationAddress">
-            <xsl:element name="Scheme">
-                <xsl:value-of select="$schemeType"/>
-            </xsl:element>
-        </xsl:element>
-    </xsl:template>    
-    
-    <xsl:template name="ocreEmitSponsoringRelation">
-        <xsl:for-each select="//clinical_study/sponsors/*">
-            <xsl:element name="SponsoringRelation">
-                <xsl:element name="Actor">
-                    <xsl:element name="Organization">
-                        <xsl:call-template name="ocreEmitOrganization">
-                            <xsl:with-param name="ctName">
-                                <xsl:value-of select="agency"/>
-                            </xsl:with-param>
-                        </xsl:call-template>
+                    <xsl:element name="Zip">
+                        <xsl:value-of select="zip"/>
+                    </xsl:element>
+                    <xsl:element name="Country">
+                        <xsl:value-of select="country"/>
                     </xsl:element>
                 </xsl:element>
-                <xsl:element name="Priority">
-                    <xsl:if test="name(.)='lead_sponsor'">primary</xsl:if>
-                    <xsl:if test="name(.)='collaborator'">secondary</xsl:if>
-                </xsl:element>                    
-            </xsl:element>        
-        </xsl:for-each>
+                <xsl:element name="AddressString">
+                    <!-- Concatenate together a US-style address as single argument to be presented as AddressString -->
+                    <xsl:if test="city != ''">
+                        <xsl:value-of select="city"/>
+                    </xsl:if>
+                    <xsl:if test="city != '' and state != ''">
+                        <xsl:text>, </xsl:text>
+                    </xsl:if>
+                    <xsl:if test="state != ''">
+                        <xsl:value-of select="state"/>
+                    </xsl:if>
+                </xsl:element>
+            </xsl:element>
+        </xsl:if>
     </xsl:template>
-    
-    <xsl:template name="ocreEmitDescriptionDate">
-        <xsl:element name="DescriptionDate"><xsl:value-of select="hsdb-ct:ctDateStandardizer(lastchanged_date)"/>
+
+    <!-- developed as xsl:template name="ocreEmitSponsoringRelation" -->
+    <xsl:template match="lead_sponsor | collaborator">
+        <xsl:element name="SponsoringRelation">
+            <xsl:element name="Actor">
+                <xsl:element name="Organization">
+                    <xsl:call-template name="emitOCReOrganizationType">
+                        <xsl:with-param name="ctName">
+                            <xsl:value-of select="agency"/>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:element>
+            </xsl:element>
+            <xsl:element name="Priority">
+                <xsl:if test="name()='lead_sponsor'">primary</xsl:if>
+                <xsl:if test="name()='collaborator'">secondary</xsl:if>
+            </xsl:element>
         </xsl:element>
     </xsl:template>
 
-    <xsl:template name="ocreEmitPlannedSampleSize">
-        <xsl:variable name="ctEnrollment" select="enrollment"/>
-        <xsl:variable name="ctEnrollmentType" select="lower-case(normalize-space(enrollment/@type))"/>
-        <xsl:if test="$ctEnrollmentType = 'anticipated'">
-            <xsl:element name="PlannedSampleSize"><xsl:value-of select="enrollment"/></xsl:element>
+    <!-- developed as xsl:template name="ocreEmitDescriptionDate" -->
+    <xsl:template match="lastchanged_date">
+        <xsl:element name="DescriptionDate">
+            <xsl:value-of select="hsdb-ct:ctDateStandardizer(.)"/>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitPlannedSampleSize" -->
+    <xsl:template match="enrollment" mode="planned">
+        <xsl:if test="lower-case(normalize-space(current()/@type)) = 'anticipated'">
+            <xsl:element name="PlannedSampleSize">
+                <xsl:value-of select="current()"/>
+            </xsl:element>
         </xsl:if>
     </xsl:template>
-    
-    <xsl:template name="ocreEmitActualSampleSize">
-        <xsl:variable name="ctEnrollment" select="enrollment"/>
-        <xsl:variable name="ctEnrollmentType" select="lower-case(normalize-space(enrollment/@type))"/>
-        <xsl:if test="$ctEnrollmentType = 'actual'">
-            <xsl:element name="ActualSampleSize"><xsl:value-of select="enrollment"/></xsl:element>
+
+    <!-- developed as xsl:template name="ocreEmitActualSampleSize" -->
+    <xsl:template match="enrollment" mode="actual">
+        <xsl:if test="lower-case(normalize-space(current()/@type)) = 'actual'">
+            <xsl:element name="ActualSampleSize">
+                <xsl:value-of select="current()"/>
+            </xsl:element>
         </xsl:if>
     </xsl:template>
-    
+
+    <!-- developed as xsl:template name="ocreEmitScientificTitle" -->
+    <xsl:template match="official_title">
+        <xsl:element name="ScientificTitle">
+            <xsl:choose>
+                <xsl:when test="current() != ''">
+                    <xsl:value-of select="current()"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:if test="/clinical_study/brief_title != ''">
+                        <xsl:value-of select="/clinical_study/brief_title"/>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitFundingRelation" -->
+    <xsl:template match="agency">
+        <xsl:element name="FundingRelation">
+            <xsl:element name="Actor">
+                <xsl:element name="Organization">
+                    <xsl:call-template name="emitOCReOrganizationType">
+                        <xsl:with-param name="ctName">
+                            <xsl:value-of select="current()"/>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:element>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitStudyProtocol" and xsl:template name="ocreEmitArm" -->
+    <xsl:template match="arm_group">
+        <xsl:for-each select="arm_group_label">
+            <xsl:element name="Arm">
+                <xsl:apply-templates select="/clinical_study/intervention[arm_group_label=current()]"/>
+                <xsl:element name="Name">
+                    <xsl:value-of select="current()"/>
+                </xsl:element>
+            </xsl:element>
+        </xsl:for-each>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitOutcomeVariables" -->
+    <xsl:template match="primary_outcome | secondary_outcome">
+        <xsl:element name="OutcomeVariable">
+            <xsl:element name="EffectiveTime">
+                <xsl:element name="Description">
+                    <xsl:value-of select="time_frame"/>
+                </xsl:element>
+            </xsl:element>
+            <xsl:element name="Name">
+                <xsl:value-of select="measure"/>
+            </xsl:element>
+            <xsl:element name="Priority">
+                <xsl:if test=" matches(name(),'primary_outcome')">primary</xsl:if>
+                <xsl:if test="matches(name(),'secondary_outcome')">secondary</xsl:if>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitArmContains" -->
+    <xsl:template match="intervention">
+        <xsl:element name="Contains">
+            <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">
+                <xsl:value-of select="hsdb-ct:ct2HSDBInterventionTypeMap(intervention_type)"/>
+            </xsl:attribute>
+            <xsl:element name="EffectiveTime">
+                <xsl:element name="Description">
+                    <xsl:value-of select="description"/>
+                </xsl:element>
+            </xsl:element>
+            <xsl:element name="Name">
+                <xsl:value-of select="intervention_name"/>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+
     <!-- AllocationSchemeType="Restricted randomization" - never from ct.gov clinical_study
                              |"Stratified randomization" - never from ct.gov clinical_study
                              |"Minimization"             - never from ct.gov clinical_study
@@ -325,8 +364,9 @@
                              |"Non-random allocation"    - when ct.gov study_design has Allocation: Non-Randomized
                              |"Random allocation"        - when ct.gov study_design has Allocation: Randomized
     -->
-    <xsl:template name="ocreEmitAllocationType">
-        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(study_design))"/>
+    <!-- developed as xsl:template name="ocreEmitAllocationType" -->
+    <xsl:template match="study_design" mode="allocation_type">
+        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(current()))"/>
         <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not in attribute values. -->
         <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
         <xsl:for-each select="tokenize($ctStudyDesign,',')">
@@ -339,149 +379,18 @@
                             <xsl:when test="$ctAllocationValue = lower-case('Randomized')">Random allocation</xsl:when>
                             <xsl:when test="$ctAllocationValue = lower-case('Non-Randomized')">Non-random allocation</xsl:when>
                             <xsl:otherwise>
-                                <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/></xsl:variable>
-                                <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
+                                <xsl:variable name="errMsg">
+                                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/>
+                                </xsl:variable>
+                                <xsl:message>
+                                    <xsl:value-of select="$errMsg"/>
+                                </xsl:message>
                                 <xsl:value-of select="$errMsg"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:element>
                 </xsl:when>
             </xsl:choose>
-        </xsl:for-each>
-    </xsl:template>
-    
-    
-    <xsl:template name="ocreEmitScientificTitle">
-        <xsl:element name="ScientificTitle">
-            <xsl:choose>
-                <xsl:when test="official_title != ''">
-                    <xsl:value-of select="official_title"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:if test="brief_title != ''">
-                        <xsl:value-of select="brief_title"/>
-                    </xsl:if>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:element>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitIRB">
-        <!-- @CANNOTDO Cannot create IRB in HSDB using any values in CT.gov
-            <xsl:element name="IRB"/>        
-        -->
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitComparativeIntent">
-        <!-- @CANNOTDO Cannot create ComparativeIntent in HSDB using any values in CT.gov
-            <xsl:element name="ComparativeIntent"/>        
-        -->
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitFundingRelation">
-        <xsl:for-each select="//clinical_study/sponsors/*/agency">
-            <xsl:element name="FundingRelation">
-                <xsl:element name="Actor">
-                    <xsl:element name="Organization">
-                        <xsl:call-template name="ocreEmitOrganization">
-                            <xsl:with-param name="ctName">
-                                <xsl:value-of select="."/>
-                            </xsl:with-param>
-                        </xsl:call-template>
-                    </xsl:element>
-                </xsl:element>
-            </xsl:element>        
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitStudyProtocol">
-        <xsl:element name="StudyProtocol">
-            <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">InterventionStudyProtocolType</xsl:attribute>
-            <xsl:call-template name="ocreEmitOutcomeVariables"/>
-            <xsl:call-template name="ocreEmitFactorVariables"/>
-            <xsl:call-template name="ocreEmitDividedInto"/>
-        </xsl:element>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitOutcomeVariables">
-        <xsl:for-each select="primary_outcome | secondary_outcome">
-            <xsl:element name="OutcomeVariable">
-                <xsl:element name="EffectiveTime">
-                    <xsl:element name="Description">
-                        <xsl:value-of select="time_frame"/>
-                    </xsl:element>
-                </xsl:element>
-                <xsl:element name="Name">
-                    <xsl:value-of select="measure"/>
-                </xsl:element>
-                <xsl:element name="Priority">
-                    <xsl:if test=" matches(name(),'primary_outcome')">primary</xsl:if>
-                    <xsl:if test="matches(name(),'secondary_outcome')">secondary</xsl:if>
-                </xsl:element>
-            </xsl:element>
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitFactorVariables">
-        <!-- @CANNOTDO Cannot create FactorVariable in HSDB using any values in CT.gov
-        <xsl:element name="FactorVariable">
-        </xsl:element>
-        -->
-    </xsl:template>
-    
-    <xsl:template name="ocreEmitDividedInto">
-        <xsl:element name="DividedInto">
-            <!-- since no epoch info mapped from ct.gov, just emit arms -->
-            <xsl:call-template name="ocreEmitArm"/>
-            <!-- @CANNOTDO Cannot create Epoch in HSDB using any values in CT.gov, so no need to choose
-            <xsl:choose>
-                <xsl:when test="1 = 1">
-                    <xsl:call-template name="ocreEmitArm"/>
-                </xsl:when>
-                 <xsl:when test="1 = 0">
-                    <xsl:call-template name="ocreEmitEpoch"/>
-                </xsl:when>
-            </xsl:choose>
-            -->
-        </xsl:element>
-    </xsl:template>
-
-    <xsl:template name="ocreEmitArm">
-        <xsl:for-each select="arm_group/arm_group_label">
-            <xsl:element name="Arm">
-                <xsl:call-template name="ocreEmitArmContains">
-                    <xsl:with-param name="ctArmGroupLabel">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
-                <xsl:element name="Name">
-                    <xsl:value-of select="."/>
-                </xsl:element>
-            </xsl:element>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template name="ocreEmitArmContains">
-        <xsl:param name="ctArmGroupLabel"/>
-        <xsl:for-each select="../../intervention[arm_group_label=$ctArmGroupLabel]">
-            <xsl:element name="Contains">
-                <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">
-                    <xsl:value-of select="hsdb-ct:ct2HSDBInterventionTypeMap(intervention_type)"/>
-                </xsl:attribute>
-                <xsl:element name="EffectiveTime">
-                    <xsl:element name="Description">
-                        <xsl:value-of select="description"/>
-                    </xsl:element>
-                </xsl:element>
-                <!-- @CANNOTDO Cannot create Code in HSDB using any values in CT.gov
-                <xsl:element name="Code">
-                    <xsl:comment>children-Description,DisplayName,CodeSystemVersion,CodeSystemName,Code</xsl:comment>
-                </xsl:element>
-                -->
-                <xsl:element name="Name">
-                    <xsl:value-of select="intervention_name"/>
-                </xsl:element>
-            </xsl:element>
         </xsl:for-each>
     </xsl:template>
     
@@ -500,159 +409,266 @@
                         |"Observational study design"    - when none of above, and ct.gov study_type is Observational
                         |"Interventional study design"   - when none of above, and ct.gov study_type is Interventional
     -->
-    <xsl:template name="ocreEmitStudyDesign">
-        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(study_design))"/>
-        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(study_type))"/>
-        
-        <!-- Do not emit the tag for certain recognized values of study_type -->
-        <xsl:if test="$ctStudyType != 'expanded access'">
-            <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not within attribute values. -->
-            <!-- Assume the CT.gov study_design xsd:string will contain only one of {Observational Model, Intervention Model, Time Perspective} -->
-            <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
-            <xsl:element name="StudyDesign">
+    <!-- developed as xsl:template name="ocreEmitStudyDesign" -->
+    <xsl:template match="study_design" mode="study_design">
+        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(current()))"/>
+        <xsl:variable name="ctStudyTypeNode" select="/clinical_study/study_type"/>
+
+        <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not within attribute values. -->
+        <!-- Assume the CT.gov study_design xsd:string will contain only one of {Observational Model, Intervention Model, Time Perspective} -->
+        <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
+        <xsl:element name="StudyDesign">
+            <xsl:choose>
+                <xsl:when test="contains($ctStudyDesign,lower-case('Observational Model')) or
+                                contains($ctStudyDesign,lower-case('Intervention Model')) or
+                                contains($ctStudyDesign,lower-case('Time Perspective'))">
+                    <xsl:for-each select="tokenize($ctStudyDesign,',')">
+                        <xsl:variable name="ctStudyDesignKeyValue" select="tokenize(.,':')"/>
+                        <xsl:variable name="ctStudyDesignKey" select="normalize-space($ctStudyDesignKeyValue[1])"/>
+                        <xsl:variable name="ctStudyDesignValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
+                        <xsl:choose>
+                            <xsl:when test="$ctStudyDesignKey = lower-case('Observational Model')">
+                                <xsl:choose>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Case-Crossover')">Case-crossover study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Cohort')">Cohort study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Case Control')">Case-control study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or community studies')">
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Family-based')">
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('other')">
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:variable name="warnMsg">
+                                            <xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/>
+                                        </xsl:variable>
+                                        <xsl:message>
+                                            <xsl:value-of select="$warnMsg"/>
+                                        </xsl:message>
+                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:when test="$ctStudyDesignKey = lower-case('Intervention Model')">
+                                <xsl:choose>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Parallel Assignment')">Parallel group study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Factorial Assignment')">Parallel group study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Crossover Assignment')">Crossover study design</xsl:when>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Single Group Assignment')">Single group study design</xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:variable name="warnMsg">
+                                            <xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/>
+                                        </xsl:variable>
+                                        <xsl:message>
+                                            <xsl:value-of select="$warnMsg"/>
+                                        </xsl:message>
+                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:when test="$ctStudyDesignKey = lower-case('Time Perspective')">
+                                <xsl:choose>
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Cross-Sectional')">Cross-sectional study design</xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- Don't put out a warning for values of Time Perspective we recognize from
+                                                 http://prsinfo.clinicaltrials.gov/definitions.html but do not choose to map to a distinct HSDB value 
+                                            -->
+                                        <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and $ctStudyDesignValue != lower-case('Retrospective') and $ctStudyDesignValue != lower-case('Other')">
+                                            <xsl:variable name="warnMsg">
+                                                <xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/>
+                                            </xsl:variable>
+                                            <xsl:message>
+                                                <xsl:value-of select="$warnMsg"/>
+                                            </xsl:message>
+                                        </xsl:if>
+                                        <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
+                                        <xsl:apply-templates select="$ctStudyTypeNode"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="/clinical_study/study_type"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitStudyDesignFromStudyType" -->
+    <xsl:template match="study_type">
+        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(current()))"/>
+        <xsl:choose>
+            <xsl:when test="$ctStudyType = lower-case('Interventional')">Interventional study design</xsl:when>
+            <xsl:when test="$ctStudyType = lower-case('Observational Model')">Observational study design</xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="errMsg">
+                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov study_type = <xsl:value-of select="$ctStudyType"/>
+                </xsl:variable>
+                <xsl:message>
+                    <xsl:value-of select="$errMsg"/>
+                </xsl:message>
+                <xsl:value-of select="$errMsg"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- developed as xsl:template name="ocreEmitPrincipalInvestigator" -->
+    <xsl:template match="overall_official">
+        <xsl:element name="PrincipalInvestigator">
+            <xsl:call-template name="emitOCRePersonType">
+                <xsl:with-param name="ctFirstName">
+                    <xsl:value-of select="first_name"/>
+                </xsl:with-param>
+                <xsl:with-param name="ctLastName">
+                    <xsl:value-of select="last_name"/>
+                </xsl:with-param>
+                <xsl:with-param name="ctAffiliation">
+                    <xsl:value-of select="affiliation"/>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:element>
+    </xsl:template>
+
+    <!-- RecruitmentStatus="Recruitment not yet started" - when ct.gov overall_status is 'not yet recruiting'
+                          |"Recruitment active"          - when ct.gov overall_status is 'recruiting'
+                          |"Recruitment suspended"       - when ct.gov overall_status is 'suspended'
+                          |"Recruitment will not start"  - when ct.gov overall_status is 'withdrawn'
+                          |"Recruitment terminated"      - never from ct.gov clinical_study
+                          |"Recruitment completed"       - never from ct.gov clinical_study
+    -->
+    <!-- developed as xsl:template name="ocreEmitRecruitmentStatus" -->
+    <xsl:template match="overall_status" mode="recruitment_status">
+        <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(current()))"/>
+        <!-- Do not emit the tag for certain recognized values of overall_status -->
+        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'completed'">
+            <xsl:element name="RecruitmentStatus">
                 <xsl:choose>
-                    <xsl:when test="contains($ctStudyDesign,lower-case('Observational Model')) or
-                        contains($ctStudyDesign,lower-case('Intervention Model')) or
-                        contains($ctStudyDesign,lower-case('Time Perspective'))">
-                        <xsl:for-each select="tokenize($ctStudyDesign,',')">
-                            <xsl:variable name="ctStudyDesignKeyValue" select="tokenize(.,':')"/>
-                            <xsl:variable name="ctStudyDesignKey" select="normalize-space($ctStudyDesignKeyValue[1])"/>
-                            <xsl:variable name="ctStudyDesignValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
-                            <xsl:choose>
-                                <xsl:when test="$ctStudyDesignKey = lower-case('Observational Model')">
-                                    <xsl:choose>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Case-Crossover')">Case-crossover study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Cohort')">Cohort study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Case Control')">Case-control study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or community studies')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Family-based')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('other')"><xsl:call-template name="ocreEmitStudyDesignFromStudyType"/></xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
-                                            <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:when>
-                                <xsl:when test="$ctStudyDesignKey = lower-case('Intervention Model')">
-                                    <xsl:choose>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Parallel Assignment')">Parallel group study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Factorial Assignment')">Parallel group study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Crossover Assignment')">Crossover study design</xsl:when>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Single Group Assignment')">Single group study design</xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
-                                            <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:when>
-                                <xsl:when test="$ctStudyDesignKey = lower-case('Time Perspective')">
-                                    <xsl:choose>
-                                        <xsl:when test="$ctStudyDesignValue = lower-case('Cross-Sectional')">Cross-sectional study design</xsl:when>
-                                        <xsl:otherwise>
-                                            <!-- Don't put out a warning for values of Time Perspective we recognize from http://prsinfo.clinicaltrials.gov/definitions.html but
-                                             do not choose to map to a distinct HSDB value 
-                                        -->
-                                            <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and $ctStudyDesignValue != lower-case('Retrospective') and $ctStudyDesignValue != lower-case('Other')">
-                                                <xsl:variable name="warnMsg"><xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/></xsl:variable>
-                                                <xsl:message><xsl:value-of select="$warnMsg"/></xsl:message>
-                                            </xsl:if>
-                                            <!-- Since warnMsg posted about unrecognized study_design, just use study_type to create value -->
-                                            <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:when>
-                            </xsl:choose>
-                        </xsl:for-each>
-                    </xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'suspended'">Recruitment suspended</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'recruiting'">Recruitment active</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'withdrawn'">Recruitment will not start</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'not yet recruiting'">Recruitment not yet started</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Recruitment not active</xsl:when>
                     <xsl:otherwise>
-                        <xsl:call-template name="ocreEmitStudyDesignFromStudyType"/>
+                        <xsl:variable name="errMsg">
+                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
+                        </xsl:variable>
+                        <xsl:message>
+                            <xsl:value-of select="$errMsg"/>
+                        </xsl:message>
+                        <xsl:value-of select="$errMsg"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:element>
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="ocreEmitStudyDesignFromStudyType">
-        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(study_type))"/>
-        <xsl:choose>
-            <xsl:when test="$ctStudyType = lower-case('Interventional')">Interventional study design</xsl:when>
-            <xsl:when test="$ctStudyType = lower-case('Observational Model')">Observational study design</xsl:when>
-            <xsl:otherwise>
-                <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov study_type = <xsl:value-of select="$ctStudyType"></xsl:value-of></xsl:variable>
-                <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
-                <xsl:value-of select="$errMsg"/>
-            </xsl:otherwise>
-        </xsl:choose>
+    <!-- StudyStatus="Study completed"  - when ct.gov overall_status is 'completed'
+                    |"Study withdrawn"  - when ct.gov overall_status is 'withdrawn'
+                    |"Study active"     - when ct.gov overall_status is 'recruiting' or 'active, not recruiting'
+                    |"Study suspended"  - never from ct.gov clinical_study
+                    |"Study terminated" - never from ct.gov clinical_study
+                    |"Study planned"    - never from ct.gov clinical_study
+    -->
+    <!-- developed as xsl:template name="ocreEmitStudyStatus" -->
+    <xsl:template match="overall_status" mode="study_status">
+        <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(current()))"/>
+        <!-- Do not emit the tag for certain recognized values of overall_status -->
+        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'suspended' and $ctOverallStatus != 'not yet recruiting'">
+            <xsl:element name="StudyStatus">
+                <xsl:choose>
+                    <xsl:when test="$ctOverallStatus = 'completed'">Study completed</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'recruiting'">Study active</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'withdrawn'">Study withdrawn</xsl:when>
+                    <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Study active</xsl:when>
+                    <xsl:otherwise>
+                        <xsl:variable name="errMsg">
+                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/>
+                        </xsl:variable>
+                        <xsl:message>
+                            <xsl:value-of select="$errMsg"/>
+                        </xsl:message>
+                        <xsl:value-of select="$errMsg"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:element>
+        </xsl:if>
     </xsl:template>
-        
-    <xsl:template name="ocreEmitPrincipalInvestigator">
-        <xsl:for-each select="overall_official">
-            <xsl:element name="PrincipalInvestigator">
-                <xsl:call-template name="ocreEmitPersonSubtree">
+
+    <!-- developed as xsl:template name="ocreEmitContactForPublicQueries" -->
+    <xsl:template match="overall_contact">
+        <xsl:element name="ContactForPublicQueries">
+            <xsl:element name="Person">
+                <xsl:call-template name="emitOCRePersonType">
                     <xsl:with-param name="ctFirstName">
                         <xsl:value-of select="first_name"/>
                     </xsl:with-param>
                     <xsl:with-param name="ctLastName">
                         <xsl:value-of select="last_name"/>
                     </xsl:with-param>
-                    <xsl:with-param name="ctAffiliation">
-                        <xsl:value-of select="affiliation"/>
+                    <xsl:with-param name="ctEmail">
+                        <xsl:value-of select="email"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="ctPhone">
+                        <xsl:value-of select="phone"/>
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:element>
-        </xsl:for-each>
+        </xsl:element>
     </xsl:template>
-        
-    <!-- This is only emitting the elements of <Person>, since <Person> is visible as contact, but not as PI right now -->
-    <xsl:template name="ocreEmitPersonSubtree">
+
+    <!-- Emit the markup for the complexType PersonType in the HSDB XSD -->
+    <xsl:template name="emitOCRePersonType">
         <xsl:param name="ctFirstName"/>
         <xsl:param name="ctLastName"/>
         <xsl:param name="ctAffiliation"/>
         <xsl:param name="ctEmail"/>
         <xsl:param name="ctPhone"/>
         <xsl:param name="ctPhoneExt"/>
-
+        
         <xsl:if test="$ctAffiliation != ''">
             <xsl:element name="MemberOf">
-                <xsl:call-template name="ocreEmitOrganization">
+                <xsl:call-template name="emitOCReOrganizationType">
                     <xsl:with-param name="ctName">
                         <xsl:value-of select="affiliation"/>
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:element>
         </xsl:if>
-        <!-- We cannot extract info we want for a SponsoringRelation identifier or a PrincipalInvestigator from ct.gov
-            <xsl:element name="Identifier">InstanceIdentifierType</xsl:element>
-        -->
         <xsl:if test="$ctFirstName != ''">
             <xsl:element name="FirstName">
                 <xsl:value-of select="$ctFirstName"/>
             </xsl:element>
         </xsl:if>
-        <!-- We cannot extract info we want for a SponsoringRelation postal address, or a ContactForPublicQueries
-             postal address, from ct.gov
-            <xsl:call-template name="ocreEmitAddress-Postal">
-        -->
         <xsl:if test="$ctEmail != ''">
-            <xsl:call-template name="ocreEmitAddress-Email">
-                <xsl:with-param name="ctEmail">
-                    <xsl:value-of select="$ctEmail"/>                            
-                </xsl:with-param>
-            </xsl:call-template>
+            <xsl:element name="Address">
+                <xsl:element name="TelecommunicationAddress">
+                    <xsl:call-template name="emitOCReTelecommunicationAddressType">
+                        <xsl:with-param name="schemeType">mailto</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:element>
+                <xsl:element name="AddressString">
+                    <xsl:value-of select="$ctEmail"/>
+                </xsl:element>
+            </xsl:element>
         </xsl:if>
         <xsl:if test="$ctPhone != ''">
-            <xsl:call-template name="ocreEmitAddress-Telephone">
-                <xsl:with-param name="ctPhone">
-                    <xsl:value-of select="$ctPhone"/>                            
-                </xsl:with-param>
-                <xsl:with-param name="ctPhoneExt">
-                    <xsl:value-of select="$ctPhoneExt"/>                            
-                </xsl:with-param>
-            </xsl:call-template>
+            <xsl:element name="Address">
+                <xsl:element name="TelecommunicationAddress">
+                    <xsl:call-template name="emitOCReTelecommunicationAddressType">
+                        <xsl:with-param name="schemeType">tel</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:element>
+                <xsl:element name="AddressString">
+                    <xsl:value-of select="$ctPhone"/>
+                </xsl:element>
+            </xsl:element>
         </xsl:if>
         
         <xsl:if test="$ctLastName != ''">
@@ -662,107 +678,43 @@
         </xsl:if>
     </xsl:template>
     
-    <xsl:template name="ocreEmitOrganization">
+    <!-- Emit the markup for the complexType OrganizationType in the HSDB XSD -->
+    <xsl:template name="emitOCReOrganizationType">
         <xsl:param name="ctName"/>
+        
+        <xsl:element name="Name">
+            <xsl:value-of select="$ctName"/>
+        </xsl:element>
+    </xsl:template>
 
-        <!-- We cannot extract info we want for an organization identifier from ct.gov
-        <xsl:call-template name="ocreEmitIdentifier">
-            <xsl:with-param name="root"></xsl:with-param>
-            <xsl:with-param name="name"></xsl:with-param>
-        </xsl:call-template>
-        -->
-        <xsl:element name="Name"><xsl:value-of select="$ctName"/></xsl:element>
-        <!-- We cannot extract info we want for an organization address from ct.gov
-        <xsl:call-template name="ocreEmitAddress-Postal">
-            <xsl:with-param name="ctStreet"></xsl:with-param>
-            <xsl:with-param name="ctCity"></xsl:with-param>
-            <xsl:with-param name="ctState"></xsl:with-param>
-            <xsl:with-param name="ctZip"></xsl:with-param>
-            <xsl:with-param name="ctCountry"></xsl:with-param>
-        </xsl:call-template>
-        -->
-    </xsl:template>
-    
-    <!-- RecruitmentStatus="Recruitment not yet started" - when ct.gov overall_status is 'not yet recruiting'
-                          |"Recruitment active"          - when ct.gov overall_status is 'recruiting'
-                          |"Recruitment suspended"       - when ct.gov overall_status is 'suspended'
-                          |"Recruitment will not start"  - when ct.gov overall_status is 'withdrawn'
-                          |"Recruitment terminated"      - never from ct.gov clinical_study
-                          |"Recruitment completed"       - never from ct.gov clinical_study
-    -->
-    <xsl:template name="ocreEmitRecruitmentStatus">
-        <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(overall_status))"/>
-        <!-- Do not emit the tag for certain recognized values of overall_status -->
-        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'completed'">
-            <xsl:element name="RecruitmentStatus">
-            <xsl:choose>
-                <xsl:when test="$ctOverallStatus = 'suspended'">Recruitment suspended</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'recruiting'">Recruitment active</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'withdrawn'">Recruitment will not start</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'not yet recruiting'">Recruitment not yet started</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Recruitment not active</xsl:when>
-                <xsl:otherwise>
-                    <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/></xsl:variable>
-                    <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
-                    <xsl:value-of select="$errMsg"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            </xsl:element>
-        </xsl:if>
-    </xsl:template>
-    
-    <!-- StudyStatus="Study completed"  - when ct.gov overall_status is 'completed'
-                    |"Study withdrawn"  - when ct.gov overall_status is 'withdrawn'
-                    |"Study active"     - when ct.gov overall_status is 'recruiting' or 'active, not recruiting'
-                    |"Study suspended"  - never from ct.gov clinical_study
-                    |"Study terminated" - never from ct.gov clinical_study
-                    |"Study planned"    - never from ct.gov clinical_study
-    -->
-    <xsl:template name="ocreEmitStudyStatus">
-        <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(overall_status))"/>
-        <!-- Do not emit the tag for certain recognized values of overall_status -->
-        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'suspended' and $ctOverallStatus != 'not yet recruiting'">
-            <xsl:element name="StudyStatus">
-            <xsl:choose>
-                <xsl:when test="$ctOverallStatus = 'completed'">Study completed</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'recruiting'">Study active</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'withdrawn'">Study withdrawn</xsl:when>
-                <xsl:when test="$ctOverallStatus = 'active, not recruiting'">Study active</xsl:when>
-                <xsl:otherwise>
-                    <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov overall_status = <xsl:value-of select="$ctOverallStatus"/></xsl:variable>
-                    <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
-                    <xsl:value-of select="$errMsg"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            </xsl:element>
-        </xsl:if>
-     </xsl:template>
-    
-    <xsl:template name="ocreEmitContactForPublicQueries">
-        <xsl:for-each select="overall_contact">
-            <xsl:element name="ContactForPublicQueries">
-                <!-- emitting the <Person> tag here for now, because of diff between PI and contact... -->
-                <xsl:element name="Person">                    
-                    <xsl:call-template name="ocreEmitPersonSubtree">
-                        <xsl:with-param name="ctFirstName">
-                            <xsl:value-of select="first_name"/>
-                        </xsl:with-param>
-                        <xsl:with-param name="ctLastName">
-                            <xsl:value-of select="last_name"/>
-                        </xsl:with-param>
-                        <xsl:with-param name="ctEmail">
-                            <xsl:value-of select="email"/>                            
-                        </xsl:with-param>
-                        <xsl:with-param name="ctPhone">
-                            <xsl:value-of select="phone"/>                            
-                        </xsl:with-param>
-                    </xsl:call-template>
-                    
+    <!-- Emit the markup for the complexType InstanceIdentifierType in the HSDB XSD -->
+    <xsl:template name="emitOCReInstanceIdentifierType">
+        <xsl:param name="root"/>
+        <xsl:param name="name"/>
+        <xsl:if test="$root != '' or $name != ''">
+            <xsl:if test="$root != ''">
+                <xsl:element name="Root">
+                    <xsl:value-of select="$root"/>
                 </xsl:element>
-            </xsl:element>
-        </xsl:for-each>
+            </xsl:if>
+            <xsl:if test="$name != ''">
+                <xsl:element name="IdentifierName">
+                    <xsl:value-of select="$name"/>
+                </xsl:element>
+            </xsl:if>
+        </xsl:if>
     </xsl:template>
+
     
+    <!-- Emit the markup for the complexType TelecommunicationAddressType in the HSDB XSD -->
+    <xsl:template name="emitOCReTelecommunicationAddressType">
+        <xsl:param name="schemeType"/>
+        
+        <xsl:element name="Scheme">
+            <xsl:value-of select="$schemeType"/>
+        </xsl:element>
+    </xsl:template>
+        
     <!--
         The date_struct at http://clinicaltrials.gov/ct2/html/images/info/public.xsd just
         specifies an xs:string, where the HSDB XSD specifies an xsd:date (ISI 8601).  This template
@@ -781,8 +733,12 @@
         <xsl:param name="ctDateString"/>
         <xsl:variable name="ctDateTokens" select="tokenize($ctDateString,'\s+')"/>
         <xsl:variable name="yearNum">
-            <xsl:if test="count($ctDateTokens) = 2"><xsl:value-of select="$ctDateTokens[2]"/></xsl:if>
-            <xsl:if test="count($ctDateTokens) = 3"><xsl:value-of select="$ctDateTokens[3]"/></xsl:if>
+            <xsl:if test="count($ctDateTokens) = 2">
+                <xsl:value-of select="$ctDateTokens[2]"/>
+            </xsl:if>
+            <xsl:if test="count($ctDateTokens) = 3">
+                <xsl:value-of select="$ctDateTokens[3]"/>
+            </xsl:if>
         </xsl:variable>
         <xsl:variable name="monthNum">
             <xsl:value-of select="hsdb-ct:enUsMonthNumber($ctDateTokens[1])"/>
@@ -819,7 +775,9 @@
             <xsl:when test="lower-case($enUsMonthString) = 'december'">12</xsl:when>
             <xsl:otherwise>
                 <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: Unexpected date format for CT.gov string '<xsl:value-of select="$enUsMonthString"/>'</xsl:variable>
-                <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
+                <xsl:message>
+                    <xsl:value-of select="$errMsg"/>
+                </xsl:message>
                 <xsl:value-of select="$errMsg"/>
             </xsl:otherwise>
         </xsl:choose>
@@ -847,11 +805,14 @@
             <xsl:when test="lower-case($ctInterventionType) = 'surgery'">PlannedProcedureType</xsl:when>
             <xsl:when test="lower-case($ctInterventionType) = 'other'">PlannedProcedureType</xsl:when>
             <xsl:otherwise>
-                <xsl:variable name="errMsg"><xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov intervention_type = <xsl:value-of select="$ctInterventionType"></xsl:value-of></xsl:variable>
-                <xsl:message><xsl:value-of select="$errMsg"/></xsl:message>
+                <xsl:variable name="errMsg">
+                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov intervention_type = <xsl:value-of select="$ctInterventionType"/></xsl:variable>
+                <xsl:message>
+                    <xsl:value-of select="$errMsg"/>
+                </xsl:message>
                 <xsl:value-of select="$errMsg"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
+
 </xsl:stylesheet>
