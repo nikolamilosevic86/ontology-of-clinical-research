@@ -9,7 +9,7 @@
     This style sheet is used for transforming XML from clinicaltrials.gov which complies with the schema
     http://clinicaltrials.gov/ct2/html/images/info/public.xsd
     to XML complying with the Human Studies Database schema generated from the OCRe ontology, temporarily found at
-    http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd
+    http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd
     
     Thus far, this transform is compatible with a Basic XSLT processor for XSLT 2.0, as described at
     http://www.w3.org/TR/xslt20/#basic-conformance
@@ -30,6 +30,8 @@
     http://www.oxygenxml.com/buy.html
     Saxon-EE Pricing at
     http://saxonica.com/shop/shop.html
+    
+    @TODO-convert more match-involked templates to xsl:function for text-to-text mappings like study_status, recruitment_status, etc
 -->
 <!-- The following elements are deliberately not mapped from ct.gov to HSDB
     clinical_study/required_header
@@ -81,12 +83,13 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsi="http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd"
+    xmlns:xsi="http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd"
     xmlns:hsdb-ct="http://anyOldStringForNowJustSoFunctionsHaveOwnNamespace"
     exclude-result-prefixes="xs" version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
     <xsl:variable name="globalNctID" select="/clinical_study/id_info/nct_id"/>
+    <xsl:variable name="hsdbSchemaLoc">http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd</xsl:variable>
 
     <!-- Generate something for study types which we're not ready to handle yet.
     -->
@@ -95,7 +98,7 @@
         <xsl:element name="Root">
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
-            <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance">http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd</xsl:attribute>
+            <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance"><xsl:value-of select="$hsdbSchemaLoc"/></xsl:attribute>
 
             <xsl:variable name="warnMsg">
                 <xsl:value-of select="$globalNctID"/> - WARNING: Mapping from CT.gov to HSDB not available for study_type <xsl:value-of select="study_type"/>
@@ -118,18 +121,24 @@
     -->
     <xsl:template match="/clinical_study[lower-case(normalize-space(study_type)) = 'interventional'] |
                          /clinical_study[lower-case(normalize-space(study_type)) = 'observational']">
+        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(study_type))"/>
         <xsl:element name="Root">
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="sawsdl" select="'http://purl.org/net/OCRe'"/>
-            <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance">http://hsdbweb.s3.amazonaws.com/HSDB_xsd_V12.xsd</xsl:attribute>
+            <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance"><xsl:value-of select="$hsdbSchemaLoc"/></xsl:attribute>
 
             <xsl:element name="Study">
 
                 <!-- Emit OCRe RecruitmentSite elements from CT.gov location/facility element data -->
                 <xsl:apply-templates select="/clinical_study/location/facility"/>
 
-                <!-- Emit OCRe FundingRelation elements from CT.gov lead_sponsor and collaborator data elements -->
-                <xsl:apply-templates select="/clinical_study/sponsors/*"/>
+                <!-- Emit OCRe SponsoringRelation elements from CT.gov lead_sponsor and collaborator data elements -->
+                <!-- Note: The wildcard selection of all children of sponsors via sponsors/* could cause this transform
+                     to emit invalid XML if CT.gov public.xsd were to change sponsors_struct to contain anything other
+                     than nodes recognized by the 'match' attribute of a template below i.e. other than
+                     lead_sponsor or collaborator
+                -->
+                <xsl:apply-templates select="/clinical_study/sponsors/*" mode="sponsoring_relation"/>
 
                 <!-- Emit OCRe PlannedSampleSize elements from CT.gov enrollment/@type attribute -->
                 <xsl:apply-templates select="/clinical_study/enrollment" mode="planned"/>
@@ -142,10 +151,26 @@
 
                 <!-- Emit OCRe ScientificTitle elements from CT.gov official_title data element (or brief_title, if necessary) -->
                 <xsl:apply-templates select="/clinical_study/official_title"/>
+                <xsl:apply-templates select="/clinical_study/brief_title"/>
+                
+                <!-- Emit OCRe InterventionAssignmentScheme elements from CT.gov study_design data element -->
+                <!-- CT.gov has put Interventions on observational studies in the past, which is not appropriate for an
+                     observational studies without further interpretation.  So limit emitting of CT.gov Intervention data
+                     to interventional studies pending further analysis
+                -->
+                <xsl:if test="$ctStudyType = 'interventional'">
+                    <xsl:apply-templates select="/clinical_study/study_design" mode="intervention_assignment_scheme"/>
+                </xsl:if>
 
-                <!-- Emit OCRe FundingRelation elements from CT.gov agency data elements -->
-                <xsl:apply-templates select="/clinical_study/sponsors/*/agency"/>
-
+                <!-- Emit OCRe FundingRelation elements from CT.gov agency data elements for the recognized agency_classes -->
+                <!-- Note: The wildcard selection of all children of sponsors via sponsors/* could cause this transform
+                     to emit invalid XML if CT.gov public.xsd were to change sponsors_struct to contain anything other
+                     than nodes recognized by the 'match' attribute of a template below i.e. other than
+                     lead_sponsor or collaborator
+                -->
+                <xsl:apply-templates select="/clinical_study/sponsors/*[agency_class='NIH']" mode="funding_relation"/>
+                <xsl:apply-templates select="/clinical_study/sponsors/*[agency_class='U.S. Fed']" mode="funding_relation"/>
+                
                 <!-- Emit OCRe ActualSampleSize elements from CT.gov enrollment/@type attribute -->
                 <xsl:apply-templates select="/clinical_study/enrollment" mode="actual"/>
 
@@ -155,9 +180,15 @@
                     <!-- Emit OCRe OutcomeVariable elements from CT.gov primary_outcome and secondary_outcome data elements -->
                     <xsl:apply-templates select="/clinical_study/primary_outcome"/>
                     <xsl:apply-templates select="/clinical_study/secondary_outcome"/>
-                    <xsl:element name="DividedInto">
-                        <xsl:apply-templates select="/clinical_study/arm_group"/>
-                    </xsl:element>
+                    <!-- CT.gov has put Arms on observational studies in the past, which is not appropriate for an
+                         observational studies without further interpretation.  So limit emitting of CT.gov Arm data
+                         to interventional studies pending further analysis
+                    -->
+                    <xsl:if test="$ctStudyType = 'interventional'">
+                        <xsl:element name="DividedInto">
+                            <xsl:apply-templates select="/clinical_study/arm_group"/>
+                        </xsl:element>
+                    </xsl:if>
                 </xsl:element>
                 
                 <!-- Emit OCRe StudyDesign elements from CT.gov study_design and study_type data elements -->
@@ -235,7 +266,7 @@
     </xsl:template>
 
     <!-- developed as xsl:template name="ocreEmitSponsoringRelation" -->
-    <xsl:template match="lead_sponsor | collaborator">
+    <xsl:template match="lead_sponsor | collaborator" mode="sponsoring_relation">
         <xsl:element name="SponsoringRelation">
             <xsl:element name="Actor">
                 <xsl:element name="Organization">
@@ -280,28 +311,31 @@
 
     <!-- developed as xsl:template name="ocreEmitScientificTitle" -->
     <xsl:template match="official_title">
-        <xsl:element name="ScientificTitle">
-            <xsl:choose>
-                <xsl:when test="current() != ''">
-                    <xsl:value-of select="current()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:if test="/clinical_study/brief_title != ''">
-                        <xsl:value-of select="/clinical_study/brief_title"/>
-                    </xsl:if>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:element>
+        <!-- Only use the official_title if it is non-empty -->
+        <xsl:if test="current() != ''">
+            <xsl:element name="ScientificTitle">
+                <xsl:value-of select="current()"/>
+            </xsl:element>
+        </xsl:if>
     </xsl:template>
 
+    <xsl:template match="brief_title">
+        <!-- Only use the brief_title if the official_title is absent or empty and the brief_title is non-empty -->
+        <xsl:if test="(not(/clinical_study/official_title) or /clinical_study/official_title = '') and current() != ''">
+            <xsl:element name="ScientificTitle">
+                <xsl:value-of select="current()"/>
+            </xsl:element>
+        </xsl:if>
+    </xsl:template>
+    
     <!-- developed as xsl:template name="ocreEmitFundingRelation" -->
-    <xsl:template match="agency">
+    <xsl:template match="lead_sponsor | collaborator" mode="funding_relation">
         <xsl:element name="FundingRelation">
             <xsl:element name="Actor">
                 <xsl:element name="Organization">
                     <xsl:call-template name="emitOCReOrganizationType">
                         <xsl:with-param name="ctName">
-                            <xsl:value-of select="current()"/>
+                            <xsl:value-of select="agency"/>
                         </xsl:with-param>
                     </xsl:call-template>
                 </xsl:element>
@@ -367,6 +401,7 @@
     <!-- developed as xsl:template name="ocreEmitAllocationType" -->
     <xsl:template match="study_design" mode="allocation_type">
         <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(current()))"/>
+        <xsl:variable name="ctStudyType" select="lower-case(normalize-space(/clinical_study/study_type))"/>
         <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not in attribute values. -->
         <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
         <xsl:for-each select="tokenize($ctStudyDesign,',')">
@@ -376,11 +411,11 @@
                     <xsl:variable name="ctAllocationValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
                     <xsl:element name="AllocationType">
                         <xsl:choose>
-                            <xsl:when test="$ctAllocationValue = lower-case('Randomized')">Random allocation</xsl:when>
-                            <xsl:when test="$ctAllocationValue = lower-case('Non-Randomized')">Non-random allocation</xsl:when>
+                            <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Randomized')">Random allocation</xsl:when>
+                            <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Non-Randomized')">Non-random allocation</xsl:when>
                             <xsl:otherwise>
                                 <xsl:variable name="errMsg">
-                                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/>
+                                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/> for study_type <xsl:value-of select="$ctStudyType"/>
                                 </xsl:variable>
                                 <xsl:message>
                                     <xsl:value-of select="$errMsg"/>
@@ -393,7 +428,28 @@
             </xsl:choose>
         </xsl:for-each>
     </xsl:template>
-    
+
+    <!-- InterventionAssignmentScheme="Factorial"      - when ct.gov study_design has Intervention Model: Factorial Assignment
+                                     |"Single-factor" - never from ct.gov clinical_study
+    -->
+    <xsl:template match="study_design" mode="intervention_assignment_scheme">
+        <xsl:variable name="ctStudyDesign" select="lower-case(normalize-space(current()))"/>
+        
+        <!-- Assume the study_design xsd:string only uses the comma to separate attributes, not within attribute values. -->
+        <!-- Assume the CT.gov study_design xsd:string will contain only one of {Observational Model, Intervention Model, Time Perspective} -->
+        <!-- Not evaluating a node set, so combine for-each and call-template rather than using apply-templates. -->
+        <xsl:if test="contains($ctStudyDesign,lower-case('Intervention Model'))">
+            <xsl:for-each select="tokenize($ctStudyDesign,',')">
+                <xsl:variable name="ctStudyDesignKeyValue" select="tokenize(.,':')"/>
+                <xsl:variable name="ctStudyDesignKey" select="normalize-space($ctStudyDesignKeyValue[1])"/>
+                <xsl:variable name="ctStudyDesignValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
+                <xsl:if test="$ctStudyDesignKey = lower-case('Intervention Model') and $ctStudyDesignValue = lower-case('Factorial Assignment')">
+                    <xsl:element name="InterventionAssignmentScheme">Factorial</xsl:element>
+                </xsl:if>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
+        
     <!-- StudyDesignType=no StudyDesign emitted          - when study_type is Expanded Access
                         |"Case-crossover study design"   - when ct.gov study_design has Observational Model: Case-Crossover
                         |"Parallel group study design"   - when ct.gov study_design has Intervention Model: Parallel Assignment
@@ -432,7 +488,7 @@
                                     <xsl:when test="$ctStudyDesignValue = lower-case('Case-Crossover')">Case-crossover study design</xsl:when>
                                     <xsl:when test="$ctStudyDesignValue = lower-case('Cohort')">Cohort study design</xsl:when>
                                     <xsl:when test="$ctStudyDesignValue = lower-case('Case Control')">Case-control study design</xsl:when>
-                                    <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or community studies')">
+                                    <xsl:when test="$ctStudyDesignValue = lower-case('Ecologic or Community')">
                                         <xsl:apply-templates select="$ctStudyTypeNode"/>
                                     </xsl:when>
                                     <xsl:when test="$ctStudyDesignValue = lower-case('Family-based')">
@@ -478,7 +534,7 @@
                                         <!-- Don't put out a warning for values of Time Perspective we recognize from
                                                  http://prsinfo.clinicaltrials.gov/definitions.html but do not choose to map to a distinct HSDB value 
                                             -->
-                                        <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and $ctStudyDesignValue != lower-case('Retrospective') and $ctStudyDesignValue != lower-case('Other')">
+                                        <xsl:if test="$ctStudyDesignValue != lower-case('Prospective') and $ctStudyDesignValue != lower-case('Retrospective') and $ctStudyDesignValue != lower-case('Retrospective/Prospective') and $ctStudyDesignValue != lower-case('Other')">
                                             <xsl:variable name="warnMsg">
                                                 <xsl:value-of select="$globalNctID"/> - WARNING: UNDETERMINED for CT.gov study_design characteristic <xsl:value-of select="$ctStudyDesignKey"/>:<xsl:value-of select="$ctStudyDesignValue"/>
                                             </xsl:variable>
@@ -540,7 +596,7 @@
                           |"Recruitment active"          - when ct.gov overall_status is 'recruiting'
                           |"Recruitment suspended"       - when ct.gov overall_status is 'suspended'
                           |"Recruitment will not start"  - when ct.gov overall_status is 'withdrawn'
-                          |"Recruitment terminated"      - never from ct.gov clinical_study
+                          |"Recruitment terminated"      - when ct.gov overall_status is 'terminated'
                           |"Recruitment completed"       - never from ct.gov clinical_study
     -->
     <!-- developed as xsl:template name="ocreEmitRecruitmentStatus" -->
@@ -550,6 +606,7 @@
         <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'completed'">
             <xsl:element name="RecruitmentStatus">
                 <xsl:choose>
+                    <xsl:when test="$ctOverallStatus = 'terminated'">Recruitment terminated</xsl:when>
                     <xsl:when test="$ctOverallStatus = 'suspended'">Recruitment suspended</xsl:when>
                     <xsl:when test="$ctOverallStatus = 'recruiting'">Recruitment active</xsl:when>
                     <xsl:when test="$ctOverallStatus = 'withdrawn'">Recruitment will not start</xsl:when>
@@ -580,7 +637,7 @@
     <xsl:template match="overall_status" mode="study_status">
         <xsl:variable name="ctOverallStatus" select="lower-case(normalize-space(current()))"/>
         <!-- Do not emit the tag for certain recognized values of overall_status -->
-        <xsl:if test="$ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'suspended' and $ctOverallStatus != 'not yet recruiting'">
+        <xsl:if test="$ctOverallStatus != 'terminated' and $ctOverallStatus != 'enrolling by invitation' and $ctOverallStatus != 'suspended' and $ctOverallStatus != 'not yet recruiting'">
             <xsl:element name="StudyStatus">
                 <xsl:choose>
                     <xsl:when test="$ctOverallStatus = 'completed'">Study completed</xsl:when>
