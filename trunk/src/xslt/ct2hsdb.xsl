@@ -204,8 +204,10 @@
                 <xsl:apply-templates select="/clinical_study/overall_contact"/>
                 
                 <!-- Emit OCRe Identifier element from CT.gov id_info element data -->
-                <xsl:apply-templates select="/clinical_study/id_info"/>
-
+                <xsl:apply-templates select="/clinical_study/id_info/nct_id"/>
+                <xsl:apply-templates select="/clinical_study/id_info/org_study_id"/>
+                <xsl:apply-templates select="/clinical_study/id_info/secondary_id"/>
+                
                 <!-- Emit OCRe StudyStatus element from CT.gov overall_status element data -->
                 <xsl:apply-templates select="/clinical_study/overall_status" mode="study_status"/>
                 
@@ -409,21 +411,28 @@
             <xsl:choose>
                 <xsl:when test="normalize-space($ctStudyDesignKeyValue[1]) = 'allocation'">
                     <xsl:variable name="ctAllocationValue" select="normalize-space($ctStudyDesignKeyValue[2])"/>
-                    <xsl:element name="AllocationType">
-                        <xsl:choose>
-                            <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Randomized')">Random allocation</xsl:when>
-                            <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Non-Randomized')">Non-random allocation</xsl:when>
-                            <xsl:otherwise>
-                                <xsl:variable name="errMsg">
-                                    <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/> for study_type <xsl:value-of select="$ctStudyType"/>
-                                </xsl:variable>
-                                <xsl:message>
-                                    <xsl:value-of select="$errMsg"/>
-                                </xsl:message>
-                                <xsl:value-of select="$errMsg"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:element>
+                    <xsl:choose>
+                        <!-- create an xsl:when for each sitution in which we do not want to emit the AllocationType tag -->
+                        <xsl:when test="$ctStudyType = lower-case('Observational') and $ctAllocationValue = lower-case('Random sample')"/>
+                        <xsl:otherwise>
+                            <!-- emit the AllocationType tag, even if it contains a non-validating error message. -->
+                            <xsl:element name="AllocationType">
+                                <xsl:choose>
+                                    <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Randomized')">Random allocation</xsl:when>
+                                    <xsl:when test="$ctStudyType = lower-case('Interventional') and $ctAllocationValue = lower-case('Non-Randomized')">Non-random allocation</xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:variable name="errMsg">
+                                            <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov Allocation:<xsl:value-of select="$ctAllocationValue"/> for study_type <xsl:value-of select="$ctStudyType"/>
+                                        </xsl:variable>
+                                        <xsl:message>
+                                            <xsl:value-of select="$errMsg"/>
+                                        </xsl:message>
+                                        <xsl:value-of select="$errMsg"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:element>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:when>
             </xsl:choose>
         </xsl:for-each>
