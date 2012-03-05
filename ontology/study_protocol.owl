@@ -99,16 +99,6 @@
         <rdfs:label rdf:datatype="&xsd;string">is divided into</rdfs:label>
         <statistics:definition rdf:datatype="&xsd;string">This is a relationship between two acts. This relationship asserts that an epoch must be a division of one and only one study protocol. This relationship also asserts that a study protocol must be divided into one or more epochs.</statistics:definition>
         <owl:inverseOf rdf:resource="&study_protocol;OCRE891072"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300012"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;OCRE802488"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
-                    <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -591,13 +581,13 @@ Depending on the research objectives, a single study may have multiple levels of
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
