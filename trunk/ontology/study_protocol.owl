@@ -308,7 +308,7 @@
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from BRIDG 3.1 definition of DefinedSubstanceAdministration. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned procedure that is an action of applying, introducing, or otherwise giving medications or other substance to a subject or experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned procedure that is an action of applying, introducing, or otherwise giving medication or other substance to a subject or experimental unit.</obo:IAO_0000115>
         <rdfs:comment>Cf BRIDG 3.1 DefinedSubstanceAdministraiotn definition
 An activity defined at a global library level that is an action of applying,  introducing or otherwise giving medications or other substances to a subject or experimental unit.
 
@@ -323,13 +323,13 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
         <rdfs:label rdf:datatype="&xsd;string">Epoch</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
-One of a set of ordered partitions of an experimental unit&apos;s participation in a study. An Epoch represents a state within a study such that subjects in separate arms within that state are comparable.
+One of a set of ordered partitions of an experimental unit&#39;s participation in a study. An Epoch represents a state within a study such that subjects in separate arms within that state are comparable.
 
-Each epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Activities and activity results control the subject&apos;s movement from one epoch to another.
+Each epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Activities and activity results control the subject&#39;s movement from one epoch to another.
 
 EXAMPLE(S):
 A study designed to assess the effects of treatments might have 3 epochs.
-A Screening Epoch in which subjects&apos; eligibility is determined and baseline measurements are made.
+A Screening Epoch in which subjects&#39; eligibility is determined and baseline measurements are made.
 A Treatment Epoch during which treatments are given and effects of treatment are assessed.
 A Follow-up Epoch during which post-treatment assessments are conducted.  
 
@@ -337,11 +337,11 @@ NOTE(S):
 A subject moves from one epoch to another and can only be in one epoch at a time. The subject can only move to an epoch with a greater sequenceNumber. Activities in the same epoch but a different arm need not be similar in time and pattern. Subjects in different arms will not necessarily pass through the same epochs.
 </obo:IAO_0000115>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
-One of a set of ordered partitions of an experimental unit&apos;s planned time in a study.  
+One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
 
-Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&apos;s movement from one Epoch to another.
+Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
 
-For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&apos; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
 
 NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -355,7 +355,7 @@ NOTE: A subject moves from one Epoch to another and can only be in one epoch at 
         <rdfs:label rdf:datatype="&xsd;string">Arm</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
-A path through the study which describes what activities the study subject or experimental unit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. Generally, each subject is assigned to an arm, and the design of the study is reflected in the number and composition of the individual arms. This intended path through which the subject progresses in a trial is composed of time point events (study cell) for each epoch of the study. Each time point event, in turn, has a pattern of child time points through which the subject would pass. This planned path thus describes how subjects assigned to the arm will be treated. 
+A path through the study which describes what activities the study subject or experimental unit will be involved in as they pass through the study, and is typically equivalent to a treatment group in a parallel design trial. Generally, each subject is assigned to an arm, and the design of the study is reflected in the number and composition of the individual arms. This intended path through which the subject progresses in a trial is composed of time point events for each epoch of the study. Each time point event, in turn, has a pattern of child time points through which the subject would pass. This planned path thus describes how subjects assigned to the arm will be treated. 
 
 EXAMPLE(S):
 A study could have 2 arms named IV-Oral and Oral-IV.  The name IV-Oral reflects a path that passes through IV treatment, then Oral treatment.
@@ -385,9 +385,8 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned specimen collection specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned procedure that is an action of gathering samples that may be used for subsequent analysis.</obo:IAO_0000115>
         <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedSpecimenCollection</obo:IAO_0000119>
-        <obo:IAO_0000115>The description of a planned procedure that is an action of gathering samples that may be used for subsequent analysis.
-</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -398,9 +397,7 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned observation specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000115>The description of a planned activity whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a subject&apos;s, study subject&apos;s or experimental unit&apos;s state.
-
-</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a subject&#39;s, study subject&#39;s or experimental unit&#39;s state.</obo:IAO_0000115>
         <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedObservation.</obo:IAO_0000119>
     </owl:Class>
     
@@ -412,10 +409,7 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned procedure specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000115>The description of a planned activity whose immediate and primary intention is the alteration of the state of the subject, study subject or experimental unit.
-
-
-</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose immediate and primary intention is the alteration of the state of the subject, study subject or experimental unit.</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -464,7 +458,7 @@ This class helps represent an AND relationship between siblings with the same pa
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Modified from BRIDG 3.1; Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of an activity that is intended to occur or start at some point in the context of a particular study.</obo:IAO_0000115>
-        <rdfs:comment>Activity specification can be harmonized to BRIDG 3.1&quot;Planned activity,&apos; which is defined as
+        <rdfs:comment>Activity specification can be harmonized to BRIDG 3.1&quot;Planned activity,&#39; which is defined as
 
 DEFINITION: An activity that is intended to occur or start at some point in the context of a particular study.   
 
@@ -603,5 +597,5 @@ Depending on the research objectives, a single study may have multiple levels of
 
 
 
-<!-- Generated by the OWL API (version 3.2.5.1912) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
 
