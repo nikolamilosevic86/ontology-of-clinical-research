@@ -9,7 +9,7 @@
     This style sheet is used for transforming XML from clinicaltrials.gov which complies with the schema
     http://clinicaltrials.gov/ct2/html/images/info/public.xsd
     to XML complying with the Human Studies Database schema generated from the OCRe ontology, temporarily found at
-    http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd
+    http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_03_09_2012.xsd
     
     Thus far, this transform is compatible with a Basic XSLT processor for XSLT 2.0, as described at
     http://www.w3.org/TR/xslt20/#basic-conformance
@@ -83,13 +83,13 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsi="http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd"
+    xmlns:xsi="http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_03_09_2012.xsd"
     xmlns:hsdb-ct="http://anyOldStringForNowJustSoFunctionsHaveOwnNamespace"
     exclude-result-prefixes="xs" version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
     <xsl:variable name="globalNctID" select="/clinical_study/id_info/nct_id"/>
-    <xsl:variable name="hsdbSchemaLoc">http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_02_21_2012.xsd</xsl:variable>
+    <xsl:variable name="hsdbSchemaLoc">http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB_03_09_2012.xsd</xsl:variable>
 
     <!-- Generate something for study types which we're not ready to handle yet.
     -->
@@ -128,7 +128,6 @@
             <xsl:attribute name="noNamespaceSchemaLocation" namespace="http://www.w3.org/2001/XMLSchema-instance"><xsl:value-of select="$hsdbSchemaLoc"/></xsl:attribute>
 
             <xsl:element name="Study">
-
                 <!-- Emit OCRe RecruitmentSite elements from CT.gov location/facility element data -->
                 <xsl:apply-templates select="/clinical_study/location/facility"/>
 
@@ -176,7 +175,9 @@
 
                 <!-- Emit OCRe StudyProtocol elements from CT.gov arm_group data elements -->
                 <xsl:element name="StudyProtocol">
-                    <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">InterventionStudyProtocolType</xsl:attribute>
+                    <xsl:if test="$ctStudyType = 'interventional'">
+                        <xsl:attribute name="type" namespace="http://www.w3.org/2001/XMLSchema-instance">InterventionStudyProtocolType</xsl:attribute>
+                    </xsl:if>
                     <!-- Emit OCRe OutcomeVariable elements from CT.gov primary_outcome and secondary_outcome data elements -->
                     <xsl:apply-templates select="/clinical_study/primary_outcome"/>
                     <xsl:apply-templates select="/clinical_study/secondary_outcome"/>
@@ -186,7 +187,33 @@
                     -->
                     <xsl:if test="$ctStudyType = 'interventional'">
                         <xsl:element name="DividedInto">
-                            <xsl:apply-templates select="/clinical_study/arm_group"/>
+                            <xsl:choose>
+                                <xsl:when test="not(/clinical_study/arm_group) and/clinical_study/number_of_arms = 1">
+                                    <xsl:call-template name="emitOCReArmFromAllStudyInterventions"/>
+                                </xsl:when>
+                                <xsl:when test="not(/clinical_study/arm_group) and /clinical_study/number_of_arms > 1">
+                                    <xsl:variable name="warnMsg">
+                                        <xsl:value-of select="$globalNctID"/> - WARNING: No arm_group elements when number_of_arms = <xsl:value-of select="/clinical_study/number_of_arms"/>.
+                                    </xsl:variable>
+                                    <xsl:message>
+                                        <xsl:value-of select="$warnMsg"/>
+                                    </xsl:message>
+                                </xsl:when>
+                                <xsl:when test="not(clinical_study/arm_group) and not(/clinical_study/number_of_arms) and count(/clinical_study/intervention) = 1">
+                                    <xsl:call-template name="emitOCReArmFromAllStudyInterventions"/>
+                                </xsl:when>
+                                <xsl:when test="not(/clinical_study/arm_group) and not(/clinical_study/number_of_arms) and count(/clinical_study/intervention) > 1">
+                                    <xsl:variable name="warnMsg">
+                                        <xsl:value-of select="$globalNctID"/> - WARNING: No number_of_arms element when <xsl:value-of select="count(/clinical_study/intervention)"/> interventions.
+                                    </xsl:variable>
+                                    <xsl:message>
+                                        <xsl:value-of select="$warnMsg"/>
+                                    </xsl:message>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:apply-templates select="/clinical_study/arm_group"/>                                    
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:element>
                     </xsl:if>
                 </xsl:element>
@@ -212,6 +239,12 @@
                 <xsl:apply-templates select="/clinical_study/overall_status" mode="study_status"/>
                 
             </xsl:element>
+            
+            <!-- close with any necessary management comments, on their own line -->
+            <xsl:text>&#10;</xsl:text>
+            <xsl:comment><xsl:value-of select="/clinical_study/id_info/nct_id"/> first received <xsl:value-of select="hsdb-ct:ctDateStandardizer(/clinical_study/firstreceived_date)"/></xsl:comment>
+            <xsl:text>&#10;</xsl:text>
+            
         </xsl:element>
     </xsl:template>
 
@@ -356,7 +389,7 @@
             </xsl:element>
         </xsl:for-each>
     </xsl:template>
-
+    
     <!-- developed as xsl:template name="ocreEmitOutcomeVariables" -->
     <xsl:template match="primary_outcome | secondary_outcome">
         <xsl:element name="OutcomeVariable">
@@ -460,6 +493,10 @@
     </xsl:template>
         
     <!-- StudyDesignType=no StudyDesign emitted          - when study_type is Expanded Access
+                        |"Case-only study design"        - @TODO
+                        |"Natural history study design"  - @TODO
+                        |"Observational study design"    - @TODO
+                        |"Case series study design"      - @TODO
                         |"Case-crossover study design"   - when ct.gov study_design has Observational Model: Case-Crossover
                         |"Parallel group study design"   - when ct.gov study_design has Intervention Model: Parallel Assignment
                         |"Parallel group study design"   - when ct.gov study_design has Intervention Model: Factorial Assignment
@@ -689,6 +726,18 @@
         </xsl:element>
     </xsl:template>
 
+    <!-- Emit the markup when CT.gov does not require an arm be defined when there is only one on an interventional study -->
+    <xsl:template name="emitOCReArmFromAllStudyInterventions">
+        <xsl:element name="Arm">
+            <xsl:for-each select="/clinical_study/intervention">
+                <xsl:apply-templates select="."/>
+            </xsl:for-each>
+            <xsl:element name="Name">
+                <xsl:text>[Intervention arm]</xsl:text>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
     <!-- Emit the markup for the complexType PersonType in the HSDB XSD -->
     <xsl:template name="emitOCRePersonType">
         <xsl:param name="ctFirstName"/>
@@ -850,26 +899,26 @@
     </xsl:function>
 
     <!-- Map values encountered in CT.gov xsd:string for intervention_type to
-         the corresponding HSDB PlannedActivityType extension for the type
+         the corresponding HSDB PlannedProcedureSpecificationType extension for the type
          attribute of a Study/StudyProtocol/DividedInto/Arm/Contains element
     -->
     <xsl:function name="hsdb-ct:ct2HSDBInterventionTypeMap" as="xs:string">
         <xsl:param name="ctInterventionType"/>
         <xsl:choose>
             <!-- this when/otherwise can be refactored if we truly do not wish to be alerted to new ct.gov intervention_type values -->
-            <xsl:when test="lower-case($ctInterventionType) = 'drug'">PlannedSubstanceAdministrationType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'dietary supplement'">PlannedSubstanceAdministrationType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'biological/vaccine'">PlannedSubstanceAdministrationType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'biological'">PlannedSubstanceAdministrationType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'vaccine'">PlannedSubstanceAdministrationType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'device'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'genetic'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'behavioral'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'radiation'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'procedure/surgery'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'procedure'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'surgery'">PlannedProcedureType</xsl:when>
-            <xsl:when test="lower-case($ctInterventionType) = 'other'">PlannedProcedureType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'drug'">PlannedSubstanceAdministrationSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'dietary supplement'">PlannedSubstanceAdministrationSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'biological/vaccine'">PlannedSubstanceAdministrationSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'biological'">PlannedSubstanceAdministrationSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'vaccine'">PlannedSubstanceAdministrationSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'device'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'genetic'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'behavioral'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'radiation'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'procedure/surgery'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'procedure'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'surgery'">PlannedProcedureSpecificationType</xsl:when>
+            <xsl:when test="lower-case($ctInterventionType) = 'other'">PlannedProcedureSpecificationType</xsl:when>
             <xsl:otherwise>
                 <xsl:variable name="errMsg">
                     <xsl:value-of select="$globalNctID"/> - ERROR: UNDETERMINED for CT.gov intervention_type = <xsl:value-of select="$ctInterventionType"/></xsl:variable>
