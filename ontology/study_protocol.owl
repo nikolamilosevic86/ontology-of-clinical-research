@@ -396,8 +396,9 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300008">
         <rdfs:label rdf:datatype="&xsd;string">Planned observation specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about one or more aspects of a subject&#39;s, study subject&#39;s or experimental unit&#39;s state.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose immediate and primary intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about some aspect of a subject&#39;s, study subject&#39;s or experimental unit&#39;s state and whose immediate and primary intention is NOT the alteration of the state of the subject, study subject or experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedObservation.</obo:IAO_0000119>
     </owl:Class>
     
@@ -575,13 +576,13 @@ Depending on the research objectives, a single study may have multiple levels of
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
