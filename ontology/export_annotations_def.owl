@@ -37,10 +37,8 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE585583">
-        <rdfs:label rdf:datatype="&xsd;string">select group</rdfs:label>
-        <obo:IAO_0000115>For classes that are defined as unions of other classes, the XML Schema export should generates a complex type chooses one of the groups that correspond to the children classes specified using this annotation. Thus, for example, if C = A union B. The xsd should contain group A, B each of which has the same component tags as the complex types A, B. The complex type C should be a selection from group A or B.</obo:IAO_0000115>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE842711">
+        <rdfs:label xml:lang="en">data attribute</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE511666">
         <rdfs:label rdf:datatype="&xsd;string">has subclass type</rdfs:label>
@@ -54,20 +52,32 @@
         <rdfs:label rdf:datatype="&xsd;string">has single parent</rdfs:label>
         <obo:IAO_0000115>The class anootation that denotes the parent from which the complex type corresponding to the class is derived.</obo:IAO_0000115>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE520413">
-        <rdfs:label>data element</rdfs:label>
-        <obo:IAO_0000115>The class annotation that specifies a property that should be represented as an element tag in the complex type or group corresponding to the class. </obo:IAO_0000115>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE826078">
+        <rdfs:label>has value set type</rdfs:label>
+        <rdfs:range rdf:resource="&OCRe_ext;OCRE867266"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE590968">
+        <rdfs:label xml:lang="en">imported xsd</rdfs:label>
+        <obo:IAO_0000115>The ontology annotation that specifies the xsd to be imported.</obo:IAO_0000115>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE484000">
+        <rdfs:label>has substitution group</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE585583">
+        <rdfs:label rdf:datatype="&xsd;string">select group</rdfs:label>
+        <obo:IAO_0000115>For classes that are defined as unions of other classes, the XML Schema export should generates a complex type chooses one of the groups that correspond to the children classes specified using this annotation. Thus, for example, if C = A union B. The xsd should contain group A, B each of which has the same component tags as the complex types A, B. The complex type C should be a selection from group A or B.</obo:IAO_0000115>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE863610">
         <rdfs:label>element order</rdfs:label>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE520413">
+        <rdfs:label>data element</rdfs:label>
+        <obo:IAO_0000115>The class annotation that specifies a property that should be represented as an element tag in the complex type or group corresponding to the class. </obo:IAO_0000115>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE580987">
         <rdfs:label rdf:datatype="&xsd;string">xsd label</rdfs:label>
         <obo:IAO_0000115>A annotation on a property that specifies the string that should be used as the element tag (corresponding to the property) in an XML Schema export. </obo:IAO_0000115>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE826078">
-        <rdfs:label>has value set type</rdfs:label>
-        <rdfs:range rdf:resource="&OCRe_ext;OCRE867266"/>
     </owl:AnnotationProperty>
     
 
@@ -80,6 +90,35 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/export_annotations_def.owl#OCRE253353 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE253353">
+        <rdfs:label xml:lang="en">attribute name</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE674561"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/export_annotations_def.owl#OCRE956877 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE956877">
+        <rdfs:label xml:lang="en">attribute type</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE674561"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -124,6 +163,14 @@
         <rdfs:label>Value set type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&OCRe;OCRE400010"/>
         <obo:IAO_0000115>An enumeration of different representations of value sets in the ontology.</obo:IAO_0000115>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/export_annotations_def.owl#OCRE674561 -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE674561">
+        <rdfs:label xml:lang="en">Attribute</rdfs:label>
     </owl:Class>
     
 
@@ -192,9 +239,20 @@
     <owl:NamedIndividual rdf:about="&OCRe_ext;OCRE893499">
         <rdf:type rdf:resource="&OCRe_ext;OCRE867266"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/net/OCRe/export_annotations_def.owl#OCRE031555 -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE031555">
+        <rdf:type rdf:resource="http://purl.org/net/OCRe/export_annotations_def.owl#OCRE674561"/>
+        <rdfs:label xml:lang="en">code attribute</rdfs:label>
+        <OCRE253353 rdf:datatype="&xsd;string">code_id</OCRE253353>
+        <OCRE956877 rdf:datatype="&xsd;string">xsd:IDREF</OCRE956877>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
 
