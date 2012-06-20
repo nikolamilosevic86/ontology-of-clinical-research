@@ -125,8 +125,6 @@
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/statistics.owl#OCRE900022">
         <rdfs:label rdf:datatype="&xsd;string">is permissible method of</rdfs:label>
         <definition rdf:datatype="&xsd;string">A statistical analysis for which a statistical method is permissible, given the data types of the variables involved</definition>
-        <rdfs:range rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200053"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200061"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900007"/>
     </owl:ObjectProperty>
     
@@ -221,13 +219,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -258,13 +256,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable nominal with cardinality greater than 2 and the dependent dependent variable is nominal with cardinality greater than 2</obo:IAO_0000115>
@@ -568,13 +566,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200081"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200073"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is survival</obo:IAO_0000115>
@@ -1267,6 +1265,12 @@ The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our defin
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200004"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1274,12 +1278,6 @@ The (Cambridge Dictionary of Statistics 3nd ed.) definition of rate is our defin
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200029"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE900025"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/statistics.owl#OCRE200012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A univariate analysis where the independent variable is dichotomous and the dependent variable is dichotomous</obo:IAO_0000115>
