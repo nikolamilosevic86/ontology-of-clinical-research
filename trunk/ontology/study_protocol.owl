@@ -107,9 +107,7 @@
 
     <!-- http://purl.org/net/OCRe/study_protocol#OCRE885707 -->
 
-    <owl:ObjectProperty rdf:about="&study_protocol;OCRE885707">
-        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="&study_protocol;OCRE885707"/>
     
 
 
@@ -347,13 +345,13 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned activities composition relationship specification</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -501,15 +499,6 @@ Depending on the research objectives, a single study may have multiple levels of
     
 
 
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE400057 -->
-
-    <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE400057">
-        <rdfs:label rdf:datatype="&xsd;string">Duration</rdfs:label>
-        <statistics:definition rdf:datatype="&xsd;string">A physical quantity of time. </statistics:definition>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE817858 -->
 
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858">
@@ -552,12 +541,6 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -566,6 +549,12 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
