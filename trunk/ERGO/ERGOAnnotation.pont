@@ -1,7 +1,7 @@
-; Fri Aug 19 12:24:09 MST 2011
+; Tue Jul 03 23:00:44 GMT 2012
 ; 
-;+ (version "3.4")
-;+ (build "Build 526")
+;+ (version "3.5")
+;+ (build "Build 649")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
@@ -64,7 +64,7 @@
 		(create-accessor read-write))
 	(single-slot effective_time
 		(type INSTANCE)
-;+		(allowed-classes Expression Constraint)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot constraint_expression
@@ -109,12 +109,12 @@
 		(create-accessor read-write))
 	(single-slot second_expression
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot start_time
 		(type INSTANCE)
-;+		(allowed-classes Time_Point Constraint Expression)
+;+		(allowed-classes Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot comparator_symbol
@@ -132,7 +132,7 @@
 		(create-accessor read-write))
 	(single-slot root_concept
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot binary_modifier
@@ -177,7 +177,7 @@
 		(create-accessor read-write))
 	(single-slot duration
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot aggregation_term
@@ -222,7 +222,7 @@
 		(create-accessor read-write))
 	(single-slot lower_bound
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot first_statement_annotation
@@ -242,7 +242,7 @@
 		(create-accessor read-write))
 	(single-slot first_expression
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot logical_connector
@@ -257,7 +257,7 @@
 		(create-accessor read-write))
 	(single-slot reference_time
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numeric_value
@@ -421,7 +421,7 @@
 		(create-accessor read-write))
 	(single-slot root_concept
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
@@ -435,12 +435,12 @@
 		(create-accessor read-write))
 	(single-slot second_expression
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot first_expression
 		(type INSTANCE)
-;+		(allowed-classes Expression)
+;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -654,7 +654,7 @@
 	(is-a Clinical_Statement_Template)
 	(role abstract))
 
-(defclass Compound_Statement "a logical combination (and, or, not) of Clinical_Statements"
+(defclass Boolean_Combination_Statement "a logical combination (and, or, not) of Clinical_Statements"
 	(is-a Complex_Clinical_Statement)
 	(role concrete)
 	(single-slot statement_connector
@@ -704,154 +704,24 @@
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
-(defclass Constraint "Constraints are relationships that a slot value must satisfy."
-	(is-a USER)
-	(role abstract))
-
-(defclass Time_Constraint "Constraint on a time interval (usually the effective time of a query template)"
-	(is-a Constraint)
-	(role abstract))
-
-(defclass Time_Interval_Comparison_Constraint "constrain a time interval to be in some of the Allen interval comparison relations to the specified interval"
-	(is-a Time_Constraint)
-	(role concrete)
-	(single-slot interval
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(multislot time_interval_comparator
-		(type INSTANCE)
-;+		(allowed-classes Time_Interval_Comparator)
-		(create-accessor read-write)))
-
-(defclass Duration_Constraint "Duration constraint on a time interval"
-	(is-a Time_Constraint)
-	(role concrete)
-	(single-slot duration
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot expression_comparison
-		(type INSTANCE)
-;+		(allowed-classes Expression_Comparator)
-;+		(cardinality 1 1)
-		(create-accessor read-write)))
-
-(defclass Time_Point_Constraint
-	(is-a Time_Constraint)
-	(role concrete)
-	(single-slot expression_comparison
-		(type INSTANCE)
-;+		(allowed-classes Expression_Comparator)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot timepoint_extractor
-		(type INSTANCE)
-;+		(allowed-classes Time_Point_Extractor)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot time_point
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Frequency_Constraint "Frequency constraint applies to an interval with periodic subevents."
-	(is-a Time_Constraint)
-	(role concrete)
-	(single-slot expression_comparison
-		(type INSTANCE)
-;+		(allowed-classes Expression_Comparator)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot frequency
-		(type INSTANCE)
-;+		(allowed-classes Frequency)
-;+		(cardinality 1 1)
-		(create-accessor read-write)))
-
-(defclass Compound_Constraint "A logical combination (AND, OR, NOT) of time-interval constraints."
-	(is-a Constraint)
-	(role concrete)
-	(multislot constraints
-		(type INSTANCE)
-;+		(allowed-classes Constraint)
-		(create-accessor read-write))
-	(single-slot logical_connector
-		(type INSTANCE)
-;+		(allowed-classes Logical_Connector)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Relational_Constraint
-	(is-a Constraint)
-	(role concrete)
-	(single-slot constrained_noun_phrase
-		(type INSTANCE)
-;+		(allowed-classes Noun_Phrase)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot semantic_connector
-		(type INSTANCE)
-;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
-;+		(cardinality 1 1)
-		(create-accessor read-write)))
-
-(defclass Value_Constraint
-	(is-a Constraint)
-	(role concrete))
-
-(defclass Numeric_Value_Constraint "value constraints that define minimum and maximum bounds of a slot value"
-	(is-a Value_Constraint)
-	(role concrete)
-	(single-slot lower_bound_closed
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot upper_bound
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot upper_bound_closed
-		(type SYMBOL)
-		(allowed-values FALSE TRUE)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot lower_bound
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Aggregate_Value_Constraint
-	(is-a Numeric_Value_Constraint)
-	(role concrete)
-	(single-slot aggregation
-		(type INSTANCE)
-;+		(allowed-classes Aggregation_Term)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Value_Set_Constraint
-	(is-a Value_Constraint)
-	(role concrete)
-	(multislot value_set
-;+		(comment "The set of terms that the value of an event or feature must satisfy (e.g., \"positive\" for a culture result.")
-		(type INSTANCE)
-;+		(allowed-classes Value_Set)
-		(cardinality 1 ?VARIABLE)
-		(create-accessor read-write)))
-
 (defclass Expression "Expression can be evaluated to return a non-Boolean value."
 	(is-a USER)
 	(role abstract))
 
-(defclass Noun_Phrase "primitive or post-coordinated terms that should be linked to standard terminologies"
+(defclass Non-Boolean_Expression
 	(is-a Expression)
+	(role abstract))
+
+(defclass Function "e.g., average, count, ULN(noun phrase), daily_dose(Medication)"
+	(is-a Non-Boolean_Expression)
+	(role concrete)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Noun_Phrase "primitive or post-coordinated terms that should be linked to standard terminologies"
+	(is-a Non-Boolean_Expression)
 	(role abstract))
 
 (defclass Constrained_Noun_Phrase
@@ -940,91 +810,8 @@
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 
-(defclass Time_Entity
-	(is-a Expression)
-	(role abstract))
-
-(defclass Time_Point
-	(is-a Time_Entity)
-	(role concrete))
-
-(defclass Time_Literal
-	(is-a Time_Point)
-	(role concrete)
-	(single-slot literal
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Time_Point_Offset
-	(is-a Time_Point)
-	(role concrete)
-	(single-slot duration
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot anchor
-		(type INSTANCE)
-;+		(allowed-classes Time_Point)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot relative_time_point_direction
-		(type INSTANCE)
-;+		(allowed-classes Time_Direction)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Time_Point_Reference
-	(is-a Time_Point)
-	(role concrete)
-	(single-slot constrained_noun_phrase
-		(type INSTANCE)
-;+		(allowed-classes Noun_Phrase)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(single-slot timepoint_extractor
-		(type INSTANCE)
-;+		(allowed-classes Time_Point_Extractor)
-;+		(cardinality 1 1)
-		(create-accessor read-write)))
-
-(defclass Time_Interval
-	(is-a Time_Entity)
-	(role concrete)
-	(single-slot start_time
-		(type INSTANCE)
-;+		(allowed-classes Time_Point Constraint Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot stop_time
-		(type INSTANCE)
-;+		(allowed-classes Time_Point Constraint Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
-(defclass Relative_Time_Interval
-	(is-a Time_Interval)
-	(role concrete)
-	(single-slot duration
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot reference_time
-		(type INSTANCE)
-;+		(allowed-classes Expression)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot relative_interval_direction
-;+		(comment "Part of relative interval specification (duration before|after referenceTime)")
-		(type INSTANCE)
-;+		(allowed-classes Time_Direction)
-;+		(cardinality 0 1)
-		(create-accessor read-write)))
-
 (defclass Quantity
-	(is-a Expression)
+	(is-a Non-Boolean_Expression)
 	(role abstract))
 
 (defclass Physical_Quantity
@@ -1093,10 +880,227 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass Function "e.g., average, count, ULN(noun phrase), daily_dose(Medication)"
-	(is-a Expression)
+(defclass Time_Entity
+	(is-a Non-Boolean_Expression)
+	(role abstract))
+
+(defclass Time_Point
+	(is-a Time_Entity)
+	(role concrete))
+
+(defclass Time_Literal
+	(is-a Time_Point)
 	(role concrete)
-	(single-slot preferred_name
+	(single-slot literal
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Offset
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot anchor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot relative_time_point_direction
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Reference
+	(is-a Time_Point)
+	(role concrete)
+	(single-slot constrained_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot timepoint_extractor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point_Extractor)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Time_Interval
+	(is-a Time_Entity)
+	(role concrete)
+	(single-slot start_time
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot stop_time
+		(type INSTANCE)
+;+		(allowed-classes Time_Point Constraint Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Relative_Time_Interval
+	(is-a Time_Interval)
+	(role concrete)
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot reference_time
+		(type INSTANCE)
+;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot relative_interval_direction
+;+		(comment "Part of relative interval specification (duration before|after referenceTime)")
+		(type INSTANCE)
+;+		(allowed-classes Time_Direction)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Constraint "Constraints are relationships that a slot value must satisfy."
+	(is-a Expression)
+	(role abstract))
+
+(defclass Time_Constraint "Constraint on a time interval (usually the effective time of a query template)"
+	(is-a Constraint)
+	(role abstract))
+
+(defclass Time_Interval_Comparison_Constraint "constrain a time interval to be in some of the Allen interval comparison relations to the specified interval"
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot interval
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot time_interval_comparator
+		(type INSTANCE)
+;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write)))
+
+(defclass Duration_Constraint "Duration constraint on a time interval"
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot duration
+		(type INSTANCE)
+;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Time_Point_Constraint
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot timepoint_extractor
+		(type INSTANCE)
+;+		(allowed-classes Time_Point_Extractor)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot time_point
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Frequency_Constraint "Frequency constraint applies to an interval with periodic subevents."
+	(is-a Time_Constraint)
+	(role concrete)
+	(single-slot expression_comparison
+		(type INSTANCE)
+;+		(allowed-classes Expression_Comparator)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot frequency
+		(type INSTANCE)
+;+		(allowed-classes Frequency)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Boolean_Combination_Constraint "A logical combination (AND, OR, NOT) of time-interval constraints."
+	(is-a Constraint)
+	(role concrete)
+	(multislot constraints
+		(type INSTANCE)
+;+		(allowed-classes Constraint)
+		(create-accessor read-write))
+	(single-slot logical_connector
+		(type INSTANCE)
+;+		(allowed-classes Logical_Connector)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Relational_Constraint
+	(is-a Constraint)
+	(role concrete)
+	(single-slot constrained_noun_phrase
+		(type INSTANCE)
+;+		(allowed-classes Noun_Phrase)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot semantic_connector
+		(type INSTANCE)
+;+		(allowed-classes Semantic_Connector Relational_Modifier_Term)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Value_Constraint
+	(is-a Constraint)
+	(role concrete))
+
+(defclass Numeric_Value_Constraint "value constraints that define minimum and maximum bounds of a slot value"
+	(is-a Value_Constraint)
+	(role concrete)
+	(single-slot lower_bound_closed
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot upper_bound
+		(type INSTANCE)
+;+		(allowed-classes Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot upper_bound_closed
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot lower_bound
+		(type INSTANCE)
+;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Aggregate_Value_Constraint
+	(is-a Numeric_Value_Constraint)
+	(role concrete)
+	(single-slot aggregation
+		(type INSTANCE)
+;+		(allowed-classes Aggregation_Term)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Value_Set_Constraint
+	(is-a Value_Constraint)
+	(role concrete)
+	(multislot value_set
+;+		(comment "The set of terms that the value of an event or feature must satisfy (e.g., \"positive\" for a culture result.")
+		(type INSTANCE)
+;+		(allowed-classes Value_Set)
+		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))

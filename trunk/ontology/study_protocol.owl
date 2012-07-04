@@ -60,12 +60,22 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000116">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&statistics;definition"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
@@ -117,7 +127,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE803152">
         <rdfs:label rdf:datatype="&xsd;string">has dose</rdfs:label>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858"/>
     </owl:ObjectProperty>
     
 
@@ -126,7 +135,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821578">
         <rdfs:label rdf:datatype="&xsd;string">has daily dose total</rdfs:label>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858"/>
     </owl:ObjectProperty>
     
 
@@ -135,8 +143,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821724">
         <rdfs:label rdf:datatype="&xsd;string">has dose frequency code</rdfs:label>
-        <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858"/>
+        <rdfs:range rdf:resource="&OCRe;OCRE400078"/>
     </owl:ObjectProperty>
     
 
@@ -144,8 +151,7 @@
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE827668 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE827668">
-        <rdfs:label rdf:datatype="&xsd;string">has CD</rdfs:label>
-        <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
+        <rdfs:label rdf:datatype="&xsd;string">has code</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -165,7 +171,6 @@
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE884480">
         <rdfs:label rdf:datatype="&xsd;string">has route of administration</rdfs:label>
         <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
-        <rdfs:domain rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858"/>
     </owl:ObjectProperty>
     
 
@@ -220,9 +225,9 @@
     
 
 
-    <!-- http://purl.org/net/OCRe/OCRe_ext.owl#OCRE098000 -->
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400078 -->
 
-    <owl:Class rdf:about="&OCRe_ext;OCRE098000"/>
+    <owl:Class rdf:about="&OCRe;OCRE400078"/>
     
 
 
@@ -238,13 +243,13 @@
         </rdfs:subClassOf>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">BRIDG 3.0.3 Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
-One of a set of ordered partitions of an experimental unit&#39;s participation in a study. An Epoch represents a state within a study such that subjects in separate arms within that state are comparable.
+One of a set of ordered partitions of an experimental unit&apos;s participation in a study. An Epoch represents a state within a study such that subjects in separate arms within that state are comparable.
 
-Each epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Activities and activity results control the subject&#39;s movement from one epoch to another.
+Each epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Activities and activity results control the subject&apos;s movement from one epoch to another.
 
 EXAMPLE(S):
 A study designed to assess the effects of treatments might have 3 epochs.
-A Screening Epoch in which subjects&#39; eligibility is determined and baseline measurements are made.
+A Screening Epoch in which subjects&apos; eligibility is determined and baseline measurements are made.
 A Treatment Epoch during which treatments are given and effects of treatment are assessed.
 A Follow-up Epoch during which post-treatment assessments are conducted.  
 
@@ -252,11 +257,11 @@ NOTE(S):
 A subject moves from one epoch to another and can only be in one epoch at a time. The subject can only move to an epoch with a greater sequenceNumber. Activities in the same epoch but a different arm need not be similar in time and pattern. Subjects in different arms will not necessarily pass through the same epochs.
 </obo:IAO_0000115>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">DEFINITION:
-One of a set of ordered partitions of an experimental unit&#39;s planned time in a study.  
+One of a set of ordered partitions of an experimental unit&apos;s planned time in a study.  
 
-Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&#39;s movement from one Epoch to another.
+Each Epoch serves a purpose in the trial as a whole, typically exposing the subject to a treatment or preparing them for a treatment, or gathering post-treatment data.  Epoch-specific (state) transition rules control the subject&apos;s movement from one Epoch to another.
 
-For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&#39; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
+For example, a study designed to assess the effects of treatments might have 3 epochs, a Screening epoch in which subjects&apos; eligibility is determined and baseline measurements are made, a Treatment epoch during which treatments are given and effects of treatment are assessed, and a Follow-up epoch during which post-treatment assessments are conducted.  
 
 NOTE: A subject moves from one Epoch to another and can only be in one epoch at a time. The subject can only move to an Epoch with a greater sequenceNumber. The main purpose of the Epoch is to organize the Arms for comparison purposes. Activities in the same Epoch but a different Arm need not be similar in time and pattern. [BRIDG Release 3]</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
@@ -319,7 +324,7 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
         <owl:disjointWith rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose immediate and primary intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about some aspect of a subject&#39;s, study subject&#39;s or experimental unit&#39;s state and whose immediate and primary intention is NOT the alteration of the state of the subject, study subject or experimental unit.</obo:IAO_0000115>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The description of a planned activity whose immediate and primary intention is to obtain a result by observing, monitoring, measuring or otherwise qualitatively or quantitatively gathering data or information about some aspect of a subject&apos;s, study subject&apos;s or experimental unit&apos;s state and whose immediate and primary intention is NOT the alteration of the state of the subject, study subject or experimental unit.</obo:IAO_0000115>
         <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedObservation.</obo:IAO_0000119>
     </owl:Class>
     
@@ -342,13 +347,13 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned activities composition relationship specification</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE859340"/>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE818327"/>
                 <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -384,7 +389,7 @@ This class helps represent an AND relationship between siblings with the same pa
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="&xsd;string">Activity specification can be harmonized to BRIDG 3.1
-&#39;Planned activity,&#39; which is defined as
+&apos;Planned activity,&apos; which is defined as
 
 DEFINITION: An activity that is intended to occur or start at some point in the context of a particular study.   
 
@@ -510,6 +515,18 @@ Depending on the research objectives, a single study may have multiple levels of
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858">
         <rdfs:label rdf:datatype="&xsd;string">Planned substance administration specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE884480"/>
+                <owl:allValuesFrom rdf:resource="&OCRe;OCRE400055"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE821724"/>
+                <owl:allValuesFrom rdf:resource="&OCRe;OCRE400055"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from BRIDG 3.1 definition of DefinedSubstanceAdministration. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <rdfs:comment rdf:datatype="&xsd;string">Cf BRIDG 3.1 DefinedSubstanceAdministration definition
 An activity defined at a global library level that is an action of applying,  introducing or otherwise giving medications or other substances to a subject or experimental unit.
@@ -535,13 +552,20 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:allValuesFrom rdf:resource="&OCRe_ext;OCRE098000"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000"/>
+                            <rdf:Description rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -553,9 +577,44 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
     <owl:Class rdf:about="&owl;Thing">
         <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&obo;IAO_0000111">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0100001">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000112">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000589">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000412">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000118">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000078">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;IAO_0000225">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
 
