@@ -1132,12 +1132,17 @@ public class DataModelGenerator
 	
 	public static void main(String[] args)
 	{
-		//String ontURL = "http://sig.biostr.washington.edu/~detwiler/OCRe/OCReMerged_inf_03_09_2012.owl";
-		String ontURL = "file://localhost/Users/detwiler/eclipse/workspace/SIG/OntViews/OCRe/ontology/HSDB_OCRe.owl";
+		if(!(args.length==2))
+		{
+			System.err.println("usage: java DataModelGenerator <url_of_owl_file> <local_import_director>");
+			System.exit(-1);
+		}
 		
-		//String ontURL = "file://localhost/Users/detwiler/eclipse/workspace/SIG/OntViews/LatestOCRe/ontology/OCRe-Start-Here.owl";
+		String ontURL = args[0];
+		String importDir = args[1];
+		
 		DataModelGenerator dme = new DataModelGenerator();
-		dme.extractDataModel(ontURL, "../OCRe/ontology");
+		dme.extractDataModel(ontURL, importDir);
 		
 		XSDWriter writer = new XSDWriter();
 		String xsd = writer.generateXSDString(dme.importSet, dme.rootElement, dme.namedTypes.values());
