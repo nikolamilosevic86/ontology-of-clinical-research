@@ -1,4 +1,4 @@
-; Tue Jul 03 23:00:44 GMT 2012
+; Wed Aug 08 17:48:44 GMT 2012
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 649")
@@ -23,6 +23,10 @@
 	(single-slot upper_bound_closed
 		(type SYMBOL)
 		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ontologyId
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot second_statement_annotation
@@ -112,6 +116,10 @@
 ;+		(allowed-classes Non-Boolean_Expression)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot has_id
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot start_time
 		(type INSTANCE)
 ;+		(allowed-classes Expression)
@@ -157,6 +165,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Clinical_Statement_Template)
 		(create-accessor read-write))
+	(single-slot ontologyName
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot derivation_expression
 		(type INSTANCE)
 ;+		(allowed-classes Expression)
@@ -173,6 +185,14 @@
 	(single-slot unit
 		(type INSTANCE)
 ;+		(allowed-classes Unit)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot original_text
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot url
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot duration
@@ -206,6 +226,15 @@
 		(type INSTANCE)
 ;+		(allowed-classes Time_Point Constraint Expression)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot exclusion_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
 		(create-accessor read-write))
 	(multislot time_interval_comparators
 		(type INSTANCE)
@@ -243,6 +272,10 @@
 	(single-slot first_expression
 		(type INSTANCE)
 ;+		(allowed-classes Non-Boolean_Expression)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot has_name
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot logical_connector
@@ -289,6 +322,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes Expression_Comparator)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot preferredTerm
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot expression
 		(type INSTANCE)
@@ -345,6 +382,10 @@
 	(multislot time_interval_comparator
 		(type INSTANCE)
 ;+		(allowed-classes Time_Interval_Comparator)
+		(create-accessor read-write))
+	(single-slot conceptId
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot frequency
 		(type INSTANCE)
@@ -644,15 +685,24 @@
 
 (defclass Clinical_Statement_Template "Templates for criteria that evaluates to TRUE FALSE, or UNKNOWN"
 	(is-a USER)
-	(role abstract))
+	(role concrete)
+	(single-slot annotation
+		(type INSTANCE)
+;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot original_text
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 (defclass Simple_Clinical_Statement "Simple_Clinical_Statements are statements about Assessments made about a person, Interventions done to him, or his Behaviors. All Simple_Clinical_Statements have noun phrases (e.g., LDL_cholesterol) as the core of the statements, an effective time, and a mood. The effective time property specifies the time during which the statement is valid. For example, the effective time of a blood test result may be the time when the sample is taken. Similar to HL7 RIM mood codes, a mood modifies the simple clinical statement to specify whether the statement indicates an event that happened, an intent, or an order."
 	(is-a Clinical_Statement_Template)
-	(role abstract))
+	(role concrete))
 
 (defclass Complex_Clinical_Statement "Complex_Clinical_Statements are constructed from other clinical statements."
 	(is-a Clinical_Statement_Template)
-	(role abstract))
+	(role concrete))
 
 (defclass Boolean_Combination_Statement "a logical combination (and, or, not) of Clinical_Statements"
 	(is-a Complex_Clinical_Statement)
@@ -722,7 +772,11 @@
 
 (defclass Noun_Phrase "primitive or post-coordinated terms that should be linked to standard terminologies"
 	(is-a Non-Boolean_Expression)
-	(role abstract))
+	(role abstract)
+	(single-slot preferred_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 (defclass Constrained_Noun_Phrase
 	(is-a Noun_Phrase)
@@ -746,10 +800,6 @@
 	(is-a Augmented_Noun_Phrase)
 	(role concrete)
 	(single-slot code
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot preferred_name
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -1103,4 +1153,24 @@
 		(type INSTANCE)
 ;+		(allowed-classes Value_Set)
 		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write)))
+
+(defclass Study
+	(is-a USER)
+	(role concrete)
+	(multislot exclusion_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot has_id
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot eligibility_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot has_name
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
