@@ -1,12 +1,16 @@
-; Mon Aug 22 14:33:29 PDT 2011
+; Wed Aug 08 17:48:22 GMT 2012
 ; 
-;+ (version "3.4.7")
-;+ (build "Build 620")
+;+ (version "3.5")
+;+ (build "Build 649")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
+	(single-slot comment
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot text_example
 		(type INSTANCE)
 ;+		(allowed-classes Textual+Temporal+Expression)
@@ -16,13 +20,6 @@
 		(type INSTANCE)
 ;+		(allowed-classes Generalized_ERGO_Annotation)
 ;+		(cardinality 1 1)
-		(create-accessor read-write))
-	(multislot iteration_constraint
-;+		(type ANY)
-		(create-accessor read-write))
-	(single-slot comment
-		(type STRING)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Culture_Result
@@ -36,17 +33,33 @@
 (defclass Example
 	(is-a USER)
 	(role concrete)
-	(single-slot text_example
+	(single-slot ERGO_annotation
 		(type INSTANCE)
-;+		(allowed-classes Textual+Temporal+Expression)
+;+		(allowed-classes Generalized_ERGO_Annotation)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot comment
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ERGO_annotation
+	(single-slot text_example
 		(type INSTANCE)
-;+		(allowed-classes Generalized_ERGO_Annotation)
+;+		(allowed-classes Textual+Temporal+Expression)
 ;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Trial
+	(is-a USER)
+	(role concrete)
+	(multislot exclusion_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(multislot eligibility_criteria
+		(type INSTANCE)
+;+		(allowed-classes Clinical_Statement_Template)
+		(create-accessor read-write))
+	(single-slot has_name
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
