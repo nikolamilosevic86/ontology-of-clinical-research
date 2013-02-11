@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Samson Tu (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anno="http://purl.org/NET/OCRe/anno" targetNamespace="http://purl.org/NET/OCRe/anno" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="StudyAnnotationType">
+		<xs:sequence>
+			<xs:element name="CodeSuggestions" type="anno:CodeSuggestionType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeType">
+		<xs:sequence>
+			<xs:element name="ConceptId"/>
+			<xs:element name="DisplayName"/>
+			<xs:element name="TerminologyId"/>
+		</xs:sequence>
+		<xs:attribute name="ref" type="xs:IDREF"/>
+	</xs:complexType>
+	<xs:complexType name="CodeSuggestionType">
+		<xs:sequence>
+			<xs:element name="Code" type="anno:CodeType" maxOccurs="unbounded"/>
+			<xs:element name="AnnotationEngine"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

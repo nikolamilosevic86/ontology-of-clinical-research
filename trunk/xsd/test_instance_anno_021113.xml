@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root xmlns:anno="http://purl.org/NET/OCRe/anno"
+ xmlns:sawsdl="http://purl.org/net/OCRe"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://hsdbxsd.s3-website-us-east-1.amazonaws.com/HSDB.xsd">
+    <Study>
+        <AllocationConcealmentMethod>AllocationConcealmentMethod0</AllocationConcealmentMethod>
+        <BlindingType>Outcome assessor blinded</BlindingType>
+        <StudyAnnotation>
+            <anno:CodeSuggestions>
+           
+                <anno:Code ref="Methotrexate">
+                    <anno:ConceptId>387381009</anno:ConceptId>
+                    <anno:DisplayName>methotrexate</anno:DisplayName>
+                    <anno:TerminologyId>SNOMEDCT</anno:TerminologyId>
+                </anno:Code>
+                <anno:Code ref="Vincristine">
+                    <anno:ConceptId>387126006</anno:ConceptId>
+                    <anno:DisplayName>methotrexate</anno:DisplayName>
+                    <anno:TerminologyId>SNOMEDCT</anno:TerminologyId>
+                </anno:Code>
+                
+                <anno:AnnotationEngine>MetaMap</anno:AnnotationEngine>
+           
+            </anno:CodeSuggestions>
+        </StudyAnnotation>
+        <ComparativeIntent>Equivalence</ComparativeIntent>
+        <RecruitmentSite>
+            <Name>Heng County Health and Epidemic Prevention Station</Name>
+            <Address xsi:type="PostalAddressType">
+                <Zip>532002I</Zip>
+                <Country>China</Country>
+                <AddressString>Hengzhou Town, Guangxi</AddressString>
+            </Address>
+        </RecruitmentSite>
+        <RecruitmentSite>
+            <Name>Guangxi Centers for Disease Control, China</Name>
+            <Address xsi:type="PostalAddressType">
+                <Zip>532002I</Zip>
+                <Country>China</Country>
+                <AddressString>Guangxi, Nanning</AddressString>
+            </Address>
+        </RecruitmentSite>
+        <Phase>Phase 2</Phase>
+        <StudyProtocol xsi:type="InterventionStudyProtocolType">
+            <OutcomeVariable>
+                <DerivedFrom>
+                  
+                    <StudyPhenomenon>
+                        <Description>Description1</Description>
+                        <Code>
+                            <DisplayName>Human immunodeficiency virus I infection</DisplayName>
+                            <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                            <CodeSystemName>SNOMED-CT</CodeSystemName>
+                            <ConceptId>40780007</ConceptId>
+                        </Code>
+                    </StudyPhenomenon>
+                    <Name>HIV-1 infection</Name>
+                </DerivedFrom>
+                
+                <DerivedFrom>
+                   
+                    <StudyPhenomenon>
+                        <Description>Description1</Description>
+                        <Code>    
+                            <DisplayName>Death</DisplayName>
+                            <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                            <CodeSystemName>SNOMED-CT</CodeSystemName>
+                            <ConceptId>419620001</ConceptId>
+                        </Code>
+                    </StudyPhenomenon>
+                    <Name>Death</Name>                  
+                </DerivedFrom>
+                
+                <EffectiveTime>
+                    <Description>week 104</Description>
+                </EffectiveTime>
+                <Name>HIV-1 infection or death</Name>
+                <Priority>primary</Priority>
+            </OutcomeVariable>
+            
+            <OutcomeVariable>
+                
+                <StudyPhenomenon>
+                    <Name>Treatment-related mortality within the first 6 months after transplantation</Name>
+                    <Description>Description1</Description>
+                    <Code> <!-- no SNOMED code for mortality --> </Code>
+                    
+                    <RelatedTo>
+                        <Name>Death</Name>
+                        <Description>Description2</Description>
+                        <Code>
+                            <DisplayName>Death</DisplayName>
+                            <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                            <CodeSystemName>SNOMED-CT</CodeSystemName>
+                            <ConceptId>419620001</ConceptId>
+                        </Code>
+                    </RelatedTo>
+                </StudyPhenomenon>
+                
+                <EffectiveTime>
+                    <Description>6 months</Description>
+                </EffectiveTime>
+                
+                <Name>Treatment-related mortality within the first 6 months after transplantation</Name>
+                
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            
+            <OutcomeVariable>
+                <StudyPhenomenon>
+                    <Description>Description1</Description>
+                    <Code>
+                        <DisplayName>Human immunodeficiency virus I infection</DisplayName>
+                        <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                        <CodeSystemName>SNOMED-CT</CodeSystemName>
+                        <ConceptId>40780007</ConceptId>
+                    </Code>
+                </StudyPhenomenon>
+                
+                <EffectiveTime>
+                    <Description>six months</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>one year</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>18 months</Description>
+                </EffectiveTime>
+                <Name>HIV-1 infection</Name>
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            <OutcomeVariable>
+                <StudyPhenomenon>
+                    <Code> 
+                        <DisplayName>Opiate misuse</DisplayName>
+                        <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                        <CodeSystemName>SNOMED-CT</CodeSystemName>
+                        <ConceptId>428819003</ConceptId>
+                    </Code>
+                    
+                </StudyPhenomenon>
+                
+                <EffectiveTime>
+                    <Description>six months</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>one year</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>18 months</Description>
+                </EffectiveTime>
+                <Name>Continued opiate use as measured by self-report and urinalysis</Name>
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            <OutcomeVariable>
+                <StudyPhenomenon>
+                    <Code> 
+                        
+                        <DisplayName>Drug injection behavior - finding</DisplayName>
+                        <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                        <CodeSystemName>SNOMED-CT</CodeSystemName>
+                        <ConceptId>365984004</ConceptId>	
+                    </Code>
+                </StudyPhenomenon>
+                
+                <EffectiveTime>
+                    <Description>six months</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>one year</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>18 months</Description>
+                </EffectiveTime>
+                <Name>Self reported frequency of [opiate] injection</Name>
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            
+            <OutcomeVariable>
+                
+                <EffectiveTime>
+                    <Description>six months</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>one year</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>18 months</Description>
+                </EffectiveTime>
+                <Name>Self reported frequency of [opiate] injection with previously used injection equipment 
+                    (needles, syringes, cookers, cottons, and rinse water)</Name>
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            
+            <OutcomeVariable>
+                <StudyPhenomenon>
+                    <Code> 
+                        
+                        <DisplayName>High risk sexual behavior</DisplayName>
+                        <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                        <CodeSystemName>SNOMED-CT</CodeSystemName>
+                        <ConceptId>102947004</ConceptId>
+                    </Code>
+                </StudyPhenomenon>
+                
+                <EffectiveTime>
+                    <Description>six months</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>one year</Description>
+                </EffectiveTime>
+                <EffectiveTime>
+                    <Description>18 months</Description>
+                </EffectiveTime>
+                <Name>Self-reported frequency of unprotected sex or sex sold/traded for drugs</Name>
+                <Priority>secondary</Priority>
+            </OutcomeVariable>
+            
+            <OutcomeVariable>
+                <StudyPhenomenon>
+                    <Code> 
+                        
+                        <DisplayName>Drug injection behavior - finding</DisplayName>
+                        <CodeSystemVersion>2011_01_31</CodeSystemVersion>
+                        <CodeSystemName>SNOMED-CT</CodeSystemName>
+                        <ConceptId>365984004</ConceptId>	
+                    </Code>
+                </StudyPhenomenon>
+                <EffectiveTime>
+                    <Description>two months</Description>
+                </EffectiveTime>
+                <Name>Self reported frequency of [opiate] injection</Name>
+                <Priority>primary</Priority>
+            </OutcomeVariable>
+              
+            
+            <!-- The section below was added from Samson's test file -->
+            <DefinesGroup xsi:type="ArmPopulationType">
+                <Name>Arm A population</Name>
+                <Priority>primary</Priority>
+                <IndividualsAssignedTo ref="ArmA"></IndividualsAssignedTo>
+            </DefinesGroup>
+            
+            <DividedInto xsi:type="ArmType" id="ArmA">
+                <Name>Arm A</Name>
+                <Contains  xsi:type="PlannedSubstanceAdministrationSpecificationType" id="Methotrexate">
+                    <Name>Administer Methotrexate</Name>
+                    <Code xsi:type="CDType">
+                        <DisplayName>Methotrexate</DisplayName>
+                        <ConceptId>68887009</ConceptId>
+                        <CodeSystemName>SNOMEDCT</CodeSystemName>
+                    </Code>
+                </Contains>
+                <Contains  xsi:type="PlannedSubstanceAdministrationSpecificationType" id="Vincristine">
+                    <Name>Administer Vincristine </Name>
+                    <Code xsi:type="CDType">
+                        <ConceptId>387126006</ConceptId>
+                        <DisplayName>methotrexate</DisplayName>
+                        <CodeSystemName>SNOMEDCT</CodeSystemName>
+                    </Code>
+                </Contains>
+            </DividedInto>
+            
+            <PredictorVariable>
+                <DerivedFrom>
+                    <Name>Name5</Name>
+                    <StudyPhenomenon id="ID002">
+                    </StudyPhenomenon>
+                    <Priority>primary</Priority>
+                    <EffectiveTime>
+                    </EffectiveTime>
+                </DerivedFrom>
+                <Name>Name6</Name>
+                <StudyPhenomenon id="ID003">
+                    <Description>Description2</Description>
+                    <RelatedTo>
+                    </RelatedTo>
+                    <Name>Name7</Name>
+                    <Code>
+                    </Code>
+                </StudyPhenomenon>
+                <Priority>primary</Priority>
+                <EffectiveTime>
+                    <Description>Description3</Description>
+                </EffectiveTime>
+            </PredictorVariable>
+        </StudyProtocol>
+        <ActualSampleSize>100</ActualSampleSize>
+        <IRB>
+            <Identifier>
+                <Root>Test IRB ID</Root>
+                <IdentifierName>Local IRB Identifier</IdentifierName>
+            </Identifier>
+            <Name>test IRB</Name>
+            <Address xsi:type="PostalAddressType">
+                <Zip>532002I</Zip>
+                <Country>China</Country>
+                <AddressString>Hengzhou Town, Guangxi</AddressString>
+            </Address>
+        </IRB>
+        <SponsoringRelation>
+            <Actor/>
+            <Priority>primary</Priority>
+        </SponsoringRelation>
+
+        <DescriptionDate>2006-05-04</DescriptionDate>
+        <UnitOfAllocation>Individual as unit of allocation</UnitOfAllocation>
+        <StudyStatus>Study active</StudyStatus>
+        <ScientificTitle>ScientificTitle0</ScientificTitle>
+        <RecruitmentStatus>Recruitment terminated</RecruitmentStatus>
+        <ContactForPublicQueries>
+            <Person>
+                <MemberOf>
+                    <Name>Division of AIDS, US National Institute of Allergy and Infectious Diseases</Name>
+                    <Address xsi:type="PostalAddressType">
+                        <Zip>20892</Zip>
+                        <Country>USA</Country>
+                        <AddressString>Bethesda, MD</AddressString>
+                    </Address>
+                      
+                    <Address xsi:type="TelecommunicationAddressType">
+                         <Scheme>http</Scheme>
+                        <AddressString>http://www.niaid.nih.gov/topics/hivaids/Pages/Default.aspx</AddressString>
+                    </Address>
+                </MemberOf>
+                <FirstName>John</FirstName>
+                <Address xsi:type="TelecommunicationAddressType">
+                    <Scheme>mailto</Scheme>
+                    
+                    <AddressString>johnsmith@mail.med.upenn.edu</AddressString>
+                </Address>
+                <Address xsi:type="TelecommunicationAddressType">
+                    <Scheme>tel</Scheme>
+                    
+                    <AddressString>215-746-7346</AddressString>
+                </Address>
+               
+                <LastName>Smith</LastName>
+            </Person>
+        </ContactForPublicQueries>
+        <Identifier>
+            <Root>NCT00270257-Q2</Root>
+            <IdentifierName>ClinicalTrials.gov</IdentifierName>
+        </Identifier>
+        <Identifier>
+            <Root>HPTN058</Root>
+            <IdentifierName>HPTN</IdentifierName>
+        </Identifier>
+       
+        <AllocationType>Restricted randomization</AllocationType>
+        <FundingRelation>
+            <Actor/>
+        </FundingRelation>
+        <PooledData>false</PooledData>
+        <InterventionAssignmentScheme>Single-factor</InterventionAssignmentScheme>
+        <StudyDesign>Parallel group study design</StudyDesign>
+        <PrincipalInvestigator>
+            <FirstName>John</FirstName>
+            <Address xsi:type="TelecommunicationAddressType">
+                <Scheme>mailto</Scheme>
+                
+                <AddressString>johnsmith@mail.med.upenn.edu</AddressString>
+            </Address>
+            <Address xsi:type="TelecommunicationAddressType">
+                <Scheme>tel</Scheme>
+                
+                <AddressString>215-746-7346</AddressString>
+            </Address>
+            
+            <LastName>Smith</LastName>
+            <MemberOf>
+                <Identifier>
+                    <IdentifierName>IdentifierName6</IdentifierName>
+                    <Root>Root6</Root>
+                </Identifier>
+                <Address>
+                    <AddressString>AddressString5</AddressString>
+                </Address>
+                <Name>Name11</Name>
+            </MemberOf>
+        </PrincipalInvestigator>
+       
+        <PlannedSampleSize>100</PlannedSampleSize>
+    </Study>
+</Root>
