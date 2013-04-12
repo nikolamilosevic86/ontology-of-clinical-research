@@ -125,14 +125,11 @@
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE803152">
         <rdfs:label rdf:datatype="&xsd;string">has dose</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE821578 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821578">
-        <rdfs:label rdf:datatype="&xsd;string">has daily dose total</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from BRIDG 3.2 definition of DefinedSubstanceAdministration.productDose 
+Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The quantity of a substance or medication to be administered (e.g., 5 mg; 20 mg of drug per kg of subject weight)
+</obo:IAO_0000115>
     </owl:ObjectProperty>
     
 
@@ -140,7 +137,8 @@
     <!-- http://purl.org/net/OCRe/study_protocol.owl#OCRE821724 -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE821724">
-        <rdfs:label rdf:datatype="&xsd;string">has dose frequency code</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">has frequency code</rdfs:label>
+        <obo:IAO_0000116 rdf:datatype="&xsd;string">Simona: generalized from has dose frequency code</obo:IAO_0000116>
         <rdfs:range rdf:resource="&OCRe;OCRE400078"/>
     </owl:ObjectProperty>
     
@@ -169,6 +167,19 @@
     <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE884480">
         <rdfs:label rdf:datatype="&xsd;string">has route of administration</rdfs:label>
         <rdfs:range rdf:resource="&OCRe;OCRE400055"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#OCREbb717391_57e9_4acf_9200_2e002d104032 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCREbb717391_57e9_4acf_9200_2e002d104032">
+        <rdfs:label xml:lang="en">has dose description</rdfs:label>
+        <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from BRIDG 3.2 definition of DefinedSubstanceAdministration.productDoseDescription 
+Available at http://bridgmodel.nci.nih.gov/ of &quot;product dose description&quot;</obo:IAO_0000119>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">Simona</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">The textual representation of dosing amounts or a range of dosing information used in a substance administration. 
+Note: This is used for more complex dosages such as scaling and tapering doses, uncertain dosage ranges, differing morning and evening doses and other instructions that can&apos;t be expressed with a simple PQ.</obo:IAO_0000115>
     </owl:ObjectProperty>
     
 
@@ -510,12 +521,6 @@ Depending on the research objectives, a single study may have multiple levels of
                 <owl:allValuesFrom rdf:resource="&OCRe;OCRE400055"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE821724"/>
-                <owl:allValuesFrom rdf:resource="&OCRe;OCRE400055"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000119 rdf:datatype="&xsd;string">Adapted from BRIDG 3.1 definition of DefinedSubstanceAdministration. Available at http://bridgmodel.nci.nih.gov/</obo:IAO_0000119>
         <rdfs:comment rdf:datatype="&xsd;string">Cf BRIDG 3.1 DefinedSubstanceAdministration definition
 An activity defined at a global library level that is an action of applying,  introducing or otherwise giving medications or other substances to a subject or experimental unit.
@@ -535,12 +540,6 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
@@ -549,6 +548,12 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&study_protocol;OCRE885707"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -605,5 +610,5 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
 
