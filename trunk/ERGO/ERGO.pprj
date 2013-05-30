@@ -1,7 +1,7 @@
-; Tue Jul 05 17:16:33 PDT 2011
+; Mon May 13 09:27:07 PDT 2013
 ; 
-;+ (version "3.4.6")
-;+ (build "Build 613")
+;+ (version "3.4.8")
+;+ (build "Build 629")
 
 ([BROWSER_SLOT_NAMES] of  Property_List
 
@@ -1681,8 +1681,8 @@
 
 ([ERGO_ProjectKB_Class10012] of  String
 
-	(name "Semantically_Connected_Statement")
-	(string_value "first_statement{+}act-act-relationship{+}second_statement"))
+	(name "Protocol")
+	(string_value "title"))
 
 ([ERGO_ProjectKB_Class10013] of  Widget
 
@@ -1750,8 +1750,8 @@
 
 ([ERGO_ProjectKB_Class20013] of  String
 
-	(name "Protocol")
-	(string_value "title"))
+	(name "Semantically_Connected_Statement")
+	(string_value "first_statement{+}act-act-relationship{+}second_statement"))
 
 ([ERGO_ProjectKB_Class20014] of  String
 
@@ -1795,13 +1795,13 @@
 
 ([ERGO_ProjectKB_Class20022] of  String
 
-	(name "Logical_Combination_Noun_Phrase")
-	(string_value "{%28}modifier{+}root_concept{%29}"))
+	(name "TimeInterval_Comparison_Constraint")
+	(string_value "time_interval_comparator{+}interval"))
 
 ([ERGO_ProjectKB_Class20023] of  String
 
-	(name "TimeInterval_Comparison_Constraint")
-	(string_value "time_interval_comparator{+}interval"))
+	(name "Logical_Combination_Noun_Phrase")
+	(string_value "{%28}modifier{+}root_concept{%29}"))
 
 ([ERGO_ProjectKB_Class20024] of  String
 
@@ -1895,23 +1895,23 @@
 
 ([ERGO_ProjectKB_Class20042] of  String
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([ERGO_ProjectKB_Class20043] of  String
-
 	(name "Constraint")
 	(string_value "{%28}lower_bound{%2C+}upper_bound{%29}"))
 
+([ERGO_ProjectKB_Class20043] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
 ([ERGO_ProjectKB_Class20044] of  String
-
-	(name "Relative_Time_Interval")
-	(string_value "reference_time{+}duration"))
-
-([ERGO_ProjectKB_Class20045] of  String
 
 	(name "Logical_Statement_Connector")
 	(string_value "preferred_name"))
+
+([ERGO_ProjectKB_Class20045] of  String
+
+	(name "Relative_Time_Interval")
+	(string_value "reference_time{+}duration"))
 
 ([ERGO_ProjectKB_Class20046] of  String
 
@@ -1930,13 +1930,13 @@
 
 ([ERGO_ProjectKB_Class20049] of  String
 
-	(name "Assessment")
-	(string_value "reference_number{+}noun_phrase{+}value"))
+	(name "Simple_Clinical_Statement")
+	(string_value "original_text"))
 
 ([ERGO_ProjectKB_Class20050] of  String
 
-	(name "Simple_Clinical_Statement")
-	(string_value "original_text"))
+	(name "Assessment")
+	(string_value "reference_number{+}noun_phrase{+}value"))
 
 ([ERGO_ProjectKB_Class20051] of  String
 
@@ -1950,13 +1950,13 @@
 
 ([ERGO_ProjectKB_Class20053] of  String
 
-	(name "Query")
-	(string_value "aggregation_term{+}selected_attribute{+of+}clinical_statement_template"))
+	(name "Variable")
+	(string_value "variable_name"))
 
 ([ERGO_ProjectKB_Class20054] of  String
 
-	(name "Variable")
-	(string_value "variable_name"))
+	(name "Query")
+	(string_value "aggregation_term{+}selected_attribute{+of+}clinical_statement_template"))
 
 ([ERGO_ProjectKB_Class20055] of  String
 
@@ -1972,14 +1972,14 @@
 
 ([ERGO_ProjectKB_Class20057] of  Map_Entry
 
-	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.ChangesAnnotationsPanel")
+	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.SearchPanel")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
 ([ERGO_ProjectKB_Class20058] of  Map_Entry
 
-	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.SearchPanel")
+	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.ChangesAnnotationsPanel")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
@@ -2000,7 +2000,7 @@
 
 ([ERGO_ProjectKB_Class20061] of  Map_Entry
 
-	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.DiscussionThreadPanel")
+	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.AllAnnotationsPanel")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
@@ -2014,7 +2014,7 @@
 
 ([ERGO_ProjectKB_Class20063] of  Map_Entry
 
-	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.AllAnnotationsPanel")
+	(key "edu.stanford.smi.protege.collab.annotation.gui.panel.DiscussionThreadPanel")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
@@ -2733,9 +2733,6 @@
 	(x 0)
 	(y 120))
 
-([KB_209239_Class9] of  Map
-)
-
 ([KB_251176_Instance_0] of  String
 
 	(name "factory_class_name")
@@ -2779,6 +2776,9 @@
 	(name "instances_file_name")
 	(string_value "ERGO.pins"))
 
+([KB_547914_Class9] of  Map
+)
+
 ([PAL_FORM_WIDGET] of  Widget
 
 	(height 476)
@@ -2806,14 +2806,14 @@
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_20413]
-		[ERGO_ProjectKB_Class10004]
-		[Eligibility_Frame_Ideas_ProjectKB_Instance_10104]
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
+		[Eligibility_Frame_Ideas_ProjectKB_Instance_10104]
+		[ERGO_ProjectKB_Class10004]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_10075]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_30146]
 		[STANDARD_SLOT_FORM_WIDGET]
-		[Eligibility_Frame_Ideas_ProjectKB_Instance_30418]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_20209]
+		[Eligibility_Frame_Ideas_ProjectKB_Instance_30418]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_30386]
 		[Eligibility_Frame_Ideas_ProjectKB_Instance_10216])
 	(default_cls_metaclass ":STANDARD-CLASS")
