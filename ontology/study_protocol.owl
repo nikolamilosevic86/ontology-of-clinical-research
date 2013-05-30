@@ -60,37 +60,76 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000116 -->
+
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000116">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232">
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119">
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
-    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000117 -->
+
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000119 -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000232 -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#curator -->
+
     <owl:AnnotationProperty rdf:about="&statistics;curator"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/statistics.owl#definition -->
+
+    <owl:AnnotationProperty rdf:about="&statistics;definition"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/study_protocol.owl#develop_comment -->
+
     <owl:AnnotationProperty rdf:about="http://purl.org/net/OCRe/study_protocol.owl#develop_comment"/>
     
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
 
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     
 
 
@@ -309,8 +348,8 @@ Group (CTRR Observational Studies)</obo:IAO_0000115>
         <rdfs:label rdf:datatype="&xsd;string">Planned administrative activity specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">Samson Tu</obo:IAO_0000117>
-        <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedAdministrativeActivity</obo:IAO_0000119>
         <obo:IAO_0000115>The description of a planned activity that is not directly related to hypothesis evaluation or testing, but is typically essential to the efficient and/or effective coordination and execution of a study, such as obtaining informed consent, verifying eligibility criteria, and completing study visits.</obo:IAO_0000115>
+        <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of DefinedAdministrativeActivity</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -455,6 +494,18 @@ Note: Among other things, the action plan may include the design, statistical co
     <owl:Class rdf:about="http://purl.org/net/OCRe/study_protocol.owl#OCRE300015">
         <rdfs:label rdf:datatype="&xsd;string">Planned subject activity group specification</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+        <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of PlannedSubjectActivityGroup.</obo:IAO_0000119>
+        <obo:IAO_0000115>The description of a collection of activities that are intended to occur or start for the same study subject at a specific point in the context of a particular study.
+
+EXAMPLE(S):
+Clinic visit during which a physical exam, a blood test, and a substance administration occur
+
+Telephone contact during which temperature, blood pressure and adverse events are reported
+
+Recording multiple observation results in a diary
+
+A treatment strategy that consists of drug administrations with rules for modifying doses
+</obo:IAO_0000115>
         <rdfs:comment>Cf BRIDG 3.1 PlannedSubjectActivityGroup
 
 DEFINITION:
@@ -473,18 +524,6 @@ OTHER NAME(S):
 visit, time point, study segment, course, treatment strategy, period, cycle
 
 NOTE(S):</rdfs:comment>
-        <obo:IAO_0000115>The description of a collection of activities that are intended to occur or start for the same study subject at a specific point in the context of a particular study.
-
-EXAMPLE(S):
-Clinic visit during which a physical exam, a blood test, and a substance administration occur
-
-Telephone contact during which temperature, blood pressure and adverse events are reported
-
-Recording multiple observation results in a diary
-
-A treatment strategy that consists of drug administrations with rules for modifying doses
-</obo:IAO_0000115>
-        <obo:IAO_0000119>Adapted from BRIDG 3.1 definition of PlannedSubjectActivityGroup.</obo:IAO_0000119>
     </owl:Class>
     
 
@@ -569,9 +608,7 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
 
     <!-- http://www.w3.org/2002/07/owl#Thing -->
 
-    <owl:Class rdf:about="&owl;Thing">
-        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
-    </owl:Class>
+    <owl:Class rdf:about="&owl;Thing"/>
     
 
 
@@ -611,5 +648,5 @@ Example: Administration of methotrexate as part of chemotherapy.</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 
