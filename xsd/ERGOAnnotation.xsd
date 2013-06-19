@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Samson Tu (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Study_population">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="is_defined_by" type="Clinical_statement" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Clinical_statement">
+		<xs:sequence>
+			<xs:element name="description"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Simple_statement">
+		<xs:complexContent>
+			<xs:extension base="Clinical_statement">
+				<xs:sequence>
+					<xs:element name="has_semantic_constraint" type="Generalized_ERGO_annotation"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Generalized_ERGO_annotation">
+		<xs:sequence>
+			<xs:element name="Noun_phrase" type="Augmented_noun_phrase"/>
+			<xs:element name="Constraint" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Constraint">
+		<xs:sequence>
+			<xs:element name="description"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Simple_time_constraint">
+		<xs:complexContent>
+			<xs:extension base="Constraint"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Time-point_constraint">
+		<xs:complexContent>
+			<xs:extension base="Simple_time_constraint">
+				<xs:sequence>
+					<xs:element name="operator" type="Comparison_operator"/>
+					<xs:element name="argument" type="Time_point"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Time_point"/>
+	<xs:simpleType name="Comparison_operator">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="before"/>
+			<xs:enumeration value="after"/>
+			<xs:enumeration value="same_as"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Time_literal">
+		<xs:complexContent>
+			<xs:extension base="Time_point">
+				<xs:sequence>
+					<xs:element name="value" type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Time_point_reference">
+		<xs:complexContent>
+			<xs:extension base="Time_point">
+				<xs:sequence>
+					<xs:element name="operator"/>
+					<xs:element name="argument" type="Generalized_ERGO_annotation"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Relative_time_point">
+		<xs:complexContent>
+			<xs:extension base="Time_point">
+				<xs:sequence>
+					<xs:element name="anchor_time" type="Time_point"/>
+					<xs:element name="duration" type="Quantity"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Quantity">
+		<xs:sequence>
+			<xs:element name="value" type="xs:float"/>
+			<xs:element name="unit" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Time_point_extractor">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="start"/>
+			<xs:enumeration value="stop"/>
+			<xs:enumeration value="time_of"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CD">
+		<xs:complexContent>
+			<xs:extension base="Augmented_noun_phrase">
+				<xs:sequence>
+					<xs:element name="code_system" type="xs:string" minOccurs="0"/>
+					<xs:element name="preferred_name" type="xs:string" minOccurs="0"/>
+					<xs:element name="concept_id" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Augmented_noun_phrase">
+		<xs:sequence>
+			<xs:element name="original_text" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Context_dependent_noun_phrase">
+		<xs:complexContent>
+			<xs:extension base="Augmented_noun_phrase">
+				<xs:sequence>
+					<xs:element name="context_modifier" type="CD"/>
+					<xs:element name="noun_phrase" type="Augmented_noun_phrase"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Non-temporal_constraint">
+		<xs:complexContent>
+			<xs:extension base="Constraint"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Value_constraint">
+		<xs:complexContent>
+			<xs:extension base="Non-temporal_constraint"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Numeric_value_constraint">
+		<xs:complexContent>
+			<xs:extension base="Value_constraint">
+				<xs:sequence>
+					<xs:element name="lower_bound" type="Quantity" minOccurs="0"/>
+					<xs:element name="upper_bound" type="Quantity" minOccurs="0"/>
+					<xs:element name="is_lower_bound_closed" type="xs:boolean"/>
+					<xs:element name="is_upper_bound_closed" type="xs:boolean"/>
+					<xs:element name="operator" type="Aggregation_operator" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="Aggregation_operator">
+		<xs:restriction base="xs:token"/>
+	</xs:simpleType>
+</xs:schema>
