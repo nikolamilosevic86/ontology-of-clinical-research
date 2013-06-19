@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Study_population xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="ERGOAnnotation.xsd">
+    <is_defined_by xsi:type="Simple_statement">
+       <description>Prostate biopsy 3 weeks before study participation</description>
+       <has_semantic_constraint xsi:type="Generalized_ERGO_annotation">
+          <Noun_phrase xsi:type="CD">
+			  <original_text>Prostate Biopsy</original_text></Noun_phrase>
+          <Constraint xsi:type="Time-point_constraint">
+			  <description>3 weeks before study participation</description>
+			  <operator>before</operator>
+			  <argument xsi:type="Relative_time_point">
+				 <anchor_time xsi:type="Time_point_reference">
+					  <operator>time_of </operator>
+					  <argument xsi:type="Generalized_ERGO_annotation">
+						<Noun_phrase xsi:type="CD"><original_text>study participation</original_text> </Noun_phrase>
+					</argument>
+			  </anchor_time>
+			  <duration xsi:type="Quantity">
+						<value>3</value>
+						<unit>month</unit>
+					</duration>
+			  </argument>
+			</Constraint>
+       </has_semantic_constraint>
+    </is_defined_by>
+    <is_defined_by xsi:type="Simple_statement">
+       <description>parental-consent-for (photograph-of hemangioma)</description>
+       <has_semantic_constraint xsi:type="Generalized_ERGO_annotation">
+          <Noun_phrase xsi:type="Context_dependent_noun_phrase">
+          <original_text>parental-consent-for (photograph-of hemangioma)</original_text>
+          <context_modifier>
+				<original_text>parental-consent</original_text>
+			</context_modifier>
+			<noun_phrase xsi:type="Context_dependent_noun_phrase">
+			  <original_text>photograph-of hemangioma</original_text>
+				  <context_modifier xsi:type="CD">
+				  <original_text>photograph-of</original_text>
+				  </context_modifier>
+			  <noun_phrase xsi:type="CD">
+				  <original_text>hemangioma</original_text>
+			  </noun_phrase>
+			  </noun_phrase>
+       </Noun_phrase></has_semantic_constraint>
+    </is_defined_by>
+</Study_population>
