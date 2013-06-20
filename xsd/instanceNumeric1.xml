@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Study_population xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="file:/C:/BMor/GLIF/Design_Patterns/Ida/Paper%202013/ERGOAnnotation.xsd">
+    <is_defined_by xsi:type="Simple_statement" >
+        <description>Left_Ventricular_Ejection_Fraction less than 40 percent </description>
+        <has_semantic_constraint xsi:type="Generalized_ERGO_annotation">
+            <Noun_phrase xsi:type="CD">
+                <original_text>Left_Ventricular_Ejection_Fraction</original_text>
+            </Noun_phrase>
+            <Constraint xsi:type="Numeric_value_constraint">
+                <description>less than 40 percent</description>
+                <upper_bound>
+                    <value> 40</value>
+                    <unit>%</unit>
+                </upper_bound>               
+                <is_lower_bound_closed>false</is_lower_bound_closed>
+                <is_upper_bound_closed>false</is_upper_bound_closed>
+            </Constraint>
+        </has_semantic_constraint>
+    </is_defined_by>
+ </Study_population>
