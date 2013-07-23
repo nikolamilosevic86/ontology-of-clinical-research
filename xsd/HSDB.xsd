@@ -35,43 +35,6 @@
       <xsd:element name="PredictorVariable" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900056" minOccurs="0" maxOccurs="unbounded" type="VariableSpecificationType"/>
     </xsd:all>
   </xsd:complexType>
-  <xsd:complexType name="ArmPopulationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE182000">
-    <xsd:complexContent>
-      <xsd:extension base="Pre-definedGroupType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE850429">
-        <xsd:all>
-          <xsd:element name="IndividualsAssignedTo" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE886865" minOccurs="0" maxOccurs="unbounded">
-            <xsd:complexType>
-              <xsd:complexContent>
-                <xsd:extension base="ArmType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
-                  <xsd:attribute name="ref" type="xsd:IDREF"/>
-                </xsd:extension>
-              </xsd:complexContent>
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:simpleType name="ComparativeIntentType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100072">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Equivalence" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100012"/>
-      <xsd:enumeration value="Superiority" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100011"/>
-      <xsd:enumeration value="Non-inferiority" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100076"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="BlindingTypeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100045">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Outcome assessor blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100014"/>
-      <xsd:enumeration value="ClinicalTrials.gov Single Blind" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE494000"/>
-      <xsd:enumeration value="ClinicalTrials.gov Double-Blind" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE229000"/>
-      <xsd:enumeration value="Open label" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100008"/>
-      <xsd:enumeration value="Subject blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100064"/>
-      <xsd:enumeration value="Caregiver blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100036"/>
-      <xsd:enumeration value="Investigator blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100084"/>
-      <xsd:enumeration value="Care provider blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100053"/>
-      <xsd:enumeration value="Statistician blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100080"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:complexType name="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011">
     <xsd:all>
       <xsd:element name="EffectiveTime" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900082" minOccurs="0" maxOccurs="unbounded" type="TimePointType"/>
@@ -80,6 +43,13 @@
     </xsd:all>
     <xsd:attribute name="id" type="xsd:ID"/>
   </xsd:complexType>
+  <xsd:simpleType name="ComparativeIntentType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100072">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Equivalence" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100012"/>
+      <xsd:enumeration value="Superiority" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100011"/>
+      <xsd:enumeration value="Non-inferiority" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100076"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="AllocationSchemeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100021">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Restricted randomization" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100030"/>
@@ -92,53 +62,12 @@
       <xsd:enumeration value="Random allocation" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100033"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:complexType name="SponsoringType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE581634">
-    <xsd:all>
-      <xsd:element name="Actor" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE551318" minOccurs="0" maxOccurs="unbounded" type="PersonOrOrganizationType"/>
-      <xsd:element name="Priority" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE747000" minOccurs="0" maxOccurs="unbounded" type="PriorityType"/>
-    </xsd:all>
-  </xsd:complexType>
   <xsd:simpleType name="ControlGroupTypeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100022">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Non-nested" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100062"/>
       <xsd:enumeration value="Nested" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100004"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:simpleType name="SamplingMethodType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100049">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Non-probability sampling" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100019"/>
-      <xsd:enumeration value="Probability sampling" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100006"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="StudyStatusType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400074">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Study planned" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400000"/>
-      <xsd:enumeration value="Study withdrawn" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400006"/>
-      <xsd:enumeration value="Study active" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE001000"/>
-      <xsd:enumeration value="Study terminated" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE908000"/>
-      <xsd:enumeration value="Study suspended" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE824000"/>
-      <xsd:enumeration value="Study completed" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400053"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="PriorityType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE364000">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="primary" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE641000"/>
-      <xsd:enumeration value="secondary" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE002000"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="PersonType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400076">
-    <xsd:complexContent>
-      <xsd:extension base="PersonOrOrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
-        <xsd:all>
-          <xsd:element name="FirstName" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900225" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-          <xsd:element name="Address" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901003" minOccurs="0" maxOccurs="unbounded" type="AddressType"/>
-          <xsd:element name="Identifier" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901005" minOccurs="0" maxOccurs="unbounded" type="InstanceIdentifierType"/>
-          <xsd:element name="MemberOf" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900064" minOccurs="0" maxOccurs="unbounded" type="OrganizationType"/>
-          <xsd:element name="LastName" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900226" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
   <xsd:complexType name="VariableSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400050">
     <xsd:all>
       <xsd:element name="DerivedFrom" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900091" minOccurs="0" maxOccurs="unbounded" type="VariableSpecificationType"/>
@@ -156,93 +85,9 @@
       <xsd:element name="EffectiveTime" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900082" minOccurs="0" maxOccurs="unbounded" type="TimePointType"/>
     </xsd:all>
   </xsd:complexType>
-  <xsd:simpleType name="InterventionAssignmentSchemeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100003">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Single-factor" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100065"/>
-      <xsd:enumeration value="Factorial" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100089"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="ExpressionType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400078">
-    <xsd:all>
-      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-    </xsd:all>
-  </xsd:complexType>
-  <xsd:complexType name="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079">
-    <xsd:complexContent>
-      <xsd:extension base="PersonOrOrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
-        <xsd:all>
-          <xsd:element name="Identifier" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901005" minOccurs="0" maxOccurs="unbounded" type="InstanceIdentifierType"/>
-          <xsd:element name="Address" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901003" minOccurs="0" maxOccurs="unbounded" type="AddressType"/>
-          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
   <xsd:complexType name="PlannedSubjectActivityGroupSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300015">
     <xsd:complexContent>
       <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PlannedSpecimenCollectionSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300006">
-    <xsd:complexContent>
-      <xsd:extension base="PlannedProcedureSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PlannedObservationSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300008">
-    <xsd:complexContent>
-      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PlannedProcedureSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009">
-    <xsd:complexContent>
-      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PlannedAdministrativeActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300004">
-    <xsd:complexContent>
-      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="Pre-definedGroupType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE850429">
-    <xsd:all>
-      <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-      <xsd:element name="Priority" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE747000" minOccurs="0" maxOccurs="unbounded" type="PriorityType"/>
-    </xsd:all>
-  </xsd:complexType>
-  <xsd:complexType name="IRBType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000">
-    <xsd:complexContent>
-      <xsd:extension base="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="EpochType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000">
-    <xsd:complexContent>
-      <xsd:extension base="ArmOrEpochType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE000018">
-        <xsd:all>
-          <xsd:element name="SequenceNumber" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE843670" minOccurs="0" maxOccurs="unbounded" type="xsd:int"/>
-          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PostalAddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400039">
-    <xsd:complexContent>
-      <xsd:extension base="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
-        <xsd:all>
-          <xsd:element name="Country" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE744000" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-          <xsd:element name="Zip" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE885000" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="ArmType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
-    <xsd:complexContent>
-      <xsd:extension base="ArmOrEpochType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE000018">
-        <xsd:all>
-          <xsd:element name="Contains" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE861346" minOccurs="0" maxOccurs="unbounded" type="PlannedActivitySpecificationType"/>
-          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-        </xsd:all>
-        <xsd:attribute name="id" type="xsd:ID"/>
-      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="InstanceIdentifierType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400001">
@@ -268,6 +113,218 @@
       <xsd:enumeration value="Genetically unrelated non-cases" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100086"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="PhaseType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100038">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Phase 0" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100068"/>
+      <xsd:enumeration value="Phase 4" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100066"/>
+      <xsd:enumeration value="Phase not applicable" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100016"/>
+      <xsd:enumeration value="Phase 3" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100069"/>
+      <xsd:enumeration value="Phase 2" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100070"/>
+      <xsd:enumeration value="Phase 1" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100067"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="RecruitmentSiteType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747">
+    <xsd:complexContent>
+      <xsd:extension base="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
+    <xsd:all>
+      <xsd:element name="AddressString" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900209" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="StudyPhenomenonType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400041">
+    <xsd:all>
+      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="RelatedTo" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE140896" minOccurs="0" maxOccurs="unbounded" type="StudyPhenomenonType"/>
+      <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="Code" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE827668" minOccurs="0" maxOccurs="unbounded" type="CDType"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="AllocationConcealmentMethodType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE475000">
+    <xsd:all>
+      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="AllocationConcealmentMethodValue" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE825000" minOccurs="0" maxOccurs="unbounded" type="AllocationConcealmentMethodValueType"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:simpleType name="UnitOfAllocationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100041">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Individual as unit of allocation" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100071"/>
+      <xsd:enumeration value="Cluster as unit of allocation" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100043"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="TelecommunicationAddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400014">
+    <xsd:complexContent>
+      <xsd:extension base="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
+        <xsd:all>
+          <xsd:element name="Scheme" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901008" minOccurs="0" maxOccurs="unbounded" type="TelecommunicationSchemeType"/>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="BlindingTypeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100045">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Outcome assessor blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100014"/>
+      <xsd:enumeration value="ClinicalTrials.gov Single Blind" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE494000"/>
+      <xsd:enumeration value="ClinicalTrials.gov Double-Blind" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE229000"/>
+      <xsd:enumeration value="Open label" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100008"/>
+      <xsd:enumeration value="Subject blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100064"/>
+      <xsd:enumeration value="Caregiver blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100036"/>
+      <xsd:enumeration value="Investigator blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100084"/>
+      <xsd:enumeration value="Care provider blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100053"/>
+      <xsd:enumeration value="Statistician blinded" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100080"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ArmPopulationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE182000">
+    <xsd:complexContent>
+      <xsd:extension base="Pre-definedGroupType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE850429">
+        <xsd:all>
+          <xsd:element name="IndividualsAssignedTo" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE886865" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="ArmType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
+                  <xsd:attribute name="ref" type="xsd:IDREF"/>
+                </xsd:extension>
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SponsoringType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE581634">
+    <xsd:all>
+      <xsd:element name="Actor" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE551318" minOccurs="0" maxOccurs="unbounded" type="PersonOrOrganizationType"/>
+      <xsd:element name="Priority" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE747000" minOccurs="0" maxOccurs="unbounded" type="PriorityType"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:simpleType name="SamplingMethodType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100049">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Non-probability sampling" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100019"/>
+      <xsd:enumeration value="Probability sampling" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100006"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PriorityType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE364000">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="primary" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE641000"/>
+      <xsd:enumeration value="secondary" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE002000"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StudyStatusType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400074">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Study planned" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400000"/>
+      <xsd:enumeration value="Study withdrawn" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400006"/>
+      <xsd:enumeration value="Study active" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE001000"/>
+      <xsd:enumeration value="Study terminated" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE908000"/>
+      <xsd:enumeration value="Study suspended" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE824000"/>
+      <xsd:enumeration value="Study completed" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400053"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PersonType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400076">
+    <xsd:complexContent>
+      <xsd:extension base="PersonOrOrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
+        <xsd:all>
+          <xsd:element name="FirstName" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900225" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+          <xsd:element name="Address" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901003" minOccurs="0" maxOccurs="unbounded" type="AddressType"/>
+          <xsd:element name="Identifier" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901005" minOccurs="0" maxOccurs="unbounded" type="InstanceIdentifierType"/>
+          <xsd:element name="MemberOf" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900064" minOccurs="0" maxOccurs="unbounded" type="OrganizationType"/>
+          <xsd:element name="LastName" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900226" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ExpressionType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400078">
+    <xsd:all>
+      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:simpleType name="InterventionAssignmentSchemeType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100003">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Single-factor" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100065"/>
+      <xsd:enumeration value="Factorial" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100089"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079">
+    <xsd:complexContent>
+      <xsd:extension base="PersonOrOrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280">
+        <xsd:all>
+          <xsd:element name="Identifier" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901005" minOccurs="0" maxOccurs="unbounded" type="InstanceIdentifierType"/>
+          <xsd:element name="Address" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901003" minOccurs="0" maxOccurs="unbounded" type="AddressType"/>
+          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedSpecimenCollectionSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300006">
+    <xsd:complexContent>
+      <xsd:extension base="PlannedProcedureSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedObservationSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300008">
+    <xsd:complexContent>
+      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedProcedureSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009">
+    <xsd:complexContent>
+      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PlannedAdministrativeActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300004">
+    <xsd:complexContent>
+      <xsd:extension base="PlannedActivitySpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300011"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="AllocationConcealmentMethodValueType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE710000">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Central randomization" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE260000"/>
+      <xsd:enumeration value="Sequentially numbered drug containers" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE297000"/>
+      <xsd:enumeration value="Sequentially numbered opaque sealed envelopes" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE101000"/>
+      <xsd:enumeration value="Non-standard allocation concealment method" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#Non-standard_allocation_concealment_method"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="Pre-definedGroupType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE850429">
+    <xsd:all>
+      <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="Priority" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE747000" minOccurs="0" maxOccurs="unbounded" type="PriorityType"/>
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="EpochType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300000">
+    <xsd:complexContent>
+      <xsd:extension base="ArmOrEpochType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE000018">
+        <xsd:all>
+          <xsd:element name="SequenceNumber" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE843670" minOccurs="0" maxOccurs="unbounded" type="xsd:int"/>
+          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="IRBType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE500000">
+    <xsd:complexContent>
+      <xsd:extension base="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ArmType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300001">
+    <xsd:complexContent>
+      <xsd:extension base="ArmOrEpochType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE000018">
+        <xsd:all>
+          <xsd:element name="Contains" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE861346" minOccurs="0" maxOccurs="unbounded" type="PlannedActivitySpecificationType"/>
+          <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:all>
+        <xsd:attribute name="id" type="xsd:ID"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PostalAddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400039">
+    <xsd:complexContent>
+      <xsd:extension base="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
+        <xsd:all>
+          <xsd:element name="Country" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE744000" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+          <xsd:element name="Zip" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE885000" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:all>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
   <xsd:simpleType name="StudyDesignType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100056">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Case-only study design" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE866187"/>
@@ -287,25 +344,10 @@
       <xsd:enumeration value="Cross-sectional study design" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100039"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:simpleType name="PhaseType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100038">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Phase 0" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100068"/>
-      <xsd:enumeration value="Phase 4" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100066"/>
-      <xsd:enumeration value="Phase not applicable" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100016"/>
-      <xsd:enumeration value="Phase 3" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100069"/>
-      <xsd:enumeration value="Phase 2" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100070"/>
-      <xsd:enumeration value="Phase 1" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100067"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:complexType name="PlannedSubstanceAdministrationSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE817858">
     <xsd:complexContent>
       <xsd:extension base="PlannedProcedureSpecificationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE300009"/>
     </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="TimePointType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400024">
-    <xsd:all>
-      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-    </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="InterventionStudyProtocolType" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE892807">
     <xsd:complexContent>
@@ -316,25 +358,12 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="RecruitmentSiteType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE511747">
-    <xsd:complexContent>
-      <xsd:extension base="OrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
+  <xsd:complexType name="TimePointType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400024">
     <xsd:all>
-      <xsd:element name="AddressString" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900209" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
     </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="PersonOrOrganizationType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE546280"/>
-  <xsd:complexType name="StudyPhenomenonType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400041">
-    <xsd:all>
-      <xsd:element name="Description" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900223" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-      <xsd:element name="RelatedTo" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE140896" minOccurs="0" maxOccurs="unbounded" type="StudyPhenomenonType"/>
-      <xsd:element name="Name" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900224" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
-      <xsd:element name="Code" sawsdl:modelReference="http://purl.org/net/OCRe/study_protocol.owl#OCRE827668" minOccurs="0" maxOccurs="unbounded" type="CDType"/>
-    </xsd:all>
-  </xsd:complexType>
   <xsd:complexType name="ArmOrEpochType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe_ext.owl#OCRE000018"/>
   <xsd:complexType name="FundingType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE50034">
     <xsd:all>
@@ -342,15 +371,9 @@
     </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="SocialInstitutionType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE541581"/>
-  <xsd:simpleType name="UnitOfAllocationType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100041">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="Individual as unit of allocation" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100071"/>
-      <xsd:enumeration value="Cluster as unit of allocation" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100043"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:complexType name="StudyType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400029">
     <xsd:all>
-      <xsd:element name="AllocationConcealmentMethod" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE900003" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+      <xsd:element name="AllocationConcealmentMethod" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE900003" minOccurs="0" maxOccurs="unbounded" type="AllocationConcealmentMethodType"/>
       <xsd:element name="BlindingType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE574000" minOccurs="0" maxOccurs="unbounded" type="BlindingTypeType"/>
       <xsd:element name="StudyAnnotation" sawsdl:modelReference="http://purl.org/net/OCRe/HSDB_OCRe.owl#OCRE000040" minOccurs="0" maxOccurs="unbounded" type="anno:StudyAnnotationType"/>
       <xsd:element name="ComparativeIntent" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE837311" minOccurs="0" maxOccurs="unbounded" type="ComparativeIntentType"/>
@@ -369,8 +392,8 @@
       <xsd:element name="ContactForPublicQueries" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901004" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:choice>
-            <xsd:element name="Organization" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079" minOccurs="0" maxOccurs="unbounded" type="OrganizationType"/>
             <xsd:element name="Person" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400076" minOccurs="0" maxOccurs="unbounded" type="PersonType"/>
+            <xsd:element name="Organization" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400079" minOccurs="0" maxOccurs="unbounded" type="OrganizationType"/>
           </xsd:choice>
         </xsd:complexType>
       </xsd:element>
@@ -387,15 +410,6 @@
       <xsd:element name="SamplingMethod" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE282000" minOccurs="0" maxOccurs="unbounded" type="SamplingMethodType"/>
       <xsd:element name="PlannedSampleSize" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE900203" minOccurs="0" maxOccurs="unbounded" type="xsd:integer"/>
     </xsd:all>
-  </xsd:complexType>
-  <xsd:complexType name="TelecommunicationAddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400014">
-    <xsd:complexContent>
-      <xsd:extension base="AddressType" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE400040">
-        <xsd:all>
-          <xsd:element name="Scheme" sawsdl:modelReference="http://purl.org/net/OCRe/OCRe.owl#OCRE901008" minOccurs="0" maxOccurs="unbounded" type="TelecommunicationSchemeType"/>
-        </xsd:all>
-      </xsd:extension>
-    </xsd:complexContent>
   </xsd:complexType>
   <xsd:simpleType name="OutcomesOccurredBeforeOrAfterStudyStartType" sawsdl:modelReference="http://purl.org/net/OCRe/study_design.owl#OCRE100060">
     <xsd:restriction base="xsd:string">

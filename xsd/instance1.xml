@@ -2,24 +2,23 @@
 <Study_population xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="ERGOAnnotation.xsd">
     <is_defined_by xsi:type="Simple_statement">
-       <description>Prostate biopsy 3 weeks before study participation</description>
+       <description>Bone marrow toxicity 3 weeks after chemotherapy</description>
        <has_semantic_constraint xsi:type="Generalized_ERGO_annotation">
           <Noun_phrase xsi:type="CD">
-			  <original_text>Prostate Biopsy</original_text></Noun_phrase>
+          	<original_text>Bone marrow toxicity</original_text></Noun_phrase>
           <Constraint xsi:type="Time-point_constraint">
-			  <description>3 weeks before study participation</description>
-			  <operator>before</operator>
+          	<description>3 weeks after chemotherapy</description>
+			<operator>after</operator>
 			  <argument xsi:type="Relative_time_point">
 				 <anchor_time xsi:type="Time_point_reference">
-					  <operator>time_of </operator>
+					  <operator>stop </operator>
 					  <argument xsi:type="Generalized_ERGO_annotation">
-						<Noun_phrase xsi:type="CD"><original_text>study participation</original_text> </Noun_phrase>
-					</argument>
-			  </anchor_time>
-			  <duration xsi:type="Quantity">
-						<value>3</value>
-						<unit>month</unit>
-					</duration>
+					  	<Noun_phrase xsi:type="CD"><original_text>chemotherapy</original_text> </Noun_phrase>
+					  </argument>
+			    </anchor_time>
+			    <duration xsi:type="Quantity">
+						<value>3</value><unit>month</unit>
+				</duration>
 			  </argument>
 			</Constraint>
        </has_semantic_constraint>
