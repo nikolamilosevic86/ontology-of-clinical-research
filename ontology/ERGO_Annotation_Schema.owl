@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY export_annotations_def "http://purl.org/net/OCRe/export_annotations_def.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#"
+     xml:base="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:export_annotations_def="http://purl.org/net/OCRe/export_annotations_def.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl">
+        <owl:imports rdf:resource="http://purl.org/net/OCRe/OCRe.owl"/>
+        <owl:imports rdf:resource="http://purl.org/net/OCRe/export_annotations_def.owl"/>
+        <export_annotations_def:OCRE529769 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#has_eligibility_criteria"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Boolean_combination_of_Generalized_ERGO_annotation_or_Generalized_ERGO_annotation -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Boolean_combination_of_Generalized_ERGO_annotation_or_Generalized_ERGO_annotation"/>
+    
+
+
+    <!-- http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Duration_or_Generalized_ERGO_annotation -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Duration_or_Generalized_ERGO_annotation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400057"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE722000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Quantity_or_Generalized_ERGO_annotation -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Quantity_or_Generalized_ERGO_annotation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400023"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE722000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Time_interval_or_Generalized_ERGO_annotation -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Time_interval_or_Generalized_ERGO_annotation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400038"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE722000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Value_set_or_CD -->
+
+    <owl:Class rdf:about="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Value_set_or_CD">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400010"/>
+                    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400055"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE000029 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE000029">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000027"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Quantity_or_Generalized_ERGO_annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000028"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Quantity_or_Generalized_ERGO_annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000025"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000026"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000027"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE000030 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE000030">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000035"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Value_set_or_CD"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000035"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE000040 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE000040">
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000041"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE400055"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE000041 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE000041">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000044"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE400055"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE935000"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000043"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE935000"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE000146 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE000146">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Boolean_combination_of_Generalized_ERGO_annotation_or_Generalized_ERGO_annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE099000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE099000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900072"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000146"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900072"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE317000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE317000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900072"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE722000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900072"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE400055 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400055">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000034"/>
+                <owl:allValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000034"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900219"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900220"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900222"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE434000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE434000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE722000"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE468000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE468000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE400024"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000006"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE492000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE492000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000006"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Duration_or_Generalized_ERGO_annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE722000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE722000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE935000"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000039"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE935000"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE733000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE733000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000018"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+                <owl:allValuesFrom rdf:resource="http://purl.org/net/OCRe/ERGO_Annotation_Schema.owl#Time_interval_or_Generalized_ERGO_annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/net/OCRe/OCRe.owl#OCRE920000 -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE920000">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900223"/>
+                <owl:allValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE099000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE317000"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE900223"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE763000">
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE596000">
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE174569"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE434000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE693433"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE693433">
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000029"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000030"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE400042">
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE414000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE596000"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE174569">
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000003"/>
+        <export_annotations_def:OCRE520413 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE000004"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/net/OCRe/OCRe.owl#OCRE414000">
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE468000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE492000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE733000"/>
+        <export_annotations_def:OCRE000045 rdf:resource="http://purl.org/net/OCRe/OCRe.owl#OCRE763000"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
